@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { Navbar } from '@/components/Navbar';
 
 export const metadata: Metadata = {
   title: 'CardioWork — Prediksi Risiko Kardiovaskular Pekerja (MCU + DCU)',
@@ -20,6 +21,9 @@ export default function RootLayout({
           <span className="h-2 w-2 rounded-full bg-amber-400 animate-pulse"></span>
           <span>DATA SINTETIS — BUKAN BUKTI KLINIS | Sistem Pendukung Keputusan Klinis K3 (Bukan Alat Diagnosis Mandiri)</span>
         </div>
+
+        {/* Global Navigation Bar */}
+        <Navbar />
 
         <main className="flex-1">
           {children}

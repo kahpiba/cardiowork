@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { 
@@ -13,7 +13,8 @@ import {
   Download, 
   Share2, 
   CheckCircle2, 
-  ShieldAlert 
+  ShieldAlert,
+  Terminal
 } from 'lucide-react';
 import { getDemoWorker, DEMO_WORKERS } from '@/lib/demoData';
 import { WorkerProfileHeader } from '@/components/WorkerProfileHeader';
@@ -23,6 +24,8 @@ import { Layer3DlScoreCard } from '@/components/Layer3DlScoreCard';
 import { McuLongitudinalComparison } from '@/components/McuLongitudinalComparison';
 import { DcuTrendChart } from '@/components/DcuTrendChart';
 import { WhatIfSimulator } from '@/components/WhatIfSimulator';
+import { DailyAlertBanner } from '@/components/DailyAlertBanner';
+import { DailyAlert } from '@/lib/alerts/alertEngine';
 import { calculateFraminghamCvd } from '@cardiowork/shared';
 
 interface WorkerDetailPageProps {
@@ -35,6 +38,28 @@ export default function WorkerDetailPage({ params }: WorkerDetailPageProps) {
   const router = useRouter();
   const workerData = getDemoWorker(params.id);
   const { worker, mcuRecords, dcuRecords } = workerData;
+  const [alerts, setAlerts] = useState<DailyAlert[]>([]);
+
+  useEffect(() => {
+    let isMounted = true;
+    async function loadAlerts() {
+      try {
+        const res = await fetch(`/api/alerts/daily?workerId=${worker.pseudonymId}`);
+        if (res.ok) {
+          const data = await res.json();
+          if (isMounted) {
+            setAlerts(data.alerts || []);
+          }
+        }
+      } catch (err) {
+        console.error('Failed to load worker alerts:', err);
+      }
+    }
+    loadAlerts();
+    return () => {
+      isMounted = false;
+    };
+  }, [worker.pseudonymId]);
 
   // Latest MCU record for baseline inputs
   const latestMcu = mcuRecords[mcuRecords.length - 1];
@@ -117,6 +142,14 @@ export default function WorkerDetailPage({ params }: WorkerDetailPageProps) {
           >
             🔴 W-00190 (Risiko Tinggi / Unfit)
           </button>
+
+          <Link
+            href="/kiosk"
+            className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-indigo-600/20 text-indigo-300 border border-indigo-500/40 hover:bg-indigo-600/30 transition flex items-center gap-1.5 ml-auto sm:ml-0"
+          >
+            <Terminal className="w-3.5 h-3.5" />
+            <span>Skrining DCU Kiosk</span>
+          </Link>
         </div>
 
       </div>
@@ -133,20 +166,8 @@ export default function WorkerDetailPage({ params }: WorkerDetailPageProps) {
         overallFitness={latestMcu?.overallFitnessStatus || 'FIT'}
       />
 
-      {/* Critical Status Alert Banner (if UNFIT or SBP >= 160) */}
-      {(latestMcu?.overallFitnessStatus === 'UNFIT' || latestMcu?.systolicBp >= 160) && (
-        <div className="bg-rose-950/40 border border-rose-800/60 rounded-2xl p-4 flex items-start space-x-3 text-rose-200">
-          <ShieldAlert className="h-6 w-6 text-rose-400 shrink-0 mt-0.5" />
-          <div className="space-y-1">
-            <h3 className="font-bold text-sm text-rose-300">
-              Perhatian: Status Kelayakan Kerja Kritis (Unfit / Restriksi Ketat)
-            </h3>
-            <p className="text-xs text-slate-300 leading-relaxed">
-              Pekerja ini memiliki tekanan darah sistolik baseline ≥160 mmHg atau status UNFIT. Dilarang bertugas di area remote/offshore tanpa persetujuan tertulis dan evaluasi lanjutan dari Dokter Spesialis Okupasi (Sp.Ok).
-            </p>
-          </div>
-        </div>
-      )}
+      {/* Real-Time Daily Alert Banner (EWS Engine) */}
+      <DailyAlertBanner alerts={alerts} />
 
       {/* 2. Layer 1 Clinical Scores Comparison Card */}
       {latestMcu && (
