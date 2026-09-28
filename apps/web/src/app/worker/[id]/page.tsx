@@ -18,9 +18,11 @@ import {
 import { getDemoWorker, DEMO_WORKERS } from '@/lib/demoData';
 import { WorkerProfileHeader } from '@/components/WorkerProfileHeader';
 import { ClinicalScoreCard } from '@/components/ClinicalScoreCard';
+import { Layer2MlScoreCard } from '@/components/Layer2MlScoreCard';
 import { McuLongitudinalComparison } from '@/components/McuLongitudinalComparison';
 import { DcuTrendChart } from '@/components/DcuTrendChart';
 import { WhatIfSimulator } from '@/components/WhatIfSimulator';
+import { calculateFraminghamCvd } from '@cardiowork/shared';
 
 interface WorkerDetailPageProps {
   params: {
@@ -133,6 +135,35 @@ export default function WorkerDetailPage({ params }: WorkerDetailPageProps) {
           hdlCholesterol={latestMcu.hdlCholesterolMgdl}
           isSmoker={latestMcu.smokingStatus === 'ACTIVE_SMOKER'}
           hasDiabetes={latestMcu.hasDiabetesHistory}
+        />
+      )}
+
+      {/* 2b. Layer 2 Calibrated Machine Learning Baseline (LightGBM) */}
+      {latestMcu && (
+        <Layer2MlScoreCard 
+          systolicBp={latestMcu.systolicBp}
+          ldlCholesterol={latestMcu.ldlCholesterolMgdl}
+          totalCholesterol={latestMcu.totalCholesterolMgdl}
+          isSmoker={latestMcu.smokingStatus === 'ACTIVE_SMOKER'}
+          age={worker.age}
+          tenureMonths={worker.tenureMonths}
+          dcuMeanSbp={
+            dcuRecords.length > 0 
+              ? Math.round(dcuRecords.reduce((acc, c) => acc + c.systolicBp, 0) / dcuRecords.length) 
+              : latestMcu.systolicBp
+          }
+          framinghamRiskPercent={
+            calculateFraminghamCvd({
+              age: worker.age,
+              gender: worker.gender,
+              systolicBp: latestMcu.systolicBp,
+              isTreatedForHypertension: latestMcu.onAntihypertensiveDrugs,
+              totalCholesterolMgdl: latestMcu.totalCholesterolMgdl,
+              hdlCholesterolMgdl: latestMcu.hdlCholesterolMgdl,
+              isSmoker: latestMcu.smokingStatus === 'ACTIVE_SMOKER',
+              hasDiabetes: latestMcu.hasDiabetesHistory
+            }).riskPercent10Yr
+          }
         />
       )}
 
