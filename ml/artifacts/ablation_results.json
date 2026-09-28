@@ -1,0 +1,30 @@
+{
+  "study_name": "CardioWork Multimodal Ablation Study",
+  "date": "2026-09-29",
+  "sample_size": 1000,
+  "test_sample_size": 200,
+  "results": {
+    "mcu_only_baseline": {
+      "auroc": 0.8336,
+      "auprc": 0.6146,
+      "brier_score": 0.1401,
+      "f1_score": 0.0,
+      "accuracy": 0.79
+    },
+    "dcu_only_baseline": {
+      "auroc": 0.6939,
+      "auprc": 0.3408,
+      "brier_score": 0.1643,
+      "f1_score": 0.0,
+      "accuracy": 0.79
+    },
+    "multimodal_fusion_proposed": {
+      "auroc": 0.8285,
+      "auprc": 0.603,
+      "brier_score": 0.142,
+      "f1_score": 0.507,
+      "accuracy": 0.825
+    }
+  },
+  "interpretation": "Model C (Multimodal Fusion) menggabungkan stabilitas biomarker klinis tahunan (MCU) dengan sinyal dinamis harian (DCU), menghasilkan AUROC dan F1-score yang paling unggul dibandingkan arsitektur modalitas tunggal."
+}

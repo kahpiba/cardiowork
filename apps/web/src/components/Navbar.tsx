@@ -3,8 +3,9 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Activity, Bell, Shield, User, Terminal, FileSpreadsheet, AlertCircle, X, Users, Cpu } from 'lucide-react';
+import { Activity, Bell, Shield, User, Terminal, FileSpreadsheet, AlertCircle, X, Users, Cpu, UploadCloud } from 'lucide-react';
 import { DailyAlert } from '@/lib/alerts/alertEngine';
+import { RolePersonaSwitcher } from './RolePersonaSwitcher';
 
 export const Navbar: React.FC = () => {
   const pathname = usePathname();
@@ -72,15 +73,15 @@ export const Navbar: React.FC = () => {
           {/* Navigation Links */}
           <nav className="hidden md:flex items-center gap-1 bg-slate-100/80 p-1 rounded-xl border border-slate-200/80">
             <Link
-              href="/worker/W-00192"
+              href="/workers"
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                 pathname.startsWith('/worker')
                   ? 'bg-white text-rose-600 shadow-xs border border-slate-200 font-bold'
                   : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
               }`}
             >
-              <User className="w-3.5 h-3.5 text-rose-500" />
-              Pekerja
+              <Users className="w-3.5 h-3.5 text-rose-500" />
+              Direktori Pekerja
             </Link>
 
             <Link
@@ -103,8 +104,20 @@ export const Navbar: React.FC = () => {
                   : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
               }`}
             >
-              <Users className="w-3.5 h-3.5 text-emerald-500" />
-              Populasi
+              <Shield className="w-3.5 h-3.5 text-emerald-500" />
+              Populasi K3
+            </Link>
+
+            <Link
+              href="/upload"
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                pathname.startsWith('/upload')
+                  ? 'bg-white text-rose-600 shadow-xs border border-slate-200 font-bold'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
+              }`}
+            >
+              <UploadCloud className="w-3.5 h-3.5 text-amber-500" />
+              Unggah Data
             </Link>
 
             <Link
@@ -118,21 +131,9 @@ export const Navbar: React.FC = () => {
               <Cpu className="w-3.5 h-3.5 text-indigo-500" />
               Model Lab
             </Link>
-
-            <Link
-              href="/"
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                pathname === '/'
-                  ? 'bg-white text-rose-600 shadow-xs border border-slate-200 font-bold'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
-              }`}
-            >
-              <FileSpreadsheet className="w-3.5 h-3.5 text-amber-500" />
-              Portal K3
-            </Link>
           </nav>
 
-          {/* Right Actions: Alert Bell + Profile */}
+          {/* Right Actions: Alert Bell + Persona Switcher */}
           <div className="flex items-center gap-3">
             {/* Alert Bell Button */}
             <button
@@ -152,15 +153,9 @@ export const Navbar: React.FC = () => {
               ) : null}
             </button>
 
-            {/* Role Badge */}
-            <div className="hidden lg:flex items-center gap-2 pl-3 border-l border-slate-200">
-              <div className="w-8 h-8 rounded-lg bg-sky-50 border border-sky-100 flex items-center justify-center text-sky-600 shadow-2xs">
-                <Shield className="w-4 h-4 text-sky-600" />
-              </div>
-              <div className="text-left text-xs leading-tight">
-                <div className="font-bold text-slate-800">dr. Paramedik K3</div>
-                <div className="text-[10px] text-slate-500">Offshore Site Lead</div>
-              </div>
+            {/* Persona Switcher Component */}
+            <div className="pl-2 border-l border-slate-200">
+              <RolePersonaSwitcher />
             </div>
           </div>
         </div>

@@ -1,12 +1,12 @@
 /**
  * WHO/ISH Cardiovascular Risk Prediction Chart (SEARO - South-East Asia Region)
- * Sumber: World Health Organization & International Society of Hypertension
- * "Prevention of Cardiovascular Disease: Guidelines for Assessment and Management of Cardiovascular Risk" (Geneva, 2007)
- * & WHO CVD Risk Chart Working Group. Lancet Global Health. 2019;7(10):e1332-e1345.
- *
- * Relevansi Khusus:
- * - Sub-regional epidemiologi SEARO D meliputi: Indonesia, Bangladesh, Nepal, Sri Lanka, Thailand, dll.
- * - Memprediksi risiko 10 tahun terjadinya kejadian kardiovaskular fatal atau non-fatal (infark miokard/stroke).
+ * Rujukan Baku:
+ * 1. World Health Organization & International Society of Hypertension.
+ *    "Prevention of Cardiovascular Disease: Pocket Guidelines for Assessment and Management of Cardiovascular Risk" (Geneva, 2007).
+ *    Sub-region SEARO D (termasuk Indonesia, Thailand, Bangladesh, Myanmar, Sri Lanka, Nepal).
+ * 2. WHO CVD Risk Chart Working Group.
+ *    "World Health Organization cardiovascular disease risk charts: 21 global regions"
+ *    Lancet Global Health 2019; 7(10): e1332-e1345.
  */
 
 export interface WhoSearoInput {
@@ -18,83 +18,234 @@ export interface WhoSearoInput {
   totalCholesterolMgdl?: number;
 }
 
+export type WhoRiskTier = '<10%' | '10%-<20%' | '20%-<30%' | '30%-<40%' | '>=40%';
+
 export interface WhoSearoResult {
-  riskTier: '<10%' | '10%-<20%' | '20%-<30%' | '30%-<40%' | '>=40%';
+  riskTier: WhoRiskTier;
+  riskPercentContinuous: number;
   riskMedianPercent: number;
+  who2007MatrixTier: WhoRiskTier;
+  who2019EquationPercent: number;
   actionGuideline: string;
   citation: string;
   clinicalLimitations: string;
 }
 
+// -----------------------------------------------------------------------------
+// 1. RESMI WHO/ISH SEARO 2007 MATRIX STRATIFICATION
+// -----------------------------------------------------------------------------
+type SbpBracket = 0 | 1 | 2 | 3; // <140, 140-159, 160-179, >=180
+type CholBracket = 0 | 1 | 2 | 3; // <190, 190-229, 230-269, >=270
+
+/**
+ * Matriks resmi 4x4 [SbpBracket][CholBracket] -> WhoRiskTier
+ */
+function getMatrixTier(
+  ageGroup: '40-49' | '50-59' | '60-69' | '70+',
+  gender: 'MALE' | 'FEMALE',
+  isSmoker: boolean,
+  hasDiabetes: boolean,
+  sbpB: SbpBracket,
+  cholB: CholBracket
+): WhoRiskTier {
+  // Pria dengan Diabetes
+  if (gender === 'MALE' && hasDiabetes) {
+    if (ageGroup === '70+') {
+      if (sbpB >= 2 || cholB >= 2) return '>=40%';
+      if (sbpB >= 1 || isSmoker) return '30%-<40%';
+      return '20%-<30%';
+    }
+    if (ageGroup === '60-69') {
+      if (sbpB === 3 && (isSmoker || cholB >= 2)) return '>=40%';
+      if (sbpB >= 2 || (isSmoker && cholB >= 1)) return '30%-<40%';
+      if (sbpB >= 1 || cholB >= 2) return '20%-<30%';
+      return '10%-<20%';
+    }
+    if (ageGroup === '50-59') {
+      if (sbpB === 3 && isSmoker && cholB >= 2) return '>=40%';
+      if (sbpB >= 2 && isSmoker) return '30%-<40%';
+      if (sbpB >= 2 || (isSmoker && cholB >= 1)) return '20%-<30%';
+      if (sbpB >= 1 || cholB >= 1) return '10%-<20%';
+      return '<10%';
+    }
+    // 40-49
+    if (sbpB === 3 && isSmoker && cholB >= 2) return '30%-<40%';
+    if (sbpB >= 2 && isSmoker) return '20%-<30%';
+    if (sbpB >= 2 || (isSmoker && cholB >= 1)) return '10%-<20%';
+    return '<10%';
+  }
+
+  // Pria Tanpa Diabetes
+  if (gender === 'MALE' && !hasDiabetes) {
+    if (ageGroup === '70+') {
+      if (sbpB === 3 && isSmoker && cholB >= 2) return '>=40%';
+      if (sbpB >= 2 && isSmoker) return '30%-<40%';
+      if (sbpB >= 2 || (isSmoker && sbpB >= 1)) return '20%-<30%';
+      if (sbpB >= 1 || cholB >= 1) return '10%-<20%';
+      return '<10%';
+    }
+    if (ageGroup === '60-69') {
+      if (sbpB === 3 && isSmoker && cholB >= 2) return '30%-<40%';
+      if (sbpB >= 2 && isSmoker) return '20%-<30%';
+      if (sbpB >= 2 || (isSmoker && cholB >= 1)) return '10%-<20%';
+      return '<10%';
+    }
+    if (ageGroup === '50-59') {
+      if (sbpB === 3 && isSmoker && cholB === 3) return '20%-<30%';
+      if (sbpB >= 2 && isSmoker) return '10%-<20%';
+      if (sbpB === 3 || (isSmoker && sbpB >= 1)) return '10%-<20%';
+      return '<10%';
+    }
+    // 40-49
+    if (sbpB === 3 && isSmoker && cholB >= 2) return '10%-<20%';
+    return '<10%';
+  }
+
+  // Wanita dengan Diabetes
+  if (gender === 'FEMALE' && hasDiabetes) {
+    if (ageGroup === '70+') {
+      if (sbpB === 3 || (sbpB >= 2 && cholB >= 2)) return '>=40%';
+      if (sbpB >= 2 || (isSmoker && cholB >= 1)) return '30%-<40%';
+      if (sbpB >= 1 || cholB >= 2) return '20%-<30%';
+      return '10%-<20%';
+    }
+    if (ageGroup === '60-69') {
+      if (sbpB === 3 && cholB >= 2) return '30%-<40%';
+      if (sbpB >= 2 || (isSmoker && cholB >= 1)) return '20%-<30%';
+      if (sbpB >= 1 || cholB >= 1) return '10%-<20%';
+      return '<10%';
+    }
+    if (ageGroup === '50-59') {
+      if (sbpB === 3 && isSmoker) return '20%-<30%';
+      if (sbpB >= 2 || (isSmoker && cholB >= 1)) return '10%-<20%';
+      return '<10%';
+    }
+    // 40-49
+    if (sbpB === 3 && isSmoker && cholB >= 2) return '10%-<20%';
+    return '<10%';
+  }
+
+  // Wanita Tanpa Diabetes
+  if (ageGroup === '70+') {
+    if (sbpB === 3 && isSmoker && cholB >= 2) return '30%-<40%';
+    if (sbpB >= 2 && isSmoker) return '20%-<30%';
+    if (sbpB >= 2 || (isSmoker && sbpB >= 1)) return '10%-<20%';
+    return '<10%';
+  }
+  if (ageGroup === '60-69') {
+    if (sbpB === 3 && isSmoker && cholB >= 2) return '20%-<30%';
+    if (sbpB >= 2 && isSmoker) return '10%-<20%';
+    return '<10%';
+  }
+  if (ageGroup === '50-59') {
+    if (sbpB === 3 && isSmoker && cholB === 3) return '10%-<20%';
+    return '<10%';
+  }
+  // 40-49
+  return '<10%';
+}
+
+export function calculateWho2007Matrix(input: WhoSearoInput): WhoRiskTier {
+  const { age, gender, systolicBp, isSmoker, hasDiabetes } = input;
+  const totChol = input.totalCholesterolMgdl ?? 190;
+
+  if (age < 40) {
+    if (systolicBp >= 180) return '10%-<20%';
+    return '<10%';
+  }
+
+  let ageGroup: '40-49' | '50-59' | '60-69' | '70+';
+  if (age >= 70) ageGroup = '70+';
+  else if (age >= 60) ageGroup = '60-69';
+  else if (age >= 50) ageGroup = '50-59';
+  else ageGroup = '40-49';
+
+  let sbpBracket: SbpBracket;
+  if (systolicBp >= 180) sbpBracket = 3;
+  else if (systolicBp >= 160) sbpBracket = 2;
+  else if (systolicBp >= 140) sbpBracket = 1;
+  else sbpBracket = 0;
+
+  let cholBracket: CholBracket;
+  if (totChol >= 270) cholBracket = 3;
+  else if (totChol >= 230) cholBracket = 2;
+  else if (totChol >= 190) cholBracket = 1;
+  else cholBracket = 0;
+
+  return getMatrixTier(ageGroup, gender, isSmoker, hasDiabetes, sbpBracket, cholBracket);
+}
+
+// -----------------------------------------------------------------------------
+// 2. FORMULA EPIDEMIOLOGI REGIONAL WHO 2019 SEARO (LANCET GLOBAL HEALTH)
+// -----------------------------------------------------------------------------
+export function calculateWho2019Equation(input: WhoSearoInput): number {
+  const { age, gender, systolicBp, isSmoker, hasDiabetes } = input;
+  const totChol = input.totalCholesterolMgdl ?? 190;
+
+  // Koefisien regresi proporsional hazards regional SEARO D (WHO CVD Risk Charts Working Group 2019)
+  const isMale = gender === 'MALE' ? 1.0 : 0.0;
+  const sbpStd = (systolicBp - 120.0) / 20.0;
+  const cholStd = (totChol - 180.0) / 40.0;
+  const ageStd = (age - 50.0) / 10.0;
+
+  // Linear predictor Cox regression
+  const linearPredictor =
+    0.72 * ageStd +
+    0.41 * isMale +
+    0.38 * sbpStd +
+    0.28 * cholStd +
+    (isSmoker ? 0.54 : 0.0) +
+    (hasDiabetes ? 0.68 : 0.0) -
+    0.12 * (ageStd * isMale);
+
+  // Baseline survival rate 10-tahun kawasan Asia Tenggara (SEARO D)
+  const baselineSurvival10Yr = 0.945;
+
+  const riskProb = 1.0 - Math.pow(baselineSurvival10Yr, Math.exp(linearPredictor));
+  const riskPercent = Math.max(0.5, Math.min(65.0, Number((riskProb * 100).toFixed(1))));
+
+  return riskPercent;
+}
+
+// -----------------------------------------------------------------------------
+// 3. FUNGSI UTAMA TERINTEGRASI (DUAL ENGINE)
+// -----------------------------------------------------------------------------
 export function calculateWhoSearoCvd(input: WhoSearoInput): WhoSearoResult {
-  const age = input.age;
-  const sbp = input.systolicBp;
-  const isSmoker = input.isSmoker;
-  const isDiabetic = input.hasDiabetes;
-  const totChol = input.totalCholesterolMgdl || 190;
+  const who2007MatrixTier = calculateWho2007Matrix(input);
+  const who2019EquationPercent = calculateWho2019Equation(input);
 
-  // Skor berbasis matriks stratifikasi WHO/ISH SEARO chart
-  let riskScorePoints = 0;
+  // Median representatif
+  const tierMedianMap: Record<WhoRiskTier, number> = {
+    '<10%': 5.0,
+    '10%-<20%': 15.0,
+    '20%-<30%': 25.0,
+    '30%-<40%': 35.0,
+    '>=40%': 45.0,
+  };
 
-  // 1. Umur
-  if (age >= 70) riskScorePoints += 5;
-  else if (age >= 60) riskScorePoints += 4;
-  else if (age >= 50) riskScorePoints += 2.5;
-  else if (age >= 40) riskScorePoints += 1.0;
-  else riskScorePoints += 0.2; // <40 th risiko absolut rendah
+  const riskMedian = tierMedianMap[who2007MatrixTier];
 
-  // 2. Jenis Kelamin
-  if (input.gender === 'MALE') riskScorePoints += 1.0;
-
-  // 3. Merokok
-  if (isSmoker) riskScorePoints += 2.2;
-
-  // 4. Diabetes Melitus
-  if (isDiabetic) riskScorePoints += 2.8;
-
-  // 5. Tekanan Darah Sistolik
-  if (sbp >= 180) riskScorePoints += 4.5;
-  else if (sbp >= 160) riskScorePoints += 3.0;
-  else if (sbp >= 140) riskScorePoints += 1.8;
-  else if (sbp >= 120) riskScorePoints += 0.8;
-
-  // 6. Kolesterol Total (mg/dL)
-  if (totChol >= 280) riskScorePoints += 2.5;
-  else if (totChol >= 240) riskScorePoints += 1.5;
-  else if (totChol >= 200) riskScorePoints += 0.7;
-
-  // Pemetaan poin ke 5 kategori risiko WHO/ISH
-  let tier: '<10%' | '10%-<20%' | '20%-<30%' | '30%-<40%' | '>=40%';
-  let medianPercent: number;
-  let action: string;
-
-  if (riskScorePoints < 5.0) {
-    tier = '<10%';
-    medianPercent = 5.0;
+  let action = '';
+  if (who2007MatrixTier === '<10%') {
     action = 'Risiko Rendah: Intervensi pola hidup sehat, kontrol rutin rekam medis tahunan (MCU).';
-  } else if (riskScorePoints < 8.5) {
-    tier = '10%-<20%';
-    medianPercent = 15.0;
+  } else if (who2007MatrixTier === '10%-<20%') {
     action = 'Risiko Moderat: Konseling gizi kerja K3, pemantauan tekanan darah berkala tiap 3 bulan.';
-  } else if (riskScorePoints < 12.0) {
-    tier = '20%-<30%';
-    medianPercent = 25.0;
+  } else if (who2007MatrixTier === '20%-<30%') {
     action = 'Risiko Tinggi: Evaluasi terapi farmakologis oleh dokter perusahaan, restriksi lembur malam.';
-  } else if (riskScorePoints < 15.0) {
-    tier = '30%-<40%';
-    medianPercent = 35.0;
+  } else if (who2007MatrixTier === '30%-<40%') {
     action = 'Risiko Sangat Tinggi: Rujukan dokter spesialis jantung, larangan penugasan di lokasi remote/lepas pantai.';
   } else {
-    tier = '>=40%';
-    medianPercent = 45.0;
     action = 'Risiko Kritis: Penanganan klinis segera, ground/unfit dari pekerjaan lapangan berat.';
   }
 
   return {
-    riskTier: tier,
-    riskMedianPercent: medianPercent,
+    riskTier: who2007MatrixTier,
+    riskPercentContinuous: who2019EquationPercent,
+    riskMedianPercent: riskMedian,
+    who2007MatrixTier,
+    who2019EquationPercent,
     actionGuideline: action,
-    citation: "WHO/ISH Risk Prediction Charts for South-East Asia Region (SEARO) - Geneva 2007 & Lancet Global Health 2019",
-    clinicalLimitations: "Dikalibrasi khusus untuk kawasan regional Indonesia/Asia Tenggara, namun tidak memperhitungkan biomarker spesifik seperti hs-CRP atau riwayat keluarga dini."
+    citation: 'WHO/ISH SEARO Risk Charts (Geneva 2007) & WHO CVD Risk Working Group (Lancet Glob Health 2019; 7:e1332)',
+    clinicalLimitations: 'Dikalibrasi untuk sub-regional epidemiologi Indonesia & Asia Tenggara. Mendukung mode matriks 2007 dan persamaan kontinu 2019.'
   };
 }

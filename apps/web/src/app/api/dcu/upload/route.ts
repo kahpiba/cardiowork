@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { DcuRecordSchema } from '@cardiowork/shared';
 import { recordAuditLog } from '@/lib/audit';
+import { repository } from '@/db/repository';
 
 export const runtime = 'nodejs';
 
@@ -39,6 +40,30 @@ export async function POST(req: NextRequest) {
         const d = parsed.data;
         validRecords.push(d);
 
+        // Simpan ke repository database
+        await repository.saveDcuRecord({
+          id: d.id || `dcu-${d.workerId}-${Date.now()}-${Math.random().toString(36).substr(2, 4)}`,
+          workerId: d.workerId,
+          recordedAt: d.recordedAt || new Date().toISOString(),
+          shiftType: d.shiftType || 'DAY_SHIFT',
+          systolicBp: d.systolicBp,
+          diastolicBp: d.diastolicBp,
+          restingHeartRate: d.restingHeartRate,
+          spo2Percent: d.spo2Percent,
+          bodyTemperatureC: d.bodyTemperatureC,
+          sleepHoursLast24h: d.sleepHoursLast24h,
+          caffeineIntakeCups: d.caffeineIntakeCups || 0,
+          cigarettesTodayCount: d.cigarettesTodayCount || 0,
+          reactionTimeMs: d.reactionTimeMs,
+          chestPainFlag: Boolean(d.chestPainFlag),
+          shortnessOfBreathFlag: Boolean(d.shortnessOfBreathFlag),
+          dizzinessFlag: Boolean(d.dizzinessFlag),
+          palpitationsFlag: Boolean(d.palpitationsFlag),
+          dailyFitnessVerdict: (d as any).dailyFitnessVerdict || (d.systolicBp >= 160 || d.diastolicBp >= 100 ? 'UNFIT' : d.systolicBp >= 140 ? 'FIT_WITH_RESTRICTION' : 'FIT'),
+          entryMode: d.entryMode || 'BATCH_IMPORT',
+          recordedByUserId: d.recordedByUserId
+        });
+
         // Immediate Deterministic Alert Logic
         const isCriticalBp = d.systolicBp >= 180 || d.diastolicBp >= 120;
         const isHypoxia = d.spo2Percent < 92;
@@ -46,6 +71,10 @@ export async function POST(req: NextRequest) {
         const hasChestPain = d.chestPainFlag === true;
 
         if (isCriticalBp || (hasChestPain && d.systolicBp >= 150) || isHypoxia || isSeverePulse) {
+          const desc = isCriticalBp 
+            ? `Krisis Hipertensi: TD ${d.systolicBp}/${d.diastolicBp} mmHg`
+            : (hasChestPain ? `Keluhan Nyeri Dada Akut dengan TD ${d.systolicBp}/${d.diastolicBp} mmHg` : 'Saturasi O2 Kritis / Aritmia Ekstrem');
+          
           criticalAlerts.push({
             workerId: d.workerId,
             severity: 'CRITICAL',
@@ -53,9 +82,17 @@ export async function POST(req: NextRequest) {
             diastolicBp: d.diastolicBp,
             spo2Percent: d.spo2Percent,
             restingHeartRate: d.restingHeartRate,
-            reason: isCriticalBp 
-              ? `Krisis Hipertensi: TD ${d.systolicBp}/${d.diastolicBp} mmHg`
-              : (hasChestPain ? `Keluhan Nyeri Dada Akut dengan TD ${d.systolicBp}/${d.diastolicBp} mmHg` : 'Saturasi O2 Kritis / Aritmia Ekstrem')
+            reason: desc
+          });
+
+          await repository.saveAlert({
+            id: `alert-${d.workerId}-${Date.now()}`,
+            workerId: d.workerId,
+            triggeredAt: new Date().toISOString(),
+            severity: 'CRITICAL',
+            triggerSource: 'RULE_BASED',
+            alertDescription: desc,
+            isAcknowledged: false
           });
         }
       }

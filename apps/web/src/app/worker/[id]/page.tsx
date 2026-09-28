@@ -15,8 +15,11 @@ import {
   CheckCircle2, 
   ShieldAlert,
   Terminal,
-  Activity
+  Activity,
+  Users,
+  Printer
 } from 'lucide-react';
+import { EducationalHealthGuide } from '@/components/EducationalHealthGuide';
 import { getDemoWorker, DEMO_WORKERS } from '@/lib/demoData';
 import { WorkerProfileHeader } from '@/components/WorkerProfileHeader';
 import { ClinicalScoreCard } from '@/components/ClinicalScoreCard';
@@ -98,14 +101,22 @@ export default function WorkerDetailPage({ params }: WorkerDetailPageProps) {
       {/* Top Navigation & Archetype Switcher */}
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 pb-4">
         
-        {/* Breadcrumb / Back button */}
-        <Link 
-          href="/" 
-          className="inline-flex items-center space-x-2 text-xs text-slate-600 hover:text-sky-600 transition font-semibold group"
-        >
-          <ArrowLeft className="h-4 w-4 group-hover:-translate-x-0.5 transition-transform" />
-          <span>Kembali ke Beranda Utama</span>
-        </Link>
+        {/* Breadcrumb Navigation */}
+        <div className="flex items-center space-x-2 text-xs text-slate-500 font-medium">
+          <Link href="/" className="hover:text-rose-600 transition flex items-center gap-1">
+            <ArrowLeft className="h-3.5 w-3.5" />
+            <span>Beranda</span>
+          </Link>
+          <span>/</span>
+          <Link href="/workers" className="hover:text-rose-600 transition flex items-center gap-1 text-slate-700 font-semibold">
+            <Users className="h-3.5 w-3.5 text-rose-500" />
+            <span>Direktori Pekerja</span>
+          </Link>
+          <span>/</span>
+          <span className="font-bold text-slate-900 font-mono bg-slate-100 px-2 py-0.5 rounded-md border border-slate-200">
+            {worker.pseudonymId}
+          </span>
+        </div>
 
         {/* Quick Demo Worker Archetypes */}
         <div className="flex flex-wrap items-center gap-2">
@@ -240,6 +251,9 @@ export default function WorkerDetailPage({ params }: WorkerDetailPageProps) {
 
       {/* 5. DCU 30-Day Hemodynamic Trend Chart */}
       <DcuTrendChart records={dcuRecords} />
+
+      {/* Modul Edukasi Kesehatan & Zona Risiko Kardiovaskular */}
+      <EducationalHealthGuide />
 
       {/* 6. Clinical Governance & Action Footer */}
       <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-4">

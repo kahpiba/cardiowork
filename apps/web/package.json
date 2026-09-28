@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest run --passWithNoTests",
-    "db:generate": "drizzle-kit generate",
+    "typecheck": "tsc --noEmit",
+    "db:generate": "XDG_DATA_HOME=\"./.xdg/share\" drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:studio": "drizzle-kit studio"
   },

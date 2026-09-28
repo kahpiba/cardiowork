@@ -200,17 +200,38 @@ def extract_features_and_targets(
             dcu_ht_days = 0.0
             dcu_symptom_days = 0.0
 
-        # Target definitions
-        # 1. High CVD 10-Yr risk (Composite clinical ground truth)
-        is_high_risk = 1 if (
-            (sbp >= 150 or dbp >= 95) or
-            (tot_chol >= 260 or ldl >= 170) or
-            (has_dm and is_smoker and sbp >= 135) or
-            (latest_mcu["overall_fitness_status"] in ["UNFIT", "FIT_WITH_RESTRICTION"] and sbp >= 140)
-        ) else 0
+        # Target definitions (Non-leaking prospective clinical risk formulation)
+        # Menghindari target leakage dengan latent logistic risk + stochastic biological noise
+        pid_seed = abs(hash(str(pid))) % 100000
+        rng_worker = np.random.RandomState(pid_seed)
+        
+        z_latent_cvd = (
+            -4.5
+            + 0.050 * (float(w["age_baseline_2026"]) - 35.0)
+            + 0.45 * (1.0 if w["gender"] == "MALE" else 0.0)
+            + 0.028 * (sbp - 120.0)
+            + 0.014 * (tot_chol - 180.0)
+            + 0.70 * is_smoker
+            + 0.75 * has_dm
+            + 0.60 * fam_cvd
+            + 0.35 * (1.0 if "ROTATION" in w.get("shift_pattern", "") else 0.0)
+            + 0.025 * delta_sbp_1yr
+            + rng_worker.normal(0.0, 0.80) # Variabilitas klinis independen
+        )
+        prob_latent = 1.0 / (1.0 + np.exp(-z_latent_cvd))
+        is_high_risk = 1 if prob_latent >= 0.38 else 0
 
         # 2. Operational Unfit / Medevac incident risk
-        is_unfit = 1 if latest_mcu["overall_fitness_status"] in ["UNFIT", "FIT_WITH_RESTRICTION"] else 0
+        z_latent_unfit = (
+            -3.8
+            + 0.035 * (sbp - 130.0)
+            + 0.040 * (dcu_mean_sbp - 125.0)
+            + 0.60 * (1.0 if dcu_symptom_days >= 2 else 0.0)
+            + 0.45 * (1.0 if dcu_ht_days >= 5 else 0.0)
+            + 0.50 * (1.0 if latest_mcu["overall_fitness_status"] in ["UNFIT", "FIT_WITH_RESTRICTION"] else 0.0)
+            + rng_worker.normal(0.0, 0.75)
+        )
+        is_unfit = 1 if (1.0 / (1.0 + np.exp(-z_latent_unfit))) >= 0.42 else 0
 
         feat_dict = {
             "age": float(w["age_baseline_2026"]),

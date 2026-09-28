@@ -122,24 +122,29 @@ export function ClinicalScoreCard({
         </div>
 
         {/* 2. WHO/ISH SEARO Chart */}
-        <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2 flex flex-col justify-between">
+        <div className="bg-teal-50/40 p-4 rounded-xl border border-teal-200/80 space-y-2 flex flex-col justify-between">
           <div>
             <div className="flex justify-between items-start">
-              <span className="text-xs font-bold text-teal-800">WHO/ISH SEARO Chart</span>
+              <span className="text-xs font-bold text-teal-900">WHO SEARO (Dual-Engine)</span>
               <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${whoColor}`}>
                 Tier {whoSearo.riskTier}
               </span>
             </div>
-            <div className="text-3xl font-extrabold font-mono text-teal-700 mt-2">
-              {whoSearo.riskTier}
+            <div className="flex items-baseline gap-2 mt-2">
+              <span className="text-3xl font-extrabold font-mono text-teal-800">
+                {whoSearo.riskTier}
+              </span>
+              <span className="text-xs font-bold text-teal-700 font-mono bg-teal-100/60 px-2 py-0.5 rounded-md">
+                ~{whoSearo.riskPercentContinuous}% (2019)
+              </span>
             </div>
-            <div className="text-[10px] text-teal-800 bg-teal-50 px-2 py-1 rounded border border-teal-200 mt-2">
-              Direkomendasikan untuk pekerja Indonesia (SEARO sub-region D)
+            <div className="text-[10px] text-teal-800 bg-white/80 px-2 py-1 rounded border border-teal-200 mt-2 font-medium">
+              Matriks WHO 2007: <span className="font-bold">{whoSearo.who2007MatrixTier}</span> • Regresi WHO 2019: <span className="font-bold">{whoSearo.who2019EquationPercent}%</span>
             </div>
           </div>
 
-          <div className="text-[11px] text-slate-600 mt-1 leading-snug">
-            Dikalibrasi khusus kawasan regional Asia Tenggara tanpa bias etnis Kaukasia.
+          <div className="text-[11px] text-teal-800/80 mt-1 leading-snug">
+            Standar emas regional Indonesia & Asia Tenggara (SEARO sub-region D).
           </div>
         </div>
 

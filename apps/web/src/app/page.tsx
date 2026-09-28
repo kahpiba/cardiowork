@@ -16,6 +16,7 @@ import {
   Sparkles,
   HeartHandshake
 } from 'lucide-react';
+import { EducationalHealthGuide } from '@/components/EducationalHealthGuide';
 
 export default function HomePage() {
   return (
@@ -50,11 +51,11 @@ export default function HomePage() {
 
           <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
             <Link
-              href="/worker/W-00192"
+              href="/workers"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-sm shadow-sm hover:shadow transition"
             >
-              <Stethoscope className="w-4 h-4" />
-              <span>Buka Rekam Medis Pekerja</span>
+              <Users className="w-4 h-4" />
+              <span>Buka Direktori Pekerja</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
 
@@ -65,6 +66,38 @@ export default function HomePage() {
               <HeartPulse className="w-4 h-4 text-sky-600" />
               <span>Kios Cek Mandiri (DCU)</span>
             </Link>
+
+            <Link
+              href="/population"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 border border-slate-300 font-bold text-sm shadow-2xs transition"
+            >
+              <ShieldCheck className="w-4 h-4 text-emerald-600" />
+              <span>Populasi K3 Perusahaan</span>
+            </Link>
+          </div>
+
+          {/* 4-Step Interactive Occupational Health Journey */}
+          <div className="pt-6 grid grid-cols-2 md:grid-cols-4 gap-2 text-left max-w-4xl mx-auto">
+            <div className="p-3 rounded-xl bg-white/80 border border-slate-200/80 shadow-2xs">
+              <span className="text-[10px] font-mono font-bold text-sky-600 block">TAHAP 1</span>
+              <div className="text-xs font-bold text-slate-800">MCU Tahunan</div>
+              <p className="text-[11px] text-slate-500 mt-0.5">Biokimia lipid, glukosa & antropometri dasar</p>
+            </div>
+            <div className="p-3 rounded-xl bg-white/80 border border-slate-200/80 shadow-2xs">
+              <span className="text-[10px] font-mono font-bold text-teal-600 block">TAHAP 2</span>
+              <div className="text-xs font-bold text-slate-800">DCU Pre-Shift</div>
+              <p className="text-[11px] text-slate-500 mt-0.5">Skrining mandiri tensi, nadi, SpO2 & gejala harian</p>
+            </div>
+            <div className="p-3 rounded-xl bg-white/80 border border-slate-200/80 shadow-2xs">
+              <span className="text-[10px] font-mono font-bold text-indigo-600 block">TAHAP 3</span>
+              <div className="text-xs font-bold text-slate-800">Inferensi AI 4-Tier</div>
+              <p className="text-[11px] text-slate-500 mt-0.5">Fusi multimodal BiLSTM + Attention terkalibrasi</p>
+            </div>
+            <div className="p-3 rounded-xl bg-white/80 border border-slate-200/80 shadow-2xs">
+              <span className="text-[10px] font-mono font-bold text-rose-600 block">TAHAP 4</span>
+              <div className="text-xs font-bold text-slate-800">Tindakan K3</div>
+              <p className="text-[11px] text-slate-500 mt-0.5">Rekomendasi fit/unfit & protokol evakuasi cepat</p>
+            </div>
           </div>
         </div>
       </section>
@@ -374,6 +407,9 @@ export default function HomePage() {
 
           </div>
         </div>
+
+        {/* Pusat Edukasi Kesehatan Kardiovaskular Interaktif */}
+        <EducationalHealthGuide />
 
         {/* System Architecture & Status Box */}
         <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xs space-y-4">

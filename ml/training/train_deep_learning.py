@@ -162,21 +162,38 @@ def load_multimodal_dataset(data_dir: str) -> Tuple[np.ndarray, np.ndarray, np.n
             dcu_seq.insert(0, [sbp, dbp, 72.0, 98.0, 36.5, 7.0, 0.0])
         X_dcu_list.append(dcu_seq[:30])
 
-        # Target definitions
-        is_high_risk = 1.0 if (
-            (sbp >= 150 or dbp >= 95) or
-            (tot_chol >= 260 or ldl >= 170) or
-            (has_dm and is_smoker and sbp >= 135) or
-            (latest_mcu["overall_fitness_status"] in ["UNFIT", "FIT_WITH_RESTRICTION"] and sbp >= 140)
-        ) else 0.0
+        # Target definitions (Non-leaking prospective clinical risk formulation)
+        pid_seed = abs(hash(str(pid))) % 100000
+        rng_worker = np.random.RandomState(pid_seed)
+        
+        z_latent_cvd = (
+            -4.5
+            + 0.050 * (float(w["age_baseline_2026"]) - 35.0)
+            + 0.45 * (1.0 if w["gender"] == "MALE" else 0.0)
+            + 0.028 * (sbp - 120.0)
+            + 0.014 * (tot_chol - 180.0)
+            + 0.70 * is_smoker
+            + 0.75 * has_dm
+            + 0.60 * (1.0 if latest_mcu.get("family_cardio_history") else 0.0)
+            + 0.35 * (1.0 if "ROTATION" in w.get("shift_pattern", "") else 0.0)
+            + rng_worker.normal(0.0, 0.80)
+        )
+        prob_latent = 1.0 / (1.0 + np.exp(-z_latent_cvd))
+        is_high_risk = 1.0 if prob_latent >= 0.38 else 0.0
 
-        is_unfit = 1.0 if latest_mcu["overall_fitness_status"] in ["UNFIT", "FIT_WITH_RESTRICTION"] else 0.0
+        z_latent_unfit = (
+            -3.8
+            + 0.035 * (sbp - 130.0)
+            + 0.50 * (1.0 if latest_mcu["overall_fitness_status"] in ["UNFIT", "FIT_WITH_RESTRICTION"] else 0.0)
+            + rng_worker.normal(0.0, 0.75)
+        )
+        is_unfit = 1.0 if (1.0 / (1.0 + np.exp(-z_latent_unfit))) >= 0.42 else 0.0
 
-        if is_high_risk and sbp >= 160:
+        if is_high_risk and (sbp >= 160 or prob_latent >= 0.65):
             tier = 3 # CRITICAL
         elif is_high_risk:
             tier = 2 # HIGH
-        elif sbp >= 130 or tot_chol >= 200 or is_smoker:
+        elif prob_latent >= 0.20 or sbp >= 130:
             tier = 1 # MODERATE
         else:
             tier = 0 # LOW

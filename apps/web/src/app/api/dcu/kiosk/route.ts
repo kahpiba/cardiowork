@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { runUnifiedInference } from '@/lib/inference/unifiedInference';
 import { evaluateDailyAlertsForWorker } from '@/lib/alerts/alertEngine';
 import { logAuditEvent } from '@/lib/audit';
+import { repository } from '@/db/repository';
 
 export const runtime = 'nodejs';
 
@@ -115,6 +116,27 @@ export async function POST(req: NextRequest) {
           verdict: dailyFitnessVerdict,
           isAnomaly: inference.layer3.autoencoderAnomaly.isAnomaly
         }
+      });
+
+      // Simpan pemeriksaan DCU ke database
+      await repository.saveDcuRecord({
+        id: `dcu-kiosk-${body.workerId}-${Date.now()}`,
+        workerId: body.workerId,
+        recordedAt: new Date().toISOString(),
+        shiftType: 'DAY_SHIFT',
+        systolicBp: sbp,
+        diastolicBp: dbp,
+        restingHeartRate: hr,
+        spo2Percent: spo2,
+        bodyTemperatureC: temp,
+        sleepHoursLast24h: sleep,
+        chestPainFlag: chestPain,
+        shortnessOfBreathFlag: dyspnea,
+        dizzinessFlag: dizziness,
+        palpitationsFlag: palpitations,
+        dailyFitnessVerdict,
+        entryMode: 'SELF_SERVICE_KIOSK',
+        recordedByUserId: body.workerId
       });
     } catch {
       // Non-blocking

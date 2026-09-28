@@ -1,5 +1,6 @@
 import { db } from '../db/index';
 import { auditLogs } from '../db/schema';
+import { repository } from '../db/repository';
 import type { UserRole } from '@cardiowork/shared';
 
 export interface AuditLogEntry {
@@ -29,16 +30,14 @@ export async function recordAuditLog(entry: AuditLogEntry): Promise<void> {
     // Di lingkungan serverless tanpa DB aktif, log juga dicatat ke stdout untuk telemetri Vercel
     console.info(`[AUDIT_LOG] ${entry.userRole}:${entry.userId} - ${entry.action} on ${entry.resourceAccessed}`);
     
-    if (process.env.DATABASE_URL && !process.env.DATABASE_URL.includes('dummy')) {
-      await db.insert(auditLogs).values({
-        userId: entry.userId,
-        userRole: entry.userRole,
-        action: entry.action,
-        resourceAccessed: entry.resourceAccessed,
-        clientIp: entry.clientIp || '127.0.0.1',
-        userAgent: entry.userAgent || 'unknown',
-      });
-    }
+    await repository.saveAuditLog({
+      userId: entry.userId,
+      userRole: entry.userRole,
+      action: entry.action,
+      resourceAccessed: entry.resourceAccessed,
+      clientIp: entry.clientIp || '127.0.0.1',
+      userAgent: entry.userAgent || 'unknown',
+    });
   } catch (error) {
     // Audit failure tidak boleh membocorkan rahasia, namun dicatat sebagai peringatan sistem
     console.error('[AUDIT_ERROR] Gagal menyimpan log audit klinis:', error);
