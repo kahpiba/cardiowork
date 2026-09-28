@@ -1,0 +1,1001 @@
+id,pseudonym_id,name_synthetic,date_of_birth,age_baseline_2026,gender,department,job_title,job_hazard_category,shift_pattern,tenure_months,is_active
+worker-uuid-00001,W-00001,Ahmad Wicaksono,1993-12-04,33,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,87,True
+worker-uuid-00002,W-00002,Dian Saputra,1993-09-20,33,FEMALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,13,True
+worker-uuid-00003,W-00003,Rizki Gunawan,1988-05-26,38,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,147,True
+worker-uuid-00004,W-00004,Kurniawan Nugroho,1971-06-04,55,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,18,True
+worker-uuid-00005,W-00005,Lukman Kurniawan,2000-08-18,26,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,20,True
+worker-uuid-00006,W-00006,Fitri Suharto,1976-10-07,50,FEMALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,93,True
+worker-uuid-00007,W-00007,Adi Wibowo,1976-02-13,50,MALE,Camp & Administrative Services,Logistics Specialist,LOW,DAY_SHIFT_ONLY,33,True
+worker-uuid-00008,W-00008,Fajar Siregar,1983-12-22,43,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,81,True
+worker-uuid-00009,W-00009,Hendra Hidayat,1992-11-23,34,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,66,True
+worker-uuid-00010,W-00010,Adi Saputra,2001-06-13,25,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,32,True
+worker-uuid-00011,W-00011,Untung Mahendra,1983-07-21,43,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,52,True
+worker-uuid-00012,W-00012,Lestari Gunawan,1985-10-13,41,FEMALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,41,True
+worker-uuid-00013,W-00013,Bambang Irawan,1997-11-06,29,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,108,True
+worker-uuid-00014,W-00014,Muhammad Nasution,1987-05-18,39,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,143,True
+worker-uuid-00015,W-00015,Dedi Kusnandar,1980-11-11,46,MALE,HSSE & Occupational Clinic,Safety Inspector,LOW,DAY_SHIFT_ONLY,19,True
+worker-uuid-00016,W-00016,Ahmad Wicaksono,1992-09-25,34,MALE,HSSE & Occupational Clinic,Occupational Paramedic,LOW,DAY_SHIFT_ONLY,25,True
+worker-uuid-00017,W-00017,Joko Suharto,1994-06-25,32,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,23,True
+worker-uuid-00018,W-00018,Rian Pratama,1990-05-08,36,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,15,True
+worker-uuid-00019,W-00019,Bambang Wicaksono,1999-09-25,27,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,20,True
+worker-uuid-00020,W-00020,Fajar Nugroho,1984-04-18,42,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,105,True
+worker-uuid-00021,W-00021,Muhammad Kusnandar,1988-09-15,38,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,20,True
+worker-uuid-00022,W-00022,Siti Susanto,1985-01-03,41,FEMALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,94,True
+worker-uuid-00023,W-00023,Arif Saputra,1998-04-09,28,MALE,HSSE & Occupational Clinic,Occupational Paramedic,LOW,DAY_SHIFT_ONLY,85,True
+worker-uuid-00024,W-00024,Agus Susanto,1992-08-26,34,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,46,True
+worker-uuid-00025,W-00025,Dian Siregar,1987-12-02,39,FEMALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,86,True
+worker-uuid-00026,W-00026,Putri Kusuma,1994-08-05,32,FEMALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,48,True
+worker-uuid-00027,W-00027,Dimas Wijaya,1976-09-04,50,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,15,True
+worker-uuid-00028,W-00028,Hadi Irawan,1995-08-16,31,MALE,Marine & Offshore Logistics,Deck Foreman,MEDIUM,DAY_SHIFT_ONLY,28,True
+worker-uuid-00029,W-00029,Fajar Nasution,1989-08-10,37,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,48,True
+worker-uuid-00030,W-00030,Rian Santoso,1993-01-19,33,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,100,True
+worker-uuid-00031,W-00031,Budi Saputra,1987-09-06,39,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,15,True
+worker-uuid-00032,W-00032,Rini Wijaya,1982-04-13,44,FEMALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,20,True
+worker-uuid-00033,W-00033,Wahyu Saputra,1988-10-19,38,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,61,True
+worker-uuid-00034,W-00034,Rizki Ramadhan,1989-11-21,37,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,35,True
+worker-uuid-00035,W-00035,Hadi Wijaya,1984-10-04,42,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,17,True
+worker-uuid-00036,W-00036,Eko Siregar,1975-06-10,51,MALE,HSSE & Occupational Clinic,Industrial Hygienist,LOW,DAY_SHIFT_ONLY,23,True
+worker-uuid-00037,W-00037,Wahyu Suharto,1983-09-10,43,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,190,True
+worker-uuid-00038,W-00038,Eko Nugroho,1997-09-05,29,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,33,True
+worker-uuid-00039,W-00039,Kurniawan Setiawan,1977-09-16,49,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,31,True
+worker-uuid-00040,W-00040,Dian Nugroho,1990-03-21,36,FEMALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,192,True
+worker-uuid-00041,W-00041,Tri Mahendra,2003-02-23,23,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,36,True
+worker-uuid-00042,W-00042,Untung Gunawan,1996-05-12,30,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,120,True
+worker-uuid-00043,W-00043,Gilang Kusnandar,1997-09-28,29,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,46,True
+worker-uuid-00044,W-00044,Hadi Utomo,1969-03-14,57,MALE,HSSE & Occupational Clinic,Industrial Hygienist,LOW,DAY_SHIFT_ONLY,13,True
+worker-uuid-00045,W-00045,Doni Harahap,1976-04-09,50,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,23,True
+worker-uuid-00046,W-00046,Siti Subekti,1978-08-12,48,FEMALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,36,True
+worker-uuid-00047,W-00047,Zainal Setiawan,1992-02-25,34,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,33,True
+worker-uuid-00048,W-00048,Bayu Gunawan,2001-05-06,25,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,60,True
+worker-uuid-00049,W-00049,Ratna Harahap,1979-07-20,47,FEMALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,288,True
+worker-uuid-00050,W-00050,Untung Setiawan,1981-01-17,45,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,185,True
+worker-uuid-00051,W-00051,Agus Wicaksono,1990-02-22,36,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,181,True
+worker-uuid-00052,W-00052,Dimas Kusuma,1991-05-22,35,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,46,True
+worker-uuid-00053,W-00053,Tri Santoso,1983-07-22,43,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,103,True
+worker-uuid-00054,W-00054,Joko Nasution,2005-05-07,21,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,12,True
+worker-uuid-00055,W-00055,Prasetyo Kusnandar,1987-12-06,39,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,83,True
+worker-uuid-00056,W-00056,Yusuf Kurniawan,1978-04-22,48,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,36,True
+worker-uuid-00057,W-00057,Budi Utomo,1984-02-15,42,MALE,Camp & Administrative Services,Logistics Specialist,LOW,DAY_SHIFT_ONLY,47,True
+worker-uuid-00058,W-00058,Rizki Mahendra,1989-03-21,37,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,89,True
+worker-uuid-00059,W-00059,Hendra Hidayat,1982-08-02,44,MALE,Marine & Offshore Logistics,Crane Operator,MEDIUM,DAY_SHIFT_ONLY,66,True
+worker-uuid-00060,W-00060,Doni Pangestu,1968-10-11,58,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,211,True
+worker-uuid-00061,W-00061,Agus Firmansyah,1974-08-06,52,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,102,True
+worker-uuid-00062,W-00062,Adi Utomo,1992-09-16,34,MALE,Marine & Offshore Logistics,Deck Foreman,MEDIUM,DAY_SHIFT_ONLY,77,True
+worker-uuid-00063,W-00063,Rizki Wibowo,1990-09-03,36,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,21,True
+worker-uuid-00064,W-00064,Eko Mahendra,1988-06-18,38,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,53,True
+worker-uuid-00065,W-00065,Nur Nasution,1985-12-01,41,MALE,Camp & Administrative Services,Logistics Specialist,LOW,DAY_SHIFT_ONLY,141,True
+worker-uuid-00066,W-00066,Ahmad Siregar,1989-07-18,37,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,103,True
+worker-uuid-00067,W-00067,Arif Utomo,1992-08-01,34,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,44,True
+worker-uuid-00068,W-00068,Bayu Pangestu,1969-09-01,57,MALE,Camp & Administrative Services,Logistics Specialist,LOW,DAY_SHIFT_ONLY,170,True
+worker-uuid-00069,W-00069,Ahmad Wijaya,1996-08-06,30,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,15,True
+worker-uuid-00070,W-00070,Prasetyo Ramadhan,1975-05-25,51,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,213,True
+worker-uuid-00071,W-00071,Bambang Subekti,1986-06-08,40,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,82,True
+worker-uuid-00072,W-00072,Hendra Setiawan,1984-04-05,42,MALE,Marine & Offshore Logistics,Crane Operator,MEDIUM,DAY_SHIFT_ONLY,54,True
+worker-uuid-00073,W-00073,Gilang Pangestu,1980-03-20,46,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,74,True
+worker-uuid-00074,W-00074,Adi Hidayat,1997-01-10,29,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,69,True
+worker-uuid-00075,W-00075,Rizki Setiawan,1982-11-08,44,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,19,True
+worker-uuid-00076,W-00076,Wahyu Kusuma,1985-01-12,41,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,62,True
+worker-uuid-00077,W-00077,Surya Suharto,1977-08-04,49,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,49,True
+worker-uuid-00078,W-00078,Bayu Pangestu,1988-12-17,38,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,216,True
+worker-uuid-00079,W-00079,Hadi Gunawan,1987-12-19,39,MALE,Marine & Offshore Logistics,Crane Operator,MEDIUM,DAY_SHIFT_ONLY,32,True
+worker-uuid-00080,W-00080,Bambang Nugroho,1992-08-19,34,MALE,HSSE & Occupational Clinic,Safety Inspector,LOW,DAY_SHIFT_ONLY,74,True
+worker-uuid-00081,W-00081,Rian Ramadhan,1993-05-11,33,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,33,True
+worker-uuid-00082,W-00082,Indra Gunawan,1972-02-08,54,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,96,True
+worker-uuid-00083,W-00083,Hendra Mahendra,1981-08-26,45,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,13,True
+worker-uuid-00084,W-00084,Rizki Utomo,1985-08-18,41,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,62,True
+worker-uuid-00085,W-00085,Tri Ramadhan,1988-05-09,38,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,29,True
+worker-uuid-00086,W-00086,Agus Gunawan,1982-04-07,44,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,101,True
+worker-uuid-00087,W-00087,Adi Firmansyah,1969-04-10,57,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,29,True
+worker-uuid-00088,W-00088,Rizki Gunawan,2000-01-18,26,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,35,True
+worker-uuid-00089,W-00089,Adi Subekti,2003-05-16,23,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,36,True
+worker-uuid-00090,W-00090,Budi Nugroho,1987-02-13,39,MALE,Camp & Administrative Services,Logistics Specialist,LOW,DAY_SHIFT_ONLY,57,True
+worker-uuid-00091,W-00091,Budi Santoso,1985-05-03,41,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,252,True
+worker-uuid-00092,W-00092,Nur Kurniawan,1984-09-13,42,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,51,True
+worker-uuid-00093,W-00093,Untung Harahap,1984-10-24,42,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,18,True
+worker-uuid-00094,W-00094,Indra Kusnandar,1993-09-03,33,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,23,True
+worker-uuid-00095,W-00095,Wahyu Subekti,1993-12-10,33,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,92,True
+worker-uuid-00096,W-00096,Maya Nugroho,1984-11-26,42,FEMALE,Marine & Offshore Logistics,Deck Foreman,MEDIUM,DAY_SHIFT_ONLY,192,True
+worker-uuid-00097,W-00097,Maya Suharto,1992-03-03,34,FEMALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,16,True
+worker-uuid-00098,W-00098,Bayu Susanto,1988-08-23,38,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,36,True
+worker-uuid-00099,W-00099,Surya Gunawan,1998-01-14,28,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,96,True
+worker-uuid-00100,W-00100,Maya Kusnandar,1985-01-25,41,FEMALE,Marine & Offshore Logistics,Deck Foreman,MEDIUM,DAY_SHIFT_ONLY,86,True
+worker-uuid-00101,W-00101,Adi Irawan,1986-08-09,40,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,25,True
+worker-uuid-00102,W-00102,Bayu Subekti,1987-07-11,39,MALE,Camp & Administrative Services,Camp Services Coordinator,LOW,DAY_SHIFT_ONLY,37,True
+worker-uuid-00103,W-00103,Kurniawan Harahap,1991-07-27,35,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,107,True
+worker-uuid-00104,W-00104,Kurniawan Nugroho,1970-07-28,56,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,60,True
+worker-uuid-00105,W-00105,Tri Pangestu,1994-06-20,32,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,106,True
+worker-uuid-00106,W-00106,Gilang Nugroho,1973-08-23,53,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,56,True
+worker-uuid-00107,W-00107,Wahyu Utomo,1991-01-18,35,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,46,True
+worker-uuid-00108,W-00108,Hadi Kusuma,1996-03-16,30,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,120,True
+worker-uuid-00109,W-00109,Indra Harahap,1969-04-15,57,MALE,Marine & Offshore Logistics,Deck Foreman,MEDIUM,DAY_SHIFT_ONLY,65,True
+worker-uuid-00110,W-00110,Wahyu Firmansyah,1996-02-09,30,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,110,True
+worker-uuid-00111,W-00111,Doni Firmansyah,2004-12-10,22,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,24,True
+worker-uuid-00112,W-00112,Rian Santoso,1987-06-18,39,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,107,True
+worker-uuid-00113,W-00113,Kurniawan Setiawan,1993-07-08,33,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,141,True
+worker-uuid-00114,W-00114,Anisa Mahendra,1989-11-26,37,FEMALE,Camp & Administrative Services,Camp Services Coordinator,LOW,DAY_SHIFT_ONLY,126,True
+worker-uuid-00115,W-00115,Budi Santoso,1985-02-28,41,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,136,True
+worker-uuid-00116,W-00116,Prasetyo Pratama,1989-11-05,37,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,17,True
+worker-uuid-00117,W-00117,Rizki Nasution,1977-11-28,49,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,62,True
+worker-uuid-00118,W-00118,Arif Irawan,1986-10-03,40,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,29,True
+worker-uuid-00119,W-00119,Agus Wijaya,1997-11-23,29,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,108,True
+worker-uuid-00120,W-00120,Joko Pratama,1979-05-12,47,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,43,True
+worker-uuid-00121,W-00121,Nur Susanto,1994-03-03,32,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,74,True
+worker-uuid-00122,W-00122,Hendra Subekti,1996-08-21,30,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,31,True
+worker-uuid-00123,W-00123,Arif Pangestu,1982-03-03,44,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,50,True
+worker-uuid-00124,W-00124,Joko Suharto,1982-08-28,44,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,35,True
+worker-uuid-00125,W-00125,Dedi Utomo,1990-05-23,36,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,35,True
+worker-uuid-00126,W-00126,Untung Kusnandar,1970-10-24,56,MALE,Marine & Offshore Logistics,Deck Foreman,MEDIUM,DAY_SHIFT_ONLY,57,True
+worker-uuid-00127,W-00127,Hendra Kurniawan,1993-04-20,33,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,31,True
+worker-uuid-00128,W-00128,Zainal Santoso,1974-11-02,52,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,36,True
+worker-uuid-00129,W-00129,Putri Wicaksono,1974-06-24,52,FEMALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,47,True
+worker-uuid-00130,W-00130,Lestari Siregar,1974-03-09,52,FEMALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,175,True
+worker-uuid-00131,W-00131,Joko Wicaksono,1978-08-03,48,MALE,HSSE & Occupational Clinic,Occupational Paramedic,LOW,DAY_SHIFT_ONLY,22,True
+worker-uuid-00132,W-00132,Agus Kusnandar,1970-09-12,56,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,18,True
+worker-uuid-00133,W-00133,Lestari Kusuma,1982-11-09,44,FEMALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,70,True
+worker-uuid-00134,W-00134,Maya Subekti,1975-09-11,51,FEMALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,176,True
+worker-uuid-00135,W-00135,Yusuf Pangestu,1991-07-04,35,MALE,Camp & Administrative Services,Camp Services Coordinator,LOW,DAY_SHIFT_ONLY,22,True
+worker-uuid-00136,W-00136,Rian Kusuma,1975-03-13,51,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,52,True
+worker-uuid-00137,W-00137,Agus Wicaksono,1988-02-27,38,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,56,True
+worker-uuid-00138,W-00138,Indra Saputra,1993-08-08,33,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,140,True
+worker-uuid-00139,W-00139,Lukman Gunawan,1983-01-13,43,MALE,Camp & Administrative Services,Camp Services Coordinator,LOW,DAY_SHIFT_ONLY,33,True
+worker-uuid-00140,W-00140,Bayu Pangestu,1993-11-20,33,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,156,True
+worker-uuid-00141,W-00141,Hendra Santoso,1994-09-07,32,MALE,Marine & Offshore Logistics,Crane Operator,MEDIUM,DAY_SHIFT_ONLY,70,True
+worker-uuid-00142,W-00142,Eko Kurniawan,1976-03-05,50,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,63,True
+worker-uuid-00143,W-00143,Siti Santoso,1979-04-19,47,FEMALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,38,True
+worker-uuid-00144,W-00144,Eko Wicaksono,1997-02-16,29,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,51,True
+worker-uuid-00145,W-00145,Dedi Pangestu,1972-01-24,54,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,113,True
+worker-uuid-00146,W-00146,Ahmad Saputra,1977-07-22,49,MALE,Camp & Administrative Services,Logistics Specialist,LOW,DAY_SHIFT_ONLY,19,True
+worker-uuid-00147,W-00147,Bambang Wijaya,1995-03-09,31,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,77,True
+worker-uuid-00148,W-00148,Wahyu Firmansyah,1987-07-04,39,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,117,True
+worker-uuid-00149,W-00149,Yusuf Irawan,1976-07-15,50,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,158,True
+worker-uuid-00150,W-00150,Prasetyo Nasution,1997-07-11,29,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,84,True
+worker-uuid-00151,W-00151,Zainal Subekti,1977-02-14,49,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,18,True
+worker-uuid-00152,W-00152,Tri Saputra,1985-06-22,41,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,20,True
+worker-uuid-00153,W-00153,Adi Harahap,1981-05-20,45,MALE,HSSE & Occupational Clinic,Occupational Paramedic,LOW,DAY_SHIFT_ONLY,36,True
+worker-uuid-00154,W-00154,Gilang Santoso,1993-02-12,33,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,136,True
+worker-uuid-00155,W-00155,Fitri Susanto,1988-09-25,38,FEMALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,125,True
+worker-uuid-00156,W-00156,Tri Pratama,1983-12-09,43,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,13,True
+worker-uuid-00157,W-00157,Joko Ramadhan,1994-03-19,32,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,83,True
+worker-uuid-00158,W-00158,Yusuf Pratama,1986-07-14,40,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,52,True
+worker-uuid-00159,W-00159,Agus Ramadhan,1985-02-02,41,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,23,True
+worker-uuid-00160,W-00160,Dewi Nugroho,1988-10-15,38,FEMALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,47,True
+worker-uuid-00161,W-00161,Dedi Siregar,1991-11-19,35,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,56,True
+worker-uuid-00162,W-00162,Dian Kurniawan,1994-04-25,32,FEMALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,21,True
+worker-uuid-00163,W-00163,Dedi Pratama,1988-03-13,38,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,62,True
+worker-uuid-00164,W-00164,Bayu Kusnandar,1998-12-02,28,MALE,Marine & Offshore Logistics,Deck Foreman,MEDIUM,DAY_SHIFT_ONLY,50,True
+worker-uuid-00165,W-00165,Dimas Ramadhan,1985-12-21,41,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,48,True
+worker-uuid-00166,W-00166,Kurniawan Hidayat,1984-12-12,42,MALE,Marine & Offshore Logistics,Crane Operator,MEDIUM,DAY_SHIFT_ONLY,18,True
+worker-uuid-00167,W-00167,Untung Nasution,1989-05-24,37,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,39,True
+worker-uuid-00168,W-00168,Bambang Firmansyah,1986-04-25,40,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,40,True
+worker-uuid-00169,W-00169,Yusuf Santoso,1995-04-06,31,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,73,True
+worker-uuid-00170,W-00170,Adi Suharto,1980-10-15,46,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,88,True
+worker-uuid-00171,W-00171,Yusuf Ramadhan,1999-08-21,27,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,36,True
+worker-uuid-00172,W-00172,Lukman Firmansyah,1988-01-02,38,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,42,True
+worker-uuid-00173,W-00173,Dewi Kurniawan,1989-10-18,37,FEMALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,204,True
+worker-uuid-00174,W-00174,Prasetyo Susanto,1991-08-17,35,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,22,True
+worker-uuid-00175,W-00175,Doni Ramadhan,1998-11-06,28,MALE,Camp & Administrative Services,Logistics Specialist,LOW,DAY_SHIFT_ONLY,14,True
+worker-uuid-00176,W-00176,Prasetyo Firmansyah,1995-06-10,31,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,44,True
+worker-uuid-00177,W-00177,Budi Suharto,1999-02-18,27,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,84,True
+worker-uuid-00178,W-00178,Dimas Kusnandar,1984-03-11,42,MALE,Camp & Administrative Services,Logistics Specialist,LOW,DAY_SHIFT_ONLY,17,True
+worker-uuid-00179,W-00179,Lukman Wibowo,1982-07-05,44,MALE,Camp & Administrative Services,Camp Services Coordinator,LOW,DAY_SHIFT_ONLY,72,True
+worker-uuid-00180,W-00180,Muhammad Suharto,1978-11-23,48,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,129,True
+worker-uuid-00181,W-00181,Hadi Firmansyah,1983-09-12,43,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,13,True
+worker-uuid-00182,W-00182,Gilang Ramadhan,1987-04-05,39,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,23,True
+worker-uuid-00183,W-00183,Dedi Firmansyah,1977-09-02,49,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,84,True
+worker-uuid-00184,W-00184,Dian Santoso,1977-10-26,49,FEMALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,167,True
+worker-uuid-00185,W-00185,Putri Kusnandar,1970-10-10,56,FEMALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,105,True
+worker-uuid-00186,W-00186,Hendra Wibowo,1979-04-12,47,MALE,Camp & Administrative Services,Logistics Specialist,LOW,DAY_SHIFT_ONLY,87,True
+worker-uuid-00187,W-00187,Prasetyo Irawan,1989-09-14,37,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,204,True
+worker-uuid-00188,W-00188,Eko Nugroho,1987-06-18,39,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,193,True
+worker-uuid-00189,W-00189,Joko Wijaya,1992-09-05,34,MALE,Marine & Offshore Logistics,Crane Operator,MEDIUM,DAY_SHIFT_ONLY,130,True
+worker-uuid-00190,W-00190,Hendra Pangestu,1973-07-02,53,MALE,HSSE & Occupational Clinic,Safety Inspector,LOW,DAY_SHIFT_ONLY,45,True
+worker-uuid-00191,W-00191,Bambang Siregar,1991-02-27,35,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,95,True
+worker-uuid-00192,W-00192,Eko Saputra,1977-12-27,49,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,21,True
+worker-uuid-00193,W-00193,Ahmad Wijaya,1993-03-18,33,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,156,True
+worker-uuid-00194,W-00194,Dedi Irawan,1991-01-08,35,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,48,True
+worker-uuid-00195,W-00195,Dedi Subekti,2002-09-19,24,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,30,True
+worker-uuid-00196,W-00196,Ahmad Kurniawan,1985-03-22,41,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,85,True
+worker-uuid-00197,W-00197,Lestari Gunawan,1968-09-01,58,FEMALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,45,True
+worker-uuid-00198,W-00198,Dian Siregar,2002-02-12,24,FEMALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,30,True
+worker-uuid-00199,W-00199,Agus Irawan,2000-09-11,26,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,72,True
+worker-uuid-00200,W-00200,Zainal Pangestu,1987-03-26,39,MALE,Camp & Administrative Services,Logistics Specialist,LOW,DAY_SHIFT_ONLY,21,True
+worker-uuid-00201,W-00201,Prasetyo Saputra,2000-04-02,26,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,37,True
+worker-uuid-00202,W-00202,Bayu Gunawan,2000-11-07,26,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,34,True
+worker-uuid-00203,W-00203,Kurniawan Nugroho,1989-07-24,37,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,50,True
+worker-uuid-00204,W-00204,Fajar Subekti,1989-09-09,37,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,119,True
+worker-uuid-00205,W-00205,Nur Kurniawan,1994-05-11,32,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,19,True
+worker-uuid-00206,W-00206,Joko Pangestu,1988-12-15,38,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,40,True
+worker-uuid-00207,W-00207,Hadi Siregar,1988-11-26,38,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,208,True
+worker-uuid-00208,W-00208,Muhammad Siregar,1980-03-01,46,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,22,True
+worker-uuid-00209,W-00209,Dewi Utomo,1990-07-19,36,FEMALE,Marine & Offshore Logistics,Crane Operator,MEDIUM,DAY_SHIFT_ONLY,14,True
+worker-uuid-00210,W-00210,Lukman Siregar,1998-03-17,28,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,42,True
+worker-uuid-00211,W-00211,Hendra Kusuma,1994-09-13,32,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,144,True
+worker-uuid-00212,W-00212,Indra Mahendra,1966-05-23,60,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,177,True
+worker-uuid-00213,W-00213,Eko Wijaya,1974-08-03,52,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,122,True
+worker-uuid-00214,W-00214,Rizki Wijaya,1991-05-28,35,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,23,True
+worker-uuid-00215,W-00215,Surya Utomo,1994-03-08,32,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,116,True
+worker-uuid-00216,W-00216,Untung Siregar,1969-03-20,57,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,155,True
+worker-uuid-00217,W-00217,Rizki Wicaksono,1989-07-27,37,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,69,True
+worker-uuid-00218,W-00218,Yusuf Wijaya,1982-06-05,44,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,152,True
+worker-uuid-00219,W-00219,Eko Harahap,1976-02-17,50,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,23,True
+worker-uuid-00220,W-00220,Hadi Mahendra,1972-09-10,54,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,136,True
+worker-uuid-00221,W-00221,Tri Nugroho,1991-09-03,35,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,58,True
+worker-uuid-00222,W-00222,Untung Santoso,1984-10-11,42,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,135,True
+worker-uuid-00223,W-00223,Siti Wijaya,1983-10-09,43,FEMALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,82,True
+worker-uuid-00224,W-00224,Yusuf Pratama,1984-05-21,42,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,221,True
+worker-uuid-00225,W-00225,Doni Kusnandar,1988-12-02,38,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,23,True
+worker-uuid-00226,W-00226,Gilang Ramadhan,1991-12-11,35,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,100,True
+worker-uuid-00227,W-00227,Eko Irawan,1985-06-08,41,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,53,True
+worker-uuid-00228,W-00228,Eko Kusuma,1972-10-14,54,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,31,True
+worker-uuid-00229,W-00229,Hadi Susanto,1994-03-16,32,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,144,True
+worker-uuid-00230,W-00230,Joko Subekti,1972-09-15,54,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,238,True
+worker-uuid-00231,W-00231,Budi Saputra,1984-11-22,42,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,54,True
+worker-uuid-00232,W-00232,Dewi Harahap,1992-06-25,34,FEMALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,46,True
+worker-uuid-00233,W-00233,Untung Gunawan,1985-02-13,41,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,58,True
+worker-uuid-00234,W-00234,Wahyu Kusnandar,1996-02-13,30,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,43,True
+worker-uuid-00235,W-00235,Lukman Irawan,1984-07-17,42,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,14,True
+worker-uuid-00236,W-00236,Putri Subekti,1995-09-05,31,FEMALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,38,True
+worker-uuid-00237,W-00237,Wahyu Wicaksono,1984-09-27,42,MALE,Marine & Offshore Logistics,Deck Foreman,MEDIUM,DAY_SHIFT_ONLY,59,True
+worker-uuid-00238,W-00238,Joko Subekti,1989-11-04,37,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,204,True
+worker-uuid-00239,W-00239,Arif Wicaksono,1984-10-16,42,MALE,HSSE & Occupational Clinic,Industrial Hygienist,LOW,DAY_SHIFT_ONLY,32,True
+worker-uuid-00240,W-00240,Adi Susanto,1981-10-16,45,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,24,True
+worker-uuid-00241,W-00241,Adi Nasution,1982-01-19,44,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,209,True
+worker-uuid-00242,W-00242,Prasetyo Ramadhan,1989-04-14,37,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,58,True
+worker-uuid-00243,W-00243,Agus Wicaksono,1996-04-18,30,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,38,True
+worker-uuid-00244,W-00244,Kurniawan Hidayat,1986-09-12,40,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,87,True
+worker-uuid-00245,W-00245,Gilang Utomo,1991-05-25,35,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,34,True
+worker-uuid-00246,W-00246,Rian Ramadhan,1985-12-09,41,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,34,True
+worker-uuid-00247,W-00247,Muhammad Siregar,1978-05-02,48,MALE,Camp & Administrative Services,Logistics Specialist,LOW,DAY_SHIFT_ONLY,34,True
+worker-uuid-00248,W-00248,Anisa Suharto,1987-04-27,39,FEMALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,63,True
+worker-uuid-00249,W-00249,Eko Kusuma,1985-04-02,41,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,85,True
+worker-uuid-00250,W-00250,Hendra Saputra,1990-08-04,36,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,88,True
+worker-uuid-00251,W-00251,Lestari Hidayat,1972-08-16,54,FEMALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,82,True
+worker-uuid-00252,W-00252,Yusuf Saputra,1998-10-08,28,MALE,Camp & Administrative Services,Logistics Specialist,LOW,DAY_SHIFT_ONLY,63,True
+worker-uuid-00253,W-00253,Budi Hidayat,1977-01-27,49,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,45,True
+worker-uuid-00254,W-00254,Agus Wibowo,2003-10-20,23,MALE,HSSE & Occupational Clinic,Safety Inspector,LOW,DAY_SHIFT_ONLY,19,True
+worker-uuid-00255,W-00255,Yusuf Gunawan,1975-03-28,51,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,58,True
+worker-uuid-00256,W-00256,Dedi Ramadhan,1988-05-23,38,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,25,True
+worker-uuid-00257,W-00257,Untung Kusnandar,1994-11-13,32,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,128,True
+worker-uuid-00258,W-00258,Muhammad Kusnandar,1969-08-11,57,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,195,True
+worker-uuid-00259,W-00259,Hendra Pangestu,1971-05-19,55,MALE,Marine & Offshore Logistics,Crane Operator,MEDIUM,DAY_SHIFT_ONLY,97,True
+worker-uuid-00260,W-00260,Lukman Mahendra,1983-08-10,43,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,23,True
+worker-uuid-00261,W-00261,Arif Mahendra,1982-11-10,44,MALE,Marine & Offshore Logistics,Crane Operator,MEDIUM,DAY_SHIFT_ONLY,42,True
+worker-uuid-00262,W-00262,Eko Subekti,1980-10-12,46,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,47,True
+worker-uuid-00263,W-00263,Adi Gunawan,1978-04-22,48,MALE,Marine & Offshore Logistics,Crane Operator,MEDIUM,DAY_SHIFT_ONLY,105,True
+worker-uuid-00264,W-00264,Surya Mahendra,1974-02-02,52,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,129,True
+worker-uuid-00265,W-00265,Eko Hidayat,1986-02-22,40,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,27,True
+worker-uuid-00266,W-00266,Lestari Pangestu,1988-09-14,38,FEMALE,Marine & Offshore Logistics,Crane Operator,MEDIUM,DAY_SHIFT_ONLY,52,True
+worker-uuid-00267,W-00267,Zainal Wibowo,1989-01-24,37,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,28,True
+worker-uuid-00268,W-00268,Putri Mahendra,1967-02-16,59,FEMALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,14,True
+worker-uuid-00269,W-00269,Eko Irawan,1981-07-12,45,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,300,True
+worker-uuid-00270,W-00270,Hadi Nasution,1982-11-28,44,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,63,True
+worker-uuid-00271,W-00271,Lestari Nasution,1981-04-27,45,FEMALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,12,True
+worker-uuid-00272,W-00272,Prasetyo Kusnandar,1988-07-27,38,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,29,True
+worker-uuid-00273,W-00273,Indra Setiawan,1981-02-02,45,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,122,True
+worker-uuid-00274,W-00274,Hadi Pratama,1999-10-02,27,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,51,True
+worker-uuid-00275,W-00275,Budi Nasution,1986-01-05,40,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,58,True
+worker-uuid-00276,W-00276,Hadi Wicaksono,1985-11-27,41,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,37,True
+worker-uuid-00277,W-00277,Zainal Firmansyah,1991-01-18,35,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,180,True
+worker-uuid-00278,W-00278,Nur Gunawan,1970-11-22,56,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,43,True
+worker-uuid-00279,W-00279,Nur Santoso,1994-09-16,32,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,30,True
+worker-uuid-00280,W-00280,Rizki Santoso,1974-09-14,52,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,241,True
+worker-uuid-00281,W-00281,Muhammad Utomo,1990-02-15,36,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,137,True
+worker-uuid-00282,W-00282,Bayu Setiawan,1989-10-20,37,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,14,True
+worker-uuid-00283,W-00283,Adi Susanto,1985-08-07,41,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,147,True
+worker-uuid-00284,W-00284,Hadi Pratama,1994-12-04,32,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,103,True
+worker-uuid-00285,W-00285,Rizki Kurniawan,1989-04-18,37,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,37,True
+worker-uuid-00286,W-00286,Tri Suharto,1992-09-16,34,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,53,True
+worker-uuid-00287,W-00287,Kurniawan Setiawan,1989-10-28,37,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,28,True
+worker-uuid-00288,W-00288,Lestari Susanto,1988-03-07,38,FEMALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,38,True
+worker-uuid-00289,W-00289,Hendra Subekti,1972-06-09,54,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,108,True
+worker-uuid-00290,W-00290,Yusuf Wicaksono,1995-06-06,31,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,22,True
+worker-uuid-00291,W-00291,Arif Gunawan,1971-09-02,55,MALE,Camp & Administrative Services,Camp Services Coordinator,LOW,DAY_SHIFT_ONLY,133,True
+worker-uuid-00292,W-00292,Zainal Saputra,1989-11-08,37,MALE,Marine & Offshore Logistics,Crane Operator,MEDIUM,DAY_SHIFT_ONLY,16,True
+worker-uuid-00293,W-00293,Lestari Pangestu,1984-11-20,42,FEMALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,174,True
+worker-uuid-00294,W-00294,Lestari Gunawan,2002-12-09,24,FEMALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,48,True
+worker-uuid-00295,W-00295,Dian Hidayat,1997-03-08,29,FEMALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,26,True
+worker-uuid-00296,W-00296,Lukman Nugroho,1998-07-15,28,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,67,True
+worker-uuid-00297,W-00297,Zainal Wijaya,1976-01-03,50,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,46,True
+worker-uuid-00298,W-00298,Budi Suharto,1995-08-28,31,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,49,True
+worker-uuid-00299,W-00299,Dimas Kusuma,1973-04-07,53,MALE,HSSE & Occupational Clinic,Industrial Hygienist,LOW,DAY_SHIFT_ONLY,166,True
+worker-uuid-00300,W-00300,Rian Nugroho,1998-05-18,28,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,67,True
+worker-uuid-00301,W-00301,Dimas Ramadhan,1993-03-25,33,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,126,True
+worker-uuid-00302,W-00302,Joko Hidayat,1985-07-22,41,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,163,True
+worker-uuid-00303,W-00303,Agus Santoso,1982-02-17,44,MALE,Marine & Offshore Logistics,Deck Foreman,MEDIUM,DAY_SHIFT_ONLY,103,True
+worker-uuid-00304,W-00304,Dian Utomo,1990-10-20,36,FEMALE,Marine & Offshore Logistics,Deck Foreman,MEDIUM,DAY_SHIFT_ONLY,45,True
+worker-uuid-00305,W-00305,Fitri Pangestu,1990-07-14,36,FEMALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,25,True
+worker-uuid-00306,W-00306,Ratna Wibowo,1981-02-09,45,FEMALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,23,True
+worker-uuid-00307,W-00307,Eko Wicaksono,1990-02-01,36,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,192,True
+worker-uuid-00308,W-00308,Indra Kusuma,1994-08-18,32,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,65,True
+worker-uuid-00309,W-00309,Dewi Siregar,1984-06-28,42,FEMALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,44,True
+worker-uuid-00310,W-00310,Adi Wijaya,1985-04-19,41,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,61,True
+worker-uuid-00311,W-00311,Eko Nugroho,1987-02-06,39,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,50,True
+worker-uuid-00312,W-00312,Doni Wijaya,1972-12-21,54,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,57,True
+worker-uuid-00313,W-00313,Eko Wibowo,1989-10-13,37,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,120,True
+worker-uuid-00314,W-00314,Nur Suharto,1996-06-20,30,MALE,Camp & Administrative Services,Camp Services Coordinator,LOW,DAY_SHIFT_ONLY,120,True
+worker-uuid-00315,W-00315,Fajar Nasution,1991-12-21,35,MALE,Camp & Administrative Services,Logistics Specialist,LOW,DAY_SHIFT_ONLY,57,True
+worker-uuid-00316,W-00316,Kurniawan Nasution,1979-06-04,47,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,191,True
+worker-uuid-00317,W-00317,Tri Hidayat,1986-12-15,40,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,202,True
+worker-uuid-00318,W-00318,Joko Mahendra,1977-07-22,49,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,58,True
+worker-uuid-00319,W-00319,Zainal Santoso,1979-02-15,47,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,323,True
+worker-uuid-00320,W-00320,Tri Firmansyah,1976-07-18,50,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,14,True
+worker-uuid-00321,W-00321,Doni Gunawan,1974-02-25,52,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,31,True
+worker-uuid-00322,W-00322,Yusuf Kurniawan,1969-11-21,57,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,46,True
+worker-uuid-00323,W-00323,Nur Kusuma,1992-09-24,34,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,60,True
+worker-uuid-00324,W-00324,Hendra Pangestu,1987-11-19,39,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,90,True
+worker-uuid-00325,W-00325,Ahmad Subekti,1988-02-04,38,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,130,True
+worker-uuid-00326,W-00326,Kurniawan Pangestu,1986-06-16,40,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,18,True
+worker-uuid-00327,W-00327,Kurniawan Wijaya,1978-02-01,48,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,138,True
+worker-uuid-00328,W-00328,Fajar Wicaksono,1994-03-11,32,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,66,True
+worker-uuid-00329,W-00329,Muhammad Suharto,1983-07-13,43,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,13,True
+worker-uuid-00330,W-00330,Prasetyo Susanto,2004-04-07,22,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,24,True
+worker-uuid-00331,W-00331,Doni Gunawan,1990-08-04,36,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,32,True
+worker-uuid-00332,W-00332,Yusuf Ramadhan,1984-10-04,42,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,40,True
+worker-uuid-00333,W-00333,Bayu Kusnandar,1991-10-19,35,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,17,True
+worker-uuid-00334,W-00334,Hendra Wibowo,1989-03-17,37,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,44,True
+worker-uuid-00335,W-00335,Dian Harahap,1983-12-21,43,FEMALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,189,True
+worker-uuid-00336,W-00336,Rian Wibowo,1991-08-20,35,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,15,True
+worker-uuid-00337,W-00337,Rian Santoso,1989-09-17,37,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,82,True
+worker-uuid-00338,W-00338,Nur Mahendra,1987-02-19,39,MALE,Marine & Offshore Logistics,Crane Operator,MEDIUM,DAY_SHIFT_ONLY,14,True
+worker-uuid-00339,W-00339,Indra Utomo,1995-08-19,31,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,102,True
+worker-uuid-00340,W-00340,Dedi Susanto,1979-06-18,47,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,127,True
+worker-uuid-00341,W-00341,Prasetyo Gunawan,1988-12-27,38,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,82,True
+worker-uuid-00342,W-00342,Budi Pangestu,1976-02-15,50,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,145,True
+worker-uuid-00343,W-00343,Hendra Setiawan,1985-06-28,41,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,94,True
+worker-uuid-00344,W-00344,Wahyu Santoso,1978-01-19,48,MALE,Marine & Offshore Logistics,Deck Foreman,MEDIUM,DAY_SHIFT_ONLY,40,True
+worker-uuid-00345,W-00345,Fajar Ramadhan,1991-10-09,35,MALE,Camp & Administrative Services,Logistics Specialist,LOW,DAY_SHIFT_ONLY,180,True
+worker-uuid-00346,W-00346,Zainal Kusuma,1980-07-02,46,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,312,True
+worker-uuid-00347,W-00347,Eko Utomo,1991-04-25,35,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,135,True
+worker-uuid-00348,W-00348,Untung Suharto,1989-08-03,37,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,78,True
+worker-uuid-00349,W-00349,Agus Nugroho,1975-08-16,51,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,38,True
+worker-uuid-00350,W-00350,Dimas Wicaksono,1970-11-22,56,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,91,True
+worker-uuid-00351,W-00351,Muhammad Setiawan,1978-08-09,48,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,37,True
+worker-uuid-00352,W-00352,Untung Santoso,1987-06-22,39,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,107,True
+worker-uuid-00353,W-00353,Anisa Pratama,1976-08-15,50,FEMALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,12,True
+worker-uuid-00354,W-00354,Rizki Santoso,1991-05-03,35,MALE,HSSE & Occupational Clinic,Safety Inspector,LOW,DAY_SHIFT_ONLY,82,True
+worker-uuid-00355,W-00355,Rini Saputra,1991-12-25,35,FEMALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,29,True
+worker-uuid-00356,W-00356,Ahmad Setiawan,1996-04-17,30,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,87,True
+worker-uuid-00357,W-00357,Putri Kusuma,1988-03-16,38,FEMALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,16,True
+worker-uuid-00358,W-00358,Dewi Kusuma,1975-03-13,51,FEMALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,110,True
+worker-uuid-00359,W-00359,Zainal Santoso,1985-10-21,41,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,23,True
+worker-uuid-00360,W-00360,Yusuf Wicaksono,1989-11-15,37,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,143,True
+worker-uuid-00361,W-00361,Eko Irawan,1981-06-14,45,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,37,True
+worker-uuid-00362,W-00362,Yusuf Wijaya,1984-12-20,42,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,34,True
+worker-uuid-00363,W-00363,Zainal Wibowo,1984-04-24,42,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,45,True
+worker-uuid-00364,W-00364,Doni Utomo,1997-08-21,29,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,72,True
+worker-uuid-00365,W-00365,Hadi Ramadhan,1976-10-14,50,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,42,True
+worker-uuid-00366,W-00366,Adi Wijaya,1999-05-07,27,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,14,True
+worker-uuid-00367,W-00367,Muhammad Firmansyah,1981-07-14,45,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,92,True
+worker-uuid-00368,W-00368,Tri Kurniawan,1998-02-17,28,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,96,True
+worker-uuid-00369,W-00369,Muhammad Susanto,1977-11-21,49,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,16,True
+worker-uuid-00370,W-00370,Dimas Utomo,1998-07-04,28,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,52,True
+worker-uuid-00371,W-00371,Rini Kusuma,1996-01-06,30,FEMALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,57,True
+worker-uuid-00372,W-00372,Doni Wicaksono,1989-12-25,37,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,149,True
+worker-uuid-00373,W-00373,Ahmad Ramadhan,1992-02-09,34,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,95,True
+worker-uuid-00374,W-00374,Rian Pangestu,1999-10-06,27,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,42,True
+worker-uuid-00375,W-00375,Arif Susanto,1997-12-17,29,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,12,True
+worker-uuid-00376,W-00376,Rian Siregar,1995-01-18,31,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,120,True
+worker-uuid-00377,W-00377,Hendra Harahap,1991-02-19,35,MALE,Camp & Administrative Services,Logistics Specialist,LOW,DAY_SHIFT_ONLY,43,True
+worker-uuid-00378,W-00378,Budi Hidayat,1986-01-13,40,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,16,True
+worker-uuid-00379,W-00379,Adi Wibowo,1985-01-12,41,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,26,True
+worker-uuid-00380,W-00380,Hendra Pangestu,1970-04-24,56,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,165,True
+worker-uuid-00381,W-00381,Hadi Harahap,1986-11-27,40,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,90,True
+worker-uuid-00382,W-00382,Ahmad Irawan,1977-12-10,49,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,19,True
+worker-uuid-00383,W-00383,Nur Subekti,1970-03-23,56,MALE,Camp & Administrative Services,Camp Services Coordinator,LOW,DAY_SHIFT_ONLY,33,True
+worker-uuid-00384,W-00384,Arif Firmansyah,1975-08-24,51,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,17,True
+worker-uuid-00385,W-00385,Yusuf Nasution,1985-07-22,41,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,234,True
+worker-uuid-00386,W-00386,Dimas Ramadhan,1989-12-11,37,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,37,True
+worker-uuid-00387,W-00387,Gilang Santoso,1985-03-04,41,MALE,Marine & Offshore Logistics,Deck Foreman,MEDIUM,DAY_SHIFT_ONLY,23,True
+worker-uuid-00388,W-00388,Dedi Gunawan,1980-08-10,46,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,53,True
+worker-uuid-00389,W-00389,Fitri Mahendra,2000-06-05,26,FEMALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,18,True
+worker-uuid-00390,W-00390,Muhammad Firmansyah,1991-03-01,35,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,180,True
+worker-uuid-00391,W-00391,Tri Utomo,1997-03-04,29,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,12,True
+worker-uuid-00392,W-00392,Dian Siregar,1972-02-19,54,FEMALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,70,True
+worker-uuid-00393,W-00393,Dewi Setiawan,1988-03-03,38,FEMALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,168,True
+worker-uuid-00394,W-00394,Anisa Saputra,1985-12-13,41,FEMALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,57,True
+worker-uuid-00395,W-00395,Fajar Siregar,1994-05-15,32,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,144,True
+worker-uuid-00396,W-00396,Wahyu Utomo,1987-09-16,39,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,16,True
+worker-uuid-00397,W-00397,Nur Setiawan,1979-04-21,47,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,324,True
+worker-uuid-00398,W-00398,Muhammad Mahendra,1986-08-12,40,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,174,True
+worker-uuid-00399,W-00399,Fajar Pratama,1993-05-02,33,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,122,True
+worker-uuid-00400,W-00400,Adi Susanto,1970-02-08,56,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,83,True
+worker-uuid-00401,W-00401,Doni Wicaksono,1966-04-19,60,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,136,True
+worker-uuid-00402,W-00402,Bayu Hidayat,1985-12-23,41,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,41,True
+worker-uuid-00403,W-00403,Putri Susanto,1985-04-27,41,FEMALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,252,True
+worker-uuid-00404,W-00404,Fajar Subekti,1999-10-08,27,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,13,True
+worker-uuid-00405,W-00405,Ratna Setiawan,1990-03-26,36,FEMALE,Marine & Offshore Logistics,Deck Foreman,MEDIUM,DAY_SHIFT_ONLY,135,True
+worker-uuid-00406,W-00406,Rini Susanto,1996-02-28,30,FEMALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,61,True
+worker-uuid-00407,W-00407,Lukman Mahendra,1989-02-11,37,MALE,Camp & Administrative Services,Camp Services Coordinator,LOW,DAY_SHIFT_ONLY,35,True
+worker-uuid-00408,W-00408,Agus Harahap,1971-11-11,55,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,24,True
+worker-uuid-00409,W-00409,Hadi Kurniawan,1993-10-27,33,MALE,Marine & Offshore Logistics,Deck Foreman,MEDIUM,DAY_SHIFT_ONLY,24,True
+worker-uuid-00410,W-00410,Joko Santoso,2004-12-19,22,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,24,True
+worker-uuid-00411,W-00411,Ratna Ramadhan,1970-04-21,56,FEMALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,67,True
+worker-uuid-00412,W-00412,Agus Wijaya,1969-03-21,57,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,156,True
+worker-uuid-00413,W-00413,Zainal Suharto,1990-01-09,36,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,27,True
+worker-uuid-00414,W-00414,Fitri Kusuma,2000-08-24,26,FEMALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,48,True
+worker-uuid-00415,W-00415,Rian Nasution,1989-08-26,37,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,145,True
+worker-uuid-00416,W-00416,Bambang Saputra,1991-02-03,35,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,39,True
+worker-uuid-00417,W-00417,Bambang Gunawan,1969-06-20,57,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,293,True
+worker-uuid-00418,W-00418,Nur Suharto,1975-03-02,51,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,19,True
+worker-uuid-00419,W-00419,Nur Mahendra,1973-09-09,53,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,84,True
+worker-uuid-00420,W-00420,Budi Nasution,1977-03-02,49,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,41,True
+worker-uuid-00421,W-00421,Ratna Subekti,2001-03-21,25,FEMALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,35,True
+worker-uuid-00422,W-00422,Dedi Wibowo,1987-11-09,39,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,18,True
+worker-uuid-00423,W-00423,Lukman Nasution,1988-05-15,38,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,53,True
+worker-uuid-00424,W-00424,Untung Saputra,1982-02-03,44,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,85,True
+worker-uuid-00425,W-00425,Adi Susanto,1999-07-27,27,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,61,True
+worker-uuid-00426,W-00426,Hadi Subekti,1993-05-03,33,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,45,True
+worker-uuid-00427,W-00427,Ratna Firmansyah,1982-10-05,44,FEMALE,Marine & Offshore Logistics,Deck Foreman,MEDIUM,DAY_SHIFT_ONLY,20,True
+worker-uuid-00428,W-00428,Fajar Setiawan,1996-07-03,30,MALE,Marine & Offshore Logistics,Deck Foreman,MEDIUM,DAY_SHIFT_ONLY,120,True
+worker-uuid-00429,W-00429,Bayu Suharto,1984-06-24,42,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,175,True
+worker-uuid-00430,W-00430,Lestari Nasution,1976-09-15,50,FEMALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,178,True
+worker-uuid-00431,W-00431,Wahyu Susanto,1988-07-05,38,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,22,True
+worker-uuid-00432,W-00432,Untung Irawan,1991-09-12,35,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,152,True
+worker-uuid-00433,W-00433,Rian Susanto,2000-05-13,26,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,22,True
+worker-uuid-00434,W-00434,Muhammad Saputra,1975-12-08,51,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,15,True
+worker-uuid-00435,W-00435,Arif Siregar,1978-05-10,48,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,33,True
+worker-uuid-00436,W-00436,Zainal Kusuma,1993-05-24,33,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,51,True
+worker-uuid-00437,W-00437,Nur Kurniawan,1994-04-27,32,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,46,True
+worker-uuid-00438,W-00438,Dimas Siregar,1986-03-03,40,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,36,True
+worker-uuid-00439,W-00439,Adi Firmansyah,2001-04-27,25,MALE,HSSE & Occupational Clinic,Occupational Paramedic,LOW,DAY_SHIFT_ONLY,26,True
+worker-uuid-00440,W-00440,Prasetyo Saputra,1982-05-12,44,MALE,Camp & Administrative Services,Logistics Specialist,LOW,DAY_SHIFT_ONLY,127,True
+worker-uuid-00441,W-00441,Hadi Kusuma,1993-08-20,33,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,51,True
+worker-uuid-00442,W-00442,Lukman Siregar,1975-12-27,51,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,89,True
+worker-uuid-00443,W-00443,Siti Hidayat,1979-04-28,47,FEMALE,HSSE & Occupational Clinic,Occupational Paramedic,LOW,DAY_SHIFT_ONLY,28,True
+worker-uuid-00444,W-00444,Indra Suharto,2002-11-01,24,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,48,True
+worker-uuid-00445,W-00445,Wahyu Pratama,1984-05-23,42,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,239,True
+worker-uuid-00446,W-00446,Muhammad Siregar,1993-05-22,33,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,61,True
+worker-uuid-00447,W-00447,Ahmad Firmansyah,1970-06-18,56,MALE,Camp & Administrative Services,Logistics Specialist,LOW,DAY_SHIFT_ONLY,81,True
+worker-uuid-00448,W-00448,Zainal Kusuma,1990-05-21,36,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,38,True
+worker-uuid-00449,W-00449,Rizki Suharto,1995-04-02,31,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,121,True
+worker-uuid-00450,W-00450,Kurniawan Kusnandar,2001-08-10,25,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,32,True
+worker-uuid-00451,W-00451,Agus Saputra,1967-04-11,59,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,98,True
+worker-uuid-00452,W-00452,Yusuf Subekti,1982-09-10,44,MALE,Camp & Administrative Services,Logistics Specialist,LOW,DAY_SHIFT_ONLY,136,True
+worker-uuid-00453,W-00453,Fajar Wibowo,1996-05-24,30,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,120,True
+worker-uuid-00454,W-00454,Arif Ramadhan,1993-04-24,33,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,148,True
+worker-uuid-00455,W-00455,Kurniawan Siregar,1991-02-16,35,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,15,True
+worker-uuid-00456,W-00456,Wahyu Wijaya,1994-02-28,32,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,88,True
+worker-uuid-00457,W-00457,Dimas Santoso,1994-07-19,32,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,144,True
+worker-uuid-00458,W-00458,Dimas Mahendra,1998-06-21,28,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,96,True
+worker-uuid-00459,W-00459,Ahmad Pangestu,1980-03-19,46,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,108,True
+worker-uuid-00460,W-00460,Adi Wijaya,1988-07-13,38,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,49,True
+worker-uuid-00461,W-00461,Budi Gunawan,1989-01-11,37,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,106,True
+worker-uuid-00462,W-00462,Zainal Pratama,1992-12-12,34,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,36,True
+worker-uuid-00463,W-00463,Untung Wibowo,1978-05-10,48,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,52,True
+worker-uuid-00464,W-00464,Kurniawan Harahap,1967-06-16,59,MALE,HSSE & Occupational Clinic,Occupational Paramedic,LOW,DAY_SHIFT_ONLY,41,True
+worker-uuid-00465,W-00465,Hadi Nasution,1993-03-07,33,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,100,True
+worker-uuid-00466,W-00466,Dedi Siregar,1979-07-21,47,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,31,True
+worker-uuid-00467,W-00467,Wahyu Saputra,1983-01-02,43,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,90,True
+worker-uuid-00468,W-00468,Dedi Gunawan,1982-04-23,44,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,89,True
+worker-uuid-00469,W-00469,Zainal Kusuma,1992-10-23,34,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,21,True
+worker-uuid-00470,W-00470,Wahyu Kusuma,1979-08-07,47,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,74,True
+worker-uuid-00471,W-00471,Gilang Siregar,1991-01-18,35,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,57,True
+worker-uuid-00472,W-00472,Rian Ramadhan,2003-02-04,23,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,36,True
+worker-uuid-00473,W-00473,Bambang Irawan,1981-02-09,45,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,80,True
+worker-uuid-00474,W-00474,Joko Nugroho,1997-03-28,29,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,14,True
+worker-uuid-00475,W-00475,Zainal Ramadhan,1997-01-01,29,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,108,True
+worker-uuid-00476,W-00476,Arif Pangestu,1992-12-03,34,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,43,True
+worker-uuid-00477,W-00477,Muhammad Nasution,1992-07-23,34,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,138,True
+worker-uuid-00478,W-00478,Doni Hidayat,1982-01-28,44,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,23,True
+worker-uuid-00479,W-00479,Rian Susanto,1994-07-25,32,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,41,True
+worker-uuid-00480,W-00480,Arif Wicaksono,1996-08-04,30,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,120,True
+worker-uuid-00481,W-00481,Fitri Suharto,1982-11-17,44,FEMALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,109,True
+worker-uuid-00482,W-00482,Zainal Ramadhan,1982-10-04,44,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,49,True
+worker-uuid-00483,W-00483,Zainal Kusnandar,1995-09-20,31,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,15,True
+worker-uuid-00484,W-00484,Surya Subekti,1976-02-25,50,MALE,HSSE & Occupational Clinic,Occupational Paramedic,LOW,DAY_SHIFT_ONLY,57,True
+worker-uuid-00485,W-00485,Indra Saputra,1986-07-13,40,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,125,True
+worker-uuid-00486,W-00486,Doni Susanto,1976-08-11,50,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,20,True
+worker-uuid-00487,W-00487,Ahmad Kusuma,2001-09-01,25,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,60,True
+worker-uuid-00488,W-00488,Tri Setiawan,1988-06-12,38,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,128,True
+worker-uuid-00489,W-00489,Kurniawan Gunawan,1984-12-22,42,MALE,Marine & Offshore Logistics,Deck Foreman,MEDIUM,DAY_SHIFT_ONLY,42,True
+worker-uuid-00490,W-00490,Maya Pratama,1977-05-18,49,FEMALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,61,True
+worker-uuid-00491,W-00491,Rini Subekti,1981-12-14,45,FEMALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,19,True
+worker-uuid-00492,W-00492,Dedi Nasution,1978-04-23,48,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,39,True
+worker-uuid-00493,W-00493,Ratna Kusuma,1988-11-19,38,FEMALE,Marine & Offshore Logistics,Crane Operator,MEDIUM,DAY_SHIFT_ONLY,216,True
+worker-uuid-00494,W-00494,Ahmad Firmansyah,1985-07-27,41,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,70,True
+worker-uuid-00495,W-00495,Hadi Hidayat,1994-03-04,32,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,44,True
+worker-uuid-00496,W-00496,Kurniawan Firmansyah,1988-10-23,38,MALE,HSSE & Occupational Clinic,Safety Inspector,LOW,DAY_SHIFT_ONLY,107,True
+worker-uuid-00497,W-00497,Kurniawan Wibowo,1996-07-20,30,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,92,True
+worker-uuid-00498,W-00498,Tri Ramadhan,1972-11-07,54,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,26,True
+worker-uuid-00499,W-00499,Zainal Siregar,1996-12-21,30,MALE,Camp & Administrative Services,Camp Services Coordinator,LOW,DAY_SHIFT_ONLY,120,True
+worker-uuid-00500,W-00500,Rizki Suharto,1997-06-18,29,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,55,True
+worker-uuid-00501,W-00501,Arif Gunawan,1977-01-17,49,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,19,True
+worker-uuid-00502,W-00502,Zainal Saputra,1980-03-10,46,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,88,True
+worker-uuid-00503,W-00503,Rizki Wibowo,1986-06-27,40,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,52,True
+worker-uuid-00504,W-00504,Agus Gunawan,1980-09-13,46,MALE,HSSE & Occupational Clinic,Industrial Hygienist,LOW,DAY_SHIFT_ONLY,30,True
+worker-uuid-00505,W-00505,Zainal Saputra,1989-11-11,37,MALE,Camp & Administrative Services,Camp Services Coordinator,LOW,DAY_SHIFT_ONLY,204,True
+worker-uuid-00506,W-00506,Fitri Setiawan,1979-08-27,47,FEMALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,29,True
+worker-uuid-00507,W-00507,Yusuf Siregar,1986-10-07,40,MALE,Marine & Offshore Logistics,Crane Operator,MEDIUM,DAY_SHIFT_ONLY,111,True
+worker-uuid-00508,W-00508,Fajar Kusnandar,1971-12-17,55,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,20,True
+worker-uuid-00509,W-00509,Tri Nugroho,1985-05-01,41,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,38,True
+worker-uuid-00510,W-00510,Putri Kurniawan,1973-10-27,53,FEMALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,84,True
+worker-uuid-00511,W-00511,Tri Siregar,1981-09-08,45,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,221,True
+worker-uuid-00512,W-00512,Lestari Hidayat,1986-02-12,40,FEMALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,28,True
+worker-uuid-00513,W-00513,Kurniawan Siregar,1971-10-17,55,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,54,True
+worker-uuid-00514,W-00514,Yusuf Pratama,1990-04-21,36,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,75,True
+worker-uuid-00515,W-00515,Budi Kusnandar,1989-02-13,37,MALE,HSSE & Occupational Clinic,Industrial Hygienist,LOW,DAY_SHIFT_ONLY,31,True
+worker-uuid-00516,W-00516,Hadi Firmansyah,1989-09-15,37,MALE,Marine & Offshore Logistics,Deck Foreman,MEDIUM,DAY_SHIFT_ONLY,56,True
+worker-uuid-00517,W-00517,Gilang Ramadhan,1972-03-25,54,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,63,True
+worker-uuid-00518,W-00518,Gilang Kusnandar,1993-11-14,33,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,132,True
+worker-uuid-00519,W-00519,Rizki Wicaksono,1983-02-24,43,MALE,Marine & Offshore Logistics,Crane Operator,MEDIUM,DAY_SHIFT_ONLY,89,True
+worker-uuid-00520,W-00520,Kurniawan Saputra,1999-05-18,27,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,16,True
+worker-uuid-00521,W-00521,Nur Nasution,1989-06-01,37,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,44,True
+worker-uuid-00522,W-00522,Yusuf Wicaksono,1980-10-02,46,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,92,True
+worker-uuid-00523,W-00523,Surya Kusuma,1982-10-03,44,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,34,True
+worker-uuid-00524,W-00524,Bayu Kusnandar,1995-04-05,31,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,103,True
+worker-uuid-00525,W-00525,Yusuf Santoso,1975-12-21,51,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,43,True
+worker-uuid-00526,W-00526,Tri Santoso,2004-10-13,22,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,24,True
+worker-uuid-00527,W-00527,Agus Wicaksono,1990-07-21,36,MALE,Camp & Administrative Services,Camp Services Coordinator,LOW,DAY_SHIFT_ONLY,139,True
+worker-uuid-00528,W-00528,Hendra Kurniawan,1994-03-22,32,MALE,Marine & Offshore Logistics,Crane Operator,MEDIUM,DAY_SHIFT_ONLY,119,True
+worker-uuid-00529,W-00529,Hadi Gunawan,1986-05-22,40,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,16,True
+worker-uuid-00530,W-00530,Untung Subekti,1990-11-21,36,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,29,True
+worker-uuid-00531,W-00531,Arif Setiawan,1988-10-22,38,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,36,True
+worker-uuid-00532,W-00532,Lukman Ramadhan,1995-06-08,31,MALE,Camp & Administrative Services,Logistics Specialist,LOW,DAY_SHIFT_ONLY,114,True
+worker-uuid-00533,W-00533,Nur Nugroho,1996-12-11,30,MALE,Marine & Offshore Logistics,Deck Foreman,MEDIUM,DAY_SHIFT_ONLY,120,True
+worker-uuid-00534,W-00534,Adi Wibowo,1997-11-20,29,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,17,True
+worker-uuid-00535,W-00535,Eko Gunawan,1981-11-03,45,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,98,True
+worker-uuid-00536,W-00536,Yusuf Pratama,1985-10-07,41,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,169,True
+worker-uuid-00537,W-00537,Arif Gunawan,1979-06-13,47,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,28,True
+worker-uuid-00538,W-00538,Lestari Firmansyah,1990-01-22,36,FEMALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,30,True
+worker-uuid-00539,W-00539,Adi Firmansyah,1995-10-19,31,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,83,True
+worker-uuid-00540,W-00540,Rian Siregar,1980-04-03,46,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,32,True
+worker-uuid-00541,W-00541,Maya Firmansyah,1990-08-15,36,FEMALE,Camp & Administrative Services,Camp Services Coordinator,LOW,DAY_SHIFT_ONLY,154,True
+worker-uuid-00542,W-00542,Kurniawan Kusuma,1986-05-27,40,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,102,True
+worker-uuid-00543,W-00543,Fajar Nasution,1990-11-27,36,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,17,True
+worker-uuid-00544,W-00544,Hadi Utomo,1990-06-16,36,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,116,True
+worker-uuid-00545,W-00545,Eko Pangestu,1998-11-09,28,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,27,True
+worker-uuid-00546,W-00546,Wahyu Mahendra,1983-07-26,43,MALE,Marine & Offshore Logistics,Crane Operator,MEDIUM,DAY_SHIFT_ONLY,38,True
+worker-uuid-00547,W-00547,Rian Subekti,1995-07-01,31,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,30,True
+worker-uuid-00548,W-00548,Fajar Santoso,2000-10-05,26,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,15,True
+worker-uuid-00549,W-00549,Surya Nasution,1985-01-24,41,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,98,True
+worker-uuid-00550,W-00550,Gilang Pangestu,1987-08-06,39,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,28,True
+worker-uuid-00551,W-00551,Doni Susanto,1994-11-17,32,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,32,True
+worker-uuid-00552,W-00552,Hadi Pangestu,1999-07-13,27,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,21,True
+worker-uuid-00553,W-00553,Dimas Firmansyah,1978-10-04,48,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,25,True
+worker-uuid-00554,W-00554,Arif Gunawan,1996-08-22,30,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,21,True
+worker-uuid-00555,W-00555,Adi Kusnandar,1986-06-28,40,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,14,True
+worker-uuid-00556,W-00556,Doni Subekti,1989-10-26,37,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,102,True
+worker-uuid-00557,W-00557,Nur Santoso,1980-02-10,46,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,72,True
+worker-uuid-00558,W-00558,Gilang Pratama,1979-10-17,47,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,20,True
+worker-uuid-00559,W-00559,Gilang Mahendra,1989-02-05,37,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,49,True
+worker-uuid-00560,W-00560,Dimas Gunawan,1990-05-22,36,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,45,True
+worker-uuid-00561,W-00561,Doni Gunawan,1989-09-16,37,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,31,True
+worker-uuid-00562,W-00562,Adi Mahendra,1996-11-04,30,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,103,True
+worker-uuid-00563,W-00563,Fajar Kusuma,1989-06-26,37,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,65,True
+worker-uuid-00564,W-00564,Yusuf Pratama,1978-08-20,48,MALE,Marine & Offshore Logistics,Crane Operator,MEDIUM,DAY_SHIFT_ONLY,50,True
+worker-uuid-00565,W-00565,Lukman Wijaya,1981-07-20,45,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,83,True
+worker-uuid-00566,W-00566,Wahyu Saputra,1978-11-16,48,MALE,Camp & Administrative Services,Camp Services Coordinator,LOW,DAY_SHIFT_ONLY,50,True
+worker-uuid-00567,W-00567,Hadi Firmansyah,2001-10-17,25,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,60,True
+worker-uuid-00568,W-00568,Zainal Saputra,1983-03-03,43,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,276,True
+worker-uuid-00569,W-00569,Muhammad Nasution,1986-12-23,40,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,16,True
+worker-uuid-00570,W-00570,Agus Gunawan,1990-05-08,36,MALE,Camp & Administrative Services,Camp Services Coordinator,LOW,DAY_SHIFT_ONLY,74,True
+worker-uuid-00571,W-00571,Muhammad Susanto,1994-09-04,32,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,66,True
+worker-uuid-00572,W-00572,Dedi Firmansyah,1976-10-09,50,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,90,True
+worker-uuid-00573,W-00573,Adi Utomo,1971-08-22,55,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,53,True
+worker-uuid-00574,W-00574,Rian Kusuma,1989-04-22,37,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,92,True
+worker-uuid-00575,W-00575,Lukman Firmansyah,1982-05-08,44,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,34,True
+worker-uuid-00576,W-00576,Bayu Ramadhan,1973-08-11,53,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,41,True
+worker-uuid-00577,W-00577,Agus Kusnandar,1994-12-07,32,MALE,Camp & Administrative Services,Camp Services Coordinator,LOW,DAY_SHIFT_ONLY,29,True
+worker-uuid-00578,W-00578,Gilang Utomo,1992-10-12,34,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,23,True
+worker-uuid-00579,W-00579,Dewi Kusnandar,1987-01-25,39,FEMALE,Camp & Administrative Services,Camp Services Coordinator,LOW,DAY_SHIFT_ONLY,141,True
+worker-uuid-00580,W-00580,Lukman Kurniawan,1975-10-28,51,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,33,True
+worker-uuid-00581,W-00581,Hadi Firmansyah,1993-10-05,33,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,15,True
+worker-uuid-00582,W-00582,Tri Saputra,1989-11-25,37,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,24,True
+worker-uuid-00583,W-00583,Prasetyo Ramadhan,2003-04-13,23,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,36,True
+worker-uuid-00584,W-00584,Dimas Nugroho,1992-05-16,34,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,168,True
+worker-uuid-00585,W-00585,Rian Harahap,1982-06-12,44,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,140,True
+worker-uuid-00586,W-00586,Untung Santoso,1982-02-24,44,MALE,Camp & Administrative Services,Camp Services Coordinator,LOW,DAY_SHIFT_ONLY,32,True
+worker-uuid-00587,W-00587,Dimas Nasution,1979-12-05,47,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,54,True
+worker-uuid-00588,W-00588,Rian Santoso,1977-09-18,49,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,96,True
+worker-uuid-00589,W-00589,Tri Susanto,1997-03-02,29,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,28,True
+worker-uuid-00590,W-00590,Yusuf Kusuma,1990-06-12,36,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,66,True
+worker-uuid-00591,W-00591,Nur Kusuma,1982-10-07,44,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,69,True
+worker-uuid-00592,W-00592,Joko Siregar,1986-12-15,40,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,158,True
+worker-uuid-00593,W-00593,Prasetyo Suharto,1976-11-26,50,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,187,True
+worker-uuid-00594,W-00594,Untung Nasution,1998-03-11,28,MALE,Marine & Offshore Logistics,Deck Foreman,MEDIUM,DAY_SHIFT_ONLY,29,True
+worker-uuid-00595,W-00595,Rizki Nugroho,1989-08-25,37,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,144,True
+worker-uuid-00596,W-00596,Surya Pangestu,1994-01-05,32,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,98,True
+worker-uuid-00597,W-00597,Rizki Wicaksono,1995-02-04,31,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,16,True
+worker-uuid-00598,W-00598,Ahmad Irawan,1980-02-04,46,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,32,True
+worker-uuid-00599,W-00599,Dian Wibowo,1981-08-21,45,FEMALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,21,True
+worker-uuid-00600,W-00600,Ahmad Saputra,1976-06-28,50,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,55,True
+worker-uuid-00601,W-00601,Tri Pangestu,1972-09-06,54,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,71,True
+worker-uuid-00602,W-00602,Yusuf Susanto,1983-09-10,43,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,171,True
+worker-uuid-00603,W-00603,Doni Wijaya,1990-05-05,36,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,36,True
+worker-uuid-00604,W-00604,Adi Santoso,1987-01-23,39,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,182,True
+worker-uuid-00605,W-00605,Adi Harahap,1984-01-18,42,MALE,Marine & Offshore Logistics,Deck Foreman,MEDIUM,DAY_SHIFT_ONLY,43,True
+worker-uuid-00606,W-00606,Nur Nasution,1981-11-13,45,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,129,True
+worker-uuid-00607,W-00607,Nur Suharto,1980-10-26,46,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,90,True
+worker-uuid-00608,W-00608,Agus Gunawan,1989-02-06,37,MALE,Marine & Offshore Logistics,Crane Operator,MEDIUM,DAY_SHIFT_ONLY,21,True
+worker-uuid-00609,W-00609,Wahyu Pangestu,1984-04-11,42,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,13,True
+worker-uuid-00610,W-00610,Ahmad Hidayat,1991-03-23,35,MALE,Camp & Administrative Services,Camp Services Coordinator,LOW,DAY_SHIFT_ONLY,50,True
+worker-uuid-00611,W-00611,Eko Pratama,1990-05-26,36,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,119,True
+worker-uuid-00612,W-00612,Doni Saputra,1977-03-02,49,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,32,True
+worker-uuid-00613,W-00613,Anisa Hidayat,1977-07-27,49,FEMALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,12,True
+worker-uuid-00614,W-00614,Prasetyo Utomo,2001-08-24,25,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,60,True
+worker-uuid-00615,W-00615,Gilang Subekti,1971-06-06,55,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,78,True
+worker-uuid-00616,W-00616,Tri Firmansyah,1987-05-07,39,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,41,True
+worker-uuid-00617,W-00617,Gilang Kusuma,1988-01-06,38,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,117,True
+worker-uuid-00618,W-00618,Maya Pratama,1985-12-16,41,FEMALE,Camp & Administrative Services,Camp Services Coordinator,LOW,DAY_SHIFT_ONLY,89,True
+worker-uuid-00619,W-00619,Bambang Utomo,1998-10-11,28,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,96,True
+worker-uuid-00620,W-00620,Rini Mahendra,1997-08-08,29,FEMALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,37,True
+worker-uuid-00621,W-00621,Prasetyo Wicaksono,1982-06-24,44,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,21,True
+worker-uuid-00622,W-00622,Prasetyo Gunawan,1982-04-19,44,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,25,True
+worker-uuid-00623,W-00623,Prasetyo Nugroho,1984-09-06,42,MALE,HSSE & Occupational Clinic,Occupational Paramedic,LOW,DAY_SHIFT_ONLY,16,True
+worker-uuid-00624,W-00624,Bayu Nugroho,1988-11-17,38,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,43,True
+worker-uuid-00625,W-00625,Wahyu Siregar,1993-12-03,33,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,83,True
+worker-uuid-00626,W-00626,Gilang Firmansyah,1980-03-20,46,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,34,True
+worker-uuid-00627,W-00627,Dedi Kusuma,1999-03-06,27,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,84,True
+worker-uuid-00628,W-00628,Maya Kusuma,1983-07-22,43,FEMALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,56,True
+worker-uuid-00629,W-00629,Indra Saputra,1984-02-01,42,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,189,True
+worker-uuid-00630,W-00630,Hadi Wijaya,1983-06-18,43,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,102,True
+worker-uuid-00631,W-00631,Doni Mahendra,1984-09-02,42,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,100,True
+worker-uuid-00632,W-00632,Maya Firmansyah,1981-09-13,45,FEMALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,26,True
+worker-uuid-00633,W-00633,Untung Suharto,1985-09-14,41,MALE,Camp & Administrative Services,Logistics Specialist,LOW,DAY_SHIFT_ONLY,103,True
+worker-uuid-00634,W-00634,Zainal Pangestu,1988-02-06,38,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,116,True
+worker-uuid-00635,W-00635,Kurniawan Kusnandar,1966-08-12,60,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,167,True
+worker-uuid-00636,W-00636,Kurniawan Siregar,1983-12-11,43,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,74,True
+worker-uuid-00637,W-00637,Tri Wicaksono,1971-08-13,55,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,12,True
+worker-uuid-00638,W-00638,Wahyu Pratama,1967-05-01,59,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,35,True
+worker-uuid-00639,W-00639,Kurniawan Pratama,1972-05-18,54,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,59,True
+worker-uuid-00640,W-00640,Eko Kusuma,1990-03-09,36,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,42,True
+worker-uuid-00641,W-00641,Indra Wibowo,1989-04-24,37,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,17,True
+worker-uuid-00642,W-00642,Fajar Subekti,1982-10-27,44,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,170,True
+worker-uuid-00643,W-00643,Budi Wicaksono,1989-01-25,37,MALE,Marine & Offshore Logistics,Deck Foreman,MEDIUM,DAY_SHIFT_ONLY,39,True
+worker-uuid-00644,W-00644,Dimas Kusuma,1993-11-28,33,MALE,HSSE & Occupational Clinic,Occupational Paramedic,LOW,DAY_SHIFT_ONLY,73,True
+worker-uuid-00645,W-00645,Yusuf Nasution,1986-06-18,40,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,67,True
+worker-uuid-00646,W-00646,Hendra Santoso,1981-07-15,45,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,105,True
+worker-uuid-00647,W-00647,Hendra Harahap,1989-03-11,37,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,17,True
+worker-uuid-00648,W-00648,Tri Nasution,1989-07-25,37,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,91,True
+worker-uuid-00649,W-00649,Gilang Subekti,1985-09-20,41,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,252,True
+worker-uuid-00650,W-00650,Indra Irawan,1982-10-03,44,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,19,True
+worker-uuid-00651,W-00651,Lukman Setiawan,1984-01-25,42,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,36,True
+worker-uuid-00652,W-00652,Doni Pangestu,1988-04-07,38,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,89,True
+worker-uuid-00653,W-00653,Dimas Wijaya,1999-10-05,27,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,84,True
+worker-uuid-00654,W-00654,Dewi Wibowo,2002-04-24,24,FEMALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,48,True
+worker-uuid-00655,W-00655,Adi Nugroho,1984-03-23,42,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,91,True
+worker-uuid-00656,W-00656,Arif Kusnandar,1992-01-10,34,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,26,True
+worker-uuid-00657,W-00657,Siti Wijaya,1992-11-12,34,FEMALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,145,True
+worker-uuid-00658,W-00658,Arif Suharto,1969-09-23,57,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,18,True
+worker-uuid-00659,W-00659,Wahyu Gunawan,1994-08-18,32,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,144,True
+worker-uuid-00660,W-00660,Lestari Wibowo,1989-03-01,37,FEMALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,40,True
+worker-uuid-00661,W-00661,Joko Utomo,1969-05-26,57,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,16,True
+worker-uuid-00662,W-00662,Arif Pratama,1972-04-05,54,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,39,True
+worker-uuid-00663,W-00663,Bambang Wicaksono,1971-10-28,55,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,77,True
+worker-uuid-00664,W-00664,Untung Santoso,1991-10-11,35,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,51,True
+worker-uuid-00665,W-00665,Eko Susanto,1979-03-10,47,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,89,True
+worker-uuid-00666,W-00666,Hadi Irawan,1973-03-11,53,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,16,True
+worker-uuid-00667,W-00667,Dedi Hidayat,1975-12-01,51,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,108,True
+worker-uuid-00668,W-00668,Joko Pangestu,1978-11-24,48,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,33,True
+worker-uuid-00669,W-00669,Rini Pratama,1984-05-20,42,FEMALE,Marine & Offshore Logistics,Crane Operator,MEDIUM,DAY_SHIFT_ONLY,67,True
+worker-uuid-00670,W-00670,Hendra Kusnandar,1998-08-05,28,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,58,True
+worker-uuid-00671,W-00671,Yusuf Siregar,1989-08-05,37,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,23,True
+worker-uuid-00672,W-00672,Siti Nugroho,1993-11-07,33,FEMALE,Camp & Administrative Services,Camp Services Coordinator,LOW,DAY_SHIFT_ONLY,106,True
+worker-uuid-00673,W-00673,Prasetyo Kurniawan,1990-08-08,36,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,49,True
+worker-uuid-00674,W-00674,Bayu Nasution,1989-12-19,37,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,72,True
+worker-uuid-00675,W-00675,Rizki Saputra,1988-01-08,38,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,60,True
+worker-uuid-00676,W-00676,Budi Gunawan,1980-01-07,46,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,34,True
+worker-uuid-00677,W-00677,Adi Wibowo,1988-10-02,38,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,90,True
+worker-uuid-00678,W-00678,Yusuf Pangestu,1987-03-25,39,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,70,True
+worker-uuid-00679,W-00679,Dian Ramadhan,1994-10-23,32,FEMALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,144,True
+worker-uuid-00680,W-00680,Putri Mahendra,1981-03-23,45,FEMALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,100,True
+worker-uuid-00681,W-00681,Anisa Suharto,1986-07-24,40,FEMALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,116,True
+worker-uuid-00682,W-00682,Muhammad Saputra,1974-10-28,52,MALE,Marine & Offshore Logistics,Crane Operator,MEDIUM,DAY_SHIFT_ONLY,83,True
+worker-uuid-00683,W-00683,Eko Hidayat,2000-05-10,26,MALE,Marine & Offshore Logistics,Deck Foreman,MEDIUM,DAY_SHIFT_ONLY,72,True
+worker-uuid-00684,W-00684,Fajar Kusuma,1971-01-20,55,MALE,HSSE & Occupational Clinic,Occupational Paramedic,LOW,DAY_SHIFT_ONLY,108,True
+worker-uuid-00685,W-00685,Dimas Subekti,2003-08-08,23,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,28,True
+worker-uuid-00686,W-00686,Prasetyo Wijaya,2003-09-09,23,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,36,True
+worker-uuid-00687,W-00687,Gilang Saputra,1999-06-02,27,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,22,True
+worker-uuid-00688,W-00688,Bayu Kurniawan,1973-01-04,53,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,47,True
+worker-uuid-00689,W-00689,Joko Kurniawan,1982-10-26,44,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,67,True
+worker-uuid-00690,W-00690,Lukman Saputra,1991-06-13,35,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,126,True
+worker-uuid-00691,W-00691,Bambang Wibowo,1996-05-11,30,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,61,True
+worker-uuid-00692,W-00692,Wahyu Saputra,1981-11-17,45,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,300,True
+worker-uuid-00693,W-00693,Wahyu Mahendra,1984-06-09,42,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,61,True
+worker-uuid-00694,W-00694,Eko Kurniawan,1986-11-16,40,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,57,True
+worker-uuid-00695,W-00695,Hendra Mahendra,1994-02-01,32,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,53,True
+worker-uuid-00696,W-00696,Gilang Kurniawan,1989-06-12,37,MALE,Camp & Administrative Services,Logistics Specialist,LOW,DAY_SHIFT_ONLY,66,True
+worker-uuid-00697,W-00697,Yusuf Setiawan,1992-02-10,34,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,35,True
+worker-uuid-00698,W-00698,Ahmad Kusuma,1990-12-19,36,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,75,True
+worker-uuid-00699,W-00699,Gilang Ramadhan,1973-08-16,53,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,118,True
+worker-uuid-00700,W-00700,Rini Suharto,1976-06-15,50,FEMALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,114,True
+worker-uuid-00701,W-00701,Budi Firmansyah,1981-06-18,45,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,63,True
+worker-uuid-00702,W-00702,Kurniawan Siregar,1995-01-11,31,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,132,True
+worker-uuid-00703,W-00703,Untung Kurniawan,1984-05-23,42,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,142,True
+worker-uuid-00704,W-00704,Bambang Subekti,1989-05-07,37,MALE,HSSE & Occupational Clinic,Occupational Paramedic,LOW,DAY_SHIFT_ONLY,61,True
+worker-uuid-00705,W-00705,Siti Irawan,1997-09-01,29,FEMALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,108,True
+worker-uuid-00706,W-00706,Kurniawan Subekti,1986-06-05,40,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,109,True
+worker-uuid-00707,W-00707,Surya Kusnandar,1994-01-15,32,MALE,Camp & Administrative Services,Logistics Specialist,LOW,DAY_SHIFT_ONLY,44,True
+worker-uuid-00708,W-00708,Fitri Saputra,1984-02-11,42,FEMALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,53,True
+worker-uuid-00709,W-00709,Fitri Pratama,1991-04-11,35,FEMALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,26,True
+worker-uuid-00710,W-00710,Kurniawan Irawan,1996-03-06,30,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,33,True
+worker-uuid-00711,W-00711,Tri Firmansyah,1986-09-11,40,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,33,True
+worker-uuid-00712,W-00712,Fajar Wijaya,1975-09-15,51,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,15,True
+worker-uuid-00713,W-00713,Zainal Saputra,1999-07-13,27,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,25,True
+worker-uuid-00714,W-00714,Yusuf Mahendra,1984-05-11,42,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,125,True
+worker-uuid-00715,W-00715,Doni Gunawan,1973-08-19,53,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,21,True
+worker-uuid-00716,W-00716,Fitri Kusnandar,1980-08-08,46,FEMALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,208,True
+worker-uuid-00717,W-00717,Wahyu Nugroho,1989-12-22,37,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,38,True
+worker-uuid-00718,W-00718,Ahmad Wijaya,1990-08-28,36,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,24,True
+worker-uuid-00719,W-00719,Eko Firmansyah,1978-02-11,48,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,66,True
+worker-uuid-00720,W-00720,Tri Pangestu,1989-10-08,37,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,64,True
+worker-uuid-00721,W-00721,Kurniawan Setiawan,1985-07-19,41,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,115,True
+worker-uuid-00722,W-00722,Fajar Kusnandar,1981-12-19,45,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,132,True
+worker-uuid-00723,W-00723,Prasetyo Ramadhan,1978-03-10,48,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,220,True
+worker-uuid-00724,W-00724,Zainal Kurniawan,1989-08-21,37,MALE,Marine & Offshore Logistics,Crane Operator,MEDIUM,DAY_SHIFT_ONLY,83,True
+worker-uuid-00725,W-00725,Eko Susanto,1983-01-25,43,MALE,Camp & Administrative Services,Camp Services Coordinator,LOW,DAY_SHIFT_ONLY,22,True
+worker-uuid-00726,W-00726,Joko Nasution,1988-04-22,38,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,151,True
+worker-uuid-00727,W-00727,Hadi Kusnandar,1972-07-23,54,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,282,True
+worker-uuid-00728,W-00728,Untung Pratama,1986-03-28,40,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,35,True
+worker-uuid-00729,W-00729,Budi Pratama,1978-06-04,48,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,143,True
+worker-uuid-00730,W-00730,Rizki Susanto,1991-07-13,35,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,44,True
+worker-uuid-00731,W-00731,Rian Santoso,1989-06-27,37,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,47,True
+worker-uuid-00732,W-00732,Zainal Santoso,1998-01-05,28,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,96,True
+worker-uuid-00733,W-00733,Eko Wijaya,1978-08-26,48,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,91,True
+worker-uuid-00734,W-00734,Prasetyo Firmansyah,1978-07-12,48,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,29,True
+worker-uuid-00735,W-00735,Untung Subekti,1993-09-09,33,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,47,True
+worker-uuid-00736,W-00736,Budi Saputra,1982-02-19,44,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,55,True
+worker-uuid-00737,W-00737,Lestari Irawan,1987-02-17,39,FEMALE,Marine & Offshore Logistics,Crane Operator,MEDIUM,DAY_SHIFT_ONLY,159,True
+worker-uuid-00738,W-00738,Yusuf Wicaksono,1983-11-21,43,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,63,True
+worker-uuid-00739,W-00739,Budi Ramadhan,2003-08-17,23,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,36,True
+worker-uuid-00740,W-00740,Doni Wibowo,2001-10-24,25,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,36,True
+worker-uuid-00741,W-00741,Yusuf Subekti,1985-11-10,41,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,122,True
+worker-uuid-00742,W-00742,Anisa Wijaya,1998-05-09,28,FEMALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,21,True
+worker-uuid-00743,W-00743,Indra Pratama,1984-10-24,42,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,22,True
+worker-uuid-00744,W-00744,Fajar Nugroho,1993-03-26,33,MALE,Marine & Offshore Logistics,Crane Operator,MEDIUM,DAY_SHIFT_ONLY,61,True
+worker-uuid-00745,W-00745,Bambang Santoso,1978-08-25,48,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,336,True
+worker-uuid-00746,W-00746,Prasetyo Wicaksono,1993-12-27,33,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,40,True
+worker-uuid-00747,W-00747,Bayu Kusuma,1987-08-10,39,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,55,True
+worker-uuid-00748,W-00748,Zainal Mahendra,1992-09-28,34,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,50,True
+worker-uuid-00749,W-00749,Prasetyo Nasution,1971-11-02,55,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,18,True
+worker-uuid-00750,W-00750,Dimas Harahap,1983-05-11,43,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,33,True
+worker-uuid-00751,W-00751,Untung Nasution,1982-04-24,44,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,86,True
+worker-uuid-00752,W-00752,Zainal Mahendra,1991-01-22,35,MALE,Camp & Administrative Services,Camp Services Coordinator,LOW,DAY_SHIFT_ONLY,12,True
+worker-uuid-00753,W-00753,Dewi Firmansyah,1988-04-24,38,FEMALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,34,True
+worker-uuid-00754,W-00754,Ratna Wijaya,1984-04-20,42,FEMALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,79,True
+worker-uuid-00755,W-00755,Ratna Santoso,1980-11-19,46,FEMALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,120,True
+worker-uuid-00756,W-00756,Rizki Hidayat,1987-02-21,39,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,52,True
+worker-uuid-00757,W-00757,Rizki Kusnandar,1990-03-25,36,MALE,Marine & Offshore Logistics,Crane Operator,MEDIUM,DAY_SHIFT_ONLY,17,True
+worker-uuid-00758,W-00758,Kurniawan Saputra,1978-03-15,48,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,16,True
+worker-uuid-00759,W-00759,Fajar Suharto,1995-07-07,31,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,75,True
+worker-uuid-00760,W-00760,Rizki Nugroho,1998-10-24,28,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,31,True
+worker-uuid-00761,W-00761,Anisa Santoso,2005-01-22,21,FEMALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,12,True
+worker-uuid-00762,W-00762,Arif Nasution,1986-08-16,40,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,50,True
+worker-uuid-00763,W-00763,Doni Wijaya,2004-12-27,22,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,24,True
+worker-uuid-00764,W-00764,Hadi Siregar,1991-01-21,35,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,180,True
+worker-uuid-00765,W-00765,Dimas Ramadhan,1988-05-21,38,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,27,True
+worker-uuid-00766,W-00766,Dian Kusnandar,1982-02-21,44,FEMALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,89,True
+worker-uuid-00767,W-00767,Anisa Wicaksono,2001-01-24,25,FEMALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,60,True
+worker-uuid-00768,W-00768,Bambang Gunawan,1987-08-01,39,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,14,True
+worker-uuid-00769,W-00769,Agus Saputra,1993-11-22,33,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,61,True
+worker-uuid-00770,W-00770,Hendra Wijaya,1996-11-01,30,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,54,True
+worker-uuid-00771,W-00771,Rini Pratama,2000-05-27,26,FEMALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,72,True
+worker-uuid-00772,W-00772,Bayu Susanto,1978-02-16,48,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,72,True
+worker-uuid-00773,W-00773,Doni Setiawan,1978-12-22,48,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,46,True
+worker-uuid-00774,W-00774,Untung Gunawan,1977-04-25,49,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,15,True
+worker-uuid-00775,W-00775,Dedi Nugroho,1988-12-12,38,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,65,True
+worker-uuid-00776,W-00776,Untung Saputra,1979-11-20,47,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,43,True
+worker-uuid-00777,W-00777,Anisa Wijaya,1994-02-23,32,FEMALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,82,True
+worker-uuid-00778,W-00778,Doni Irawan,1996-03-21,30,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,33,True
+worker-uuid-00779,W-00779,Fajar Kurniawan,1984-12-16,42,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,75,True
+worker-uuid-00780,W-00780,Doni Wibowo,2004-04-07,22,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,20,True
+worker-uuid-00781,W-00781,Dimas Irawan,1987-08-25,39,MALE,Camp & Administrative Services,Camp Services Coordinator,LOW,DAY_SHIFT_ONLY,77,True
+worker-uuid-00782,W-00782,Gilang Kusuma,1982-08-16,44,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,24,True
+worker-uuid-00783,W-00783,Budi Suharto,1993-05-11,33,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,75,True
+worker-uuid-00784,W-00784,Siti Gunawan,1979-08-17,47,FEMALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,20,True
+worker-uuid-00785,W-00785,Untung Susanto,1994-11-11,32,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,29,True
+worker-uuid-00786,W-00786,Dedi Utomo,1976-07-08,50,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,17,True
+worker-uuid-00787,W-00787,Arif Harahap,1973-08-06,53,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,44,True
+worker-uuid-00788,W-00788,Gilang Suharto,1992-06-05,34,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,14,True
+worker-uuid-00789,W-00789,Dedi Pangestu,1995-06-08,31,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,132,True
+worker-uuid-00790,W-00790,Yusuf Kurniawan,1985-09-28,41,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,29,True
+worker-uuid-00791,W-00791,Rian Setiawan,1977-05-01,49,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,99,True
+worker-uuid-00792,W-00792,Hendra Ramadhan,1993-10-05,33,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,156,True
+worker-uuid-00793,W-00793,Budi Saputra,1981-09-02,45,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,48,True
+worker-uuid-00794,W-00794,Doni Mahendra,1988-04-03,38,MALE,Marine & Offshore Logistics,Crane Operator,MEDIUM,DAY_SHIFT_ONLY,66,True
+worker-uuid-00795,W-00795,Nur Setiawan,1991-11-03,35,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,13,True
+worker-uuid-00796,W-00796,Prasetyo Susanto,2001-08-15,25,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,60,True
+worker-uuid-00797,W-00797,Doni Siregar,1982-01-28,44,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,77,True
+worker-uuid-00798,W-00798,Kurniawan Firmansyah,1988-05-23,38,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,206,True
+worker-uuid-00799,W-00799,Gilang Kusnandar,1975-12-02,51,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,60,True
+worker-uuid-00800,W-00800,Dedi Nasution,1984-06-12,42,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,24,True
+worker-uuid-00801,W-00801,Adi Setiawan,1990-09-04,36,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,81,True
+worker-uuid-00802,W-00802,Rizki Setiawan,1980-06-12,46,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,164,True
+worker-uuid-00803,W-00803,Indra Saputra,1990-08-17,36,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,61,True
+worker-uuid-00804,W-00804,Tri Kusnandar,1974-08-20,52,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,42,True
+worker-uuid-00805,W-00805,Doni Wijaya,1975-02-03,51,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,45,True
+worker-uuid-00806,W-00806,Bambang Kusuma,1997-03-16,29,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,22,True
+worker-uuid-00807,W-00807,Yusuf Pratama,1970-09-05,56,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,54,True
+worker-uuid-00808,W-00808,Yusuf Pratama,1999-04-27,27,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,84,True
+worker-uuid-00809,W-00809,Kurniawan Suharto,1990-10-22,36,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,91,True
+worker-uuid-00810,W-00810,Joko Susanto,1979-03-26,47,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,32,True
+worker-uuid-00811,W-00811,Joko Irawan,1995-05-15,31,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,132,True
+worker-uuid-00812,W-00812,Rizki Gunawan,1970-12-23,56,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,168,True
+worker-uuid-00813,W-00813,Dedi Saputra,1985-08-09,41,MALE,Camp & Administrative Services,Camp Services Coordinator,LOW,DAY_SHIFT_ONLY,42,True
+worker-uuid-00814,W-00814,Budi Kusnandar,1990-06-15,36,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,63,True
+worker-uuid-00815,W-00815,Dedi Pratama,1987-03-15,39,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,187,True
+worker-uuid-00816,W-00816,Lestari Firmansyah,1982-08-10,44,FEMALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,244,True
+worker-uuid-00817,W-00817,Agus Pangestu,1997-08-02,29,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,22,True
+worker-uuid-00818,W-00818,Muhammad Kurniawan,1988-02-11,38,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,15,True
+worker-uuid-00819,W-00819,Surya Utomo,1980-04-01,46,MALE,Marine & Offshore Logistics,Deck Foreman,MEDIUM,DAY_SHIFT_ONLY,17,True
+worker-uuid-00820,W-00820,Bambang Firmansyah,1987-10-20,39,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,59,True
+worker-uuid-00821,W-00821,Lukman Nasution,1976-06-13,50,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,43,True
+worker-uuid-00822,W-00822,Joko Pangestu,1998-12-15,28,MALE,HSSE & Occupational Clinic,Safety Inspector,LOW,DAY_SHIFT_ONLY,96,True
+worker-uuid-00823,W-00823,Joko Hidayat,1970-07-24,56,MALE,Marine & Offshore Logistics,Crane Operator,MEDIUM,DAY_SHIFT_ONLY,163,True
+worker-uuid-00824,W-00824,Wahyu Wijaya,1991-09-11,35,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,16,True
+worker-uuid-00825,W-00825,Bambang Pratama,1974-07-06,52,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,66,True
+worker-uuid-00826,W-00826,Bayu Nasution,1987-05-27,39,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,70,True
+worker-uuid-00827,W-00827,Prasetyo Utomo,2004-05-10,22,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,24,True
+worker-uuid-00828,W-00828,Fitri Harahap,1974-11-08,52,FEMALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,13,True
+worker-uuid-00829,W-00829,Bambang Kurniawan,1985-10-14,41,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,147,True
+worker-uuid-00830,W-00830,Rizki Kusuma,1981-01-28,45,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,32,True
+worker-uuid-00831,W-00831,Prasetyo Mahendra,1995-05-12,31,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,48,True
+worker-uuid-00832,W-00832,Fitri Firmansyah,1998-04-25,28,FEMALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,77,True
+worker-uuid-00833,W-00833,Fajar Gunawan,1991-11-26,35,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,35,True
+worker-uuid-00834,W-00834,Ratna Siregar,2003-09-10,23,FEMALE,Marine & Offshore Logistics,Deck Foreman,MEDIUM,DAY_SHIFT_ONLY,36,True
+worker-uuid-00835,W-00835,Hadi Hidayat,1995-04-27,31,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,25,True
+worker-uuid-00836,W-00836,Bayu Firmansyah,1981-12-25,45,MALE,Marine & Offshore Logistics,Deck Foreman,MEDIUM,DAY_SHIFT_ONLY,120,True
+worker-uuid-00837,W-00837,Bambang Kusuma,1973-08-12,53,MALE,Marine & Offshore Logistics,Deck Foreman,MEDIUM,DAY_SHIFT_ONLY,36,True
+worker-uuid-00838,W-00838,Anisa Kurniawan,1970-03-23,56,FEMALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,36,True
+worker-uuid-00839,W-00839,Dimas Mahendra,1993-03-07,33,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,21,True
+worker-uuid-00840,W-00840,Adi Kusuma,1979-07-02,47,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,26,True
+worker-uuid-00841,W-00841,Surya Susanto,1996-05-02,30,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,16,True
+worker-uuid-00842,W-00842,Doni Kusuma,1994-04-06,32,MALE,Camp & Administrative Services,Camp Services Coordinator,LOW,DAY_SHIFT_ONLY,86,True
+worker-uuid-00843,W-00843,Fitri Susanto,1995-09-25,31,FEMALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,98,True
+worker-uuid-00844,W-00844,Bambang Kusuma,1980-09-07,46,MALE,Marine & Offshore Logistics,Deck Foreman,MEDIUM,DAY_SHIFT_ONLY,95,True
+worker-uuid-00845,W-00845,Adi Gunawan,1981-04-17,45,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,139,True
+worker-uuid-00846,W-00846,Untung Hidayat,1971-03-27,55,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,41,True
+worker-uuid-00847,W-00847,Surya Utomo,1980-06-04,46,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,53,True
+worker-uuid-00848,W-00848,Lukman Mahendra,1981-02-11,45,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,57,True
+worker-uuid-00849,W-00849,Wahyu Wicaksono,1969-08-08,57,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,65,True
+worker-uuid-00850,W-00850,Nur Setiawan,1975-08-22,51,MALE,HSSE & Occupational Clinic,Occupational Paramedic,LOW,DAY_SHIFT_ONLY,42,True
+worker-uuid-00851,W-00851,Rian Kusnandar,1988-11-22,38,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,17,True
+worker-uuid-00852,W-00852,Rizki Susanto,1980-03-03,46,MALE,Camp & Administrative Services,Camp Services Coordinator,LOW,DAY_SHIFT_ONLY,42,True
+worker-uuid-00853,W-00853,Wahyu Nasution,1977-12-16,49,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,33,True
+worker-uuid-00854,W-00854,Adi Suharto,1990-11-20,36,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,192,True
+worker-uuid-00855,W-00855,Eko Irawan,1996-08-16,30,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,29,True
+worker-uuid-00856,W-00856,Siti Wijaya,2001-03-13,25,FEMALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,60,True
+worker-uuid-00857,W-00857,Wahyu Kurniawan,1998-09-25,28,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,57,True
+worker-uuid-00858,W-00858,Zainal Subekti,1992-06-26,34,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,142,True
+worker-uuid-00859,W-00859,Budi Harahap,1996-08-11,30,MALE,HSSE & Occupational Clinic,Safety Inspector,LOW,DAY_SHIFT_ONLY,120,True
+worker-uuid-00860,W-00860,Budi Hidayat,1976-05-23,50,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,23,True
+worker-uuid-00861,W-00861,Dian Subekti,1985-08-22,41,FEMALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,65,True
+worker-uuid-00862,W-00862,Rian Gunawan,1987-07-09,39,MALE,HSSE & Occupational Clinic,Safety Inspector,LOW,DAY_SHIFT_ONLY,57,True
+worker-uuid-00863,W-00863,Lukman Irawan,1991-01-19,35,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,15,True
+worker-uuid-00864,W-00864,Agus Susanto,1975-06-13,51,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,18,True
+worker-uuid-00865,W-00865,Nur Siregar,1992-04-21,34,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,36,True
+worker-uuid-00866,W-00866,Bambang Wibowo,1995-09-11,31,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,14,True
+worker-uuid-00867,W-00867,Arif Harahap,1982-10-01,44,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,288,True
+worker-uuid-00868,W-00868,Kurniawan Susanto,1987-12-22,39,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,27,True
+worker-uuid-00869,W-00869,Adi Kusnandar,1984-06-14,42,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,27,True
+worker-uuid-00870,W-00870,Tri Setiawan,2000-10-13,26,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,72,True
+worker-uuid-00871,W-00871,Bambang Mahendra,1997-06-09,29,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,16,True
+worker-uuid-00872,W-00872,Gilang Siregar,1983-05-17,43,MALE,Marine & Offshore Logistics,Deck Foreman,MEDIUM,DAY_SHIFT_ONLY,120,True
+worker-uuid-00873,W-00873,Kurniawan Setiawan,1992-09-15,34,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,86,True
+worker-uuid-00874,W-00874,Yusuf Mahendra,1994-08-07,32,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,84,True
+worker-uuid-00875,W-00875,Yusuf Gunawan,1977-07-19,49,MALE,Marine & Offshore Logistics,Crane Operator,MEDIUM,DAY_SHIFT_ONLY,98,True
+worker-uuid-00876,W-00876,Lukman Pangestu,1995-11-25,31,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,35,True
+worker-uuid-00877,W-00877,Dimas Wijaya,1977-05-27,49,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,34,True
+worker-uuid-00878,W-00878,Wahyu Utomo,1997-04-01,29,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,30,True
+worker-uuid-00879,W-00879,Tri Harahap,1974-04-06,52,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,33,True
+worker-uuid-00880,W-00880,Doni Nugroho,1994-01-24,32,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,56,True
+worker-uuid-00881,W-00881,Dewi Ramadhan,1976-07-12,50,FEMALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,86,True
+worker-uuid-00882,W-00882,Bayu Wicaksono,1993-10-24,33,MALE,Marine & Offshore Logistics,Crane Operator,MEDIUM,DAY_SHIFT_ONLY,58,True
+worker-uuid-00883,W-00883,Bayu Susanto,1973-05-16,53,MALE,Camp & Administrative Services,Camp Services Coordinator,LOW,DAY_SHIFT_ONLY,155,True
+worker-uuid-00884,W-00884,Adi Ramadhan,1985-07-26,41,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,103,True
+worker-uuid-00885,W-00885,Gilang Santoso,1993-05-15,33,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,46,True
+worker-uuid-00886,W-00886,Lestari Siregar,1997-09-14,29,FEMALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,54,True
+worker-uuid-00887,W-00887,Arif Santoso,1981-05-01,45,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,81,True
+worker-uuid-00888,W-00888,Zainal Saputra,1979-04-09,47,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,65,True
+worker-uuid-00889,W-00889,Rizki Siregar,1982-09-28,44,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,29,True
+worker-uuid-00890,W-00890,Hadi Nasution,1973-05-03,53,MALE,Camp & Administrative Services,Camp Services Coordinator,LOW,DAY_SHIFT_ONLY,195,True
+worker-uuid-00891,W-00891,Dimas Hidayat,1984-11-14,42,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,115,True
+worker-uuid-00892,W-00892,Bayu Irawan,1987-07-27,39,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,38,True
+worker-uuid-00893,W-00893,Bayu Kusuma,1982-09-03,44,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,40,True
+worker-uuid-00894,W-00894,Tri Wicaksono,1982-01-21,44,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,80,True
+worker-uuid-00895,W-00895,Eko Pratama,1984-06-19,42,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,17,True
+worker-uuid-00896,W-00896,Rizki Irawan,1980-10-22,46,MALE,Marine & Offshore Logistics,Deck Foreman,MEDIUM,DAY_SHIFT_ONLY,47,True
+worker-uuid-00897,W-00897,Dimas Wicaksono,1995-10-27,31,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,38,True
+worker-uuid-00898,W-00898,Nur Siregar,1976-10-08,50,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,13,True
+worker-uuid-00899,W-00899,Yusuf Kurniawan,1974-08-07,52,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,32,True
+worker-uuid-00900,W-00900,Ratna Harahap,1995-06-06,31,FEMALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,132,True
+worker-uuid-00901,W-00901,Lestari Harahap,1973-11-16,53,FEMALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,20,True
+worker-uuid-00902,W-00902,Dimas Nugroho,1987-03-14,39,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,141,True
+worker-uuid-00903,W-00903,Bayu Wibowo,1994-03-14,32,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,116,True
+worker-uuid-00904,W-00904,Indra Utomo,1974-06-19,52,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,88,True
+worker-uuid-00905,W-00905,Anisa Santoso,1970-07-22,56,FEMALE,HSSE & Occupational Clinic,Safety Inspector,LOW,DAY_SHIFT_ONLY,27,True
+worker-uuid-00906,W-00906,Agus Kurniawan,1997-01-02,29,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,38,True
+worker-uuid-00907,W-00907,Lukman Kurniawan,1970-10-23,56,MALE,Camp & Administrative Services,Camp Services Coordinator,LOW,DAY_SHIFT_ONLY,103,True
+worker-uuid-00908,W-00908,Lestari Kurniawan,1969-11-12,57,FEMALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,21,True
+worker-uuid-00909,W-00909,Indra Hidayat,1973-08-05,53,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,18,True
+worker-uuid-00910,W-00910,Dedi Ramadhan,1996-05-24,30,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,41,True
+worker-uuid-00911,W-00911,Arif Nugroho,1980-05-17,46,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,37,True
+worker-uuid-00912,W-00912,Rian Irawan,1985-11-21,41,MALE,Camp & Administrative Services,Camp Services Coordinator,LOW,DAY_SHIFT_ONLY,118,True
+worker-uuid-00913,W-00913,Budi Utomo,1987-03-23,39,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,53,True
+worker-uuid-00914,W-00914,Hadi Subekti,1990-12-18,36,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,56,True
+worker-uuid-00915,W-00915,Rini Kusuma,1994-05-06,32,FEMALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,132,True
+worker-uuid-00916,W-00916,Zainal Susanto,1966-01-17,60,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,109,True
+worker-uuid-00917,W-00917,Bambang Utomo,1982-06-01,44,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,34,True
+worker-uuid-00918,W-00918,Putri Susanto,1997-06-05,29,FEMALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,13,True
+worker-uuid-00919,W-00919,Zainal Subekti,1971-10-22,55,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,12,True
+worker-uuid-00920,W-00920,Prasetyo Ramadhan,1965-10-05,61,MALE,Camp & Administrative Services,Camp Services Coordinator,LOW,DAY_SHIFT_ONLY,27,True
+worker-uuid-00921,W-00921,Joko Ramadhan,1980-09-20,46,MALE,Marine & Offshore Logistics,Deck Foreman,MEDIUM,DAY_SHIFT_ONLY,44,True
+worker-uuid-00922,W-00922,Hendra Irawan,1998-04-06,28,MALE,HSSE & Occupational Clinic,Safety Inspector,LOW,DAY_SHIFT_ONLY,44,True
+worker-uuid-00923,W-00923,Adi Suharto,1991-07-24,35,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,121,True
+worker-uuid-00924,W-00924,Wahyu Santoso,1997-06-17,29,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,26,True
+worker-uuid-00925,W-00925,Rian Nugroho,1988-07-26,38,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,42,True
+worker-uuid-00926,W-00926,Nur Wijaya,1990-08-22,36,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,28,True
+worker-uuid-00927,W-00927,Surya Suharto,1998-08-14,28,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,17,True
+worker-uuid-00928,W-00928,Eko Kusnandar,1977-09-14,49,MALE,Camp & Administrative Services,Camp Services Coordinator,LOW,DAY_SHIFT_ONLY,35,True
+worker-uuid-00929,W-00929,Hadi Saputra,1986-07-04,40,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,53,True
+worker-uuid-00930,W-00930,Untung Wijaya,2002-12-22,24,MALE,Marine & Offshore Logistics,Crane Operator,MEDIUM,DAY_SHIFT_ONLY,48,True
+worker-uuid-00931,W-00931,Budi Wijaya,1982-06-19,44,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,97,True
+worker-uuid-00932,W-00932,Indra Ramadhan,1976-03-07,50,MALE,Camp & Administrative Services,Logistics Specialist,LOW,DAY_SHIFT_ONLY,25,True
+worker-uuid-00933,W-00933,Indra Kusnandar,1986-01-13,40,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,20,True
+worker-uuid-00934,W-00934,Prasetyo Mahendra,1983-12-20,43,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,98,True
+worker-uuid-00935,W-00935,Wahyu Siregar,1971-11-13,55,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,120,True
+worker-uuid-00936,W-00936,Siti Setiawan,2002-04-28,24,FEMALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,13,True
+worker-uuid-00937,W-00937,Yusuf Utomo,1984-09-07,42,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,18,True
+worker-uuid-00938,W-00938,Nur Pratama,1974-12-23,52,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,51,True
+worker-uuid-00939,W-00939,Dimas Pangestu,1994-10-27,32,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,131,True
+worker-uuid-00940,W-00940,Dedi Suharto,1988-07-28,38,MALE,Marine & Offshore Logistics,Rig Logistics Officer,MEDIUM,DAY_SHIFT_ONLY,57,True
+worker-uuid-00941,W-00941,Tri Wibowo,1989-09-19,37,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,97,True
+worker-uuid-00942,W-00942,Budi Firmansyah,1985-09-03,41,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,32,True
+worker-uuid-00943,W-00943,Dedi Subekti,1983-08-23,43,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,50,True
+worker-uuid-00944,W-00944,Gilang Subekti,1993-04-19,33,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,156,True
+worker-uuid-00945,W-00945,Dimas Mahendra,1996-05-24,30,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,94,True
+worker-uuid-00946,W-00946,Zainal Suharto,1979-03-20,47,MALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,27,True
+worker-uuid-00947,W-00947,Zainal Subekti,1994-10-16,32,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,19,True
+worker-uuid-00948,W-00948,Rian Wibowo,1985-01-12,41,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,153,True
+worker-uuid-00949,W-00949,Fajar Firmansyah,1999-07-04,27,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,76,True
+worker-uuid-00950,W-00950,Rian Nugroho,1979-01-25,47,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,152,True
+worker-uuid-00951,W-00951,Dimas Mahendra,1984-02-23,42,MALE,HSSE & Occupational Clinic,Safety Inspector,LOW,DAY_SHIFT_ONLY,15,True
+worker-uuid-00952,W-00952,Bayu Irawan,1997-10-20,29,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,108,True
+worker-uuid-00953,W-00953,Budi Firmansyah,1984-04-12,42,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,23,True
+worker-uuid-00954,W-00954,Adi Firmansyah,1976-03-21,50,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,42,True
+worker-uuid-00955,W-00955,Maya Pangestu,1980-01-08,46,FEMALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,132,True
+worker-uuid-00956,W-00956,Surya Hidayat,1989-07-12,37,MALE,Drilling Operations,Derrickman,HIGH,12H_DAY_NIGHT_ROTATION,78,True
+worker-uuid-00957,W-00957,Adi Firmansyah,1993-07-14,33,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,156,True
+worker-uuid-00958,W-00958,Surya Kusnandar,2001-03-25,25,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,12,True
+worker-uuid-00959,W-00959,Putri Nasution,1995-01-13,31,FEMALE,Camp & Administrative Services,Logistics Specialist,LOW,DAY_SHIFT_ONLY,106,True
+worker-uuid-00960,W-00960,Eko Susanto,1984-12-26,42,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,83,True
+worker-uuid-00961,W-00961,Nur Nasution,1982-05-24,44,MALE,HSSE & Occupational Clinic,Safety Inspector,LOW,DAY_SHIFT_ONLY,102,True
+worker-uuid-00962,W-00962,Fitri Firmansyah,1995-07-15,31,FEMALE,Mechanical & Electrical Maintenance,Electrician,MEDIUM,12H_DAY_NIGHT_ROTATION,80,True
+worker-uuid-00963,W-00963,Wahyu Suharto,1990-11-13,36,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,111,True
+worker-uuid-00964,W-00964,Lestari Ramadhan,1981-03-17,45,FEMALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,300,True
+worker-uuid-00965,W-00965,Surya Gunawan,1990-11-06,36,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,13,True
+worker-uuid-00966,W-00966,Adi Wibowo,1968-02-24,58,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,16,True
+worker-uuid-00967,W-00967,Surya Siregar,1980-02-15,46,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,35,True
+worker-uuid-00968,W-00968,Hendra Wicaksono,1985-11-22,41,MALE,Camp & Administrative Services,Logistics Specialist,LOW,DAY_SHIFT_ONLY,62,True
+worker-uuid-00969,W-00969,Joko Wibowo,1978-10-22,48,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,22,True
+worker-uuid-00970,W-00970,Hendra Kusuma,1985-06-15,41,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,18,True
+worker-uuid-00971,W-00971,Bambang Wijaya,1975-08-07,51,MALE,Drilling Operations,Driller,HIGH,12H_DAY_NIGHT_ROTATION,51,True
+worker-uuid-00972,W-00972,Muhammad Susanto,1979-05-19,47,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,58,True
+worker-uuid-00973,W-00973,Rizki Subekti,1988-03-05,38,MALE,Mechanical & Electrical Maintenance,Rotating Equipment Tech,MEDIUM,12H_DAY_NIGHT_ROTATION,58,True
+worker-uuid-00974,W-00974,Eko Mahendra,1986-12-07,40,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,52,True
+worker-uuid-00975,W-00975,Tri Siregar,1996-07-04,30,MALE,Camp & Administrative Services,Logistics Specialist,LOW,DAY_SHIFT_ONLY,20,True
+worker-uuid-00976,W-00976,Surya Santoso,1991-06-10,35,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,35,True
+worker-uuid-00977,W-00977,Eko Susanto,1972-05-10,54,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,28,True
+worker-uuid-00978,W-00978,Lestari Siregar,2000-08-19,26,FEMALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,36,True
+worker-uuid-00979,W-00979,Doni Nasution,1981-10-05,45,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,107,True
+worker-uuid-00980,W-00980,Zainal Pangestu,1981-02-26,45,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,77,True
+worker-uuid-00981,W-00981,Hendra Nasution,2000-11-15,26,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,72,True
+worker-uuid-00982,W-00982,Rizki Pratama,1979-12-10,47,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,66,True
+worker-uuid-00983,W-00983,Bambang Setiawan,1986-01-19,40,MALE,Camp & Administrative Services,Warehouse Admin,LOW,DAY_SHIFT_ONLY,61,True
+worker-uuid-00984,W-00984,Ahmad Kusuma,1986-01-09,40,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,115,True
+worker-uuid-00985,W-00985,Bayu Susanto,1978-10-11,48,MALE,Refinery & Petrochemical Processing,Board Operator,HIGH,12H_DAY_NIGHT_ROTATION,46,True
+worker-uuid-00986,W-00986,Hadi Pratama,1994-01-28,32,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,62,True
+worker-uuid-00987,W-00987,Dedi Kusuma,1991-03-09,35,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,109,True
+worker-uuid-00988,W-00988,Nur Kusnandar,1984-06-06,42,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,13,True
+worker-uuid-00989,W-00989,Dedi Ramadhan,1975-05-13,51,MALE,Drilling Operations,Roughneck,HIGH,12H_DAY_NIGHT_ROTATION,201,True
+worker-uuid-00990,W-00990,Maya Irawan,1993-09-25,33,FEMALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,58,True
+worker-uuid-00991,W-00991,Kurniawan Pangestu,1999-01-14,27,MALE,Mechanical & Electrical Maintenance,Instrument Technician,MEDIUM,12H_DAY_NIGHT_ROTATION,78,True
+worker-uuid-00992,W-00992,Untung Kusnandar,1980-11-26,46,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,20,True
+worker-uuid-00993,W-00993,Bambang Suharto,1979-03-12,47,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,63,True
+worker-uuid-00994,W-00994,Tri Harahap,1985-01-01,41,MALE,Camp & Administrative Services,Logistics Specialist,LOW,DAY_SHIFT_ONLY,123,True
+worker-uuid-00995,W-00995,Fajar Pratama,1973-05-20,53,MALE,Drilling Operations,Toolpusher,HIGH,12H_DAY_NIGHT_ROTATION,31,True
+worker-uuid-00996,W-00996,Bayu Suharto,1977-05-02,49,MALE,Drilling Operations,Mud Engineer,HIGH,12H_DAY_NIGHT_ROTATION,23,True
+worker-uuid-00997,W-00997,Joko Wijaya,1996-03-24,30,MALE,Refinery & Petrochemical Processing,Distillation Specialist,HIGH,12H_DAY_NIGHT_ROTATION,66,True
+worker-uuid-00998,W-00998,Gilang Kurniawan,1978-11-11,48,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,79,True
+worker-uuid-00999,W-00999,Zainal Ramadhan,1988-10-11,38,MALE,Refinery & Petrochemical Processing,Field Operator,HIGH,12H_DAY_NIGHT_ROTATION,13,True
+worker-uuid-01000,W-01000,Ahmad Kurniawan,1974-11-06,52,MALE,Refinery & Petrochemical Processing,Safety Panelist,HIGH,12H_DAY_NIGHT_ROTATION,47,True
