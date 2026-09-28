@@ -45,24 +45,24 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-40 bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800">
+      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           {/* Brand */}
           <div className="flex items-center gap-3">
-            <Link href="/worker/W-00192" className="flex items-center gap-2.5 group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-rose-600 to-indigo-600 flex items-center justify-center shadow-lg shadow-rose-900/30 group-hover:scale-105 transition-transform">
-                <Activity className="w-5 h-5 text-white" />
+            <Link href="/" className="flex items-center gap-2.5 group">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-rose-500 via-rose-600 to-indigo-600 flex items-center justify-center shadow-md shadow-rose-500/20 group-hover:scale-105 transition-transform">
+                <Activity className="w-5 h-5 text-white animate-heartbeat" />
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="font-extrabold text-lg tracking-tight bg-gradient-to-r from-white via-zinc-100 to-zinc-400 bg-clip-text text-transparent">
-                    CardioWork
+                  <span className="font-extrabold text-lg tracking-tight text-slate-900">
+                    Cardio<span className="text-rose-600">Work</span>
                   </span>
-                  <span className="bg-rose-500/20 text-rose-300 text-[10px] font-bold px-1.5 py-0.5 rounded border border-rose-500/30">
+                  <span className="bg-rose-50 text-rose-600 text-[10px] font-bold px-2 py-0.5 rounded-full border border-rose-200 shadow-2xs">
                     CDSS AI
                   </span>
                 </div>
-                <p className="text-[11px] text-zinc-400 font-medium hidden sm:block">
+                <p className="text-[11px] text-slate-500 font-medium hidden sm:block">
                   Occupational Health & Risk Prediction
                 </p>
               </div>
@@ -70,16 +70,16 @@ export const Navbar: React.FC = () => {
           </div>
 
           {/* Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1 bg-zinc-900/80 p-1 rounded-xl border border-zinc-800/80">
+          <nav className="hidden md:flex items-center gap-1 bg-slate-100/80 p-1 rounded-xl border border-slate-200/80">
             <Link
               href="/worker/W-00192"
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                 pathname.startsWith('/worker')
-                  ? 'bg-rose-600 text-white shadow-sm'
-                  : 'text-zinc-400 hover:text-white hover:bg-zinc-800/60'
+                  ? 'bg-white text-rose-600 shadow-xs border border-slate-200 font-bold'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
               }`}
             >
-              <User className="w-3.5 h-3.5" />
+              <User className="w-3.5 h-3.5 text-rose-500" />
               Pekerja
             </Link>
 
@@ -87,11 +87,11 @@ export const Navbar: React.FC = () => {
               href="/kiosk"
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                 pathname.startsWith('/kiosk')
-                  ? 'bg-rose-600 text-white shadow-sm'
-                  : 'text-zinc-400 hover:text-white hover:bg-zinc-800/60'
+                  ? 'bg-white text-rose-600 shadow-xs border border-slate-200 font-bold'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
               }`}
             >
-              <Terminal className="w-3.5 h-3.5" />
+              <Terminal className="w-3.5 h-3.5 text-sky-500" />
               DCU Kiosk
             </Link>
 
@@ -99,11 +99,11 @@ export const Navbar: React.FC = () => {
               href="/population"
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                 pathname.startsWith('/population')
-                  ? 'bg-rose-600 text-white shadow-sm'
-                  : 'text-zinc-400 hover:text-white hover:bg-zinc-800/60'
+                  ? 'bg-white text-rose-600 shadow-xs border border-slate-200 font-bold'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
               }`}
             >
-              <Users className="w-3.5 h-3.5" />
+              <Users className="w-3.5 h-3.5 text-emerald-500" />
               Populasi
             </Link>
 
@@ -111,11 +111,11 @@ export const Navbar: React.FC = () => {
               href="/model-lab"
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                 pathname.startsWith('/model-lab')
-                  ? 'bg-rose-600 text-white shadow-sm'
-                  : 'text-zinc-400 hover:text-white hover:bg-zinc-800/60'
+                  ? 'bg-white text-rose-600 shadow-xs border border-slate-200 font-bold'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
               }`}
             >
-              <Cpu className="w-3.5 h-3.5" />
+              <Cpu className="w-3.5 h-3.5 text-indigo-500" />
               Model Lab
             </Link>
 
@@ -123,12 +123,12 @@ export const Navbar: React.FC = () => {
               href="/"
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                 pathname === '/'
-                  ? 'bg-rose-600 text-white shadow-sm'
-                  : 'text-zinc-400 hover:text-white hover:bg-zinc-800/60'
+                  ? 'bg-white text-rose-600 shadow-xs border border-slate-200 font-bold'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
               }`}
             >
-              <FileSpreadsheet className="w-3.5 h-3.5" />
-              Unggah
+              <FileSpreadsheet className="w-3.5 h-3.5 text-amber-500" />
+              Portal K3
             </Link>
           </nav>
 
@@ -137,7 +137,7 @@ export const Navbar: React.FC = () => {
             {/* Alert Bell Button */}
             <button
               onClick={() => setIsAlertOpen(true)}
-              className="relative p-2 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-zinc-300 hover:text-white transition-all"
+              className="relative p-2 rounded-xl bg-slate-50 border border-slate-200 hover:bg-slate-100 text-slate-700 hover:text-slate-900 transition-all shadow-2xs"
               title="Pusat Peringatan Dini Harian"
             >
               <Bell className="w-4 h-4" />
@@ -146,20 +146,20 @@ export const Navbar: React.FC = () => {
                   {criticalCount}
                 </span>
               ) : warningCount > 0 ? (
-                <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-amber-500 text-[10px] font-bold text-black">
+                <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-amber-500 text-[10px] font-bold text-white">
                   {warningCount}
                 </span>
               ) : null}
             </button>
 
             {/* Role Badge */}
-            <div className="hidden lg:flex items-center gap-2 pl-3 border-l border-zinc-800">
-              <div className="w-7 h-7 rounded-lg bg-zinc-800 flex items-center justify-center text-zinc-300">
-                <Shield className="w-3.5 h-3.5 text-rose-400" />
+            <div className="hidden lg:flex items-center gap-2 pl-3 border-l border-slate-200">
+              <div className="w-8 h-8 rounded-lg bg-sky-50 border border-sky-100 flex items-center justify-center text-sky-600 shadow-2xs">
+                <Shield className="w-4 h-4 text-sky-600" />
               </div>
               <div className="text-left text-xs leading-tight">
-                <div className="font-semibold text-zinc-200">dr. Paramedik K3</div>
-                <div className="text-[10px] text-zinc-500">Offshore Site Lead</div>
+                <div className="font-bold text-slate-800">dr. Paramedik K3</div>
+                <div className="text-[10px] text-slate-500">Offshore Site Lead</div>
               </div>
             </div>
           </div>
@@ -168,37 +168,46 @@ export const Navbar: React.FC = () => {
 
       {/* Slide-out Alert Drawer / Modal */}
       {isAlertOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
-          <div className="bg-zinc-900 border border-zinc-800 rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-xs p-4">
+          <div className="bg-white border border-slate-200 rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150">
             {/* Modal Header */}
-            <div className="p-4 border-b border-zinc-800 flex items-center justify-between bg-zinc-950/80">
+            <div className="p-4 border-b border-slate-200 flex items-center justify-between bg-slate-50">
               <div className="flex items-center gap-2">
-                <Bell className="w-5 h-5 text-rose-400" />
-                <h3 className="font-bold text-white text-base">
-                  Pusat Peringatan Dini Kesehatan Kerja (Live EWS)
-                </h3>
+                <div className="w-8 h-8 rounded-lg bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-600">
+                  <Bell className="w-4 h-4" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-slate-900 text-base">
+                    Pusat Peringatan Dini Kesehatan Kerja (Live EWS)
+                  </h3>
+                  <p className="text-xs text-slate-500">Pemantauan tanda vital sebelum shift kerja</p>
+                </div>
               </div>
               <button
                 onClick={() => setIsAlertOpen(false)}
-                className="p-1 rounded-lg hover:bg-zinc-800 text-zinc-400 hover:text-white"
+                className="p-1.5 rounded-lg hover:bg-slate-200 text-slate-500 hover:text-slate-800 transition"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             {/* Modal Body */}
-            <div className="p-5 overflow-y-auto space-y-3.5 flex-1">
-              <div className="flex items-center justify-between text-xs text-zinc-400 bg-zinc-950/50 p-2.5 rounded-lg border border-zinc-800">
-                <span>Total Peringatan: <strong className="text-white">{alerts.length}</strong></span>
+            <div className="p-5 overflow-y-auto space-y-3.5 flex-1 bg-slate-50/50">
+              <div className="flex items-center justify-between text-xs text-slate-700 bg-white p-3 rounded-xl border border-slate-200 shadow-2xs">
+                <span>Total Peringatan Aktif: <strong className="text-slate-900">{alerts.length}</strong></span>
                 <span className="flex items-center gap-3">
-                  <span className="text-rose-400">🔴 {criticalCount} Kritis</span>
-                  <span className="text-amber-400">🟡 {warningCount} Waspada</span>
+                  <span className="text-rose-600 font-semibold flex items-center gap-1">
+                    <span className="w-2 h-2 rounded-full bg-rose-600"></span> {criticalCount} Kritis
+                  </span>
+                  <span className="text-amber-600 font-semibold flex items-center gap-1">
+                    <span className="w-2 h-2 rounded-full bg-amber-500"></span> {warningCount} Waspada
+                  </span>
                 </span>
               </div>
 
               {alerts.length === 0 ? (
-                <div className="p-8 text-center text-zinc-400 text-sm">
-                  Tidak ada peringatan aktif saat ini. Semua kru dalam kondisi hemodinamik stabil.
+                <div className="p-8 text-center bg-white rounded-xl border border-slate-200 text-slate-500 text-sm">
+                  Tidak ada peringatan aktif saat ini. Semua pekerja dalam kondisi hemodinamik stabil.
                 </div>
               ) : (
                 alerts.map((alert) => {
@@ -206,33 +215,33 @@ export const Navbar: React.FC = () => {
                   return (
                     <div
                       key={alert.id}
-                      className={`p-4 rounded-xl border text-sm ${
+                      className={`p-4 rounded-xl border text-sm transition-all shadow-2xs ${
                         isCrit
-                          ? 'bg-rose-950/20 border-rose-500/40 text-rose-200'
-                          : 'bg-amber-950/20 border-amber-500/40 text-amber-200'
+                          ? 'bg-rose-50/80 border-rose-200 text-rose-950'
+                          : 'bg-amber-50/80 border-amber-200 text-amber-950'
                       }`}
                     >
                       <div className="flex items-center justify-between gap-2 mb-1">
                         <div className="flex items-center gap-2">
-                          <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${
+                          <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
                             isCrit ? 'bg-rose-600 text-white' : 'bg-amber-600 text-white'
                           }`}>
                             {alert.severity}
                           </span>
-                          <span className="font-bold text-white">{alert.workerName} ({alert.workerId})</span>
+                          <span className="font-bold text-slate-900">{alert.workerName} ({alert.workerId})</span>
                         </div>
-                        <span className="text-[11px] text-zinc-400 font-mono">{alert.department}</span>
+                        <span className="text-[11px] text-slate-600 font-mono bg-white/80 px-2 py-0.5 rounded border border-slate-200">{alert.department}</span>
                       </div>
-                      <div className="text-xs font-semibold text-white/90 mt-1">{alert.title}</div>
-                      <p className="text-xs opacity-90 mt-1">{alert.description}</p>
-                      <div className="mt-2 text-xs bg-black/40 p-2 rounded text-zinc-300">
-                        <strong>Tindakan K3:</strong> {alert.recommendedAction}
+                      <div className="text-xs font-bold text-slate-900 mt-1">{alert.title}</div>
+                      <p className="text-xs text-slate-700 mt-1">{alert.description}</p>
+                      <div className="mt-2.5 text-xs bg-white p-2.5 rounded-lg border border-slate-200 text-slate-800">
+                        <strong className="text-slate-900">Tindakan K3 Direkomendasikan:</strong> {alert.recommendedAction}
                       </div>
                       <div className="mt-3 flex items-center justify-end">
                         <Link
                           href={`/worker/${alert.workerId}`}
                           onClick={() => setIsAlertOpen(false)}
-                          className="text-xs font-semibold underline hover:text-white"
+                          className="text-xs font-semibold text-rose-600 hover:text-rose-700 underline underline-offset-2 flex items-center gap-1"
                         >
                           Buka Rekam Medis Pekerja &rarr;
                         </Link>
@@ -244,11 +253,11 @@ export const Navbar: React.FC = () => {
             </div>
 
             {/* Modal Footer */}
-            <div className="p-3 border-t border-zinc-800 bg-zinc-950/80 flex items-center justify-between text-xs text-zinc-400">
+            <div className="p-3.5 border-t border-slate-200 bg-white flex items-center justify-between text-xs text-slate-500">
               <span>Diperbarui otomatis tiap 60 detik dari data Kiosk & MCU</span>
               <button
                 onClick={() => setIsAlertOpen(false)}
-                className="px-4 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-white font-medium"
+                className="px-4 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold border border-slate-200 transition"
               >
                 Tutup
               </button>

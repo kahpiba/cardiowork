@@ -14,7 +14,9 @@ import {
   ArrowRight, 
   RefreshCw,
   Sparkles,
-  Stethoscope
+  Stethoscope,
+  Clock,
+  ArrowLeft
 } from 'lucide-react';
 import { DEMO_WORKERS } from '@/lib/demoData';
 
@@ -130,56 +132,67 @@ export default function DcuKioskPage() {
   const currentWorker = DEMO_WORKERS[selectedWorkerId]?.worker;
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-slate-50 text-slate-900 py-8 px-4 sm:px-6 lg:px-8 bg-medical-grid">
       <div className="max-w-4xl mx-auto space-y-6">
         
+        {/* Breadcrumb Back */}
+        <div>
+          <Link
+            href="/"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-sky-600 transition"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            <span>Kembali ke Beranda</span>
+          </Link>
+        </div>
+
         {/* Title & Guidance Header */}
-        <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 shadow-xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 -mt-8 -mr-8 w-44 h-44 bg-rose-600/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm relative overflow-hidden">
+          <div className="absolute top-0 right-0 -mt-10 -mr-10 w-48 h-48 bg-sky-500/5 rounded-full blur-3xl pointer-events-none" />
           
-          <div className="flex items-center gap-3 mb-2">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-rose-600 to-indigo-600 flex items-center justify-center text-white shadow-lg">
+          <div className="flex items-center gap-4 mb-3">
+            <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-sky-600 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-sky-600/20">
               <Stethoscope className="w-6 h-6" />
             </div>
             <div>
-              <div className="flex items-center gap-2">
-                <h1 className="text-xl sm:text-2xl font-black tracking-tight text-white">
+              <div className="flex items-center gap-2 flex-wrap">
+                <h1 className="text-xl sm:text-2xl font-black tracking-tight text-slate-900">
                   Terminal Skrining Mandiri Pre-Shift (DCU Kiosk)
                 </h1>
-                <span className="bg-emerald-500/20 text-emerald-300 text-xs font-bold px-2 py-0.5 rounded border border-emerald-500/30">
-                  Self-Service
+                <span className="bg-sky-50 text-sky-700 text-xs font-bold px-2.5 py-0.5 rounded-full border border-sky-200 shadow-2xs">
+                  Self-Service POS K3
                 </span>
               </div>
-              <p className="text-xs sm:text-sm text-zinc-400 mt-1">
-                Gunakan tensimeter, oximeter, dan termometer digital di klinik/pos medik untuk input mandiri sebelum shift kerja.
+              <p className="text-xs sm:text-sm text-slate-600 mt-1">
+                Pemeriksaan tanda vital mandiri bagi pekerja industri berisiko tinggi sebelum memulai shift kerja.
               </p>
             </div>
           </div>
 
           {/* Quick Preset Buttons for Demo */}
-          <div className="mt-4 pt-4 border-t border-zinc-800/80 flex flex-wrap items-center gap-2">
-            <span className="text-xs font-medium text-zinc-400 flex items-center gap-1.5 mr-1">
-              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+          <div className="mt-4 pt-4 border-t border-slate-100 flex flex-wrap items-center gap-2">
+            <span className="text-xs font-semibold text-slate-500 flex items-center gap-1.5 mr-1">
+              <Sparkles className="w-3.5 h-3.5 text-amber-500" />
               Simulasi Cepat (Demo Presets):
             </span>
             <button
               type="button"
               onClick={() => applyPreset('NORMAL')}
-              className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-emerald-950/60 text-emerald-300 border border-emerald-800 hover:bg-emerald-900/80 transition-colors"
+              className="text-xs font-bold px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100 transition shadow-2xs"
             >
               🟢 Normal Sehat (118/76)
             </button>
             <button
               type="button"
               onClick={() => applyPreset('ELEVATED')}
-              className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-amber-950/60 text-amber-300 border border-amber-800 hover:bg-amber-900/80 transition-colors"
+              className="text-xs font-bold px-3 py-1.5 rounded-lg bg-amber-50 text-amber-800 border border-amber-200 hover:bg-amber-100 transition shadow-2xs"
             >
               🟡 Ambang Batas / Kelelahan (144/92)
             </button>
             <button
               type="button"
               onClick={() => applyPreset('CRITICAL')}
-              className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-rose-950/60 text-rose-300 border border-rose-800 hover:bg-rose-900/80 transition-colors"
+              className="text-xs font-bold px-3 py-1.5 rounded-lg bg-rose-50 text-rose-800 border border-rose-200 hover:bg-rose-100 transition shadow-2xs"
             >
               🔴 Krisis Tensi & Nyeri Dada (178/106)
             </button>
@@ -187,8 +200,8 @@ export default function DcuKioskPage() {
         </div>
 
         {/* Worker Selection */}
-        <div className="bg-zinc-900/90 border border-zinc-800 rounded-2xl p-5 shadow-lg">
-          <label className="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-3">
+        <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+          <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">
             Pilih ID Pekerja / Scan Kartu Badge:
           </label>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -202,22 +215,22 @@ export default function DcuKioskPage() {
                     setSelectedWorkerId(demo.worker.pseudonymId);
                     setResult(null);
                   }}
-                  className={`p-3 rounded-xl border text-left transition-all ${
+                  className={`p-3.5 rounded-xl border text-left transition-all ${
                     isSelected
-                      ? 'bg-rose-950/30 border-rose-500 shadow-md ring-1 ring-rose-500'
-                      : 'bg-zinc-950/40 border-zinc-800 hover:border-zinc-700'
+                      ? 'bg-sky-50/80 border-sky-500 shadow-xs ring-2 ring-sky-500/20'
+                      : 'bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50/50'
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-xs font-bold text-white">
+                    <span className="font-mono text-xs font-bold text-sky-700">
                       {demo.worker.pseudonymId}
                     </span>
-                    <span className="text-[10px] text-zinc-400">{demo.worker.age} th</span>
+                    <span className="text-[10px] text-slate-500 font-medium">{demo.worker.age} th • {demo.worker.gender === 'MALE' ? 'Pria' : 'Wanita'}</span>
                   </div>
-                  <div className="text-sm font-semibold text-zinc-200 mt-1 truncate">
+                  <div className="text-sm font-bold text-slate-900 mt-1 truncate">
                     {demo.worker.nameSynthetic}
                   </div>
-                  <div className="text-[11px] text-zinc-500 truncate mt-0.5">
+                  <div className="text-[11px] text-slate-500 truncate mt-0.5 font-medium">
                     {demo.worker.jobTitle} • {demo.worker.department}
                   </div>
                 </button>
@@ -231,13 +244,13 @@ export default function DcuKioskPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             
             {/* 1. Systolic BP */}
-            <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 shadow-sm">
-              <div className="flex items-center justify-between text-xs text-zinc-400 mb-2">
-                <span className="font-bold flex items-center gap-1.5">
-                  <Activity className="w-4 h-4 text-rose-400" />
+            <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-xs">
+              <div className="flex items-center justify-between text-xs text-slate-600 mb-2">
+                <span className="font-bold flex items-center gap-1.5 text-slate-800">
+                  <Activity className="w-4 h-4 text-rose-600" />
                   Sistolik (SBP)
                 </span>
-                <span className="text-[11px] text-zinc-500">mmHg</span>
+                <span className="text-[11px] text-slate-400 font-mono">mmHg</span>
               </div>
               <div className="flex items-center justify-between gap-3">
                 <input
@@ -246,23 +259,23 @@ export default function DcuKioskPage() {
                   max={240}
                   value={systolicBp}
                   onChange={(e) => setSystolicBp(Number(e.target.value))}
-                  className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-2.5 text-2xl font-black text-white focus:outline-none focus:border-rose-500 font-mono"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-2xl font-black text-slate-900 focus:outline-none focus:border-sky-500 focus:bg-white font-mono transition shadow-2xs"
                   required
                 />
               </div>
-              <p className="text-[11px] text-zinc-500 mt-2">
+              <p className="text-[11px] text-slate-500 mt-2">
                 Normal: &lt;120 mmHg | Krisis: &ge;160
               </p>
             </div>
 
             {/* 2. Diastolic BP */}
-            <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 shadow-sm">
-              <div className="flex items-center justify-between text-xs text-zinc-400 mb-2">
-                <span className="font-bold flex items-center gap-1.5">
-                  <Activity className="w-4 h-4 text-rose-400" />
+            <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-xs">
+              <div className="flex items-center justify-between text-xs text-slate-600 mb-2">
+                <span className="font-bold flex items-center gap-1.5 text-slate-800">
+                  <Activity className="w-4 h-4 text-rose-600" />
                   Diastolik (DBP)
                 </span>
-                <span className="text-[11px] text-zinc-500">mmHg</span>
+                <span className="text-[11px] text-slate-400 font-mono">mmHg</span>
               </div>
               <div className="flex items-center justify-between gap-3">
                 <input
@@ -271,23 +284,23 @@ export default function DcuKioskPage() {
                   max={140}
                   value={diastolicBp}
                   onChange={(e) => setDiastolicBp(Number(e.target.value))}
-                  className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-2.5 text-2xl font-black text-white focus:outline-none focus:border-rose-500 font-mono"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-2xl font-black text-slate-900 focus:outline-none focus:border-sky-500 focus:bg-white font-mono transition shadow-2xs"
                   required
                 />
               </div>
-              <p className="text-[11px] text-zinc-500 mt-2">
+              <p className="text-[11px] text-slate-500 mt-2">
                 Normal: &lt;80 mmHg | Krisis: &ge;100
               </p>
             </div>
 
             {/* 3. Heart Rate */}
-            <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 shadow-sm">
-              <div className="flex items-center justify-between text-xs text-zinc-400 mb-2">
-                <span className="font-bold flex items-center gap-1.5">
-                  <Heart className="w-4 h-4 text-red-500" />
+            <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-xs">
+              <div className="flex items-center justify-between text-xs text-slate-600 mb-2">
+                <span className="font-bold flex items-center gap-1.5 text-slate-800">
+                  <Heart className="w-4 h-4 text-rose-500" />
                   Denyut Nadi (HR)
                 </span>
-                <span className="text-[11px] text-zinc-500">bpm</span>
+                <span className="text-[11px] text-slate-400 font-mono">bpm</span>
               </div>
               <input
                 type="number"
@@ -295,22 +308,22 @@ export default function DcuKioskPage() {
                 max={180}
                 value={heartRate}
                 onChange={(e) => setHeartRate(Number(e.target.value))}
-                className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-2.5 text-2xl font-black text-white focus:outline-none focus:border-rose-500 font-mono"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-2xl font-black text-slate-900 focus:outline-none focus:border-sky-500 focus:bg-white font-mono transition shadow-2xs"
                 required
               />
-              <p className="text-[11px] text-zinc-500 mt-2">
-                Normal: 60-99 bpm | Aritmia: &ge;100
+              <p className="text-[11px] text-slate-500 mt-2">
+                Normal: 60–99 bpm | Aritmia: &ge;100
               </p>
             </div>
 
             {/* 4. SpO2 */}
-            <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 shadow-sm">
-              <div className="flex items-center justify-between text-xs text-zinc-400 mb-2">
-                <span className="font-bold flex items-center gap-1.5">
-                  <Wind className="w-4 h-4 text-cyan-400" />
+            <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-xs">
+              <div className="flex items-center justify-between text-xs text-slate-600 mb-2">
+                <span className="font-bold flex items-center gap-1.5 text-slate-800">
+                  <Wind className="w-4 h-4 text-cyan-600" />
                   Saturasi Oksigen
                 </span>
-                <span className="text-[11px] text-zinc-500">% SpO2</span>
+                <span className="text-[11px] text-slate-400 font-mono">% SpO2</span>
               </div>
               <input
                 type="number"
@@ -318,22 +331,22 @@ export default function DcuKioskPage() {
                 max={100}
                 value={spo2}
                 onChange={(e) => setSpo2(Number(e.target.value))}
-                className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-2.5 text-2xl font-black text-white focus:outline-none focus:border-rose-500 font-mono"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-2xl font-black text-slate-900 focus:outline-none focus:border-sky-500 focus:bg-white font-mono transition shadow-2xs"
                 required
               />
-              <p className="text-[11px] text-zinc-500 mt-2">
-                Optimal: 95-100% | Hipoksia: &lt;92%
+              <p className="text-[11px] text-slate-500 mt-2">
+                Optimal: 95–100% | Hipoksia: &lt;92%
               </p>
             </div>
 
             {/* 5. Temperature */}
-            <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 shadow-sm">
-              <div className="flex items-center justify-between text-xs text-zinc-400 mb-2">
-                <span className="font-bold flex items-center gap-1.5">
-                  <Thermometer className="w-4 h-4 text-amber-400" />
+            <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-xs">
+              <div className="flex items-center justify-between text-xs text-slate-600 mb-2">
+                <span className="font-bold flex items-center gap-1.5 text-slate-800">
+                  <Thermometer className="w-4 h-4 text-amber-600" />
                   Suhu Tubuh
                 </span>
-                <span className="text-[11px] text-zinc-500">°C</span>
+                <span className="text-[11px] text-slate-400 font-mono">°C</span>
               </div>
               <input
                 type="number"
@@ -342,22 +355,22 @@ export default function DcuKioskPage() {
                 max={42}
                 value={temperature}
                 onChange={(e) => setTemperature(Number(e.target.value))}
-                className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-2.5 text-2xl font-black text-white focus:outline-none focus:border-rose-500 font-mono"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-2xl font-black text-slate-900 focus:outline-none focus:border-sky-500 focus:bg-white font-mono transition shadow-2xs"
                 required
               />
-              <p className="text-[11px] text-zinc-500 mt-2">
-                Normal: 36.1 - 37.2 °C
+              <p className="text-[11px] text-slate-500 mt-2">
+                Normal: 36.1–37.2 °C | Demam: &ge;37.5
               </p>
             </div>
 
             {/* 6. Sleep Hours */}
-            <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 shadow-sm">
-              <div className="flex items-center justify-between text-xs text-zinc-400 mb-2">
-                <span className="font-bold flex items-center gap-1.5">
-                  <Moon className="w-4 h-4 text-indigo-400" />
+            <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-xs">
+              <div className="flex items-center justify-between text-xs text-slate-600 mb-2">
+                <span className="font-bold flex items-center gap-1.5 text-slate-800">
+                  <Moon className="w-4 h-4 text-indigo-600" />
                   Durasi Tidur 24 Jam
                 </span>
-                <span className="text-[11px] text-zinc-500">Jam</span>
+                <span className="text-[11px] text-slate-400 font-mono">Jam</span>
               </div>
               <input
                 type="number"
@@ -366,26 +379,26 @@ export default function DcuKioskPage() {
                 max={16}
                 value={sleepHours}
                 onChange={(e) => setSleepHours(Number(e.target.value))}
-                className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-2.5 text-2xl font-black text-white focus:outline-none focus:border-rose-500 font-mono"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-2xl font-black text-slate-900 focus:outline-none focus:border-sky-500 focus:bg-white font-mono transition shadow-2xs"
                 required
               />
-              <p className="text-[11px] text-zinc-500 mt-2">
-                Cukup: &ge;6.0 Jam | Lelah: &lt;5.0 Jam
+              <p className="text-[11px] text-slate-500 mt-2">
+                Cukup: &ge;6.0 Jam | Fatik/Lelah: &lt;5.0
               </p>
             </div>
           </div>
 
           {/* Symptoms Checklist */}
-          <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5 shadow-sm">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-3">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-xs">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-600 mb-3">
               Apakah Anda Merasakan Keluhan / Gejala Subjektif Berikut Saat Ini?
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
               
-              <label className={`flex items-center gap-3 p-3 rounded-xl border cursor-pointer transition-all ${
+              <label className={`flex items-center gap-3 p-3.5 rounded-xl border cursor-pointer transition-all ${
                 chestPain 
-                  ? 'bg-rose-950/40 border-rose-500 text-white font-bold' 
-                  : 'bg-zinc-950/50 border-zinc-800 text-zinc-300 hover:border-zinc-700'
+                  ? 'bg-rose-50 border-rose-300 text-rose-900 font-bold shadow-2xs' 
+                  : 'bg-slate-50 border-slate-200 text-slate-700 hover:border-slate-300'
               }`}>
                 <input
                   type="checkbox"
@@ -396,10 +409,10 @@ export default function DcuKioskPage() {
                 <span className="text-xs">Nyeri / Rasa Tertekan di Dada</span>
               </label>
 
-              <label className={`flex items-center gap-3 p-3 rounded-xl border cursor-pointer transition-all ${
+              <label className={`flex items-center gap-3 p-3.5 rounded-xl border cursor-pointer transition-all ${
                 dyspnea 
-                  ? 'bg-rose-950/40 border-rose-500 text-white font-bold' 
-                  : 'bg-zinc-950/50 border-zinc-800 text-zinc-300 hover:border-zinc-700'
+                  ? 'bg-rose-50 border-rose-300 text-rose-900 font-bold shadow-2xs' 
+                  : 'bg-slate-50 border-slate-200 text-slate-700 hover:border-slate-300'
               }`}>
                 <input
                   type="checkbox"
@@ -410,10 +423,10 @@ export default function DcuKioskPage() {
                 <span className="text-xs">Sesak Napas (Dyspnea)</span>
               </label>
 
-              <label className={`flex items-center gap-3 p-3 rounded-xl border cursor-pointer transition-all ${
+              <label className={`flex items-center gap-3 p-3.5 rounded-xl border cursor-pointer transition-all ${
                 dizziness 
-                  ? 'bg-amber-950/40 border-amber-500 text-white font-bold' 
-                  : 'bg-zinc-950/50 border-zinc-800 text-zinc-300 hover:border-zinc-700'
+                  ? 'bg-amber-50 border-amber-300 text-amber-900 font-bold shadow-2xs' 
+                  : 'bg-slate-50 border-slate-200 text-slate-700 hover:border-slate-300'
               }`}>
                 <input
                   type="checkbox"
@@ -424,10 +437,10 @@ export default function DcuKioskPage() {
                 <span className="text-xs">Pusing / Kliyengan</span>
               </label>
 
-              <label className={`flex items-center gap-3 p-3 rounded-xl border cursor-pointer transition-all ${
+              <label className={`flex items-center gap-3 p-3.5 rounded-xl border cursor-pointer transition-all ${
                 palpitations 
-                  ? 'bg-amber-950/40 border-amber-500 text-white font-bold' 
-                  : 'bg-zinc-950/50 border-zinc-800 text-zinc-300 hover:border-zinc-700'
+                  ? 'bg-amber-50 border-amber-300 text-amber-900 font-bold shadow-2xs' 
+                  : 'bg-slate-50 border-slate-200 text-slate-700 hover:border-slate-300'
               }`}>
                 <input
                   type="checkbox"
@@ -445,7 +458,7 @@ export default function DcuKioskPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-rose-600 to-indigo-600 hover:from-rose-500 hover:to-indigo-500 text-white font-bold text-sm tracking-wide shadow-lg shadow-rose-900/30 flex items-center justify-center gap-2.5 transition-all disabled:opacity-50"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-700 hover:to-indigo-700 text-white font-bold text-sm tracking-wide shadow-md shadow-sky-600/20 flex items-center justify-center gap-2.5 transition-all disabled:opacity-50"
             >
               {loading ? (
                 <>
@@ -464,54 +477,60 @@ export default function DcuKioskPage() {
 
         {/* Triage Verdict Modal / Result Card */}
         {result && (
-          <div className={`border rounded-2xl p-6 shadow-2xl transition-all animate-in fade-in slide-in-from-bottom-4 duration-200 ${
+          <div className={`border rounded-2xl p-6 sm:p-7 shadow-sm transition-all ${
             result.dailyFitnessVerdict === 'UNFIT'
-              ? 'bg-rose-950/30 border-rose-500/60'
+              ? 'bg-rose-50/90 border-rose-300'
               : result.dailyFitnessVerdict === 'FIT_WITH_RESTRICTION'
-              ? 'bg-amber-950/30 border-amber-500/60'
-              : 'bg-emerald-950/30 border-emerald-500/60'
+              ? 'bg-amber-50/90 border-amber-300'
+              : 'bg-emerald-50/90 border-emerald-300'
           }`}>
             
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-white/10">
-              <div className="flex items-center gap-3">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200/80">
+              <div className="flex items-center gap-3.5">
                 {result.dailyFitnessVerdict === 'UNFIT' ? (
-                  <ShieldAlert className="w-10 h-10 text-rose-500 shrink-0 animate-bounce" />
+                  <div className="w-12 h-12 rounded-full bg-rose-100 flex items-center justify-center text-rose-600 shrink-0 shadow-2xs">
+                    <ShieldAlert className="w-7 h-7 animate-pulse" />
+                  </div>
                 ) : result.dailyFitnessVerdict === 'FIT_WITH_RESTRICTION' ? (
-                  <AlertTriangle className="w-10 h-10 text-amber-500 shrink-0" />
+                  <div className="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center text-amber-600 shrink-0 shadow-2xs">
+                    <AlertTriangle className="w-7 h-7" />
+                  </div>
                 ) : (
-                  <CheckCircle2 className="w-10 h-10 text-emerald-500 shrink-0" />
+                  <div className="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 shrink-0 shadow-2xs">
+                    <CheckCircle2 className="w-7 h-7" />
+                  </div>
                 )}
                 <div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-400">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
                     Hasil Triase Skrining Mandiri
                   </span>
-                  <h2 className="text-xl sm:text-2xl font-black text-white">
+                  <h2 className="text-xl sm:text-2xl font-black text-slate-900">
                     {result.verdictIndonesian}
                   </h2>
                 </div>
               </div>
 
-              <span className={`px-4 py-1.5 rounded-full text-xs font-black tracking-wide self-start sm:self-auto ${
+              <span className={`px-4 py-1.5 rounded-full text-xs font-black tracking-wide self-start sm:self-auto shadow-xs ${
                 result.dailyFitnessVerdict === 'UNFIT'
                   ? 'bg-rose-600 text-white'
                   : result.dailyFitnessVerdict === 'FIT_WITH_RESTRICTION'
-                  ? 'bg-amber-500 text-black'
+                  ? 'bg-amber-600 text-white'
                   : 'bg-emerald-600 text-white'
               }`}>
                 {result.dailyFitnessVerdict}
               </span>
             </div>
 
-            <div className="py-4 space-y-3">
-              <p className="text-sm text-zinc-200 leading-relaxed font-medium">
+            <div className="py-4 space-y-4">
+              <p className="text-sm text-slate-800 leading-relaxed font-medium">
                 {result.triageSummary}
               </p>
 
               {/* Action items */}
               {result.triageRecommendations.length > 0 && (
-                <div className="bg-black/30 rounded-xl p-3.5 border border-white/5 space-y-1.5">
-                  <span className="text-xs font-bold text-zinc-300">Instruksi Langsung K3:</span>
-                  <ul className="list-disc list-inside text-xs text-zinc-300 space-y-1">
+                <div className="bg-white/80 rounded-xl p-4 border border-slate-200 space-y-1.5 shadow-2xs">
+                  <span className="text-xs font-bold text-slate-900">Instruksi Langsung K3:</span>
+                  <ul className="list-disc list-inside text-xs text-slate-700 space-y-1">
                     {result.triageRecommendations.map((rec, i) => (
                       <li key={i}>{rec}</li>
                     ))}
@@ -520,28 +539,28 @@ export default function DcuKioskPage() {
               )}
 
               {/* AI Inference Snapshot */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2">
-                <div className="bg-black/30 p-2.5 rounded-lg border border-white/5 text-center">
-                  <div className="text-[10px] text-zinc-400">Layer 1 Klinis</div>
-                  <div className="font-bold text-xs text-white mt-0.5">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1">
+                <div className="bg-white p-3 rounded-xl border border-slate-200 text-center shadow-2xs">
+                  <div className="text-[10px] text-slate-500 font-semibold uppercase">Layer 1 Klinis</div>
+                  <div className="font-bold text-xs text-slate-900 mt-0.5">
                     Tier {result.inferenceSnapshot.layer1Tier}
                   </div>
                 </div>
-                <div className="bg-black/30 p-2.5 rounded-lg border border-white/5 text-center">
-                  <div className="text-[10px] text-zinc-400">Layer 2 LightGBM</div>
-                  <div className="font-bold text-xs text-white mt-0.5">
+                <div className="bg-white p-3 rounded-xl border border-slate-200 text-center shadow-2xs">
+                  <div className="text-[10px] text-slate-500 font-semibold uppercase">Layer 2 LightGBM</div>
+                  <div className="font-bold text-xs text-slate-900 mt-0.5">
                     {(result.inferenceSnapshot.layer2Probability * 100).toFixed(1)}% Risiko
                   </div>
                 </div>
-                <div className="bg-black/30 p-2.5 rounded-lg border border-white/5 text-center">
-                  <div className="text-[10px] text-zinc-400">Layer 3 PyTorch DL</div>
-                  <div className="font-bold text-xs text-white mt-0.5">
+                <div className="bg-white p-3 rounded-xl border border-slate-200 text-center shadow-2xs">
+                  <div className="text-[10px] text-slate-500 font-semibold uppercase">Layer 3 PyTorch DL</div>
+                  <div className="font-bold text-xs text-slate-900 mt-0.5">
                     {(result.inferenceSnapshot.layer3Probability * 100).toFixed(1)}% CVD
                   </div>
                 </div>
-                <div className="bg-black/30 p-2.5 rounded-lg border border-white/5 text-center">
-                  <div className="text-[10px] text-zinc-400">Autoencoder Anomali</div>
-                  <div className={`font-bold text-xs mt-0.5 ${result.inferenceSnapshot.isAnomaly ? 'text-rose-400' : 'text-emerald-400'}`}>
+                <div className="bg-white p-3 rounded-xl border border-slate-200 text-center shadow-2xs">
+                  <div className="text-[10px] text-slate-500 font-semibold uppercase">Autoencoder Anomali</div>
+                  <div className={`font-bold text-xs mt-0.5 ${result.inferenceSnapshot.isAnomaly ? 'text-rose-600' : 'text-emerald-600'}`}>
                     {result.inferenceSnapshot.isAnomaly ? 'ANOMALI AKUT' : 'Normal'}
                   </div>
                 </div>
@@ -549,13 +568,13 @@ export default function DcuKioskPage() {
             </div>
 
             {/* Footer action link */}
-            <div className="pt-4 border-t border-white/10 flex items-center justify-between">
-              <span className="text-xs text-zinc-400 font-mono">
-                Pekerja: {currentWorker?.nameSynthetic} ({selectedWorkerId})
+            <div className="pt-4 border-t border-slate-200/80 flex flex-wrap items-center justify-between gap-3">
+              <span className="text-xs text-slate-600 font-mono">
+                Pekerja: <strong className="text-slate-900">{currentWorker?.nameSynthetic}</strong> ({selectedWorkerId})
               </span>
               <Link
                 href={`/worker/${selectedWorkerId}`}
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-rose-400 hover:text-rose-300 transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-700 hover:text-sky-800 transition-colors"
               >
                 Lihat Rekam Medis & Grafik DCU Lengkap
                 <ArrowRight className="w-3.5 h-3.5" />

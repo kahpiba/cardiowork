@@ -9,7 +9,8 @@ import {
   CheckCircle2, 
   ChevronRight, 
   ShieldCheck, 
-  Layers 
+  Layers,
+  FileSpreadsheet
 } from 'lucide-react';
 import { McuRecordInput } from '@cardiowork/shared';
 
@@ -27,7 +28,8 @@ export function McuLongitudinalComparison({ records }: McuLongitudinalComparison
 
   if (sortedRecords.length === 0) {
     return (
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 text-center text-slate-400">
+      <div className="bg-white border border-slate-200 rounded-2xl p-8 text-center text-slate-500 shadow-sm">
+        <FileSpreadsheet className="w-10 h-10 text-slate-400 mx-auto mb-2 animate-pulse" />
         Belum ada riwayat MCU tahunan yang tercatat.
       </div>
     );
@@ -47,7 +49,7 @@ export function McuLongitudinalComparison({ records }: McuLongitudinalComparison
     const diff = currentVal - prevVal;
     if (diff === 0) {
       return (
-        <span className="text-[10px] text-slate-400 font-mono px-1.5 py-0.5 rounded bg-slate-800">
+        <span className="text-[10px] text-slate-500 font-mono px-2 py-0.5 rounded bg-slate-100 border border-slate-200 font-medium">
           Stabil (0 {unit})
         </span>
       );
@@ -59,10 +61,10 @@ export function McuLongitudinalComparison({ records }: McuLongitudinalComparison
     return (
       <span className={`inline-flex items-center space-x-1 text-[10px] font-mono font-bold px-2 py-0.5 rounded-full border ${
         isWorse 
-          ? 'bg-rose-500/10 text-rose-400 border-rose-500/30' 
-          : 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30'
+          ? 'bg-rose-50 text-rose-700 border-rose-200' 
+          : 'bg-emerald-50 text-emerald-700 border-emerald-200'
       }`}>
-        {isWorse ? <TrendingUp className="h-3 w-3 mr-0.5" /> : <TrendingDown className="h-3 w-3 mr-0.5" />}
+        {isWorse ? <TrendingUp className="h-3 w-3 mr-0.5 text-rose-600" /> : <TrendingDown className="h-3 w-3 mr-0.5 text-emerald-600" />}
         {formattedDiff}
       </span>
     );
@@ -125,28 +127,32 @@ export function McuLongitudinalComparison({ records }: McuLongitudinalComparison
   }
 
   return (
-    <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-6">
+    <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-6">
       
       {/* Header & Tabs */}
-      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 pb-4">
         <div>
           <div className="flex items-center space-x-2">
-            <Activity className="h-5 w-5 text-sky-400" />
-            <h2 className="font-bold text-slate-100 text-sm tracking-wide">
-              Rekam Medis Berkala (MCU Longitudinal 3 Tahun)
-            </h2>
+            <div className="w-8 h-8 rounded-lg bg-sky-50 border border-sky-100 flex items-center justify-center text-sky-600">
+              <Activity className="h-4 w-4" />
+            </div>
+            <div>
+              <h2 className="font-bold text-slate-900 text-sm tracking-wide">
+                Rekam Medis Berkala (MCU Longitudinal 3 Tahun)
+              </h2>
+              <p className="text-xs text-slate-500 mt-0.5">
+                Analisis komparatif delta tahunan parameter klinis dan biomarker kardiovaskular pekerja.
+              </p>
+            </div>
           </div>
-          <p className="text-xs text-slate-400 mt-1">
-            Analisis komparatif delta tahunan parameter klinis dan biomarker kardiovaskular pekerja.
-          </p>
         </div>
 
         {/* Tab filters */}
-        <div className="flex bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs font-medium">
+        <div className="flex bg-slate-100 p-1 rounded-xl border border-slate-200 text-xs font-medium">
           <button
             onClick={() => setActiveTab('all')}
             className={`px-3 py-1.5 rounded-lg transition ${
-              activeTab === 'all' ? 'bg-sky-600 text-white font-semibold' : 'text-slate-400 hover:text-slate-200'
+              activeTab === 'all' ? 'bg-white text-sky-700 font-bold shadow-xs' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             Semua
@@ -154,7 +160,7 @@ export function McuLongitudinalComparison({ records }: McuLongitudinalComparison
           <button
             onClick={() => setActiveTab('hemodynamics')}
             className={`px-3 py-1.5 rounded-lg transition ${
-              activeTab === 'hemodynamics' ? 'bg-sky-600 text-white font-semibold' : 'text-slate-400 hover:text-slate-200'
+              activeTab === 'hemodynamics' ? 'bg-white text-sky-700 font-bold shadow-xs' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             Hemodinamik
@@ -162,7 +168,7 @@ export function McuLongitudinalComparison({ records }: McuLongitudinalComparison
           <button
             onClick={() => setActiveTab('lipid')}
             className={`px-3 py-1.5 rounded-lg transition ${
-              activeTab === 'lipid' ? 'bg-sky-600 text-white font-semibold' : 'text-slate-400 hover:text-slate-200'
+              activeTab === 'lipid' ? 'bg-white text-sky-700 font-bold shadow-xs' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             Lipid
@@ -170,7 +176,7 @@ export function McuLongitudinalComparison({ records }: McuLongitudinalComparison
           <button
             onClick={() => setActiveTab('metabolic')}
             className={`px-3 py-1.5 rounded-lg transition ${
-              activeTab === 'metabolic' ? 'bg-sky-600 text-white font-semibold' : 'text-slate-400 hover:text-slate-200'
+              activeTab === 'metabolic' ? 'bg-white text-sky-700 font-bold shadow-xs' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             Metabolik
@@ -180,9 +186,9 @@ export function McuLongitudinalComparison({ records }: McuLongitudinalComparison
 
       {/* Flagged clinical risks summary */}
       {flags.length > 0 && (
-        <div className="bg-slate-950 border border-slate-800 rounded-xl p-4 space-y-2.5">
-          <div className="text-xs font-bold text-slate-300 flex items-center space-x-1.5">
-            <AlertCircle className="h-4 w-4 text-amber-400" />
+        <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-2.5">
+          <div className="text-xs font-bold text-slate-700 flex items-center space-x-1.5">
+            <AlertCircle className="h-4 w-4 text-amber-500" />
             <span>Temuan Klinis Kritis & Peringatan Ambang Batas (Tahun Terakhir):</span>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
@@ -191,15 +197,15 @@ export function McuLongitudinalComparison({ records }: McuLongitudinalComparison
                 key={idx} 
                 className={`p-2.5 rounded-lg border text-xs flex items-start space-x-2 ${
                   flag.level === 'critical' 
-                    ? 'bg-rose-500/10 border-rose-500/30 text-rose-300' 
-                    : 'bg-amber-500/10 border-amber-500/30 text-amber-300'
+                    ? 'bg-rose-50 border-rose-200 text-rose-800' 
+                    : 'bg-amber-50 border-amber-200 text-amber-800'
                 }`}
               >
                 <div className="mt-0.5 shrink-0">
                   {flag.level === 'critical' ? (
                     <span className="h-2 w-2 rounded-full bg-rose-500 block animate-pulse" />
                   ) : (
-                    <span className="h-2 w-2 rounded-full bg-amber-400 block" />
+                    <span className="h-2 w-2 rounded-full bg-amber-500 block" />
                   )}
                 </div>
                 <div>
@@ -213,10 +219,10 @@ export function McuLongitudinalComparison({ records }: McuLongitudinalComparison
       )}
 
       {/* Comparison Table */}
-      <div className="overflow-x-auto">
-        <table className="w-full text-left text-xs text-slate-300">
-          <thead>
-            <tr className="border-b border-slate-800 text-slate-400 font-semibold uppercase text-[10px] tracking-wider">
+      <div className="overflow-x-auto rounded-xl border border-slate-200 shadow-xs">
+        <table className="w-full text-left text-xs text-slate-700">
+          <thead className="bg-slate-50 border-b border-slate-200">
+            <tr className="text-slate-500 font-bold uppercase text-[10px] tracking-wider">
               <th className="py-3 px-3">Parameter Klinis / Biomarker</th>
               <th className="py-3 px-3">Batas Rujukan Normal</th>
               {sortedRecords.map((r, i) => (
@@ -227,21 +233,21 @@ export function McuLongitudinalComparison({ records }: McuLongitudinalComparison
               {previous && <th className="py-3 px-3 text-right">Delta (Th Terakhir)</th>}
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-800/60 font-mono">
+          <tbody className="divide-y divide-slate-100 font-mono bg-white">
             
             {/* --- HEMODINAMIKA --- */}
             {(activeTab === 'all' || activeTab === 'hemodynamics') && (
               <>
-                <tr className="bg-slate-950/60 font-sans font-bold text-sky-400 text-[11px]">
+                <tr className="bg-sky-50/70 font-sans font-bold text-sky-800 text-[11px] border-y border-sky-100">
                   <td colSpan={2 + sortedRecords.length + (previous ? 1 : 0)} className="py-2 px-3">
                     KARDIOVASKULAR & HEMODINAMIKA
                   </td>
                 </tr>
-                <tr>
-                  <td className="py-2.5 px-3 font-sans text-slate-200">Tekanan Darah Sistolik</td>
-                  <td className="py-2.5 px-3 text-slate-400">&lt;120 mmHg</td>
+                <tr className="hover:bg-slate-50/50 transition">
+                  <td className="py-2.5 px-3 font-sans text-slate-800 font-medium">Tekanan Darah Sistolik</td>
+                  <td className="py-2.5 px-3 text-slate-500">&lt;120 mmHg</td>
                   {sortedRecords.map((r, i) => (
-                    <td key={i} className={`py-2.5 px-3 text-right font-bold ${r.systolicBp >= 140 ? 'text-rose-400' : 'text-slate-100'}`}>
+                    <td key={i} className={`py-2.5 px-3 text-right font-bold ${r.systolicBp >= 140 ? 'text-rose-600' : 'text-slate-800'}`}>
                       {r.systolicBp} mmHg
                     </td>
                   ))}
@@ -251,11 +257,11 @@ export function McuLongitudinalComparison({ records }: McuLongitudinalComparison
                     </td>
                   )}
                 </tr>
-                <tr>
-                  <td className="py-2.5 px-3 font-sans text-slate-200">Tekanan Darah Diastolik</td>
-                  <td className="py-2.5 px-3 text-slate-400">&lt;80 mmHg</td>
+                <tr className="hover:bg-slate-50/50 transition">
+                  <td className="py-2.5 px-3 font-sans text-slate-800 font-medium">Tekanan Darah Diastolik</td>
+                  <td className="py-2.5 px-3 text-slate-500">&lt;80 mmHg</td>
                   {sortedRecords.map((r, i) => (
-                    <td key={i} className={`py-2.5 px-3 text-right font-bold ${r.diastolicBp >= 90 ? 'text-rose-400' : 'text-slate-100'}`}>
+                    <td key={i} className={`py-2.5 px-3 text-right font-bold ${r.diastolicBp >= 90 ? 'text-rose-600' : 'text-slate-800'}`}>
                       {r.diastolicBp} mmHg
                     </td>
                   ))}
@@ -265,13 +271,13 @@ export function McuLongitudinalComparison({ records }: McuLongitudinalComparison
                     </td>
                   )}
                 </tr>
-                <tr>
-                  <td className="py-2.5 px-3 font-sans text-slate-200">Pulse Pressure (Tekanan Nadi)</td>
-                  <td className="py-2.5 px-3 text-slate-400">&lt;60 mmHg</td>
+                <tr className="hover:bg-slate-50/50 transition">
+                  <td className="py-2.5 px-3 font-sans text-slate-800 font-medium">Pulse Pressure (Tekanan Nadi)</td>
+                  <td className="py-2.5 px-3 text-slate-500">&lt;60 mmHg</td>
                   {sortedRecords.map((r, i) => {
                     const pp = getPulsePressure(r.systolicBp, r.diastolicBp);
                     return (
-                      <td key={i} className={`py-2.5 px-3 text-right ${pp >= 60 ? 'text-amber-400 font-bold' : 'text-slate-300'}`}>
+                      <td key={i} className={`py-2.5 px-3 text-right ${pp >= 60 ? 'text-amber-600 font-bold' : 'text-slate-700'}`}>
                         {pp} mmHg
                       </td>
                     );
@@ -287,13 +293,13 @@ export function McuLongitudinalComparison({ records }: McuLongitudinalComparison
                     </td>
                   )}
                 </tr>
-                <tr>
-                  <td className="py-2.5 px-3 font-sans text-slate-200">Mean Arterial Pressure (MAP)</td>
-                  <td className="py-2.5 px-3 text-slate-400">70–100 mmHg</td>
+                <tr className="hover:bg-slate-50/50 transition">
+                  <td className="py-2.5 px-3 font-sans text-slate-800 font-medium">Mean Arterial Pressure (MAP)</td>
+                  <td className="py-2.5 px-3 text-slate-500">70–100 mmHg</td>
                   {sortedRecords.map((r, i) => {
                     const map = getMap(r.systolicBp, r.diastolicBp);
                     return (
-                      <td key={i} className="py-2.5 px-3 text-right text-slate-300">
+                      <td key={i} className="py-2.5 px-3 text-right text-slate-700">
                         {map} mmHg
                       </td>
                     );
@@ -309,11 +315,11 @@ export function McuLongitudinalComparison({ records }: McuLongitudinalComparison
                     </td>
                   )}
                 </tr>
-                <tr>
-                  <td className="py-2.5 px-3 font-sans text-slate-200">Denyut Jantung Istirahat (RHR)</td>
-                  <td className="py-2.5 px-3 text-slate-400">60–100 bpm</td>
+                <tr className="hover:bg-slate-50/50 transition">
+                  <td className="py-2.5 px-3 font-sans text-slate-800 font-medium">Denyut Jantung Istirahat (RHR)</td>
+                  <td className="py-2.5 px-3 text-slate-500">60–100 bpm</td>
                   {sortedRecords.map((r, i) => (
-                    <td key={i} className="py-2.5 px-3 text-right text-slate-300">
+                    <td key={i} className="py-2.5 px-3 text-right text-slate-700">
                       {r.restingHeartRate} bpm
                     </td>
                   ))}
@@ -329,16 +335,16 @@ export function McuLongitudinalComparison({ records }: McuLongitudinalComparison
             {/* --- PROFIL LIPID --- */}
             {(activeTab === 'all' || activeTab === 'lipid') && (
               <>
-                <tr className="bg-slate-950/60 font-sans font-bold text-teal-400 text-[11px]">
+                <tr className="bg-teal-50/70 font-sans font-bold text-teal-800 text-[11px] border-y border-teal-100">
                   <td colSpan={2 + sortedRecords.length + (previous ? 1 : 0)} className="py-2 px-3">
                     PROFIL LIPID & FRAKSI KOLESTEROL
                   </td>
                 </tr>
-                <tr>
-                  <td className="py-2.5 px-3 font-sans text-slate-200">Kolesterol Total</td>
-                  <td className="py-2.5 px-3 text-slate-400">&lt;200 mg/dL</td>
+                <tr className="hover:bg-slate-50/50 transition">
+                  <td className="py-2.5 px-3 font-sans text-slate-800 font-medium">Kolesterol Total</td>
+                  <td className="py-2.5 px-3 text-slate-500">&lt;200 mg/dL</td>
                   {sortedRecords.map((r, i) => (
-                    <td key={i} className={`py-2.5 px-3 text-right ${r.totalCholesterolMgdl >= 240 ? 'text-rose-400 font-bold' : 'text-slate-300'}`}>
+                    <td key={i} className={`py-2.5 px-3 text-right ${r.totalCholesterolMgdl >= 240 ? 'text-rose-600 font-bold' : 'text-slate-700'}`}>
                       {r.totalCholesterolMgdl} mg/dL
                     </td>
                   ))}
@@ -348,11 +354,11 @@ export function McuLongitudinalComparison({ records }: McuLongitudinalComparison
                     </td>
                   )}
                 </tr>
-                <tr>
-                  <td className="py-2.5 px-3 font-sans text-slate-200">LDL-Kolesterol</td>
-                  <td className="py-2.5 px-3 text-slate-400">&lt;100 mg/dL</td>
+                <tr className="hover:bg-slate-50/50 transition">
+                  <td className="py-2.5 px-3 font-sans text-slate-800 font-medium">LDL-Kolesterol</td>
+                  <td className="py-2.5 px-3 text-slate-500">&lt;100 mg/dL</td>
                   {sortedRecords.map((r, i) => (
-                    <td key={i} className={`py-2.5 px-3 text-right ${r.ldlCholesterolMgdl >= 160 ? 'text-rose-400 font-bold' : 'text-slate-300'}`}>
+                    <td key={i} className={`py-2.5 px-3 text-right ${r.ldlCholesterolMgdl >= 160 ? 'text-rose-600 font-bold' : 'text-slate-700'}`}>
                       {r.ldlCholesterolMgdl} mg/dL
                     </td>
                   ))}
@@ -362,11 +368,11 @@ export function McuLongitudinalComparison({ records }: McuLongitudinalComparison
                     </td>
                   )}
                 </tr>
-                <tr>
-                  <td className="py-2.5 px-3 font-sans text-slate-200">HDL-Kolesterol</td>
-                  <td className="py-2.5 px-3 text-slate-400">&gt;40 (L) / &gt;50 (P) mg/dL</td>
+                <tr className="hover:bg-slate-50/50 transition">
+                  <td className="py-2.5 px-3 font-sans text-slate-800 font-medium">HDL-Kolesterol</td>
+                  <td className="py-2.5 px-3 text-slate-500">&gt;40 (L) / &gt;50 (P) mg/dL</td>
                   {sortedRecords.map((r, i) => (
-                    <td key={i} className={`py-2.5 px-3 text-right ${r.hdlCholesterolMgdl < 40 ? 'text-amber-400 font-bold' : 'text-emerald-400'}`}>
+                    <td key={i} className={`py-2.5 px-3 text-right ${r.hdlCholesterolMgdl < 40 ? 'text-amber-600 font-bold' : 'text-emerald-600 font-bold'}`}>
                       {r.hdlCholesterolMgdl} mg/dL
                     </td>
                   ))}
@@ -376,11 +382,11 @@ export function McuLongitudinalComparison({ records }: McuLongitudinalComparison
                     </td>
                   )}
                 </tr>
-                <tr>
-                  <td className="py-2.5 px-3 font-sans text-slate-200">Trigliserida</td>
-                  <td className="py-2.5 px-3 text-slate-400">&lt;150 mg/dL</td>
+                <tr className="hover:bg-slate-50/50 transition">
+                  <td className="py-2.5 px-3 font-sans text-slate-800 font-medium">Trigliserida</td>
+                  <td className="py-2.5 px-3 text-slate-500">&lt;150 mg/dL</td>
                   {sortedRecords.map((r, i) => (
-                    <td key={i} className={`py-2.5 px-3 text-right ${r.triglyceridesMgdl >= 200 ? 'text-amber-400 font-bold' : 'text-slate-300'}`}>
+                    <td key={i} className={`py-2.5 px-3 text-right ${r.triglyceridesMgdl >= 200 ? 'text-amber-600 font-bold' : 'text-slate-700'}`}>
                       {r.triglyceridesMgdl} mg/dL
                     </td>
                   ))}
@@ -390,13 +396,13 @@ export function McuLongitudinalComparison({ records }: McuLongitudinalComparison
                     </td>
                   )}
                 </tr>
-                <tr>
-                  <td className="py-2.5 px-3 font-sans text-slate-200">Rasio TG/HDL</td>
-                  <td className="py-2.5 px-3 text-slate-400">&lt;3.0</td>
+                <tr className="hover:bg-slate-50/50 transition">
+                  <td className="py-2.5 px-3 font-sans text-slate-800 font-medium">Rasio TG/HDL</td>
+                  <td className="py-2.5 px-3 text-slate-500">&lt;3.0</td>
                   {sortedRecords.map((r, i) => {
                     const ratio = getTgHdlRatio(r.triglyceridesMgdl, r.hdlCholesterolMgdl);
                     return (
-                      <td key={i} className={`py-2.5 px-3 text-right ${ratio >= 3.0 ? 'text-rose-400 font-bold' : 'text-slate-300'}`}>
+                      <td key={i} className={`py-2.5 px-3 text-right ${ratio >= 3.0 ? 'text-rose-600 font-bold' : 'text-slate-700'}`}>
                         {ratio}
                       </td>
                     );
@@ -418,16 +424,16 @@ export function McuLongitudinalComparison({ records }: McuLongitudinalComparison
             {/* --- METABOLIK & GINJAL --- */}
             {(activeTab === 'all' || activeTab === 'metabolic') && (
               <>
-                <tr className="bg-slate-950/60 font-sans font-bold text-amber-400 text-[11px]">
+                <tr className="bg-amber-50/70 font-sans font-bold text-amber-800 text-[11px] border-y border-amber-100">
                   <td colSpan={2 + sortedRecords.length + (previous ? 1 : 0)} className="py-2 px-3">
                     METABOLIK, GLIKEMIK & FUNGSI GINJAL
                   </td>
                 </tr>
-                <tr>
-                  <td className="py-2.5 px-3 font-sans text-slate-200">Gula Darah Puasa (GDP)</td>
-                  <td className="py-2.5 px-3 text-slate-400">70–99 mg/dL</td>
+                <tr className="hover:bg-slate-50/50 transition">
+                  <td className="py-2.5 px-3 font-sans text-slate-800 font-medium">Gula Darah Puasa (GDP)</td>
+                  <td className="py-2.5 px-3 text-slate-500">70–99 mg/dL</td>
                   {sortedRecords.map((r, i) => (
-                    <td key={i} className={`py-2.5 px-3 text-right ${r.fastingGlucoseMgdl >= 126 ? 'text-rose-400 font-bold' : 'text-slate-300'}`}>
+                    <td key={i} className={`py-2.5 px-3 text-right ${r.fastingGlucoseMgdl >= 126 ? 'text-rose-600 font-bold' : 'text-slate-700'}`}>
                       {r.fastingGlucoseMgdl} mg/dL
                     </td>
                   ))}
@@ -437,11 +443,11 @@ export function McuLongitudinalComparison({ records }: McuLongitudinalComparison
                     </td>
                   )}
                 </tr>
-                <tr>
-                  <td className="py-2.5 px-3 font-sans text-slate-200">HbA1c</td>
-                  <td className="py-2.5 px-3 text-slate-400">&lt;5.7%</td>
+                <tr className="hover:bg-slate-50/50 transition">
+                  <td className="py-2.5 px-3 font-sans text-slate-800 font-medium">HbA1c</td>
+                  <td className="py-2.5 px-3 text-slate-500">&lt;5.7%</td>
                   {sortedRecords.map((r, i) => (
-                    <td key={i} className="py-2.5 px-3 text-right text-slate-300">
+                    <td key={i} className="py-2.5 px-3 text-right text-slate-700">
                       {r.hba1cPercent ? `${r.hba1cPercent}%` : '-'}
                     </td>
                   ))}
@@ -451,11 +457,11 @@ export function McuLongitudinalComparison({ records }: McuLongitudinalComparison
                     </td>
                   )}
                 </tr>
-                <tr>
-                  <td className="py-2.5 px-3 font-sans text-slate-200">Indeks Massa Tubuh (IMT / BMI)</td>
-                  <td className="py-2.5 px-3 text-slate-400">18.5–22.9 kg/m²</td>
+                <tr className="hover:bg-slate-50/50 transition">
+                  <td className="py-2.5 px-3 font-sans text-slate-800 font-medium">Indeks Massa Tubuh (IMT / BMI)</td>
+                  <td className="py-2.5 px-3 text-slate-500">18.5–22.9 kg/m²</td>
                   {sortedRecords.map((r, i) => (
-                    <td key={i} className={`py-2.5 px-3 text-right ${r.bmi >= 25.0 ? 'text-amber-400 font-bold' : 'text-slate-300'}`}>
+                    <td key={i} className={`py-2.5 px-3 text-right ${r.bmi >= 25.0 ? 'text-amber-600 font-bold' : 'text-slate-700'}`}>
                       {r.bmi} kg/m²
                     </td>
                   ))}
@@ -465,11 +471,11 @@ export function McuLongitudinalComparison({ records }: McuLongitudinalComparison
                     </td>
                   )}
                 </tr>
-                <tr>
-                  <td className="py-2.5 px-3 font-sans text-slate-200">Lingkar Pinggang</td>
-                  <td className="py-2.5 px-3 text-slate-400">&lt;90 (Pria) / &lt;80 (Wanita) cm</td>
+                <tr className="hover:bg-slate-50/50 transition">
+                  <td className="py-2.5 px-3 font-sans text-slate-800 font-medium">Lingkar Pinggang</td>
+                  <td className="py-2.5 px-3 text-slate-500">&lt;90 (Pria) / &lt;80 (Wanita) cm</td>
                   {sortedRecords.map((r, i) => (
-                    <td key={i} className="py-2.5 px-3 text-right text-slate-300">
+                    <td key={i} className="py-2.5 px-3 text-right text-slate-700">
                       {r.waistCircumferenceCm ? `${r.waistCircumferenceCm} cm` : '-'}
                     </td>
                   ))}
@@ -479,11 +485,11 @@ export function McuLongitudinalComparison({ records }: McuLongitudinalComparison
                     </td>
                   )}
                 </tr>
-                <tr>
-                  <td className="py-2.5 px-3 font-sans text-slate-200">eGFR (Laju Filtrasi Glomerulus)</td>
-                  <td className="py-2.5 px-3 text-slate-400">&gt;90 mL/min/1.73m²</td>
+                <tr className="hover:bg-slate-50/50 transition">
+                  <td className="py-2.5 px-3 font-sans text-slate-800 font-medium">eGFR (Laju Filtrasi Glomerulus)</td>
+                  <td className="py-2.5 px-3 text-slate-500">&gt;90 mL/min/1.73m²</td>
                   {sortedRecords.map((r, i) => (
-                    <td key={i} className="py-2.5 px-3 text-right text-slate-300">
+                    <td key={i} className="py-2.5 px-3 text-right text-slate-700">
                       {r.egfr ? `${r.egfr}` : '-'}
                     </td>
                   ))}
@@ -499,44 +505,44 @@ export function McuLongitudinalComparison({ records }: McuLongitudinalComparison
             {/* --- EKG & KEPUTUSAN KLINIS --- */}
             {activeTab === 'all' && (
               <>
-                <tr className="bg-slate-950/60 font-sans font-bold text-indigo-400 text-[11px]">
+                <tr className="bg-indigo-50/70 font-sans font-bold text-indigo-800 text-[11px] border-y border-indigo-100">
                   <td colSpan={2 + sortedRecords.length + (previous ? 1 : 0)} className="py-2 px-3">
                     DIAGNOSTIK EKG & FIT-FOR-WORK
                   </td>
                 </tr>
-                <tr>
-                  <td className="py-2.5 px-3 font-sans text-slate-200">Interpretasi EKG Istirahat</td>
-                  <td className="py-2.5 px-3 text-slate-400">NORMAL</td>
+                <tr className="hover:bg-slate-50/50 transition">
+                  <td className="py-2.5 px-3 font-sans text-slate-800 font-medium">Interpretasi EKG Istirahat</td>
+                  <td className="py-2.5 px-3 text-slate-500">NORMAL</td>
                   {sortedRecords.map((r, i) => (
                     <td key={i} className="py-2.5 px-3 text-right font-sans">
-                      <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
+                      <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold border ${
                         r.restingEcgInterpretation === 'NORMAL' 
-                          ? 'bg-emerald-500/10 text-emerald-400' 
-                          : 'bg-rose-500/10 text-rose-400'
+                          ? 'bg-emerald-50 text-emerald-700 border-emerald-200' 
+                          : 'bg-rose-50 text-rose-700 border-rose-200'
                       }`}>
                         {r.restingEcgInterpretation}
                       </span>
                     </td>
                   ))}
-                  {previous && <td className="py-2.5 px-3 text-right text-slate-500">-</td>}
+                  {previous && <td className="py-2.5 px-3 text-right text-slate-400">-</td>}
                 </tr>
-                <tr>
-                  <td className="py-2.5 px-3 font-sans text-slate-200">Keputusan Kelayakan Kerja (Fit Status)</td>
-                  <td className="py-2.5 px-3 text-slate-400">FIT</td>
+                <tr className="hover:bg-slate-50/50 transition">
+                  <td className="py-2.5 px-3 font-sans text-slate-800 font-medium">Keputusan Kelayakan Kerja (Fit Status)</td>
+                  <td className="py-2.5 px-3 text-slate-500">FIT</td>
                   {sortedRecords.map((r, i) => (
                     <td key={i} className="py-2.5 px-3 text-right font-sans">
-                      <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
+                      <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold border ${
                         r.overallFitnessStatus === 'FIT' 
-                          ? 'bg-emerald-500/10 text-emerald-400' 
+                          ? 'bg-emerald-50 text-emerald-700 border-emerald-200' 
                           : r.overallFitnessStatus === 'FIT_WITH_RESTRICTION'
-                            ? 'bg-amber-500/10 text-amber-400'
-                            : 'bg-rose-500/10 text-rose-400'
+                            ? 'bg-amber-50 text-amber-700 border-amber-200'
+                            : 'bg-rose-50 text-rose-700 border-rose-200'
                       }`}>
                         {r.overallFitnessStatus.replace(/_/g, ' ')}
                       </span>
                     </td>
                   ))}
-                  {previous && <td className="py-2.5 px-3 text-right text-slate-500">-</td>}
+                  {previous && <td className="py-2.5 px-3 text-right text-slate-400">-</td>}
                 </tr>
               </>
             )}

@@ -37,7 +37,8 @@ export function DcuTrendChart({ records }: DcuTrendChartProps) {
 
   if (sorted.length === 0) {
     return (
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 text-center text-slate-400">
+      <div className="bg-white border border-slate-200 rounded-2xl p-8 text-center text-slate-500 shadow-sm">
+        <Activity className="w-8 h-8 text-slate-400 mx-auto mb-2 animate-pulse" />
         Belum ada catatan Daily Check-Up (DCU) dalam periode ini.
       </div>
     );
@@ -91,28 +92,28 @@ export function DcuTrendChart({ records }: DcuTrendChartProps) {
   ).length;
 
   return (
-    <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-6">
+    <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xs space-y-6">
       
       {/* Header & Tabs */}
-      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 pb-4">
         <div>
           <div className="flex items-center space-x-2">
-            <Activity className="h-5 w-5 text-teal-400" />
-            <h2 className="font-bold text-slate-100 text-sm tracking-wide">
+            <Activity className="h-5 w-5 text-teal-600" />
+            <h2 className="font-bold text-slate-900 text-sm tracking-wide">
               Tren Hemodinamik Harian — Daily Check-Up (DCU 30 Hari)
             </h2>
           </div>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-slate-500 mt-1">
             Fluktuasi tekanan darah, laju nadi istirahat, dan oksigenasi sebelum shift kerja (Pre-Shift Screening).
           </p>
         </div>
 
         {/* View toggle */}
-        <div className="flex bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs font-medium">
+        <div className="flex bg-slate-100 p-1 rounded-xl border border-slate-200 text-xs font-medium">
           <button
             onClick={() => setActiveMetricTab('hemodynamics')}
             className={`px-3 py-1.5 rounded-lg transition ${
-              activeMetricTab === 'hemodynamics' ? 'bg-teal-600 text-white font-semibold' : 'text-slate-400 hover:text-slate-200'
+              activeMetricTab === 'hemodynamics' ? 'bg-white text-teal-700 shadow-2xs font-semibold' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             Tekanan Darah & Laju Nadi
@@ -120,7 +121,7 @@ export function DcuTrendChart({ records }: DcuTrendChartProps) {
           <button
             onClick={() => setActiveMetricTab('wellness')}
             className={`px-3 py-1.5 rounded-lg transition ${
-              activeMetricTab === 'wellness' ? 'bg-teal-600 text-white font-semibold' : 'text-slate-400 hover:text-slate-200'
+              activeMetricTab === 'wellness' ? 'bg-white text-teal-700 shadow-2xs font-semibold' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             Saturasi SpO2 & Durasi Tidur
@@ -130,49 +131,49 @@ export function DcuTrendChart({ records }: DcuTrendChartProps) {
 
       {/* 4 Summary Stat Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-        <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-1">
-          <span className="text-[11px] text-slate-400 block">Rata-rata Tensi (30 Hari)</span>
-          <div className="text-xl font-bold font-mono text-slate-100">
-            {avgSbp} / {avgDbp} <span className="text-xs text-slate-400 font-sans font-normal">mmHg</span>
+        <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200 space-y-1">
+          <span className="text-[11px] text-slate-500 block">Rata-rata Tensi (30 Hari)</span>
+          <div className="text-xl font-bold font-mono text-slate-900">
+            {avgSbp} / {avgDbp} <span className="text-xs text-slate-500 font-sans font-normal">mmHg</span>
           </div>
-          <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded border inline-block ${
-            avgSbp >= 130 ? 'bg-amber-500/10 text-amber-400 border-amber-500/30' : 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30'
+          <span className={`text-[10px] font-mono px-2 py-0.5 rounded-full border inline-block ${
+            avgSbp >= 130 ? 'bg-amber-100 text-amber-800 border-amber-200' : 'bg-emerald-100 text-emerald-800 border-emerald-200'
           }`}>
             {avgSbp >= 130 ? 'Borderline Elevasi' : 'Rentang Aman'}
           </span>
         </div>
 
-        <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-1">
-          <span className="text-[11px] text-slate-400 block">Variabilitas SBP (SD)</span>
-          <div className="text-xl font-bold font-mono text-slate-100">
-            ±{sbpStdDev} <span className="text-xs text-slate-400 font-sans font-normal">mmHg</span>
+        <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200 space-y-1">
+          <span className="text-[11px] text-slate-500 block">Variabilitas SBP (SD)</span>
+          <div className="text-xl font-bold font-mono text-slate-900">
+            ±{sbpStdDev} <span className="text-xs text-slate-500 font-sans font-normal">mmHg</span>
           </div>
-          <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded border inline-block ${
-            sbpStdDev >= 12 ? 'bg-rose-500/10 text-rose-400 border-rose-500/30' : 'bg-slate-800 text-slate-300 border-slate-700'
+          <span className={`text-[10px] font-mono px-2 py-0.5 rounded-full border inline-block ${
+            sbpStdDev >= 12 ? 'bg-rose-100 text-rose-800 border-rose-200' : 'bg-slate-100 text-slate-700 border-slate-200'
           }`}>
             {sbpStdDev >= 12 ? 'Fluktuasi Tinggi (Risiko CV)' : 'Variabilitas Terkontrol'}
           </span>
         </div>
 
-        <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-1">
-          <span className="text-[11px] text-slate-400 block">Hari Hipertensi (≥140/90)</span>
-          <div className="text-xl font-bold font-mono text-slate-100">
-            {hypertensiveDays} <span className="text-xs text-slate-400 font-sans font-normal">/ {sorted.length} Hari</span>
+        <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200 space-y-1">
+          <span className="text-[11px] text-slate-500 block">Hari Hipertensi (≥140/90)</span>
+          <div className="text-xl font-bold font-mono text-slate-900">
+            {hypertensiveDays} <span className="text-xs text-slate-500 font-sans font-normal">/ {sorted.length} Hari</span>
           </div>
-          <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded border inline-block ${
-            hypertensiveDays > 5 ? 'bg-rose-500/10 text-rose-400 border-rose-500/30' : 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30'
+          <span className={`text-[10px] font-mono px-2 py-0.5 rounded-full border inline-block ${
+            hypertensiveDays > 5 ? 'bg-rose-100 text-rose-800 border-rose-200' : 'bg-emerald-100 text-emerald-800 border-emerald-200'
           }`}>
             {Math.round((hypertensiveDays / sorted.length) * 100)}% dari total shift
           </span>
         </div>
 
-        <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-1">
-          <span className="text-[11px] text-slate-400 block">Rata-rata Tidur 24 Jam</span>
-          <div className="text-xl font-bold font-mono text-slate-100">
-            {avgSleep} <span className="text-xs text-slate-400 font-sans font-normal">Jam</span>
+        <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200 space-y-1">
+          <span className="text-[11px] text-slate-500 block">Rata-rata Tidur 24 Jam</span>
+          <div className="text-xl font-bold font-mono text-slate-900">
+            {avgSleep} <span className="text-xs text-slate-500 font-sans font-normal">Jam</span>
           </div>
-          <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded border inline-block ${
-            avgSleep < 6.0 ? 'bg-amber-500/10 text-amber-400 border-amber-500/30' : 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30'
+          <span className={`text-[10px] font-mono px-2 py-0.5 rounded-full border inline-block ${
+            avgSleep < 6.0 ? 'bg-amber-100 text-amber-800 border-amber-200' : 'bg-emerald-100 text-emerald-800 border-emerald-200'
           }`}>
             {avgSleep < 6.0 ? 'Kurang Istirahat (Fatique)' : 'Durasi Cukup'}
           </span>
@@ -181,13 +182,13 @@ export function DcuTrendChart({ records }: DcuTrendChartProps) {
 
       {/* Red flag symptoms banner if any occurred */}
       {symptomDays > 0 && (
-        <div className="bg-rose-950/30 border border-rose-800/50 rounded-xl p-3.5 flex items-start space-x-3 text-xs text-rose-200">
-          <ShieldAlert className="h-5 w-5 text-rose-400 shrink-0 mt-0.5" />
+        <div className="bg-rose-50 border border-rose-200 rounded-xl p-3.5 flex items-start space-x-3 text-xs text-rose-900">
+          <ShieldAlert className="h-5 w-5 text-rose-600 shrink-0 mt-0.5" />
           <div className="space-y-1">
-            <span className="font-bold text-rose-300">
+            <span className="font-bold text-rose-900">
               Peringatan Gejala Kardiovaskular Subjektif Terdeteksi ({symptomDays} hari skrining)
             </span>
-            <p className="text-[11px] text-slate-300 leading-relaxed">
+            <p className="text-[11px] text-rose-800 leading-relaxed">
               Pekerja melaporkan keluhan spesifik saat pre-shift screening (nyeri dada / sesak napas / pusing / palpitasi). Sesuai SPO K3, pekerja memerlukan wawancara medis mendalam sebelum diizinkan bertugas di area offshore / hazardous area.
             </p>
           </div>
@@ -199,7 +200,7 @@ export function DcuTrendChart({ records }: DcuTrendChartProps) {
         <ResponsiveContainer width="100%" height="100%">
           {activeMetricTab === 'hemodynamics' ? (
             <LineChart data={chartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#334155" opacity={0.5} />
+              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
               <XAxis 
                 dataKey="date" 
                 stroke="#64748b" 
@@ -216,15 +217,15 @@ export function DcuTrendChart({ records }: DcuTrendChartProps) {
               {/* Reference Lines */}
               <ReferenceLine 
                 y={140} 
-                stroke="#f43f5e" 
+                stroke="#e11d48" 
                 strokeDasharray="4 4" 
-                label={{ value: 'Batas Hipertensi (140 mmHg)', fill: '#f43f5e', fontSize: 10, position: 'insideTopRight' }} 
+                label={{ value: 'Batas Hipertensi (140 mmHg)', fill: '#e11d48', fontSize: 10, position: 'insideTopRight' }} 
               />
               <ReferenceLine 
                 y={120} 
                 stroke="#64748b" 
                 strokeDasharray="3 3" 
-                label={{ value: 'Optimal (120 mmHg)', fill: '#94a3b8', fontSize: 10, position: 'insideBottomRight' }} 
+                label={{ value: 'Optimal (120 mmHg)', fill: '#64748b', fontSize: 10, position: 'insideBottomRight' }} 
               />
 
               <Tooltip 
@@ -232,37 +233,37 @@ export function DcuTrendChart({ records }: DcuTrendChartProps) {
                   if (active && payload && payload.length) {
                     const data = payload[0].payload;
                     return (
-                      <div className="bg-slate-950 border border-slate-800 p-3 rounded-xl shadow-2xl text-xs space-y-1.5 min-w-[210px]">
-                        <div className="border-b border-slate-800 pb-1 flex justify-between items-center">
-                          <span className="font-bold text-slate-200">{data.fullDate}</span>
-                          <span className="text-[10px] text-teal-400 bg-teal-500/10 px-1.5 py-0.5 rounded">
+                      <div className="bg-white border border-slate-200 p-3 rounded-xl shadow-xl text-xs space-y-1.5 min-w-[210px]">
+                        <div className="border-b border-slate-100 pb-1 flex justify-between items-center">
+                          <span className="font-bold text-slate-900">{data.fullDate}</span>
+                          <span className="text-[10px] text-teal-700 bg-teal-50 px-2 py-0.5 rounded-full border border-teal-200 font-semibold">
                             {data.shift}
                           </span>
                         </div>
                         <div className="space-y-1 font-mono text-[11px]">
                           <div className="flex justify-between">
-                            <span className="text-rose-400">Tekanan Sistolik:</span>
-                            <span className="font-bold text-slate-100">{data.systolicBp} mmHg</span>
+                            <span className="text-rose-600 font-medium">Tekanan Sistolik:</span>
+                            <span className="font-bold text-slate-900">{data.systolicBp} mmHg</span>
                           </div>
                           <div className="flex justify-between">
-                            <span className="text-sky-400">Tekanan Diastolik:</span>
-                            <span className="font-bold text-slate-100">{data.diastolicBp} mmHg</span>
+                            <span className="text-sky-600 font-medium">Tekanan Diastolik:</span>
+                            <span className="font-bold text-slate-900">{data.diastolicBp} mmHg</span>
                           </div>
                           <div className="flex justify-between">
-                            <span className="text-teal-400">Denyut Nadi (HR):</span>
-                            <span className="font-bold text-slate-100">{data.heartRate} bpm</span>
+                            <span className="text-teal-600 font-medium">Denyut Nadi (HR):</span>
+                            <span className="font-bold text-slate-900">{data.heartRate} bpm</span>
                           </div>
                           <div className="flex justify-between">
-                            <span className="text-amber-400">Pulse Pressure:</span>
-                            <span className="font-bold text-slate-100">{data.pulsePressure} mmHg</span>
+                            <span className="text-amber-600 font-medium">Pulse Pressure:</span>
+                            <span className="font-bold text-slate-900">{data.pulsePressure} mmHg</span>
                           </div>
                           <div className="flex justify-between">
-                            <span className="text-indigo-400">Jam Tidur:</span>
-                            <span className="font-bold text-slate-100">{data.sleepHours} Jam</span>
+                            <span className="text-indigo-600 font-medium">Jam Tidur:</span>
+                            <span className="font-bold text-slate-900">{data.sleepHours} Jam</span>
                           </div>
                         </div>
                         {data.hasSymptoms && (
-                          <div className="pt-1 mt-1 border-t border-slate-800 text-[10px] text-rose-400 font-sans font-bold">
+                          <div className="pt-1 mt-1 border-t border-slate-100 text-[10px] text-rose-700 font-sans font-bold">
                             ⚠️ Gejala: {[
                               data.chestPain && 'Nyeri Dada',
                               data.sob && 'Sesak Napas',
@@ -271,7 +272,7 @@ export function DcuTrendChart({ records }: DcuTrendChartProps) {
                             ].filter(Boolean).join(', ')}
                           </div>
                         )}
-                        <div className="text-[9px] text-slate-500 pt-0.5">
+                        <div className="text-[9px] text-slate-400 pt-0.5">
                           Mode Entri: {data.entryMode}
                         </div>
                       </div>
@@ -290,46 +291,46 @@ export function DcuTrendChart({ records }: DcuTrendChartProps) {
                 type="monotone" 
                 dataKey="systolicBp" 
                 name="Sistolik (SBP)" 
-                stroke="#f43f5e" 
+                stroke="#e11d48" 
                 strokeWidth={2.5} 
-                dot={{ r: 3, fill: '#f43f5e' }} 
+                dot={{ r: 3, fill: '#e11d48' }} 
                 activeDot={{ r: 6 }} 
               />
               <Line 
                 type="monotone" 
                 dataKey="diastolicBp" 
                 name="Diastolik (DBP)" 
-                stroke="#38bdf8" 
+                stroke="#0284c7" 
                 strokeWidth={2} 
-                dot={{ r: 2.5, fill: '#38bdf8' }} 
+                dot={{ r: 2.5, fill: '#0284c7' }} 
               />
               <Line 
                 type="monotone" 
                 dataKey="heartRate" 
                 name="Denyut Jantung (HR)" 
-                stroke="#2dd4bf" 
+                stroke="#0d9488" 
                 strokeWidth={2} 
                 strokeDasharray="2 2"
-                dot={{ r: 2.5, fill: '#2dd4bf' }} 
+                dot={{ r: 2.5, fill: '#0d9488' }} 
               />
             </LineChart>
           ) : (
             <LineChart data={chartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#334155" opacity={0.5} />
+              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
               <XAxis dataKey="date" stroke="#64748b" tick={{ fontSize: 11 }} tickLine={false} />
-              <YAxis yAxisId="left" domain={[85, 100]} stroke="#38bdf8" tick={{ fontSize: 11 }} />
-              <YAxis yAxisId="right" orientation="right" domain={[0, 12]} stroke="#a855f7" tick={{ fontSize: 11 }} />
-              <ReferenceLine yAxisId="left" y={95} stroke="#ef4444" strokeDasharray="3 3" label={{ value: 'SpO2 Kritis (<95%)', fill: '#ef4444', fontSize: 10 }} />
+              <YAxis yAxisId="left" domain={[85, 100]} stroke="#0284c7" tick={{ fontSize: 11 }} />
+              <YAxis yAxisId="right" orientation="right" domain={[0, 12]} stroke="#7c3aed" tick={{ fontSize: 11 }} />
+              <ReferenceLine yAxisId="left" y={95} stroke="#e11d48" strokeDasharray="3 3" label={{ value: 'SpO2 Kritis (<95%)', fill: '#e11d48', fontSize: 10 }} />
               <Tooltip 
                 content={({ active, payload }) => {
                   if (active && payload && payload.length) {
                     const data = payload[0].payload;
                     return (
-                      <div className="bg-slate-950 border border-slate-800 p-2.5 rounded-xl text-xs space-y-1 font-mono">
-                        <span className="font-sans font-bold text-slate-200 block">{data.fullDate}</span>
-                        <div className="text-sky-400">Saturasi O2: {data.spo2Percent}%</div>
-                        <div className="text-purple-400">Durasi Tidur: {data.sleepHours} Jam</div>
-                        <div className="text-teal-400">Suhu Tubuh: {data.bodyTemp} °C</div>
+                      <div className="bg-white border border-slate-200 p-3 rounded-xl shadow-xl text-xs space-y-1 font-mono">
+                        <span className="font-sans font-bold text-slate-900 block">{data.fullDate}</span>
+                        <div className="text-sky-700">Saturasi O2: {data.spo2Percent}%</div>
+                        <div className="text-purple-700">Durasi Tidur: {data.sleepHours} Jam</div>
+                        <div className="text-teal-700">Suhu Tubuh: {data.bodyTemp} °C</div>
                       </div>
                     );
                   }
@@ -337,19 +338,19 @@ export function DcuTrendChart({ records }: DcuTrendChartProps) {
                 }}
               />
               <Legend verticalAlign="top" height={36} iconType="circle" wrapperStyle={{ fontSize: '11px' }} />
-              <Line yAxisId="left" type="monotone" dataKey="spo2Percent" name="Saturasi SpO2 (%)" stroke="#38bdf8" strokeWidth={2.5} dot={{ r: 3 }} />
-              <Line yAxisId="right" type="monotone" dataKey="sleepHours" name="Jam Tidur (Jam)" stroke="#a855f7" strokeWidth={2} dot={{ r: 3 }} />
+              <Line yAxisId="left" type="monotone" dataKey="spo2Percent" name="Saturasi SpO2 (%)" stroke="#0284c7" strokeWidth={2.5} dot={{ r: 3 }} />
+              <Line yAxisId="right" type="monotone" dataKey="sleepHours" name="Jam Tidur (Jam)" stroke="#7c3aed" strokeWidth={2} dot={{ r: 3 }} />
             </LineChart>
           )}
         </ResponsiveContainer>
       </div>
 
-      <div className="text-[11px] text-slate-400 flex items-center justify-between border-t border-slate-800 pt-3">
-        <div className="flex items-center space-x-1 text-slate-400">
-          <Info className="h-3.5 w-3.5 text-sky-400 shrink-0" />
+      <div className="text-[11px] text-slate-500 flex items-center justify-between border-t border-slate-100 pt-3">
+        <div className="flex items-center space-x-1 text-slate-500">
+          <Info className="h-3.5 w-3.5 text-sky-600 shrink-0" />
           <span>Titik data diambil mandiri di Kios K3 atau oleh Paramedis sebelum shift kerja dimulai.</span>
         </div>
-        <span className="font-mono text-teal-400 text-[10px]">
+        <span className="font-mono text-teal-700 text-[10px] font-semibold">
           30 Data Points (Real-time Stream)
         </span>
       </div>

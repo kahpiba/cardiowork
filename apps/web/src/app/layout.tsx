@@ -13,12 +13,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="id" className="dark">
-      <body className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans antialiased selection:bg-sky-500 selection:text-white">
+    <html lang="id">
+      <body className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans antialiased selection:bg-rose-500 selection:text-white">
         
         {/* Banner Kepatuhan Medis Wajib */}
-        <div className="bg-amber-500/10 border-b border-amber-500/30 text-amber-300 text-xs py-1.5 px-4 text-center font-medium flex items-center justify-center space-x-2">
-          <span className="h-2 w-2 rounded-full bg-amber-400 animate-pulse"></span>
+        <div className="bg-amber-50 border-b border-amber-200 text-amber-900 text-xs py-2 px-4 text-center font-semibold flex items-center justify-center space-x-2 shadow-xs">
+          <span className="h-2 w-2 rounded-full bg-amber-500 animate-pulse"></span>
           <span>DATA SINTETIS — BUKAN BUKTI KLINIS | Sistem Pendukung Keputusan Klinis K3 (Bukan Alat Diagnosis Mandiri)</span>
         </div>
 
@@ -29,12 +29,13 @@ export default function RootLayout({
           {children}
         </main>
 
-        <footer className="border-t border-slate-800 bg-slate-900/60 py-4 text-center text-xs text-slate-500">
+        <footer className="border-t border-slate-200 bg-white/90 backdrop-blur-xs py-5 text-center text-xs text-slate-600">
           <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-            <div>
-              CardioWork Platform © 2026 • S1 Sains Data UPN Veteran Jawa Timur
+            <div className="flex items-center gap-2">
+              <span className="font-bold text-slate-800">CardioWork Platform</span>
+              <span>© 2026 • S1 Sains Data UPN Veteran Jawa Timur</span>
             </div>
-            <div>
+            <div className="text-slate-500">
               Kepatuhan UU PDP No. 27/2022 • Serverless Vercel Architecture (sin1)
             </div>
           </div>

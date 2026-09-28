@@ -54,13 +54,15 @@ export function Layer2MlScoreCard({
 
   if (predictedPercent >= 40.0) {
     riskCategory = 'CRITICAL';
-    badgeColor = 'bg-rose-500/10 text-rose-400 border-rose-500/30';
+    badgeColor = 'bg-rose-100 text-rose-800 border-rose-200';
   } else if (predictedPercent >= 20.0) {
     riskCategory = 'HIGH';
-    badgeColor = 'bg-orange-500/10 text-orange-400 border-orange-500/30';
+    badgeColor = 'bg-orange-100 text-orange-800 border-orange-200';
   } else if (predictedPercent >= 10.0) {
     riskCategory = 'MODERATE';
-    badgeColor = 'bg-amber-500/10 text-amber-400 border-amber-500/30';
+    badgeColor = 'bg-amber-100 text-amber-800 border-amber-200';
+  } else {
+    badgeColor = 'bg-emerald-100 text-emerald-800 border-emerald-200';
   }
 
   // Feature drivers
@@ -73,21 +75,21 @@ export function Layer2MlScoreCard({
   ];
 
   return (
-    <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-5">
+    <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xs space-y-5">
       
       {/* Header */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-3">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-3">
         <div className="flex items-center space-x-2">
-          <Cpu className="h-5 w-5 text-teal-400" />
-          <h2 className="font-bold text-slate-100 text-sm tracking-wide">
+          <Cpu className="h-5 w-5 text-teal-600" />
+          <h2 className="font-bold text-slate-900 text-sm tracking-wide">
             Layer 2 — Machine Learning Baseline (LightGBM Terkalibrasi Platt Scaling)
           </h2>
         </div>
         <div className="flex items-center space-x-2">
-          <span className="text-[11px] font-mono bg-teal-500/10 text-teal-300 px-2 py-0.5 rounded border border-teal-500/30">
+          <span className="text-[11px] font-mono bg-teal-50 text-teal-700 px-2.5 py-0.5 rounded-full border border-teal-200 font-semibold">
             ONNX INT8 • 59.7 KB
           </span>
-          <span className="text-[11px] font-mono bg-slate-800 text-slate-300 px-2 py-0.5 rounded border border-slate-700">
+          <span className="text-[11px] font-mono bg-slate-100 text-slate-700 px-2 py-0.5 rounded-full border border-slate-200">
             Brier Score: 0.0050
           </span>
         </div>
@@ -97,32 +99,32 @@ export function Layer2MlScoreCard({
       <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
         
         {/* Left: ML Prediction Gauge (5 cols) */}
-        <div className="md:col-span-5 bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-3 flex flex-col justify-between">
+        <div className="md:col-span-5 bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3 flex flex-col justify-between">
           <div className="flex justify-between items-start">
-            <span className="text-xs font-semibold text-slate-400">Prediksi Probabilitas ML 10-Tahun</span>
+            <span className="text-xs font-bold text-slate-700">Prediksi Probabilitas ML 10-Tahun</span>
             <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${badgeColor}`}>
               {riskCategory} RISK
             </span>
           </div>
 
           <div className="space-y-1">
-            <div className="text-4xl font-extrabold font-mono text-teal-300">
+            <div className="text-4xl font-extrabold font-mono text-teal-700">
               {predictedPercent}%
             </div>
-            <p className="text-[11px] text-slate-400 leading-snug">
+            <p className="text-[11px] text-slate-600 leading-snug">
               Dihitung oleh model ensemble LightGBM (5-Fold Stratified CV, ROC-AUC: 0.9998, Sensitivitas: 98.8%).
             </p>
           </div>
 
           {/* Comparison with Layer 1 */}
-          <div className="pt-2 border-t border-slate-800 text-xs space-y-1">
-            <div className="flex justify-between text-slate-400">
+          <div className="pt-2 border-t border-slate-200 text-xs space-y-1">
+            <div className="flex justify-between text-slate-600">
               <span>Baseline Layer 1 (Framingham):</span>
-              <span className="font-mono font-bold text-slate-200">{framinghamRiskPercent}%</span>
+              <span className="font-mono font-bold text-slate-900">{framinghamRiskPercent}%</span>
             </div>
-            <div className="flex justify-between text-slate-400">
+            <div className="flex justify-between text-slate-600">
               <span>Delta Model (ML vs Formula Baku):</span>
-              <span className={`font-mono font-bold ${predictedPercent > framinghamRiskPercent ? 'text-amber-400' : 'text-emerald-400'}`}>
+              <span className={`font-mono font-bold ${predictedPercent > framinghamRiskPercent ? 'text-amber-700' : 'text-emerald-700'}`}>
                 {predictedPercent > framinghamRiskPercent ? '+' : ''}{Math.round((predictedPercent - framinghamRiskPercent) * 10) / 10}%
               </span>
             </div>
@@ -130,10 +132,10 @@ export function Layer2MlScoreCard({
         </div>
 
         {/* Right: Feature Attribution Drivers (7 cols) */}
-        <div className="md:col-span-7 bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-3">
+        <div className="md:col-span-7 bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center space-x-1.5">
-              <BarChart3 className="h-4 w-4 text-sky-400" />
+            <span className="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center space-x-1.5">
+              <BarChart3 className="h-4 w-4 text-sky-600" />
               <span>Faktor Penentu Risiko Utama (Feature Attribution):</span>
             </span>
             <span className="text-[10px] text-slate-500 font-mono">Global GBDT Split</span>
@@ -141,17 +143,17 @@ export function Layer2MlScoreCard({
 
           <div className="space-y-2 text-xs">
             {drivers.map((d, i) => (
-              <div key={i} className="flex items-center justify-between p-2 rounded-lg bg-slate-900 border border-slate-800/80">
+              <div key={i} className="flex items-center justify-between p-2.5 rounded-lg bg-white border border-slate-200 shadow-2xs">
                 <div className="space-y-0.5">
-                  <span className="text-slate-300 font-medium block">{d.name}</span>
-                  <span className="text-[11px] font-mono text-slate-400">{d.value}</span>
+                  <span className="text-slate-900 font-semibold block">{d.name}</span>
+                  <span className="text-[11px] font-mono text-slate-500">{d.value}</span>
                 </div>
                 <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
                   d.impact === 'HIGH' 
-                    ? 'bg-rose-500/10 text-rose-400 border-rose-500/30' 
+                    ? 'bg-rose-100 text-rose-800 border-rose-200' 
                     : d.impact === 'MEDIUM' 
-                      ? 'bg-amber-500/10 text-amber-400 border-amber-500/30' 
-                      : 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30'
+                      ? 'bg-amber-100 text-amber-800 border-amber-200' 
+                      : 'bg-emerald-100 text-emerald-800 border-emerald-200'
                 }`}>
                   {d.impact} IMPACT
                 </span>
@@ -166,7 +168,7 @@ export function Layer2MlScoreCard({
       <div className="pt-1">
         <button 
           onClick={() => setShowShapDetails(!showShapDetails)}
-          className="text-xs text-sky-400 hover:text-sky-300 flex items-center space-x-1 transition font-medium"
+          className="text-xs text-sky-700 hover:text-sky-800 flex items-center space-x-1 transition font-bold"
         >
           <BarChart3 className="h-3.5 w-3.5" />
           <span>{showShapDetails ? 'Sembunyikan Spesifikasi Metrik & Kalibrasi Model' : 'Tampilkan Metrik Validasi Silang 5-Fold & Kinerja Kalibrasi'}</span>
@@ -174,26 +176,26 @@ export function Layer2MlScoreCard({
         </button>
 
         {showShapDetails && (
-          <div className="mt-3 p-4 bg-slate-950 rounded-xl border border-slate-800 text-xs text-slate-400 space-y-3">
+          <div className="mt-3 p-4 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-600 space-y-3">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 font-mono text-[11px]">
-              <div className="p-2 bg-slate-900 rounded border border-slate-800">
+              <div className="p-2.5 bg-white rounded-lg border border-slate-200 shadow-2xs">
                 <span className="text-slate-500 block">ROC-AUC:</span>
-                <span className="text-emerald-400 font-bold">0.9998</span>
+                <span className="text-emerald-700 font-bold">0.9998</span>
               </div>
-              <div className="p-2 bg-slate-900 rounded border border-slate-800">
+              <div className="p-2.5 bg-white rounded-lg border border-slate-200 shadow-2xs">
                 <span className="text-slate-500 block">PR-AUC:</span>
-                <span className="text-emerald-400 font-bold">0.9997</span>
+                <span className="text-emerald-700 font-bold">0.9997</span>
               </div>
-              <div className="p-2 bg-slate-900 rounded border border-slate-800">
+              <div className="p-2.5 bg-white rounded-lg border border-slate-200 shadow-2xs">
                 <span className="text-slate-500 block">Sensitivitas / Recall:</span>
-                <span className="text-teal-400 font-bold">98.83%</span>
+                <span className="text-teal-700 font-bold">98.83%</span>
               </div>
-              <div className="p-2 bg-slate-900 rounded border border-slate-800">
+              <div className="p-2.5 bg-white rounded-lg border border-slate-200 shadow-2xs">
                 <span className="text-slate-500 block">Expected Calib. Error:</span>
-                <span className="text-sky-400 font-bold">0.0161</span>
+                <span className="text-sky-700 font-bold">0.0161</span>
               </div>
             </div>
-            <p className="text-[11px] text-slate-400 leading-relaxed">
+            <p className="text-[11px] text-slate-600 leading-relaxed">
               Model dilatih menggunakan dataset 1.000 pekerja industri migas dengan 42 variabel terpadu (antropometri, profil lipid komprehensif, biomarker inflamasi, dan deret waktu harian DCU 30 hari). Output dikalibrasi via <em>Platt Scaling</em> agar estimasi probabilitas mencerminkan risiko empiris aktual pada pekerja lapangan.
             </p>
           </div>

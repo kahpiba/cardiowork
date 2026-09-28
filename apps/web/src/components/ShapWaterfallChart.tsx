@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ArrowUpRight, ArrowDownRight, Info, ShieldCheck, AlertCircle } from 'lucide-react';
+import { ArrowUpRight, ArrowDownRight, Info, ShieldCheck, HelpCircle } from 'lucide-react';
 import { ShapExplanationResult } from '@/lib/shap/shapExplainer';
 
 interface ShapWaterfallChartProps {
@@ -14,33 +14,33 @@ export const ShapWaterfallChart: React.FC<ShapWaterfallChartProps> = ({ data }) 
   const maxAbsPhi = Math.max(...data.contributions.map(c => Math.abs(c.phiValue * 100)), 10);
 
   return (
-    <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 shadow-xl space-y-6">
+    <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-6">
       
       {/* Header Info */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-zinc-800">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100">
         <div>
           <div className="flex items-center gap-2">
-            <h3 className="text-base font-bold text-white">
+            <h3 className="text-base font-bold text-slate-900">
               SHAP Waterfall Plot: Atribusi Kontribusi Variabel Risiko
             </h3>
-            <span className="text-[10px] font-mono bg-zinc-800 text-zinc-300 px-2 py-0.5 rounded border border-zinc-700">
+            <span className="text-[10px] font-mono bg-sky-50 text-sky-700 px-2.5 py-0.5 rounded-full border border-sky-200 font-bold">
               Local Explainable AI
             </span>
           </div>
-          <p className="text-xs text-zinc-400 mt-1">
-            Menjelaskan bagaimana fitur individual mengubah prediksi risiko dari baseline populasi menuju probabilitas akhir pekerja.
+          <p className="text-xs text-slate-500 mt-1">
+            Menjelaskan bagaimana fitur individual pekerja menggeser prediksi risiko dari baseline populasi (E[f(x)]) ke probabilitas akhir.
           </p>
         </div>
 
-        <div className="flex items-center gap-4 text-xs font-mono">
-          <div className="bg-black/40 px-3 py-1.5 rounded-lg border border-zinc-800">
-            <span className="text-zinc-500 block text-[10px]">Base Value E[f(x)]</span>
-            <strong className="text-zinc-300">{basePercent.toFixed(1)}%</strong>
+        <div className="flex items-center gap-3 text-xs font-mono">
+          <div className="bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-200 text-center">
+            <span className="text-slate-400 block text-[10px] uppercase font-bold">Base E[f(x)]</span>
+            <strong className="text-slate-700">{basePercent.toFixed(1)}%</strong>
           </div>
-          <div className="text-zinc-500">&rarr;</div>
-          <div className="bg-black/40 px-3 py-1.5 rounded-lg border border-zinc-800">
-            <span className="text-zinc-500 block text-[10px]">Prediksi f(x)</span>
-            <strong className={finalPercent >= 35 ? 'text-rose-400' : finalPercent >= 15 ? 'text-amber-400' : 'text-emerald-400'}>
+          <div className="text-slate-400 font-bold">&rarr;</div>
+          <div className="bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-200 text-center">
+            <span className="text-slate-400 block text-[10px] uppercase font-bold">Prediksi Akhir</span>
+            <strong className={finalPercent >= 35 ? 'text-rose-600' : finalPercent >= 15 ? 'text-amber-600' : 'text-emerald-600'}>
               {finalPercent.toFixed(1)}%
             </strong>
           </div>
@@ -49,7 +49,7 @@ export const ShapWaterfallChart: React.FC<ShapWaterfallChartProps> = ({ data }) 
 
       {/* Visual Bars Container */}
       <div className="space-y-3">
-        {data.contributions.map((item, index) => {
+        {data.contributions.map((item) => {
           const phiPercent = item.phiValue * 100;
           const isPositive = phiPercent > 0;
           const barWidthPercent = Math.min(100, (Math.abs(phiPercent) / maxAbsPhi) * 100);
@@ -57,44 +57,44 @@ export const ShapWaterfallChart: React.FC<ShapWaterfallChartProps> = ({ data }) 
           return (
             <div 
               key={item.featureName}
-              className="group p-3 rounded-xl bg-zinc-950/40 border border-zinc-800/80 hover:border-zinc-700 transition-all"
+              className="group p-3.5 rounded-xl bg-slate-50/70 border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all"
             >
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
                 
                 {/* Feature Label and Value */}
                 <div className="space-y-0.5 sm:w-1/3">
-                  <div className="font-semibold text-white flex items-center gap-1.5">
+                  <div className="font-semibold text-slate-800 flex items-center gap-1.5">
                     {isPositive ? (
-                      <ArrowUpRight className="w-4 h-4 text-rose-400 shrink-0" />
+                      <ArrowUpRight className="w-4 h-4 text-rose-600 shrink-0" />
                     ) : (
-                      <ArrowDownRight className="w-4 h-4 text-emerald-400 shrink-0" />
+                      <ArrowDownRight className="w-4 h-4 text-emerald-600 shrink-0" />
                     )}
                     <span>{item.displayName}</span>
                   </div>
-                  <div className="text-[11px] text-zinc-400 font-mono pl-5.5">
-                    Nilai: <strong className="text-zinc-200">{item.workerValue}</strong> (Ref: {item.referenceBaseline})
+                  <div className="text-[11px] text-slate-500 font-mono pl-5.5">
+                    Nilai: <strong className="text-slate-700 font-bold">{item.workerValue}</strong> (Ref: {item.referenceBaseline})
                   </div>
                 </div>
 
                 {/* Contribution Bar */}
                 <div className="sm:w-1/2 flex items-center gap-3">
-                  <div className="flex-1 bg-zinc-900 h-3 rounded-full overflow-hidden flex items-center relative">
+                  <div className="flex-1 bg-slate-200 h-3 rounded-full overflow-hidden flex items-center relative">
                     {/* Center baseline divider */}
-                    <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-zinc-700 z-10" />
+                    <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-slate-400 z-10" />
 
                     {isPositive ? (
-                      // Right of center
+                      // Right of center (Risk increment)
                       <div className="w-1/2 flex justify-start pl-[50%]">
                         <div 
-                          className="h-full bg-gradient-to-r from-rose-600 to-rose-400 rounded-r-full transition-all duration-500"
+                          className="h-full bg-gradient-to-r from-rose-500 to-rose-600 rounded-r-full transition-all duration-500 shadow-xs"
                           style={{ width: `${barWidthPercent / 2}%` }}
                         />
                       </div>
                     ) : (
-                      // Left of center
+                      // Left of center (Protective effect)
                       <div className="w-1/2 flex justify-end pr-0">
                         <div 
-                          className="h-full bg-gradient-to-l from-emerald-500 to-teal-400 rounded-l-full transition-all duration-500"
+                          className="h-full bg-gradient-to-l from-emerald-500 to-teal-500 rounded-l-full transition-all duration-500 shadow-xs"
                           style={{ width: `${barWidthPercent / 2}%` }}
                         />
                       </div>
@@ -102,7 +102,7 @@ export const ShapWaterfallChart: React.FC<ShapWaterfallChartProps> = ({ data }) 
                   </div>
 
                   <span className={`w-16 text-right font-mono font-bold text-xs ${
-                    isPositive ? 'text-rose-400' : 'text-emerald-400'
+                    isPositive ? 'text-rose-600' : 'text-emerald-600'
                   }`}>
                     {isPositive ? `+${phiPercent.toFixed(1)}%` : `${phiPercent.toFixed(1)}%`}
                   </span>
@@ -111,8 +111,8 @@ export const ShapWaterfallChart: React.FC<ShapWaterfallChartProps> = ({ data }) 
               </div>
 
               {/* Clinical Explanation tooltip/subtext */}
-              <div className="mt-2 pt-2 border-t border-zinc-900 text-[11px] text-zinc-400 leading-relaxed flex items-start gap-1.5">
-                <Info className="w-3.5 h-3.5 text-zinc-500 shrink-0 mt-0.5" />
+              <div className="mt-2.5 pt-2 border-t border-slate-200/70 text-[11px] text-slate-600 leading-relaxed flex items-start gap-1.5">
+                <Info className="w-3.5 h-3.5 text-slate-400 shrink-0 mt-0.5" />
                 <span>{item.clinicalExplanation}</span>
               </div>
             </div>
@@ -121,12 +121,12 @@ export const ShapWaterfallChart: React.FC<ShapWaterfallChartProps> = ({ data }) 
       </div>
 
       {/* Clinical Narrative Box */}
-      <div className="bg-zinc-950 border border-zinc-800 rounded-xl p-4 text-xs text-zinc-300 leading-relaxed space-y-1.5">
-        <div className="font-bold text-white flex items-center gap-1.5">
-          <ShieldCheck className="w-4 h-4 text-sky-400" />
+      <div className="bg-sky-50/70 border border-sky-200 rounded-xl p-4 text-xs text-slate-700 leading-relaxed space-y-1.5">
+        <div className="font-bold text-sky-900 flex items-center gap-1.5">
+          <ShieldCheck className="w-4 h-4 text-sky-600" />
           Kesimpulan Transparansi Klinis (Doctor Decision Support):
         </div>
-        <p>{data.clinicalNarrative}</p>
+        <p className="text-slate-600">{data.clinicalNarrative}</p>
       </div>
 
     </div>

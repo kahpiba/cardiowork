@@ -13,7 +13,8 @@ import {
   ArrowRight,
   TrendingUp,
   ShieldCheck,
-  Zap
+  Zap,
+  ArrowLeft
 } from 'lucide-react';
 import { 
   BarChart, 
@@ -124,27 +125,38 @@ export default function ModelLabPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 py-8 px-4 sm:px-6 lg:px-8 space-y-8 max-w-7xl mx-auto">
+    <div className="min-h-screen bg-slate-50 text-slate-900 py-8 px-4 sm:px-6 lg:px-8 space-y-8 max-w-7xl mx-auto bg-medical-grid">
       
+      {/* Top back link */}
+      <div>
+        <Link
+          href="/"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-sky-600 transition"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          <span>Kembali ke Beranda</span>
+        </Link>
+      </div>
+
       {/* Header */}
-      <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 shadow-xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 -mt-6 -mr-6 w-48 h-48 bg-rose-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-7 shadow-sm relative overflow-hidden">
+        <div className="absolute top-0 right-0 -mt-6 -mr-6 w-48 h-48 bg-sky-500/5 rounded-full blur-3xl pointer-events-none" />
         
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-rose-600 to-indigo-600 flex items-center justify-center text-white shadow-lg">
+          <div className="flex items-center gap-3.5">
+            <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-sky-600 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-sky-600/20">
               <Cpu className="w-6 h-6" />
             </div>
             <div>
-              <div className="flex items-center gap-2">
-                <h1 className="text-xl sm:text-2xl font-black tracking-tight text-white">
+              <div className="flex items-center gap-2 flex-wrap">
+                <h1 className="text-xl sm:text-2xl font-black tracking-tight text-slate-900">
                   Model Lab & Tata Kelola AI (Explainable AI)
                 </h1>
-                <span className="bg-rose-500/20 text-rose-300 text-xs font-bold px-2 py-0.5 rounded border border-rose-500/30">
+                <span className="bg-sky-50 text-sky-700 text-xs font-bold px-2.5 py-0.5 rounded-full border border-sky-200 shadow-2xs">
                   SHAP Interpretability
                 </span>
               </div>
-              <p className="text-xs sm:text-sm text-zinc-400 mt-1">
+              <p className="text-xs sm:text-sm text-slate-600 mt-1">
                 Transparansi klinis, evaluasi metrik kalibrasi 4 model, dan analisis atribusi lokal SHAP individual.
               </p>
             </div>
@@ -152,21 +164,21 @@ export default function ModelLabPage() {
 
           <Link
             href="/population"
-            className="px-3.5 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 text-xs font-semibold flex items-center gap-1.5 transition-colors self-start sm:self-auto"
+            className="px-3.5 py-2 rounded-xl bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 text-xs font-bold flex items-center gap-1.5 transition-colors self-start sm:self-auto shadow-2xs"
           >
             <span>Kesehatan Populasi</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
           </Link>
         </div>
 
         {/* Tab Navigation */}
-        <div className="mt-6 pt-4 border-t border-zinc-800 flex flex-wrap items-center gap-2">
+        <div className="mt-6 pt-4 border-t border-slate-100 flex flex-wrap items-center gap-2">
           <button
             onClick={() => setActiveTab('SHAP_WATERFALL')}
-            className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+            className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shadow-2xs ${
               activeTab === 'SHAP_WATERFALL'
-                ? 'bg-rose-600 text-white shadow-md shadow-rose-900/30'
-                : 'bg-zinc-800/80 text-zinc-400 hover:text-white hover:bg-zinc-800'
+                ? 'bg-sky-600 text-white shadow-xs'
+                : 'bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200 border border-slate-200'
             }`}
           >
             <Zap className="w-3.5 h-3.5" />
@@ -175,10 +187,10 @@ export default function ModelLabPage() {
 
           <button
             onClick={() => setActiveTab('GLOBAL_IMPORTANCE')}
-            className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+            className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shadow-2xs ${
               activeTab === 'GLOBAL_IMPORTANCE'
-                ? 'bg-rose-600 text-white shadow-md shadow-rose-900/30'
-                : 'bg-zinc-800/80 text-zinc-400 hover:text-white hover:bg-zinc-800'
+                ? 'bg-sky-600 text-white shadow-xs'
+                : 'bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200 border border-slate-200'
             }`}
           >
             <BarChart3 className="w-3.5 h-3.5" />
@@ -187,10 +199,10 @@ export default function ModelLabPage() {
 
           <button
             onClick={() => setActiveTab('COMPARISON')}
-            className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+            className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shadow-2xs ${
               activeTab === 'COMPARISON'
-                ? 'bg-rose-600 text-white shadow-md shadow-rose-900/30'
-                : 'bg-zinc-800/80 text-zinc-400 hover:text-white hover:bg-zinc-800'
+                ? 'bg-sky-600 text-white shadow-xs'
+                : 'bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200 border border-slate-200'
             }`}
           >
             <GitCompare className="w-3.5 h-3.5" />
@@ -204,8 +216,8 @@ export default function ModelLabPage() {
         <div className="space-y-6">
           
           {/* Worker Selector Pills */}
-          <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 shadow-sm">
-            <span className="text-xs font-bold uppercase tracking-wider text-zinc-400 block mb-3">
+          <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-3">
               Pilih Profil Pekerja untuk Analisis SHAP:
             </span>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -215,22 +227,22 @@ export default function ModelLabPage() {
                   <button
                     key={d.worker.pseudonymId}
                     onClick={() => setSelectedWorkerId(d.worker.pseudonymId)}
-                    className={`p-3 rounded-xl border text-left transition-all ${
+                    className={`p-3.5 rounded-xl border text-left transition-all ${
                       isSelected
-                        ? 'bg-rose-950/40 border-rose-500 shadow-md ring-1 ring-rose-500'
-                        : 'bg-zinc-950/40 border-zinc-800 hover:border-zinc-700'
+                        ? 'bg-sky-50/80 border-sky-500 shadow-xs ring-2 ring-sky-500/20'
+                        : 'bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50/50'
                     }`}
                   >
                     <div className="flex items-center justify-between">
-                      <span className="font-mono text-xs font-bold text-white">
+                      <span className="font-mono text-xs font-bold text-sky-700">
                         {d.worker.pseudonymId}
                       </span>
-                      <span className="text-[10px] text-zinc-400">{d.worker.age} th</span>
+                      <span className="text-[10px] text-slate-500 font-medium">{d.worker.age} th • {d.worker.gender === 'MALE' ? 'Pria' : 'Wanita'}</span>
                     </div>
-                    <div className="text-sm font-semibold text-zinc-200 mt-1 truncate">
+                    <div className="text-sm font-bold text-slate-900 mt-1 truncate">
                       {d.worker.nameSynthetic}
                     </div>
-                    <div className="text-[11px] text-zinc-500 truncate mt-0.5">
+                    <div className="text-[11px] text-slate-500 truncate mt-0.5 font-medium">
                       {d.worker.jobTitle} • {d.worker.department}
                     </div>
                   </button>
@@ -241,7 +253,8 @@ export default function ModelLabPage() {
 
           {/* Render Waterfall Component */}
           {loadingShap || !shapData ? (
-            <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-12 text-center text-zinc-400">
+            <div className="bg-white border border-slate-200 rounded-2xl p-12 text-center text-slate-500 shadow-sm">
+              <Cpu className="w-8 h-8 text-slate-400 mx-auto mb-2 animate-spin" />
               Menghitung kontribusi lokal Shapley Additive Explanations...
             </div>
           ) : (
@@ -253,18 +266,18 @@ export default function ModelLabPage() {
 
       {/* Tab 2 Content: Global Feature Importance */}
       {activeTab === 'GLOBAL_IMPORTANCE' && (
-        <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 shadow-xl space-y-6">
+        <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-6">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-base font-bold text-white flex items-center gap-2">
-                <BarChart3 className="w-5 h-5 text-indigo-400" />
+              <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+                <BarChart3 className="w-5 h-5 text-sky-600" />
                 Peringkat Kepentingan Fitur Global (LightGBM Split Importance)
               </h3>
-              <p className="text-xs text-zinc-400 mt-0.5">
+              <p className="text-xs text-slate-500 mt-0.5">
                 Menunjukkan variabel klinis dan deret waktu harian yang paling sering dijadikan titik percabangan (*decision split*) pada pohon ensemble.
               </p>
             </div>
-            <span className="text-xs font-mono bg-zinc-800 px-2.5 py-1 rounded text-zinc-300">
+            <span className="text-xs font-mono bg-slate-100 px-2.5 py-1 rounded-full text-slate-700 font-bold border border-slate-200">
               N = 42 Fitur
             </span>
           </div>
@@ -276,17 +289,17 @@ export default function ModelLabPage() {
                 layout="vertical"
                 margin={{ top: 10, right: 30, left: 100, bottom: 10 }}
               >
-                <XAxis type="number" tick={{ fill: '#a1a1aa', fontSize: 11 }} />
-                <YAxis dataKey="label" type="category" tick={{ fill: '#d4d4d8', fontSize: 11 }} />
+                <XAxis type="number" tick={{ fill: '#64748b', fontSize: 11 }} />
+                <YAxis dataKey="label" type="category" tick={{ fill: '#334155', fontSize: 11 }} />
                 <Tooltip
                   formatter={(val: number) => [`${val} Bobot Split`, 'Tingkat Kepentingan']}
-                  contentStyle={{ backgroundColor: '#18181b', borderColor: '#27272a', borderRadius: '0.75rem', fontSize: '12px' }}
+                  contentStyle={{ backgroundColor: '#ffffff', borderColor: '#e2e8f0', borderRadius: '0.75rem', fontSize: '12px', color: '#0f172a', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}
                 />
                 <Bar dataKey="importance" radius={[0, 4, 4, 0]}>
                   {globalImportanceData.map((entry, index) => (
                     <Cell 
                       key={`cell-${index}`} 
-                      fill={index === 0 ? '#ef4444' : index < 4 ? '#f59e0b' : index < 8 ? '#6366f1' : '#10b981'} 
+                      fill={index === 0 ? '#ef4444' : index < 4 ? '#f59e0b' : index < 8 ? '#0284c7' : '#10b981'} 
                     />
                   ))}
                 </Bar>
@@ -294,17 +307,17 @@ export default function ModelLabPage() {
             </ResponsiveContainer>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-3 border-t border-zinc-800 text-xs text-zinc-400">
-            <div className="bg-black/30 p-3 rounded-xl border border-zinc-800">
-              <strong className="text-rose-400 block mb-1">1. Dominasi Hemodinamik</strong>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-3 border-t border-slate-100 text-xs text-slate-600">
+            <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 shadow-2xs">
+              <strong className="text-rose-700 block mb-1 font-bold">1. Dominasi Hemodinamik</strong>
               Tensi sistolik MCU (196 split) dan MAP (75 split) adalah prediktor dominan mutlak dari pemburukan vaskular.
             </div>
-            <div className="bg-black/30 p-3 rounded-xl border border-zinc-800">
-              <strong className="text-indigo-400 block mb-1">2. Kontribusi DCU Harian</strong>
+            <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 shadow-2xs">
+              <strong className="text-sky-700 block mb-1 font-bold">2. Kontribusi DCU Harian</strong>
               Rata-rata tensi harian 30-hari (51) dan kemiringan slope 7-hari (34) berhasil masuk peringkat top 10, membuktikan nilai tambah DCU.
             </div>
-            <div className="bg-black/30 p-3 rounded-xl border border-zinc-800">
-              <strong className="text-emerald-400 block mb-1">3. Faktor Gaya Hidup & Okupasi</strong>
+            <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 shadow-2xs">
+              <strong className="text-emerald-700 block mb-1 font-bold">3. Faktor Gaya Hidup & Okupasi</strong>
               Merokok aktif (71) dan masa kerja shift (59) memiliki impak signifikan terhadap progresi plak koroner.
             </div>
           </div>
@@ -313,64 +326,64 @@ export default function ModelLabPage() {
 
       {/* Tab 3 Content: Model Performance Comparison */}
       {activeTab === 'COMPARISON' && (
-        <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 shadow-xl space-y-6">
+        <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-6">
           <div>
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <Award className="w-5 h-5 text-amber-400" />
+            <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+              <Award className="w-5 h-5 text-amber-500" />
               Komparasi Metrik Evaluasi & Kalibrasi Silang 5-Fold
             </h3>
-            <p className="text-xs text-zinc-400 mt-0.5">
+            <p className="text-xs text-slate-500 mt-0.5">
               Diuji secara independen pada 1.000 pekerja dengan 5-Fold Stratified Cross-Validation dan validasi paritas ONNX Serverless.
             </p>
           </div>
 
-          <div className="overflow-x-auto rounded-xl border border-zinc-800">
-            <table className="w-full text-left text-xs text-zinc-300 border-collapse">
-              <thead className="bg-zinc-950/80 text-[11px] uppercase font-bold text-zinc-400 border-b border-zinc-800">
+          <div className="overflow-x-auto rounded-xl border border-slate-200 shadow-2xs">
+            <table className="w-full text-left text-xs text-slate-700 border-collapse">
+              <thead className="bg-slate-50 text-[11px] uppercase font-bold text-slate-500 border-b border-slate-200">
                 <tr>
                   <th className="p-3">Model</th>
                   <th className="p-3">Tipe Algoritma</th>
-                  <th className="p-3 text-right text-indigo-400">ROC-AUC</th>
-                  <th className="p-3 text-right text-cyan-400">PR-AUC</th>
-                  <th className="p-3 text-right text-emerald-400">Brier Score</th>
-                  <th className="p-3 text-right text-rose-400">Recall</th>
+                  <th className="p-3 text-right text-indigo-700">ROC-AUC</th>
+                  <th className="p-3 text-right text-sky-700">PR-AUC</th>
+                  <th className="p-3 text-right text-emerald-700">Brier Score</th>
+                  <th className="p-3 text-right text-rose-700">Recall</th>
                   <th className="p-3 text-right">ECE</th>
                   <th className="p-3 text-right">Ukuran</th>
                   <th className="p-3 text-right">Latensi</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-zinc-800/60 font-mono">
+              <tbody className="divide-y divide-slate-100 font-mono bg-white">
                 {modelComparisons.map((m) => (
-                  <tr key={m.name} className={`hover:bg-zinc-800/30 transition-colors ${m.isChampion ? 'bg-rose-950/10' : ''}`}>
-                    <td className="p-3 font-sans font-bold text-white whitespace-nowrap flex items-center gap-1.5">
-                      {m.isChampion && <Award className="w-3.5 h-3.5 text-amber-400 shrink-0" />}
+                  <tr key={m.name} className={`hover:bg-slate-50/80 transition-colors ${m.isChampion ? 'bg-sky-50/40' : ''}`}>
+                    <td className="p-3 font-sans font-bold text-slate-900 whitespace-nowrap flex items-center gap-1.5">
+                      {m.isChampion && <Award className="w-3.5 h-3.5 text-amber-500 shrink-0" />}
                       <span>{m.name}</span>
                     </td>
-                    <td className="p-3 font-sans text-zinc-400">{m.type}</td>
-                    <td className="p-3 text-right font-bold text-indigo-300">{mAucFormat(m.rocAuc)}</td>
-                    <td className="p-3 text-right text-cyan-300">{m.prAuc}</td>
-                    <td className="p-3 text-right font-bold text-emerald-300">{m.brierScore}</td>
-                    <td className="p-3 text-right font-bold text-rose-300">{m.recall}</td>
-                    <td className="p-3 text-right text-zinc-400">{m.ece}</td>
-                    <td className="p-3 text-right text-zinc-300">{m.modelSize}</td>
-                    <td className="p-3 text-right text-emerald-400 font-bold">{m.latency}</td>
+                    <td className="p-3 font-sans text-slate-500">{m.type}</td>
+                    <td className="p-3 text-right font-bold text-indigo-700">{m.rocAuc}</td>
+                    <td className="p-3 text-right text-sky-700 font-bold">{m.prAuc}</td>
+                    <td className="p-3 text-right font-bold text-emerald-700">{m.brierScore}</td>
+                    <td className="p-3 text-right font-bold text-rose-700">{m.recall}</td>
+                    <td className="p-3 text-right text-slate-500">{m.ece}</td>
+                    <td className="p-3 text-right text-slate-600">{m.modelSize}</td>
+                    <td className="p-3 text-right text-emerald-700 font-bold">{m.latency}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
 
-          <div className="p-4 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-300 space-y-2">
-            <span className="font-bold text-white flex items-center gap-1.5">
-              <ShieldCheck className="w-4 h-4 text-emerald-400" />
+          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-700 space-y-2">
+            <span className="font-bold text-slate-900 flex items-center gap-1.5">
+              <ShieldCheck className="w-4 h-4 text-emerald-600" />
               Justifikasi Pemilihan Model Champion untuk Lingkungan Klinis K3:
             </span>
-            <ul className="list-disc list-inside space-y-1 text-zinc-400 text-[11px] leading-relaxed">
+            <ul className="list-disc list-inside space-y-1.5 text-slate-600 text-[11px] leading-relaxed">
               <li>
-                <strong>LightGBM (Layer 2 Tabular Champion):</strong> Terpilih karena memiliki <em>Brier Score</em> terkecil (0.0050) yang menandakan probabilitas risiko sangat terkalibrasi secara matematis, serta menangkap 98.83% pekerja berisiko tinggi (*Recall*) dalam ukuran berkas ONNX yang sangat ringkas (59.7 KB).
+                <strong className="text-slate-800">LightGBM (Layer 2 Tabular Champion):</strong> Terpilih karena memiliki <em>Brier Score</em> terkecil (0.0050) yang menandakan probabilitas risiko sangat terkalibrasi secara matematis, serta menangkap 98.83% pekerja berisiko tinggi (*Recall*) dalam ukuran berkas ONNX yang sangat ringkas (59.7 KB).
               </li>
               <li>
-                <strong>MultimodalCardioFusionNet (Layer 3 Deep Learning):</strong> Mengintegrasikan kapabilitas <em>Multi-Task Learning</em> (memprediksi kejadian kardiovaskular 10-tahun sekaligus risiko Medevac 1-tahun) dan estimasi ketidakpastian <em>Monte Carlo Dropout (95% CI)</em>, krusial saat menangani kasus ambang batas (*borderline*).
+                <strong className="text-slate-800">MultimodalCardioFusionNet (Layer 3 Deep Learning):</strong> Mengintegrasikan kapabilitas <em>Multi-Task Learning</em> (memprediksi kejadian kardiovaskular 10-tahun sekaligus risiko Medevac 1-tahun) dan estimasi ketidakpastian <em>Monte Carlo Dropout (95% CI)</em>, krusial saat menangani kasus ambang batas (*borderline*).
               </li>
             </ul>
           </div>
@@ -379,8 +392,4 @@ export default function ModelLabPage() {
 
     </div>
   );
-}
-
-function mAucFormat(auc: string) {
-  return auc;
 }

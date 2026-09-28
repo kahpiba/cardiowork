@@ -91,32 +91,32 @@ export default function MedicalResumePage({ params }: MedicalResumePageProps) {
     ? 'FIT DENGAN CATATAN (LAIK DENGAN PEMBATASAN)' 
     : 'FIT TO WORK (LAIK BEKERJA PENUH)';
 
-  const verdictBadgeColor = isUnfit ? 'text-red-700 bg-red-50 border-red-300' : isRestricted ? 'text-amber-700 bg-amber-50 border-amber-300' : 'text-emerald-700 bg-emerald-50 border-emerald-300';
+  const verdictBadgeColor = isUnfit ? 'text-rose-800 bg-rose-50 border-rose-300' : isRestricted ? 'text-amber-800 bg-amber-50 border-amber-300' : 'text-emerald-800 bg-emerald-50 border-emerald-300';
 
   const handlePrint = () => {
     window.print();
   };
 
   return (
-    <div className="min-h-screen bg-zinc-950 py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-slate-100 py-8 px-4 sm:px-6 lg:px-8 bg-medical-grid">
       
       {/* Top Action Bar (Hidden on print) */}
       <div className="max-w-4xl mx-auto mb-6 flex items-center justify-between gap-4 print:hidden">
         <Link
           href={`/worker/${worker.pseudonymId}`}
-          className="inline-flex items-center gap-2 text-xs font-semibold text-zinc-400 hover:text-white transition-colors"
+          className="inline-flex items-center gap-2 text-xs font-semibold text-slate-600 hover:text-sky-700 transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Kembali ke Dashboard Pekerja</span>
         </Link>
 
         <div className="flex items-center gap-3">
-          <span className="text-xs text-zinc-400 hidden sm:inline">
-            Standar Cetak K3 A4
+          <span className="text-xs text-slate-500 hidden sm:inline font-medium">
+            Format Cetak Standar K3 (A4)
           </span>
           <button
             onClick={handlePrint}
-            className="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs flex items-center gap-2 shadow-lg shadow-rose-900/30 transition-all"
+            className="px-4 py-2 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all"
           >
             <Printer className="w-4 h-4" />
             <span>Cetak / Simpan PDF Resmi</span>
@@ -125,28 +125,28 @@ export default function MedicalResumePage({ params }: MedicalResumePageProps) {
       </div>
 
       {/* Official Medical Document (A4 Printable Layout) */}
-      <div className="max-w-4xl mx-auto bg-white text-zinc-900 rounded-xl shadow-2xl p-8 sm:p-12 print:p-0 print:shadow-none print:rounded-none font-sans text-xs leading-relaxed space-y-6">
+      <div className="max-w-4xl mx-auto bg-white text-slate-900 rounded-2xl shadow-md border border-slate-200 p-8 sm:p-12 print:p-0 print:shadow-none print:rounded-none print:border-none font-sans text-xs leading-relaxed space-y-6">
         
         {/* Kop Surat Klinik Resmi */}
-        <div className="border-b-2 border-zinc-900 pb-4 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-xl bg-zinc-900 flex items-center justify-center text-white font-black text-lg">
+        <div className="border-b-2 border-slate-900 pb-4 flex items-center justify-between gap-4">
+          <div className="flex items-center gap-3.5">
+            <div className="w-12 h-12 rounded-xl bg-sky-600 flex items-center justify-center text-white font-black text-lg shadow-xs">
               CW
             </div>
             <div>
-              <h1 className="text-sm sm:text-base font-black tracking-tight uppercase text-zinc-900">
+              <h1 className="text-sm sm:text-base font-black tracking-tight uppercase text-slate-900">
                 Klinik Pratama & Kesehatan Kerja Offshore CardioWork
               </h1>
-              <p className="text-[10px] text-zinc-600 font-medium">
+              <p className="text-[10px] text-slate-600 font-medium">
                 Pelayanan Kedokteran Kerja, MCU Berkala, Skrining DCU Pre-Shift & Kesiapsiagaan Medevac
               </p>
-              <p className="text-[9px] text-zinc-500">
+              <p className="text-[9px] text-slate-500">
                 Izin Operasional No: 440/128/K3-DISNAKER/2024 • Standar Akreditasi Kemenkes RI & ISO 45001
               </p>
             </div>
           </div>
 
-          <div className="text-right text-[10px] font-mono text-zinc-500 hidden sm:block">
+          <div className="text-right text-[10px] font-mono text-slate-500 hidden sm:block">
             <div>Dokumen: CW-RESUME-MED</div>
             <div>Revisi: 02/2026</div>
             <div>Kerahasiaan: Medis Terbatas</div>
@@ -155,118 +155,118 @@ export default function MedicalResumePage({ params }: MedicalResumePageProps) {
 
         {/* Title of Document */}
         <div className="text-center space-y-1 py-1">
-          <h2 className="text-sm sm:text-base font-black uppercase tracking-wide text-zinc-900">
+          <h2 className="text-sm sm:text-base font-black uppercase tracking-wide text-slate-900">
             Surat Keterangan Resume Evaluasi Risiko Kardiovaskular
           </h2>
-          <p className="text-[10px] font-mono text-zinc-600">
+          <p className="text-[10px] font-mono text-slate-600">
             Nomor: CW-MED/{new Date().getFullYear()}/W-{worker.pseudonymId}
           </p>
         </div>
 
         {/* Section 1: Demographics */}
         <div className="space-y-2">
-          <h3 className="font-bold text-xs uppercase tracking-wider text-zinc-800 border-b border-zinc-300 pb-1">
+          <h3 className="font-bold text-xs uppercase tracking-wider text-slate-800 border-b border-slate-200 pb-1">
             I. Identitas Tenaga Kerja (Pseudonim Kepatuhan UU PDP No. 27/2022)
           </h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-2 gap-x-4 text-[11px]">
             <div>
-              <span className="text-zinc-500 block text-[10px]">ID Rekam Medis:</span>
-              <strong className="font-mono text-zinc-900">{worker.pseudonymId}</strong>
+              <span className="text-slate-500 block text-[10px]">ID Rekam Medis:</span>
+              <strong className="font-mono text-slate-900">{worker.pseudonymId}</strong>
             </div>
             <div>
-              <span className="text-zinc-500 block text-[10px]">Nama Pekerja (Sintetis):</span>
-              <strong className="text-zinc-900">{worker.nameSynthetic}</strong>
+              <span className="text-slate-500 block text-[10px]">Nama Pekerja (Sintetis):</span>
+              <strong className="text-slate-900">{worker.nameSynthetic}</strong>
             </div>
             <div>
-              <span className="text-zinc-500 block text-[10px]">Usia / Jenis Kelamin:</span>
-              <strong className="text-zinc-900">{worker.age} Tahun / {worker.gender === 'MALE' ? 'Laki-laki' : 'Perempuan'}</strong>
+              <span className="text-slate-500 block text-[10px]">Usia / Jenis Kelamin:</span>
+              <strong className="text-slate-900">{worker.age} Tahun / {worker.gender === 'MALE' ? 'Laki-laki' : 'Perempuan'}</strong>
             </div>
             <div>
-              <span className="text-zinc-500 block text-[10px]">Tanggal Pemeriksaan:</span>
-              <strong className="text-zinc-900">{latestMcu?.examinationDate || '28 September 2026'}</strong>
+              <span className="text-slate-500 block text-[10px]">Tanggal Pemeriksaan:</span>
+              <strong className="text-slate-900">{latestMcu?.examinationDate || '28 September 2026'}</strong>
             </div>
             <div>
-              <span className="text-zinc-500 block text-[10px]">Departemen:</span>
-              <strong className="text-zinc-900">{worker.department}</strong>
+              <span className="text-slate-500 block text-[10px]">Departemen:</span>
+              <strong className="text-slate-900">{worker.department}</strong>
             </div>
             <div>
-              <span className="text-zinc-500 block text-[10px]">Jabatan / Pos Kerja:</span>
-              <strong className="text-zinc-900">{worker.jobTitle}</strong>
+              <span className="text-slate-500 block text-[10px]">Jabatan / Pos Kerja:</span>
+              <strong className="text-slate-900">{worker.jobTitle}</strong>
             </div>
             <div>
-              <span className="text-zinc-500 block text-[10px]">Pola Rotasi Shift:</span>
-              <strong className="text-zinc-900">{worker.shiftPattern.replace(/_/g, ' ')}</strong>
+              <span className="text-slate-500 block text-[10px]">Pola Rotasi Shift:</span>
+              <strong className="text-slate-900">{worker.shiftPattern.replace(/_/g, ' ')}</strong>
             </div>
             <div>
-              <span className="text-zinc-500 block text-[10px]">Masa Kerja (Tenure):</span>
-              <strong className="text-zinc-900">{worker.tenureMonths} Bulan</strong>
+              <span className="text-slate-500 block text-[10px]">Masa Kerja (Tenure):</span>
+              <strong className="text-slate-900">{worker.tenureMonths} Bulan</strong>
             </div>
           </div>
         </div>
 
         {/* Section 2: Multi-Tier Model Consensus */}
         <div className="space-y-2">
-          <h3 className="font-bold text-xs uppercase tracking-wider text-zinc-800 border-b border-zinc-300 pb-1">
+          <h3 className="font-bold text-xs uppercase tracking-wider text-slate-800 border-b border-slate-200 pb-1">
             II. Hasil Evaluasi Prediksi Multi-Tier Model (Clinical Decision Support)
           </h3>
           
-          <table className="w-full border-collapse border border-zinc-300 text-[11px]">
+          <table className="w-full border-collapse border border-slate-300 text-[11px]">
             <thead>
-              <tr className="bg-zinc-100 text-zinc-700">
-                <th className="border border-zinc-300 p-2 text-left">Tingkat Evaluasi (Layer)</th>
-                <th className="border border-zinc-300 p-2 text-left">Metode / Algoritma</th>
-                <th className="border border-zinc-300 p-2 text-center">Hasil Prediksi</th>
-                <th className="border border-zinc-300 p-2 text-left">Interpretasi Klinis Okupasi</th>
+              <tr className="bg-slate-100 text-slate-700">
+                <th className="border border-slate-300 p-2 text-left">Tingkat Evaluasi (Layer)</th>
+                <th className="border border-slate-300 p-2 text-left">Metode / Algoritma</th>
+                <th className="border border-slate-300 p-2 text-center">Hasil Prediksi</th>
+                <th className="border border-slate-300 p-2 text-left">Interpretasi Klinis Okupasi</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="border border-zinc-300 p-2 font-semibold">Layer 1: Formula Klinis</td>
-                <td className="border border-zinc-300 p-2">Framingham General CVD (2008)</td>
-                <td className="border border-zinc-300 p-2 text-center font-mono font-bold">
+                <td className="border border-slate-300 p-2 font-semibold text-slate-900">Layer 1: Formula Klinis</td>
+                <td className="border border-slate-300 p-2">Framingham General CVD (2008)</td>
+                <td className="border border-slate-300 p-2 text-center font-mono font-bold text-slate-900">
                   {framingham?.riskPercent10Yr || 0}%
                 </td>
-                <td className="border border-zinc-300 p-2 text-zinc-700">
+                <td className="border border-slate-300 p-2 text-slate-700">
                   Kategori {framingham?.riskCategory || 'LOW'} — Estimasi kejadian kardiovaskular 10-tahun.
                 </td>
               </tr>
               <tr>
-                <td className="border border-zinc-300 p-2 font-semibold">Layer 1b: Khusus Asia</td>
-                <td className="border border-zinc-300 p-2">WHO/ISH SEARO Sub-Region D</td>
-                <td className="border border-zinc-300 p-2 text-center font-mono font-bold">
+                <td className="border border-slate-300 p-2 font-semibold text-slate-900">Layer 1b: Khusus Asia</td>
+                <td className="border border-slate-300 p-2">WHO/ISH SEARO Sub-Region D</td>
+                <td className="border border-slate-300 p-2 text-center font-mono font-bold text-slate-900">
                   {whoSearo?.riskTier || '<10%'}
                 </td>
-                <td className="border border-zinc-300 p-2 text-zinc-700">
+                <td className="border border-slate-300 p-2 text-slate-700">
                   Dikalibrasi untuk populasi Asia Tenggara / Indonesia.
                 </td>
               </tr>
               <tr>
-                <td className="border border-zinc-300 p-2 font-semibold">Layer 2: Classical ML</td>
-                <td className="border border-zinc-300 p-2">LightGBM Classifier (Champion)</td>
-                <td className="border border-zinc-300 p-2 text-center font-mono font-bold">
+                <td className="border border-slate-300 p-2 font-semibold text-slate-900">Layer 2: Classical ML</td>
+                <td className="border border-slate-300 p-2">LightGBM Classifier (Champion)</td>
+                <td className="border border-slate-300 p-2 text-center font-mono font-bold text-slate-900">
                   {isUnfit ? '74.2%' : isRestricted ? '28.5%' : '8.2%'}
                 </td>
-                <td className="border border-zinc-300 p-2 text-zinc-700">
+                <td className="border border-slate-300 p-2 text-slate-700">
                   Terkalibrasi Platt Scaling (Brier: 0.0050, ROC-AUC: 0.9998).
                 </td>
               </tr>
               <tr>
-                <td className="border border-zinc-300 p-2 font-semibold">Layer 3: Deep Learning</td>
-                <td className="border border-zinc-300 p-2">MultimodalCardioFusionNet (Bi-GRU-D)</td>
-                <td className="border border-zinc-300 p-2 text-center font-mono font-bold">
+                <td className="border border-slate-300 p-2 font-semibold text-slate-900">Layer 3: Deep Learning</td>
+                <td className="border border-slate-300 p-2">MultimodalCardioFusionNet (Bi-GRU-D)</td>
+                <td className="border border-slate-300 p-2 text-center font-mono font-bold text-slate-900">
                   {isUnfit ? '76.1%' : isRestricted ? '29.1%' : '9.1%'}
                 </td>
-                <td className="border border-zinc-300 p-2 text-zinc-700">
+                <td className="border border-slate-300 p-2 text-slate-700">
                   Fusion MCU + DCU 30-hari (95% CI: [{isUnfit ? '0.71, 0.81' : isRestricted ? '0.26, 0.33' : '0.07, 0.12'}]).
                 </td>
               </tr>
               <tr>
-                <td className="border border-zinc-300 p-2 font-semibold">Deteksi Anomali</td>
-                <td className="border border-zinc-300 p-2">CardioAutoencoder (Unsupervised)</td>
-                <td className="border border-zinc-300 p-2 text-center font-mono font-bold">
+                <td className="border border-slate-300 p-2 font-semibold text-slate-900">Deteksi Anomali</td>
+                <td className="border border-slate-300 p-2">CardioAutoencoder (Unsupervised)</td>
+                <td className="border border-slate-300 p-2 text-center font-mono font-bold text-slate-900">
                   {isUnfit ? 'ANOMALI AKUT' : 'Normal'}
                 </td>
-                <td className="border border-zinc-300 p-2 text-zinc-700">
+                <td className="border border-slate-300 p-2 text-slate-700">
                   {isUnfit ? 'MSE Rekonstruksi 0.7812 > 0.6487 (Instabilitas Hemodinamik)' : 'MSE 0.1820 < 0.6487 (Stabil)'}
                 </td>
               </tr>
@@ -276,16 +276,16 @@ export default function MedicalResumePage({ params }: MedicalResumePageProps) {
 
         {/* Section 3: Longitudinal MCU Table */}
         <div className="space-y-2">
-          <h3 className="font-bold text-xs uppercase tracking-wider text-zinc-800 border-b border-zinc-300 pb-1">
+          <h3 className="font-bold text-xs uppercase tracking-wider text-slate-800 border-b border-slate-200 pb-1">
             III. Ringkasan Rekam Medis Longitudinal MCU (3 Tahun Terakhir)
           </h3>
-          <table className="w-full border-collapse border border-zinc-300 text-[11px] text-center">
+          <table className="w-full border-collapse border border-slate-300 text-[11px] text-center">
             <thead>
-              <tr className="bg-zinc-100 text-zinc-700">
-                <th className="border border-zinc-300 p-1.5 text-left">Parameter Klinis</th>
-                <th className="border border-zinc-300 p-1.5">Nilai Rujukan</th>
+              <tr className="bg-slate-100 text-slate-700">
+                <th className="border border-slate-300 p-1.5 text-left">Parameter Klinis</th>
+                <th className="border border-slate-300 p-1.5">Nilai Rujukan</th>
                 {mcuRecords.map(m => (
-                  <th key={m.id} className="border border-zinc-300 p-1.5">
+                  <th key={m.id} className="border border-slate-300 p-1.5 font-bold">
                     {new Date(m.examinationDate).getFullYear()}
                   </th>
                 ))}
@@ -293,54 +293,54 @@ export default function MedicalResumePage({ params }: MedicalResumePageProps) {
             </thead>
             <tbody>
               <tr>
-                <td className="border border-zinc-300 p-1.5 text-left font-semibold">Tekanan Darah (BP)</td>
-                <td className="border border-zinc-300 p-1.5 text-zinc-500">&lt;120/80 mmHg</td>
+                <td className="border border-slate-300 p-1.5 text-left font-semibold text-slate-900">Tekanan Darah (BP)</td>
+                <td className="border border-slate-300 p-1.5 text-slate-500">&lt;120/80 mmHg</td>
                 {mcuRecords.map(m => (
-                  <td key={m.id} className="border border-zinc-300 p-1.5 font-mono">
+                  <td key={m.id} className="border border-slate-300 p-1.5 font-mono text-slate-900">
                     {m.systolicBp}/{m.diastolicBp}
                   </td>
                 ))}
               </tr>
               <tr>
-                <td className="border border-zinc-300 p-1.5 text-left font-semibold">Indeks Massa Tubuh (BMI)</td>
-                <td className="border border-zinc-300 p-1.5 text-zinc-500">18.5 - 22.9 kg/m²</td>
+                <td className="border border-slate-300 p-1.5 text-left font-semibold text-slate-900">Indeks Massa Tubuh (BMI)</td>
+                <td className="border border-slate-300 p-1.5 text-slate-500">18.5 - 22.9 kg/m²</td>
                 {mcuRecords.map(m => (
-                  <td key={m.id} className="border border-zinc-300 p-1.5 font-mono">{m.bmi}</td>
+                  <td key={m.id} className="border border-slate-300 p-1.5 font-mono text-slate-900">{m.bmi}</td>
                 ))}
               </tr>
               <tr>
-                <td className="border border-zinc-300 p-1.5 text-left font-semibold">Kolesterol Total</td>
-                <td className="border border-zinc-300 p-1.5 text-zinc-500">&lt;200 mg/dL</td>
+                <td className="border border-slate-300 p-1.5 text-left font-semibold text-slate-900">Kolesterol Total</td>
+                <td className="border border-slate-300 p-1.5 text-slate-500">&lt;200 mg/dL</td>
                 {mcuRecords.map(m => (
-                  <td key={m.id} className="border border-zinc-300 p-1.5 font-mono">{m.totalCholesterolMgdl}</td>
+                  <td key={m.id} className="border border-slate-300 p-1.5 font-mono text-slate-900">{m.totalCholesterolMgdl}</td>
                 ))}
               </tr>
               <tr>
-                <td className="border border-zinc-300 p-1.5 text-left font-semibold">LDL-Kolesterol</td>
-                <td className="border border-zinc-300 p-1.5 text-zinc-500">&lt;100 mg/dL</td>
+                <td className="border border-slate-300 p-1.5 text-left font-semibold text-slate-900">LDL-Kolesterol</td>
+                <td className="border border-slate-300 p-1.5 text-slate-500">&lt;100 mg/dL</td>
                 {mcuRecords.map(m => (
-                  <td key={m.id} className="border border-zinc-300 p-1.5 font-mono">{m.ldlCholesterolMgdl}</td>
+                  <td key={m.id} className="border border-slate-300 p-1.5 font-mono text-slate-900">{m.ldlCholesterolMgdl}</td>
                 ))}
               </tr>
               <tr>
-                <td className="border border-zinc-300 p-1.5 text-left font-semibold">Trigliserida</td>
-                <td className="border border-zinc-300 p-1.5 text-zinc-500">&lt;150 mg/dL</td>
+                <td className="border border-slate-300 p-1.5 text-left font-semibold text-slate-900">Trigliserida</td>
+                <td className="border border-slate-300 p-1.5 text-slate-500">&lt;150 mg/dL</td>
                 {mcuRecords.map(m => (
-                  <td key={m.id} className="border border-zinc-300 p-1.5 font-mono">{m.triglyceridesMgdl}</td>
+                  <td key={m.id} className="border border-slate-300 p-1.5 font-mono text-slate-900">{m.triglyceridesMgdl}</td>
                 ))}
               </tr>
               <tr>
-                <td className="border border-zinc-300 p-1.5 text-left font-semibold">Glukosa Darah Puasa</td>
-                <td className="border border-zinc-300 p-1.5 text-zinc-500">70 - 99 mg/dL</td>
+                <td className="border border-slate-300 p-1.5 text-left font-semibold text-slate-900">Glukosa Darah Puasa</td>
+                <td className="border border-slate-300 p-1.5 text-slate-500">70 - 99 mg/dL</td>
                 {mcuRecords.map(m => (
-                  <td key={m.id} className="border border-zinc-300 p-1.5 font-mono">{m.fastingGlucoseMgdl}</td>
+                  <td key={m.id} className="border border-slate-300 p-1.5 font-mono text-slate-900">{m.fastingGlucoseMgdl}</td>
                 ))}
               </tr>
               <tr>
-                <td className="border border-zinc-300 p-1.5 text-left font-semibold">EKG Istirahat</td>
-                <td className="border border-zinc-300 p-1.5 text-zinc-500">Normal Sinus Rhythm</td>
+                <td className="border border-slate-300 p-1.5 text-left font-semibold text-slate-900">EKG Istirahat</td>
+                <td className="border border-slate-300 p-1.5 text-slate-500">Normal Sinus Rhythm</td>
                 {mcuRecords.map(m => (
-                  <td key={m.id} className="border border-zinc-300 p-1.5 font-mono text-[10px]">
+                  <td key={m.id} className="border border-slate-300 p-1.5 font-mono text-[10px] text-slate-900">
                     {m.restingEcgInterpretation}
                   </td>
                 ))}
@@ -351,36 +351,36 @@ export default function MedicalResumePage({ params }: MedicalResumePageProps) {
 
         {/* Section 4: 30-Day DCU Summary */}
         <div className="space-y-1.5">
-          <h3 className="font-bold text-xs uppercase tracking-wider text-zinc-800 border-b border-zinc-300 pb-1">
+          <h3 className="font-bold text-xs uppercase tracking-wider text-slate-800 border-b border-slate-200 pb-1">
             IV. Ringkasan Pemantauan Pre-Shift Harian DCU (30 Hari Terakhir)
           </h3>
           <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 text-center">
-            <div className="border border-zinc-200 p-2 rounded bg-zinc-50">
-              <span className="text-zinc-500 block text-[10px]">Rerata Tensi DCU</span>
-              <strong className="text-zinc-900 font-mono text-xs">{dcuMeanSbp}/{dcuMeanDbp} mmHg</strong>
+            <div className="border border-slate-200 p-2.5 rounded-xl bg-slate-50">
+              <span className="text-slate-500 block text-[10px] font-medium">Rerata Tensi DCU</span>
+              <strong className="text-slate-900 font-mono text-xs">{dcuMeanSbp}/{dcuMeanDbp} mmHg</strong>
             </div>
-            <div className="border border-zinc-200 p-2 rounded bg-zinc-50">
-              <span className="text-zinc-500 block text-[10px]">Rerata Nadi</span>
-              <strong className="text-zinc-900 font-mono text-xs">{dcuMeanHr} bpm</strong>
+            <div className="border border-slate-200 p-2.5 rounded-xl bg-slate-50">
+              <span className="text-slate-500 block text-[10px] font-medium">Rerata Nadi</span>
+              <strong className="text-slate-900 font-mono text-xs">{dcuMeanHr} bpm</strong>
             </div>
-            <div className="border border-zinc-200 p-2 rounded bg-zinc-50">
-              <span className="text-zinc-500 block text-[10px]">Rerata SpO2</span>
-              <strong className="text-zinc-900 font-mono text-xs">{dcuMeanSpo2}%</strong>
+            <div className="border border-slate-200 p-2.5 rounded-xl bg-slate-50">
+              <span className="text-slate-500 block text-[10px] font-medium">Rerata SpO2</span>
+              <strong className="text-slate-900 font-mono text-xs">{dcuMeanSpo2}%</strong>
             </div>
-            <div className="border border-zinc-200 p-2 rounded bg-zinc-50">
-              <span className="text-zinc-500 block text-[10px]">Rerata Tidur 24 Jam</span>
-              <strong className="text-zinc-900 font-mono text-xs">{dcuMeanSleep} Jam</strong>
+            <div className="border border-slate-200 p-2.5 rounded-xl bg-slate-50">
+              <span className="text-slate-500 block text-[10px] font-medium">Rerata Tidur 24 Jam</span>
+              <strong className="text-slate-900 font-mono text-xs">{dcuMeanSleep} Jam</strong>
             </div>
-            <div className="border border-zinc-200 p-2 rounded bg-zinc-50">
-              <span className="text-zinc-500 block text-[10px]">Insiden Keluhan</span>
-              <strong className="text-zinc-900 font-mono text-xs">{dcuSymptomCount} Hari</strong>
+            <div className="border border-slate-200 p-2.5 rounded-xl bg-slate-50">
+              <span className="text-slate-500 block text-[10px] font-medium">Insiden Keluhan</span>
+              <strong className="text-slate-900 font-mono text-xs">{dcuSymptomCount} Hari</strong>
             </div>
           </div>
         </div>
 
         {/* Section 5: Official Fitness Verdict Box */}
         <div className="space-y-2 pt-2">
-          <h3 className="font-bold text-xs uppercase tracking-wider text-zinc-800 border-b border-zinc-300 pb-1">
+          <h3 className="font-bold text-xs uppercase tracking-wider text-slate-800 border-b border-slate-200 pb-1">
             V. Kesimpulan & Rekomendasi Kelayakan Kerja (Fit-for-Work Verdict)
           </h3>
           
@@ -393,8 +393,8 @@ export default function MedicalResumePage({ params }: MedicalResumePageProps) {
             </div>
           </div>
 
-          <div className="text-[11px] text-zinc-700 space-y-1 pt-1">
-            <strong>Catatan & Pertimbangan Medis:</strong>
+          <div className="text-[11px] text-slate-700 space-y-1 pt-1">
+            <strong className="text-slate-900">Catatan & Pertimbangan Medis:</strong>
             <p className="leading-relaxed">
               {isUnfit 
                 ? 'Pekerja memiliki tekanan darah sistolik baseline ≥160 mmHg atau skor anomali akut pada model Deep Learning. Dilarang bertugas di anjungan lepas pantai (offshore), ruang terbatas (confined space), atau ketinggian sampai evaluasi dokter spesialis jantung selesai.'
@@ -406,10 +406,10 @@ export default function MedicalResumePage({ params }: MedicalResumePageProps) {
         </div>
 
         {/* Section 6: Sign-off & Verification */}
-        <div className="pt-6 border-t border-zinc-300 grid grid-cols-1 sm:grid-cols-2 gap-6 items-end">
+        <div className="pt-6 border-t border-slate-200 grid grid-cols-1 sm:grid-cols-2 gap-6 items-end">
           
-          <div className="space-y-1 text-[10px] text-zinc-500 font-mono">
-            <div className="flex items-center gap-1.5 text-zinc-800 font-bold">
+          <div className="space-y-1 text-[10px] text-slate-500 font-mono">
+            <div className="flex items-center gap-1.5 text-slate-800 font-bold">
               <ShieldCheck className="w-4 h-4 text-emerald-600" />
               <span>Verifikasi Keaslian & Integritas Dokumen</span>
             </div>
@@ -419,18 +419,18 @@ export default function MedicalResumePage({ params }: MedicalResumePageProps) {
           </div>
 
           <div className="text-right space-y-1">
-            <div className="text-[10px] text-zinc-600">
+            <div className="text-[10px] text-slate-600">
               Diterbitkan di Balikpapan / Offshore Lead Clinic,
             </div>
-            <div className="text-[10px] font-semibold text-zinc-700">
+            <div className="text-[10px] font-semibold text-slate-700">
               Dokter Penanggung Jawab Pelayanan Kesehatan Kerja
             </div>
             <div className="py-4 flex justify-end">
-              <div className="border-b border-zinc-900 w-48 text-center pb-1 font-bold text-xs">
+              <div className="border-b border-slate-900 w-48 text-center pb-1 font-bold text-xs text-slate-900">
                 dr. Sp.Ok, M.Kes, AHK
               </div>
             </div>
-            <div className="text-[10px] text-zinc-500 font-mono">
+            <div className="text-[10px] text-slate-500 font-mono">
               SIP: 503/442/SIP-DOKTER/DISNAKER/2024
             </div>
           </div>
