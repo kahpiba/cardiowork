@@ -46,8 +46,7 @@ export interface PredictionResponse {
     framingham: {
       riskPercent10Yr: number;
       riskCategory: string;
-      points: number;
-      heartAge: number;
+      basisScore: number;
     };
     whoSearo: {
       riskTier: string;
@@ -100,10 +99,23 @@ let multimodalSession: any = null;
 let autoencoderSession: any = null;
 let scalerMetadata: any = null;
 
+declare const __non_webpack_require__: any;
+
 async function getOrt() {
   if (ortModule !== null) return ortModule;
+  if (typeof window !== 'undefined') {
+    ortModule = false;
+    return null;
+  }
   try {
-    ortModule = await import('onnxruntime-node');
+    const nodeReq = typeof __non_webpack_require__ !== 'undefined'
+      ? __non_webpack_require__
+      : (typeof require !== 'undefined' ? require : null);
+    if (!nodeReq) {
+      ortModule = false;
+      return null;
+    }
+    ortModule = nodeReq('onnxruntime-node');
     return ortModule;
   } catch (err) {
     ortModule = false;
@@ -187,11 +199,11 @@ export async function runUnifiedInference(req: PredictionRequest): Promise<Predi
     age,
     gender,
     systolicBp,
+    isTreatedForHypertension: onHypertensionMeds,
     totalCholesterolMgdl: totChol,
     hdlCholesterolMgdl: hdl,
     isSmoker,
-    hasDiabetes,
-    onHypertensionMeds
+    hasDiabetes
   };
 
   const layer1Result = evaluateAllClinicalScores(clinicalInput);
@@ -587,18 +599,17 @@ export async function runUnifiedInference(req: PredictionRequest): Promise<Predi
       framingham: {
         riskPercent10Yr: layer1Result.framingham.riskPercent10Yr,
         riskCategory: layer1Result.framingham.riskCategory,
-        points: layer1Result.framingham.points,
-        heartAge: layer1Result.framingham.heartAge
+        basisScore: layer1Result.framingham.basisScore
       },
       whoSearo: {
         riskTier: layer1Result.whoSearo.riskTier,
-        isHighRisk: layer1Result.whoSearo.isHighRisk,
-        statinRecommended: layer1Result.whoSearo.statinRecommended
+        isHighRisk: layer1Result.whoSearo.riskTier === '>=40%' || layer1Result.whoSearo.riskTier === '30%-<40%',
+        statinRecommended: layer1Result.whoSearo.riskTier !== '<10%'
       },
       ascvd: {
-        tenYearRiskPercent: layer1Result.ascvd.tenYearRiskPercent,
+        tenYearRiskPercent: layer1Result.ascvd.riskPercent10Yr,
         riskCategory: layer1Result.ascvd.riskCategory,
-        asianOverestimationCaveat: layer1Result.ascvd.asianOverestimationCaveat
+        asianOverestimationCaveat: Boolean(layer1Result.ascvd.asianOverestimationWarning)
       },
       integratedClinicalTier: layer1Result.integratedRiskTier,
       summaryText: layer1Result.clinicalSummaryText

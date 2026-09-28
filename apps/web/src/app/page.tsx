@@ -198,7 +198,6 @@ export default function HomePage() {
           </div>
         </div>
 
-        </div>
       </div>
 
       {/* System Status & Architecture Highlights */}

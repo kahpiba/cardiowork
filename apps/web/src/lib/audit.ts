@@ -1,5 +1,5 @@
-import { db } from '../db/index.js';
-import { auditLogs } from '../db/schema.js';
+import { db } from '../db/index';
+import { auditLogs } from '../db/schema';
 import type { UserRole } from '@cardiowork/shared';
 
 export interface AuditLogEntry {
@@ -9,6 +9,15 @@ export interface AuditLogEntry {
   resourceAccessed: string;
   clientIp?: string;
   userAgent?: string;
+}
+
+export interface GenericAuditEvent {
+  action: string;
+  resourceType?: string;
+  resourceId?: string;
+  metadata?: any;
+  userId?: string;
+  userRole?: UserRole;
 }
 
 /**
@@ -34,4 +43,21 @@ export async function recordAuditLog(entry: AuditLogEntry): Promise<void> {
     // Audit failure tidak boleh membocorkan rahasia, namun dicatat sebagai peringatan sistem
     console.error('[AUDIT_ERROR] Gagal menyimpan log audit klinis:', error);
   }
+}
+
+/**
+ * Helper fleksibel untuk pencatatan event audit di berbagai route handler API.
+ */
+export async function logAuditEvent(event: GenericAuditEvent): Promise<void> {
+  let mappedAction: AuditLogEntry['action'] = 'INFERENCE';
+  if (event.action === 'CREATE' || event.action === 'WRITE') mappedAction = 'WRITE';
+  else if (event.action === 'READ') mappedAction = 'READ';
+  else if (event.action === 'EXPORT') mappedAction = 'EXPORT';
+
+  return recordAuditLog({
+    userId: event.userId || event.resourceId || 'system',
+    userRole: event.userRole || 'WORKER',
+    action: mappedAction,
+    resourceAccessed: `${event.resourceType || 'API'}:${event.resourceId || 'event'}`
+  });
 }

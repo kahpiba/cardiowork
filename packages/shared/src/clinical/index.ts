@@ -1,10 +1,10 @@
-export * from './framingham.js';
-export * from './whoSearo.js';
-export * from './ascvd.js';
+export * from './framingham';
+export * from './whoSearo';
+export * from './ascvd';
 
-import { calculateFraminghamCvd, type FraminghamInput } from './framingham.js';
-import { calculateWhoSearoCvd, type WhoSearoInput } from './whoSearo.js';
-import { calculateAscvdRisk, type AscvdInput } from './ascvd.js';
+import { calculateFraminghamCvd, type FraminghamInput } from './framingham';
+import { calculateWhoSearoCvd, type WhoSearoInput } from './whoSearo';
+import { calculateAscvdRisk, type AscvdInput } from './ascvd';
 
 export interface ComprehensiveClinicalEvaluation {
   framingham: ReturnType<typeof calculateFraminghamCvd>;

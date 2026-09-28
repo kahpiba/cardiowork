@@ -137,6 +137,10 @@ export class TsCardioFeaturePipeline {
     };
   }
 
+  public extractDcuFeatures(dcuHistory: RawDcuRecord[]): Record<string, number> {
+    return this.extractDcuWindowFeatures(dcuHistory);
+  }
+
   public extractDcuWindowFeatures(dcuHistory: RawDcuRecord[]): Record<string, number> {
     if (!dcuHistory || dcuHistory.length === 0) {
       return {

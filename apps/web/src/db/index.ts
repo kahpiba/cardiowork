@@ -1,6 +1,6 @@
 import { drizzle } from 'drizzle-orm/neon-serverless';
 import { Pool } from '@neondatabase/serverless';
-import * as schema from './schema.js';
+import * as schema from './schema';
 
 // Menggunakan connection pooler serverless yang kompatibel dengan Vercel edge/node functions
 const pool = new Pool({

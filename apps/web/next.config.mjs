@@ -2,14 +2,30 @@
 const nextConfig = {
   reactStrictMode: true,
   output: 'standalone',
+  transpilePackages: ['@cardiowork/shared'],
   
-  // Memastikan berkas model ONNX dan binary runtime disertakan ke Vercel Serverless Function
   experimental: {
+    serverComponentsExternalPackages: ['onnxruntime-node'],
     outputFileTracingIncludes: {
       '/api/inference': ['./public/models/**/*.onnx'],
       '/api/mcu': ['./public/models/**/*.onnx'],
       '/api/dcu': ['./public/models/**/*.onnx']
     }
+  },
+
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      config.externals = config.externals || [];
+      config.externals.push('onnxruntime-node');
+    } else {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        path: false,
+        'onnxruntime-node': false,
+      };
+    }
+    return config;
   },
 
   // Security Headers (CSP, HSTS, X-Frame-Options, Referrer-Policy)

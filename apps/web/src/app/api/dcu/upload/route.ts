@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { DcuRecordSchema } from '@cardiowork/shared';
-import { recordAuditLog } from '../../../../lib/audit.js';
+import { recordAuditLog } from '@/lib/audit';
 
 export const runtime = 'nodejs';
 
