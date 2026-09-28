@@ -1,0 +1,24 @@
+# Checkpoints & Model Binaries Besar
+checkpoints/
+runs/
+*.pt
+*.pth
+*.ckpt
+*.onnx.large
+*.h5
+
+# Data Mentah Pasien & Non-Sintetis
+data/raw/
+*.patient.csv
+*.confidential.*
+
+# Experiment Tracking Lokal
+mlruns/
+wandb/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.venv/
