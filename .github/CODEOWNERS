@@ -1,0 +1,5 @@
+# Penanggung Jawab Repositori (Codeowners)
+* @kahpiba
+/ml/ @kahpiba
+/apps/web/ @kahpiba
+/packages/shared/ @kahpiba
