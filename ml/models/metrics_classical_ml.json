@@ -1,0 +1,173 @@
+{
+  "champion_model": "LightGBM",
+  "evaluation_metrics": {
+    "Random_Forest": {
+      "roc_auc": 0.997,
+      "pr_auc": 0.996,
+      "brier_score": 0.0225,
+      "sensitivity_recall": 0.9557,
+      "precision": 0.9716,
+      "f1_score": 0.9636,
+      "expected_calibration_error_ece": 0.0175,
+      "confusion_matrix": {
+        "true_negative": 559,
+        "false_positive": 12,
+        "false_negative": 19,
+        "true_positive": 410
+      },
+      "calibration_curve": [
+        {
+          "mean_predicted_prob": 0.015385133975485868,
+          "fraction_of_positives": 0.0
+        },
+        {
+          "mean_predicted_prob": 0.13648418520753133,
+          "fraction_of_positives": 0.15151515151515152
+        },
+        {
+          "mean_predicted_prob": 0.23609955260164828,
+          "fraction_of_positives": 0.38461538461538464
+        },
+        {
+          "mean_predicted_prob": 0.338824833788836,
+          "fraction_of_positives": 0.375
+        },
+        {
+          "mean_predicted_prob": 0.4507501649273932,
+          "fraction_of_positives": 0.42857142857142855
+        },
+        {
+          "mean_predicted_prob": 0.5476328871529716,
+          "fraction_of_positives": 0.6428571428571429
+        },
+        {
+          "mean_predicted_prob": 0.6593333275949201,
+          "fraction_of_positives": 0.6
+        },
+        {
+          "mean_predicted_prob": 0.7412656963083525,
+          "fraction_of_positives": 0.8666666666666667
+        },
+        {
+          "mean_predicted_prob": 0.8568272222290599,
+          "fraction_of_positives": 1.0
+        },
+        {
+          "mean_predicted_prob": 0.9916097209590518,
+          "fraction_of_positives": 0.9918256130790191
+        }
+      ]
+    },
+    "LightGBM": {
+      "roc_auc": 0.9998,
+      "pr_auc": 0.9997,
+      "brier_score": 0.005,
+      "sensitivity_recall": 0.9883,
+      "precision": 0.9953,
+      "f1_score": 0.9918,
+      "expected_calibration_error_ece": 0.0161,
+      "confusion_matrix": {
+        "true_negative": 569,
+        "false_positive": 2,
+        "false_negative": 5,
+        "true_positive": 424
+      },
+      "calibration_curve": [
+        {
+          "mean_predicted_prob": 0.013640504472969816,
+          "fraction_of_positives": 0.0017953321364452424
+        },
+        {
+          "mean_predicted_prob": 0.14075293970326755,
+          "fraction_of_positives": 0.0
+        },
+        {
+          "mean_predicted_prob": 0.2669955903769433,
+          "fraction_of_positives": 0.2
+        },
+        {
+          "mean_predicted_prob": 0.3312307571796956,
+          "fraction_of_positives": 0.6666666666666666
+        },
+        {
+          "mean_predicted_prob": 0.45860259646123813,
+          "fraction_of_positives": 0.5
+        },
+        {
+          "mean_predicted_prob": 0.5230056851899607,
+          "fraction_of_positives": 0.5
+        },
+        {
+          "mean_predicted_prob": 0.6285272199306768,
+          "fraction_of_positives": 0.5
+        },
+        {
+          "mean_predicted_prob": 0.717787512573017,
+          "fraction_of_positives": 1.0
+        },
+        {
+          "mean_predicted_prob": 0.8621974974254711,
+          "fraction_of_positives": 1.0
+        },
+        {
+          "mean_predicted_prob": 0.9884193479374236,
+          "fraction_of_positives": 1.0
+        }
+      ]
+    },
+    "XGBoost": {
+      "roc_auc": 0.9993,
+      "pr_auc": 0.9992,
+      "brier_score": 0.0053,
+      "sensitivity_recall": 0.9883,
+      "precision": 1.0,
+      "f1_score": 0.9941,
+      "expected_calibration_error_ece": 0.0103,
+      "confusion_matrix": {
+        "true_negative": 571,
+        "false_positive": 0,
+        "false_negative": 5,
+        "true_positive": 424
+      },
+      "calibration_curve": [
+        {
+          "mean_predicted_prob": 0.013569144799585047,
+          "fraction_of_positives": 0.007054673721340388
+        },
+        {
+          "mean_predicted_prob": 0.15879645914710555,
+          "fraction_of_positives": 0.0
+        },
+        {
+          "mean_predicted_prob": 0.2867754022820921,
+          "fraction_of_positives": 0.0
+        },
+        {
+          "mean_predicted_prob": 0.3585478624293179,
+          "fraction_of_positives": 0.0
+        },
+        {
+          "mean_predicted_prob": 0.4405797639992013,
+          "fraction_of_positives": 0.3333333333333333
+        },
+        {
+          "mean_predicted_prob": 0.6777282734160516,
+          "fraction_of_positives": 1.0
+        },
+        {
+          "mean_predicted_prob": 0.7547612642968944,
+          "fraction_of_positives": 1.0
+        },
+        {
+          "mean_predicted_prob": 0.9906140856720261,
+          "fraction_of_positives": 1.0
+        }
+      ]
+    }
+  },
+  "feature_count": 42,
+  "sample_count": 1000,
+  "target": "target_high_cvd_risk",
+  "cv_strategy": "5-Fold Stratified K-Fold",
+  "calibration_method": "Platt Scaling (Sigmoid)"
+}
