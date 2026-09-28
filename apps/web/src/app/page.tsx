@@ -104,10 +104,16 @@ export default function HomePage() {
                 Akses rekam medis lengkap, telaah atribusi SHAP, konfirmasi alert kritis, dan buat keputusan restriksi kerja.
               </p>
             </div>
-            <div className="pt-2">
+            <div className="pt-2 flex items-center justify-between">
               <span className="text-[11px] font-mono text-teal-400 bg-teal-500/10 px-2 py-0.5 rounded border border-teal-500/20">
-                Akses Penuh Klinis + Audit Log
+                Akses Penuh Klinis
               </span>
+              <Link 
+                href="/worker/W-00190" 
+                className="text-xs text-teal-400 hover:text-teal-300 font-semibold underline underline-offset-2"
+              >
+                Buka Pasien Kritis &rarr;
+              </Link>
             </div>
           </div>
 
@@ -124,10 +130,73 @@ export default function HomePage() {
             </div>
             <div className="pt-2">
               <span className="text-[11px] font-mono text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
-                Small-Cell Suppression (<5)
+                Small-Cell Suppression (&lt;5)
               </span>
             </div>
           </div>
+
+        </div>
+
+        {/* Phase 3 Live Demo Callout */}
+        <div className="bg-gradient-to-r from-sky-950/60 via-slate-900 to-teal-950/60 border border-sky-800/40 rounded-2xl p-5 space-y-3">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <span className="text-[11px] font-mono uppercase tracking-wider text-sky-400 font-bold bg-sky-500/10 px-2.5 py-0.5 rounded border border-sky-500/20">
+                Phase 3 Live Feature
+              </span>
+              <h3 className="text-base font-bold text-slate-100 mt-1">
+                Dashboard Klinis Individu Pekerja & What-If Risk Simulator
+              </h3>
+              <p className="text-xs text-slate-400">
+                Pilih salah satu profil pekerja di bawah ini untuk melihat evaluasi Layer 1 (Framingham, WHO SEARO, ASCVD), tren longitudinal MCU 3 tahun, dan grafik hemodinamik harian DCU 30 hari:
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+            <Link
+              href="/worker/W-00192"
+              className="bg-slate-950/80 hover:bg-slate-900 p-3.5 rounded-xl border border-slate-800 hover:border-emerald-500/40 transition flex items-center justify-between group"
+            >
+              <div>
+                <div className="flex items-center space-x-2">
+                  <span className="h-2 w-2 rounded-full bg-emerald-400"></span>
+                  <span className="font-mono font-bold text-xs text-slate-200">W-00192</span>
+                </div>
+                <div className="text-[11px] text-slate-400 mt-0.5">Eko Saputra (49 th) • Risiko Rendah / Fit</div>
+              </div>
+              <span className="text-emerald-400 group-hover:translate-x-1 transition text-xs font-bold">&rarr;</span>
+            </Link>
+
+            <Link
+              href="/worker/W-00189"
+              className="bg-slate-950/80 hover:bg-slate-900 p-3.5 rounded-xl border border-slate-800 hover:border-amber-500/40 transition flex items-center justify-between group"
+            >
+              <div>
+                <div className="flex items-center space-x-2">
+                  <span className="h-2 w-2 rounded-full bg-amber-400"></span>
+                  <span className="font-mono font-bold text-xs text-slate-200">W-00189</span>
+                </div>
+                <div className="text-[11px] text-slate-400 mt-0.5">Joko Wijaya (34 th) • Risiko Sedang / Borderline</div>
+              </div>
+              <span className="text-amber-400 group-hover:translate-x-1 transition text-xs font-bold">&rarr;</span>
+            </Link>
+
+            <Link
+              href="/worker/W-00190"
+              className="bg-slate-950/80 hover:bg-slate-900 p-3.5 rounded-xl border border-slate-800 hover:border-rose-500/40 transition flex items-center justify-between group"
+            >
+              <div>
+                <div className="flex items-center space-x-2">
+                  <span className="h-2 w-2 rounded-full bg-rose-400 animate-pulse"></span>
+                  <span className="font-mono font-bold text-xs text-slate-200">W-00190</span>
+                </div>
+                <div className="text-[11px] text-slate-400 mt-0.5">Hendra Pangestu (53 th) • Risiko Tinggi / Unfit</div>
+              </div>
+              <span className="text-rose-400 group-hover:translate-x-1 transition text-xs font-bold">&rarr;</span>
+            </Link>
+          </div>
+        </div>
 
         </div>
       </div>
