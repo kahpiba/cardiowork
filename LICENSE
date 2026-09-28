@@ -1,0 +1,18 @@
+PROPRIETARY EVALUATION & RESEARCH LICENSE
+CardioWork — Sistem Terpadu Prediksi Risiko Kardiovaskular Pekerja (MCU + DCU)
+
+Hak Cipta (c) 2026 Kahpi Baiquni Arifani, Tim Peneliti & Pengembang S1 Sains Data UPN Veteran Jawa Timur.
+Seluruh Hak Cipta Dilindungi Undang-Undang (All Rights Reserved).
+
+1. TUJUAN EVALUASI & DEMO:
+Perangkat lunak, model kecerdasan buatan, arsitektur, dan kode sumber ini disediakan secara eksklusif untuk tujuan demonstrasi teknologi, pengujian percontohan (pilot study), dan evaluasi klinis-operasional K3 (Keselamatan dan Kesehatan Kerja) bagi mitra industri dan pemangku kepentingan terkait.
+
+2. PEMBATASAN PENGGUNAAN:
+- Penggunaan kode sumber ini di luar pengujian demonstrasi resmi tanpa persetujuan tertulis dilarang keras.
+- Dilarang memperjualbelikan, mendistribusikan ulang, menyewakan, atau mengomersialkan kode sumber ini kepada pihak ketiga.
+- Dilarang memanfaatkan sistem ini untuk pengambilan keputusan ketenagakerjaan yang bersifat diskriminatif (seperti Pemutusan Hubungan Kerja / PHK sepihak atau penolakan rekrutmen).
+
+3. PENAFIAN MEDIS & KEPATUHAN KLINIS (MEDICAL DISCLAIMER):
+SISTEM INI MERUPAKAN ALAT PENDUKUNG KEPUTUSAN (CLINICAL DECISION SUPPORT SYSTEM), BUKAN MERUPAKAN ALAT DIAGNOSIS MEDIS MANDIRI. SELURUH HASIL PREDIKSI, STRATIFIKASI RISIKO, DAN PERINGATAN DINI HARUS SELALU DITINJAU DAN DIVALIDASI KEMBALI OLEH TENAGA KESEHATAN YANG BERWENANG (DOKTER PERUSAHAAN ATAU DOKTER SPESIALIS OKUPASI) SEBELUM DILAKUKAN TINDAKAN INTERVENSI MEDIS MAUPUN PEMBATASAN KERJA.
+
+PENGEMBANG TIDAK BERTANGGUNG JAWAB ATAS KEPUTUSAN MEDIS ATAU OPERASIONAL YANG DIAMBIL TANPA PENGAWASAN TENAGA MEDIS BERLISENSI.

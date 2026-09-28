@@ -1,0 +1,67 @@
+# Dependensi Node
+node_modules
+.pnpm-store
+
+# Next.js Build Output
+.next/
+out/
+build/
+dist/
+
+# Lingkungan & Rahasia (DILARANG KERAS DI-COMMIT)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.cert
+secrets/
+id_rsa
+credentials.json
+
+# Data Pekerja Asli & Dataset Non-Sintetis (DILARANG KERAS)
+data/raw/
+data/private/
+*.patient.csv
+*.confidential.xlsx
+*.real.parquet
+
+# Model & Checkpoint Besar (>25MB)
+ml/checkpoints/
+ml/runs/
+*.ckpt
+*.pt
+*.pth
+*.bin
+*.h5
+ml/mlruns/
+wandb/
+
+# Python Cache & Lingkungan Virtual
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Sistem Operasi & Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Vercel
+.vercel
+
+# Log
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
