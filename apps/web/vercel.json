@@ -3,8 +3,12 @@
   "framework": "nextjs",
   "regions": ["sin1"],
   "functions": {
-    "src/app/api/inference/route.ts": {
+    "src/app/api/inference/predict/route.ts": {
       "memory": 1024,
+      "maxDuration": 30
+    },
+    "src/app/api/alerts/daily/route.ts": {
+      "memory": 512,
       "maxDuration": 30
     },
     "src/app/api/cron/daily-anomaly-scan/route.ts": {

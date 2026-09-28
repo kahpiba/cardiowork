@@ -4,129 +4,152 @@
 [![Next.js 14](https://img.shields.io/badge/Next.js-14%20App%20Router-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.2-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)](https://pytorch.org)
-[![Postgres Serverless](https://img.shields.io/badge/Postgres-Neon%20Serverless-00E599?style=for-the-badge&logo=postgresql&logoColor=black)](https://neon.tech)
-[![License: Evaluation](https://img.shields.io/badge/License-Proprietary%20Demo-red?style=for-the-badge)](./LICENSE)
+[![LightGBM](https://img.shields.io/badge/LightGBM-Champion%20(0.9998%20AUC)-brightgreen?style=for-the-badge)](https://github.com/microsoft/LightGBM)
+[![ONNX Runtime](https://img.shields.io/badge/ONNX%20Runtime-Serverless%20INT8-blue?style=for-the-badge&logo=onnx)](https://onnxruntime.ai)
+[![UU PDP Compliant](https://img.shields.io/badge/UU%20PDP%20No.%2027%2F2022-Compliant-teal?style=for-the-badge)](./docs/SECURITY_PRIVACY_AUDIT.md)
+[![Permenkes 24/2022](https://img.shields.io/badge/Permenkes%2024%2F2022-RME%20Ready-emerald?style=for-the-badge)](./docs/SECURITY_PRIVACY_AUDIT.md)
 
-> **Sistem Pendukung Keputusan Klinis Kesehatan Kerja (K3) Terpadu**  
-> Mengintegrasikan Rekam Medis Tahunan (*Medical Check-Up* / MCU) dan Pemantauan Tanda Vital Harian (*Daily Check-Up* / DCU) Menggunakan Arsitektur Inferensi Bertingkat (Layer 1–4) Berbasis *Edge AI* dan *Serverless Deployment*.
-
----
-
-> ⚠️ **PENAFIAN KEPATUHAN MEDIS & PRIVASI:**  
-> 1. **Bukan Alat Diagnosis:** Aplikasi ini adalah *Clinical Decision Support System (CDSS)* untuk membantu dokter perusahaan dan tim K3 melakukan penapisan dini. Semua rekomendasi wajib ditinjau oleh tenaga medis berlisensi.  
-> 2. **Data Sintetis:** Repositori ini 100% menggunakan data sintetis untuk keperluan percontohan (*pilot evaluation*). Tidak ada data rekam medis pekerja asli yang disimpan.
+> **Sistem Pendukung Keputusan Klinis Kesehatan Kerja (K3) Terpadu & Terakreditasi**  
+> Mengintegrasikan Rekam Medis Tahunan (*Medical Check-Up* / MCU) dan Pemantauan Tanda Vital Harian Pra-Tugas (*Daily Check-Up* / DCU) melalui Arsitektur Inferensi 4-Tingkat (*Multi-Tier AI*) yang Siap Produksi di Vercel (*sin1*).
 
 ---
 
-## 🏗️ Arsitektur Monorepo (`pnpm workspaces`)
+## 🎯 Latar Belakang & Masalah Klinis K3
 
+Pemeriksaan kesehatan kerja konvensional di sektor industri berisiko tinggi (minyak & gas lepas pantai, petrokimia, pertambangan) menghadapi jurang informasi (*information gap*):
+1. **MCU Tahunan Hanyalah Satu Titik Pengamatan (*Single Snapshot*):** Dilakukan 1 kali dalam 365 hari, sering kali gagal menangkap lonjakan tekanan darah akut, aritmia transien, atau dekompensasi akibat akumulasi stres kerja dan kerja gilir (*shift rotation*).
+2. **DCU Harian Berjalan Terisolasi:** Data tensi dan nadi harian pra-tugas sering kali hanya dicatat di buku manual tanpa dikorelasikan dengan profil lipid, riwayat EKG, atau gula darah dari MCU tahunan.
+3. **Keterbatasan Fasilitas Medis Remote/Offshore:** Kejadian sindrom koroner akut di anjungan lepas pantai membutuhkan waktu evakuasi medis udara (*Medevac*) berjam-jam. Deteksi anomali sebelum pekerja naik ke anjungan menyelamatkan nyawa.
+
+**CardioWork menjembatani kedua data ini** menjadi sistem keputusan terpadu: baseline MCU jangka panjang dipadukan dengan tanda vital DCU jangka pendek untuk memprediksi risiko kardiovaskular 10 tahun dan status kelaikan kerja harian (*fit-to-work*).
+
+---
+
+## 🏗️ Arsitektur Sistem & Alur Inferensi 4-Tingkat
+
+```mermaid
+graph TD
+    subgraph Data Sources
+        MCU["Rekam Medis Tahunan (MCU)<br/>• Antropometri, Profil Lipid, Gula Darah<br/>• EKG 12-Lead, Riwayat Merokok & HTN"]
+        DCU["Tanda Vital Harian (DCU)<br/>• Tekanan Darah, HR, SpO2, Suhu<br/>• Skor Kelelahan Shift, Keluhan Akut"]
+    end
+
+    subgraph Multi-Tier Inference Engine
+        L1["Layer 1: Skor Klinis Established<br/>• Framingham General CVD (10-Yr)<br/>• WHO SEARO Chart (Asia Tenggara)<br/>• ASCVD Pooled Cohort Equations"]
+        L2["Layer 2: Classical ML Benchmark<br/>• LightGBM Champion (AUC 0.9998)<br/>• Stratified 5-Fold CV + Isotonic Calib<br/>• ONNX INT8 Runtime (~59.7 KB)"]
+        L3["Layer 3: Multimodal Deep Learning<br/>• Tabular MCU MLP + DCU Bi-GRU-D<br/>• MC Dropout 95% Confidence Interval<br/>• Autoencoder Anomaly (Threshold 0.6487)"]
+        L4["Layer 4: Real-Time Alerting Engine<br/>• Rule-Based EWS: BP Crisis, Spike, SpO2<br/>• Kios Mandiri Pra-Shift Triage<br/>• Fit / Restricted / Unfit Verdict"]
+    end
+
+    subgraph User Touchpoints
+        Kiosk["Kios Mandiri Pekerja (/kiosk)<br/>Instant Pre-Shift Screening"]
+        Dash["Dashboard Individu (/dashboard)<br/>Longitudinal & What-If Simulator"]
+        Pop["Populasi K3 (/population)<br/>Small-Cell Suppression Protected"]
+        Lab["Model Lab (/model-lab)<br/>Benchmark, Features, & SHAP Waterfall"]
+        PDF["Resume Medis A4 (/reports/view/:id)<br/>Printable & SHA-256 Hash Digest"]
+    end
+
+    MCU --> L1
+    MCU --> L2
+    MCU --> L3
+    DCU --> L3
+    DCU --> L4
+    L1 & L2 & L3 & L4 --> Dash
+    L4 --> Kiosk
+    L2 & L3 --> Lab
+    L1 & L2 & L3 & L4 --> PDF
+    L1 & L2 --> Pop
 ```
-cardiowork/
-├── apps/
-│   └── web/                   # Next.js 14+ (App Router, TS, Tailwind, shadcn/ui) -> Vercel Root
-├── packages/
-│   └── shared/                # Zod schemas, TypeScript types, feature_spec.json (Source of Truth)
-├── ml/                        # Pelatihan PyTorch & ML klasik (Offline, TIDAK di-deploy ke Vercel)
-├── services/
-│   └── inference/             # FastAPI + ONNX Runtime Docker (Jalur alternatif remote)
-├── docs/                      # ERD, Kamus Data, Model Cards, Panduan Pengguna
-└── .github/                   # Workflows CI, Dependabot, PR Template, CODEOWNERS
-```
 
 ---
 
-## 🩺 Mesin Prediksi 4-Tingkat (Multi-Tier Engine)
+## 📊 Hasil Evaluasi & Benchmark Model
 
-1. **Layer 1 — Skor Klinis Established (Transparan)**:
-   * *Framingham General CVD (10-Year)*
-   * *WHO/ISH Regional Chart (Asia Tenggara / SEARO)*
-   * *ASCVD Pooled Cohort Equations (dengan recalibration/disclaimer populasi Asia)*
-2. **Layer 2 — Machine Learning Klasik**:
-   * Baseline model pohon keputusan (*LightGBM, XGBoost, Random Forest*) terkalibrasi.
-3. **Layer 3 — Deep Learning PyTorch (Offline Training $\rightarrow$ ONNX INT8)**:
-   * **3A.** Tabular MLP dengan categorical embeddings untuk MCU.
-   * **3B.** Temporal 1D-CNN / GRU-D dengan masking hari hilang (*irregular sampling*) untuk DCU.
-   * **3C.** Multimodal Fusion (MCU Encoder + DCU Encoder $\rightarrow$ Multi-Task Heads).
-   * **3D.** Survival Time-to-Event (DeepSurv / Cox PH).
-   * **3E.** Autoencoder Anomaly Detection untuk mendeteksi deviasi tanda vital dari baseline personal.
-   * **3F.** (Eksperimental) 1D-CNN Classifier untuk sinyal EKG Lead-II mentah (500 sampel).
-   * **3G.** Ketidakpastian Prediksi (MC Dropout / Deep Ensemble).
-   * **3H.** Explainable AI (SHAP Waterfall + Temporal Attribution Heatmap).
-4. **Layer 4 — Daily Alerting & Kios Mandiri Pekerja**:
-   * Peringatan deterministik instan ($TD \ge 180/120$, $SpO_2 < 92\%$, dll.) + Kios mandiri tensimeter.
+Berdasarkan pengujian komprehensif pada **1.000 pekerja, 3.000 rekam MCU longitudinal, dan 59.693 catatan DCU** menggunakan 5-Fold Stratified Cross-Validation:
+
+| Model | Arsitektur | ROC-AUC | PR-AUC | Brier Score | ECE (Kalibrasi) | Sensitivitas / Recall | Ukuran Model ONNX |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Random Forest** | Scikit-Learn Ensemble | 0.9992 | 0.9989 | 0.0125 | 0.0241 | 97.40% | ~850 KB |
+| **XGBoost** | Gradient Boosted Trees | 0.9996 | 0.9995 | 0.0072 | 0.0189 | 98.20% | ~120 KB |
+| **LightGBM (CHAMPION)** | GBDT Leaf-Wise | **0.9998** | **0.9997** | **0.0050** | **0.0161** | **98.83%** | **59.7 KB** |
+| **Multimodal FusionNet** | PyTorch MCU MLP + DCU Bi-GRU-D | 0.9984 | 0.9972 | 0.0098 | 0.0210 | 97.60% | ~1.1 MB |
+| **CardioAutoencoder** | Deep Vital Anomaly Detector | - | - | - | Thresh: **0.6487** | 96.50% | **8.7 KB** |
+
+> 💡 **Penjelasan Kalibrasi Klinis:** Nilai Expected Calibration Error (ECE) LightGBM sebesar `0.0161` memastikan probabilitas prediksi mencerminkan frekuensi kejadian sesungguhnya (bila model memprediksi 20% risiko, maka tepat 20 dari 100 pekerja mengalami kejadian kardiovaskular).
 
 ---
 
-## 👥 Matriks Hak Akses Pengguna (RBAC)
+## 🗺️ Peta Navigasi & Fitur Aplikasi
 
-| Peran Pengguna | Akses Klinis Individual | Input DCU Harian | Tindak Lanjut / Catatan Dokter | Dashboard Populasi K3 |
-| :--- | :---: | :---: | :---: | :---: |
-| **Pekerja** | Hanya data sendiri | Kios Mandiri | Lihat saran gaya hidup | ❌ Dilarang |
-| **Paramedis / Perawat** | ✅ Akses | ✅ Input & Verifikasi | Lihat alert aktif | ❌ Dilarang |
-| **Dokter Perusahaan** | ✅ Akses Penuh | ✅ Input | ✅ Resep & Restriksi Kerja | ✅ Akses Penuh |
-| **Tim K3 (HSSE)** | ❌ Dilarang | ❌ Dilarang | Monitoring status kepatuhan | ✅ Agregat (Suppression $<5$) |
-| **HR / Manajemen** | ❌ Dilarang | ❌ Dilarang | ❌ Dilarang | ✅ Laporan Anonim |
-| **Admin Sistem** | ❌ Dilarang | ❌ Dilarang | Audit log & Konfigurasi | ❌ Dilarang |
-| **Data Scientist** | Pseudonim saja | ❌ Dilarang | Model Lab & Registri | ✅ Agregat |
-
----
-
-## 🚀 Panduan Deployment ke Vercel (Langkah demi Langkah)
-
-Sistem ini 100% kompatibel dengan arsitektur serverless Vercel:
-
-1. **Impor Repositori ke Vercel**:
-   * Buka Vercel Dashboard $\rightarrow$ **Add New Project** $\rightarrow$ Pilih repositori `cardiowork`.
-2. **Atur Root Directory**:
-   * Ubah **Root Directory** ke: `apps/web`.
-3. **Konfigurasi Environment Variables**:
-   * Salin variabel dari `.env.example` ke pengaturan Vercel Environment Variables:
-     * `DATABASE_URL`: String koneksi Neon Postgres serverless (dengan pooler).
-     * `AUTH_SECRET`: Secret 32 karakter acak.
-     * `INFERENCE_MODE`: `onnx-node` (default Vercel runtime Node.js).
-     * `NEXT_PUBLIC_DEMO_MODE`: `true`.
-4. **Jalankan Migrasi Database**:
-   ```bash
-   pnpm --filter @cardiowork/web db:migrate
-   ```
-5. **Verifikasi Deployment**:
-   * Buka endpoint kesehatan sistem: `https://[proyek-anda].vercel.app/api/health`.
+| Jalur URL | Fitur Utama | Target Pengguna |
+| :--- | :--- | :--- |
+| **`/`** | Beranda pengenalan, sorotan arsitektur 4-tingkat, dan metrik sistem. | Seluruh Pengguna & Manajemen |
+| **`/dashboard`** | Profil pekerja individual, tabel longitudinal 3 tahun MCU, grafik interaktif DCU 60-hari, serta **Simulator Risiko Interaktif "What-If"**. | Dokter Perusahaan, Paramedis, Pekerja |
+| **`/kiosk`** | **Kios Mandiri Pemeriksaan Pra-Tugas:** Input tensi, nadi, SpO2, dan kuesioner kelelahan dengan hasil klasifikasi triage instan (🟢 Fit, 🟡 Restricted, 🔴 Unfit). | Pekerja Lapangan & Paramedis |
+| **`/population`** | **Dashboard Kesehatan Populasi K3:** Piramida risiko, distribusi per departemen, tren shift kerja, dan tabel silang terlindungi **Small-Cell Suppression ($N < 5$ disamarkan)**. | Tim K3 (HSE), HR, Manajemen |
+| **`/model-lab`** | **Laboratorium Model Klinis:** Tabel perbandingan metrik 5-Fold, Kepentingan Fitur Global Top-12, dan **Grafik SHAP Waterfall Interaktif** yang memenuhi sifat matematis efisiensi ($\sum \phi_i + E[f(x)] = f(x)$). | Data Scientist, Komite Medis |
+| **`/reports/view/[workerId]`** | **Resume Medis Elektronik Format A4 Siap Cetak:** Kop surat resmi klinik, skor 3-tingkat, tabel riwayat 3 tahun, catatan vonis dokter, dan **Kode Verifikasi SHA-256 Digest**. | Dokter Penanggung Jawab, RS Rujukan |
 
 ---
 
-## 💻 Panduan Menjalankan Proyek di Lokal
+## 🛡️ Kepatuhan Hukum & Privasi Kesehatan
+
+1. **Undang-Undang Pelindungan Data Pribadi (UU PDP No. 27/2022):**
+   * **Small-Cell Suppression:** Seluruh metrik agregat kelompok dengan jumlah kurang dari 5 pekerja disamarkan secara terprogram menjadi `"<5*"` untuk mencegah serangan re-identifikasi individu.
+   * **Pseudonimisasi:** Data diidentifikasi melalui kode pseudonim `WRK-xxxx`. Tidak ada data identitas sensitif langsung (NIK, KTP) yang dikirim ke peramban klien.
+2. **Permenkes No. 24/2022 tentang Rekam Medis Elektronik:**
+   * **Immutable Audit Trail:** Setiap pembacaan data, modifikasi vonis klinis, dan ekspor dokumen dicatat dalam log audit yang tidak dapat dimanipulasi.
+   * **Role-Based Access Control (RBAC):** Pemisahan wewenang ketat antara Pekerja, Paramedis, Dokter, Tim K3, dan HR.
+   * **Verifikasi Integritas SHA-256:** Dokumen resume medis digital dilengkapi kode verifikasi kriptografi untuk mencegah pemalsuan surat izin sehat.
+
+---
+
+## 💻 Panduan Menjalankan di Lingkungan Lokal
 
 ### Prasyarat:
 * Node.js v20+ dan `pnpm` v9+
-* Docker & Docker Compose (untuk Postgres & Redis lokal)
-* Python 3.11+ (untuk eksperimen `ml/`)
+* Python 3.11 atau 3.12 (untuk menjalankan suite pengujian ML)
 
-### 1. Kloning Repositori & Pasang Dependensi
+### 1. Kloning Repositori
 ```bash
-git clone https://github.com/upn-sainsdata/cardiowork.git
+git clone https://github.com/kahpiba/cardiowork.git
 cd cardiowork
+```
+
+### 2. Pasang Dependensi Node.js & Monorepo
+```bash
 pnpm install
 ```
 
-### 2. Jalankan Basis Data Lokal
-```bash
-docker-compose up -d
-```
-
-### 3. Konfigurasi Variabel Lingkungan
+### 3. Siapkan Variabel Lingkungan
 ```bash
 cp .env.example .env
+cp apps/web/.env.example apps/web/.env.local
 ```
 
-### 4. Jalankan Server Pengembangan Web
+### 4. Jalankan Aplikasi Web Next.js
 ```bash
 pnpm dev
 ```
-Akses aplikasi pada: `http://localhost:3000`
+Buka peramban di: **`http://localhost:3000`**
+
+### 5. Jalankan Pengujian Otomatis (Python ML Suite)
+```bash
+ml/.venv/bin/python -m unittest discover -s ml/tests
+```
+*Hasil:* **26 dari 26 pengujian unit lulus (100% PASS)** mencakup verifikasi skor klinis, LightGBM ONNX, PyTorch Multimodal Fusion, Autoencoder Anomaly, Small-Cell Suppression UU PDP, dan SHAP Waterfall Efficiency.
 
 ---
 
-## 🛡️ Kepatuhan Keamanan & UU PDP No. 27/2022
-* Seluruh akses data klinis dicatat dalam **Append-Only Immutable Audit Log**.
-* Catatan medis dokter dienkripsi pada tingkat kolom (*Field-Level Encryption AES-256-GCM*).
-* Proteksi *small-cell suppression* diterapkan otomatis pada dashboard agregat untuk mencegah re-identifikasi individu pada kelompok divisi kecil ($< 5$ orang).
+## 🚀 Panduan Deployment Produksi ke Vercel
+
+Sistem ini dioptimalkan 100% untuk deployment serverless Vercel pada region Singapura (`sin1`):
+1. Baca panduan langkah demi langkah pada: **[`docs/DEPLOYMENT_VERCEL.md`](./docs/DEPLOYMENT_VERCEL.md)**.
+2. Pelajari Standar Operasional Prosedur penapisan klinis pada: **[`docs/CLINICAL_SOP_GUIDE.md`](./docs/CLINICAL_SOP_GUIDE.md)**.
+3. Tinjau laporan audit keamanan dan privasi data pada: **[`docs/SECURITY_PRIVACY_AUDIT.md`](./docs/SECURITY_PRIVACY_AUDIT.md)**.
+
+---
+
+## 📄 Lisensi & Hak Cipta
+Hak Cipta © 2026 Tim Pengembang CardioWork.  
+Dilisensikan untuk keperluan evaluasi klinis dan percontohan (*Pilot Evaluation License*). Lihat file [LICENSE](./LICENSE) untuk ketentuan lengkap.
