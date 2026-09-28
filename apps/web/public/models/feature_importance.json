@@ -1,0 +1,182 @@
+{
+  "champion_model": "LightGBM",
+  "feature_importances": [
+    {
+      "feature": "systolic_bp",
+      "importance": 196.0
+    },
+    {
+      "feature": "ldl_cholesterol_mgdl",
+      "importance": 92.0
+    },
+    {
+      "feature": "map",
+      "importance": 75.0
+    },
+    {
+      "feature": "total_cholesterol_mgdl",
+      "importance": 74.0
+    },
+    {
+      "feature": "is_smoker",
+      "importance": 71.0
+    },
+    {
+      "feature": "tenure_months",
+      "importance": 59.0
+    },
+    {
+      "feature": "dcu_mean_sbp_30d",
+      "importance": 51.0
+    },
+    {
+      "feature": "diastolic_bp",
+      "importance": 36.0
+    },
+    {
+      "feature": "dcu_slope_sbp_7d",
+      "importance": 34.0
+    },
+    {
+      "feature": "age",
+      "importance": 17.0
+    },
+    {
+      "feature": "has_hypertension_history",
+      "importance": 10.0
+    },
+    {
+      "feature": "hba1c_percent",
+      "importance": 9.0
+    },
+    {
+      "feature": "hdl_cholesterol_mgdl",
+      "importance": 7.0
+    },
+    {
+      "feature": "pack_years",
+      "importance": 6.0
+    },
+    {
+      "feature": "bmi",
+      "importance": 5.0
+    },
+    {
+      "feature": "tg_hdl_ratio",
+      "importance": 5.0
+    },
+    {
+      "feature": "fasting_glucose_mgdl",
+      "importance": 5.0
+    },
+    {
+      "feature": "dcu_mean_spo2_30d",
+      "importance": 5.0
+    },
+    {
+      "feature": "waist_circumference_cm",
+      "importance": 3.0
+    },
+    {
+      "feature": "dcu_mean_dbp_30d",
+      "importance": 3.0
+    },
+    {
+      "feature": "dcu_mean_sleep_30d",
+      "importance": 3.0
+    },
+    {
+      "feature": "delta_bmi_1yr",
+      "importance": 2.0
+    },
+    {
+      "feature": "dcu_mean_hr_30d",
+      "importance": 2.0
+    },
+    {
+      "feature": "pulse_pressure",
+      "importance": 1.0
+    },
+    {
+      "feature": "on_statin_drugs",
+      "importance": 1.0
+    },
+    {
+      "feature": "is_male",
+      "importance": 0.0
+    },
+    {
+      "feature": "is_shift_rotation",
+      "importance": 0.0
+    },
+    {
+      "feature": "is_high_hazard",
+      "importance": 0.0
+    },
+    {
+      "feature": "resting_heart_rate",
+      "importance": 0.0
+    },
+    {
+      "feature": "triglycerides_mgdl",
+      "importance": 0.0
+    },
+    {
+      "feature": "egfr",
+      "importance": 0.0
+    },
+    {
+      "feature": "uric_acid_mgdl",
+      "importance": 0.0
+    },
+    {
+      "feature": "has_diabetes_history",
+      "importance": 0.0
+    },
+    {
+      "feature": "family_cardio_history",
+      "importance": 0.0
+    },
+    {
+      "feature": "on_antihypertensive_drugs",
+      "importance": 0.0
+    },
+    {
+      "feature": "metabolic_syndrome",
+      "importance": 0.0
+    },
+    {
+      "feature": "delta_sbp_1yr",
+      "importance": 0.0
+    },
+    {
+      "feature": "delta_ldl_1yr",
+      "importance": 0.0
+    },
+    {
+      "feature": "dcu_std_sbp_30d",
+      "importance": 0.0
+    },
+    {
+      "feature": "dcu_min_spo2_30d",
+      "importance": 0.0
+    },
+    {
+      "feature": "dcu_hypertensive_days_30d",
+      "importance": 0.0
+    },
+    {
+      "feature": "dcu_symptom_days_30d",
+      "importance": 0.0
+    }
+  ],
+  "top_drivers": [
+    "systolic_bp",
+    "ldl_cholesterol_mgdl",
+    "map",
+    "total_cholesterol_mgdl",
+    "is_smoker",
+    "tenure_months",
+    "dcu_mean_sbp_30d"
+  ]
+}
