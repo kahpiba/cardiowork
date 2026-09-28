@@ -272,13 +272,13 @@ export default function WorkerDetailPage({ params }: WorkerDetailPageProps) {
             <span>Jadwalkan Konseling Gaya Hidup K3</span>
           </button>
 
-          <button
-            onClick={() => alert(`Mengunduh lembar resume medis pekerja ${worker.pseudonymId} (Format PDF)...`)}
-            className="flex items-center justify-center space-x-2 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 py-2.5 px-4 rounded-xl text-xs font-semibold transition"
+          <Link
+            href={`/reports/view/${worker.pseudonymId}`}
+            className="flex items-center justify-center space-x-2 bg-rose-600 hover:bg-rose-500 text-white border border-rose-500 py-2.5 px-4 rounded-xl text-xs font-bold shadow-md shadow-rose-900/20 transition"
           >
             <Download className="h-4 w-4" />
             <span>Unduh Resume Rekomendasi (PDF)</span>
-          </button>
+          </Link>
         </div>
 
         <div className="pt-3 border-t border-slate-800 text-[11px] text-slate-500 flex flex-wrap justify-between items-center gap-2">

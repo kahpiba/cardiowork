@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Activity, Bell, Shield, User, Terminal, FileSpreadsheet, AlertCircle, X } from 'lucide-react';
+import { Activity, Bell, Shield, User, Terminal, FileSpreadsheet, AlertCircle, X, Users, Cpu } from 'lucide-react';
 import { DailyAlert } from '@/lib/alerts/alertEngine';
 
 export const Navbar: React.FC = () => {
@@ -80,7 +80,7 @@ export const Navbar: React.FC = () => {
               }`}
             >
               <User className="w-3.5 h-3.5" />
-              Dashboard Pekerja
+              Pekerja
             </Link>
 
             <Link
@@ -92,10 +92,31 @@ export const Navbar: React.FC = () => {
               }`}
             >
               <Terminal className="w-3.5 h-3.5" />
-              Pre-shift DCU Kiosk
-              <span className="bg-emerald-500/20 text-emerald-300 text-[10px] px-1.5 py-0.2 rounded font-mono">
-                Mandiri
-              </span>
+              DCU Kiosk
+            </Link>
+
+            <Link
+              href="/population"
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                pathname.startsWith('/population')
+                  ? 'bg-rose-600 text-white shadow-sm'
+                  : 'text-zinc-400 hover:text-white hover:bg-zinc-800/60'
+              }`}
+            >
+              <Users className="w-3.5 h-3.5" />
+              Populasi
+            </Link>
+
+            <Link
+              href="/model-lab"
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                pathname.startsWith('/model-lab')
+                  ? 'bg-rose-600 text-white shadow-sm'
+                  : 'text-zinc-400 hover:text-white hover:bg-zinc-800/60'
+              }`}
+            >
+              <Cpu className="w-3.5 h-3.5" />
+              Model Lab
             </Link>
 
             <Link
@@ -107,7 +128,7 @@ export const Navbar: React.FC = () => {
               }`}
             >
               <FileSpreadsheet className="w-3.5 h-3.5" />
-              Unggah MCU / DCU
+              Unggah
             </Link>
           </nav>
 
