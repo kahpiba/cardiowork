@@ -1,0 +1,26 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "outputDirectory": "apps/web/.next",
+  "regions": ["sin1"],
+  "functions": {
+    "apps/web/src/app/api/inference/predict/route.ts": {
+      "memory": 1024,
+      "maxDuration": 30
+    },
+    "apps/web/src/app/api/alerts/daily/route.ts": {
+      "memory": 512,
+      "maxDuration": 30
+    },
+    "apps/web/src/app/api/cron/daily-anomaly-scan/route.ts": {
+      "memory": 512,
+      "maxDuration": 60
+    }
+  },
+  "crons": [
+    {
+      "path": "/api/cron/daily-anomaly-scan",
+      "schedule": "0 23 * * *"
+    }
+  ]
+}
