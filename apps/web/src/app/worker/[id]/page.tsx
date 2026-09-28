@@ -19,6 +19,7 @@ import { getDemoWorker, DEMO_WORKERS } from '@/lib/demoData';
 import { WorkerProfileHeader } from '@/components/WorkerProfileHeader';
 import { ClinicalScoreCard } from '@/components/ClinicalScoreCard';
 import { Layer2MlScoreCard } from '@/components/Layer2MlScoreCard';
+import { Layer3DlScoreCard } from '@/components/Layer3DlScoreCard';
 import { McuLongitudinalComparison } from '@/components/McuLongitudinalComparison';
 import { DcuTrendChart } from '@/components/DcuTrendChart';
 import { WhatIfSimulator } from '@/components/WhatIfSimulator';
@@ -37,6 +38,29 @@ export default function WorkerDetailPage({ params }: WorkerDetailPageProps) {
 
   // Latest MCU record for baseline inputs
   const latestMcu = mcuRecords[mcuRecords.length - 1];
+
+  // DCU metrics for ML/DL models
+  const dcuMeanSbp = dcuRecords.length > 0 
+    ? Math.round(dcuRecords.reduce((acc, c) => acc + c.systolicBp, 0) / dcuRecords.length) 
+    : (latestMcu?.systolicBp || 120);
+
+  const dcuStdSbp = dcuRecords.length > 1
+    ? Math.round(Math.sqrt(dcuRecords.reduce((acc, c) => acc + Math.pow(c.systolicBp - dcuMeanSbp, 2), 0) / dcuRecords.length) * 10) / 10
+    : 4.5;
+
+  const dcuHypertensiveDays = dcuRecords.filter(r => r.systolicBp >= 140 || r.diastolicBp >= 90).length;
+  const dcuSymptomDays = dcuRecords.filter(r => r.chestPainFlag || r.shortnessOfBreathFlag || r.dizzinessFlag || r.palpitationsFlag).length;
+
+  const framinghamRisk = latestMcu ? calculateFraminghamCvd({
+    age: worker.age,
+    gender: worker.gender,
+    systolicBp: latestMcu.systolicBp,
+    isTreatedForHypertension: latestMcu.onAntihypertensiveDrugs,
+    totalCholesterolMgdl: latestMcu.totalCholesterolMgdl,
+    hdlCholesterolMgdl: latestMcu.hdlCholesterolMgdl,
+    isSmoker: latestMcu.smokingStatus === 'ACTIVE_SMOKER',
+    hasDiabetes: latestMcu.hasDiabetesHistory
+  }).riskPercent10Yr : 0;
 
   const handleArchetypeSwitch = (targetId: string) => {
     router.push(`/worker/${targetId}`);
@@ -152,18 +176,26 @@ export default function WorkerDetailPage({ params }: WorkerDetailPageProps) {
               ? Math.round(dcuRecords.reduce((acc, c) => acc + c.systolicBp, 0) / dcuRecords.length) 
               : latestMcu.systolicBp
           }
-          framinghamRiskPercent={
-            calculateFraminghamCvd({
-              age: worker.age,
-              gender: worker.gender,
-              systolicBp: latestMcu.systolicBp,
-              isTreatedForHypertension: latestMcu.onAntihypertensiveDrugs,
-              totalCholesterolMgdl: latestMcu.totalCholesterolMgdl,
-              hdlCholesterolMgdl: latestMcu.hdlCholesterolMgdl,
-              isSmoker: latestMcu.smokingStatus === 'ACTIVE_SMOKER',
-              hasDiabetes: latestMcu.hasDiabetesHistory
-            }).riskPercent10Yr
-          }
+          framinghamRiskPercent={framinghamRisk}
+        />
+      )}
+
+      {/* 2c. Layer 3 PyTorch Deep Learning & Multimodal Fusion (GRU-D + MC Dropout) */}
+      {latestMcu && (
+        <Layer3DlScoreCard 
+          systolicBp={latestMcu.systolicBp}
+          diastolicBp={latestMcu.diastolicBp}
+          totalCholesterol={latestMcu.totalCholesterolMgdl}
+          ldlCholesterol={latestMcu.ldlCholesterolMgdl}
+          fastingGlucose={latestMcu.fastingGlucoseMgdl}
+          isSmoker={latestMcu.smokingStatus === 'ACTIVE_SMOKER'}
+          age={worker.age}
+          dcuMeanSbp={dcuMeanSbp}
+          dcuStdSbp={dcuStdSbp}
+          dcuHypertensiveDays={dcuHypertensiveDays}
+          dcuSymptomDays={dcuSymptomDays}
+          layer1FraminghamPercent={framinghamRisk}
+          layer2LgbmPercent={Math.min(99, Math.max(1, Math.round((1.0 / (1.0 + Math.exp(-(-6.2 + (latestMcu.systolicBp - 120) * 0.075 + (latestMcu.ldlCholesterolMgdl - 100) * 0.032 + (latestMcu.smokingStatus === 'ACTIVE_SMOKER' ? 1.45 : 0) + (worker.age - 40) * 0.045 + (dcuMeanSbp - 120) * 0.055)))) * 1000) / 10))}
         />
       )}
 

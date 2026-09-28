@@ -1,0 +1,11 @@
+{
+  "model_architecture": "MultimodalCardioFusionNet (Tabular MLP + Temporal GRU-D)",
+  "roc_auc": 0.9882,
+  "pr_auc": 0.9865,
+  "brier_score": 0.0439,
+  "sensitivity_recall": 0.9101,
+  "f1_score": 0.9364,
+  "unfit_incident_roc_auc": 0.9955,
+  "validation_samples": 200,
+  "autoencoder_anomaly_threshold": 0.6487
+}
