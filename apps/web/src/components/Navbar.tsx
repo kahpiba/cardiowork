@@ -3,17 +3,71 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Activity, Bell, Shield, User, Terminal, FileSpreadsheet, AlertCircle, X, Users, Cpu, UploadCloud } from 'lucide-react';
+import { 
+  Activity, 
+  Bell, 
+  Shield, 
+  Terminal, 
+  FileSpreadsheet, 
+  AlertCircle, 
+  X, 
+  Users, 
+  Cpu, 
+  UploadCloud,
+  HardHat,
+  LogIn
+} from 'lucide-react';
 import { DailyAlert } from '@/lib/alerts/alertEngine';
 import { RolePersonaSwitcher } from './RolePersonaSwitcher';
+import { DEMO_PERSONAS, DemoUser, COOKIE_NAME, isPathAllowed } from '@/lib/session';
+
+interface NavItem {
+  href: string;
+  label: string;
+  icon: React.ComponentType<{ className?: string }>;
+  matchPrefix: string;
+}
+
+const ALL_NAV_ITEMS: NavItem[] = [
+  { href: '/workers', label: 'Direktori Pekerja', icon: Users, matchPrefix: '/worker' },
+  { href: '/kiosk', label: 'DCU Kiosk', icon: Terminal, matchPrefix: '/kiosk' },
+  { href: '/portal', label: 'Portal Mandiri', icon: HardHat, matchPrefix: '/portal' },
+  { href: '/population', label: 'Populasi K3', icon: Shield, matchPrefix: '/population' },
+  { href: '/upload', label: 'Unggah Data', icon: UploadCloud, matchPrefix: '/upload' },
+  { href: '/model-lab', label: 'Model Lab', icon: Cpu, matchPrefix: '/model-lab' },
+];
 
 export const Navbar: React.FC = () => {
   const pathname = usePathname();
+  const [currentUser, setCurrentUser] = useState<DemoUser | null>(null);
   const [alerts, setAlerts] = useState<DailyAlert[]>([]);
   const [isAlertOpen, setIsAlertOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  // Baca user session saat load & setiap kali pathname berubah
   useEffect(() => {
+    const cookies = document.cookie.split('; ');
+    const sessionCookie = cookies.find(row => row.startsWith(`${COOKIE_NAME}=`));
+    if (sessionCookie) {
+      try {
+        const val = decodeURIComponent(sessionCookie.split('=')[1]);
+        const parsed = JSON.parse(val);
+        const match = DEMO_PERSONAS.find(p => p.id === parsed.id || p.role === parsed.role);
+        if (match) setCurrentUser(match);
+      } catch {
+        setCurrentUser(null);
+      }
+    } else {
+      setCurrentUser(null);
+    }
+  }, [pathname]);
+
+  useEffect(() => {
+    // Hanya fetch alerts jika user adalah tim medis (dokter / paramedis)
+    if (!currentUser || (currentUser.role !== 'OCCUPATIONAL_DOCTOR' && currentUser.role !== 'PARAMEDIC')) {
+      return;
+    }
+
     let isMounted = true;
     async function fetchAlerts() {
       try {
@@ -39,10 +93,15 @@ export const Navbar: React.FC = () => {
       isMounted = false;
       clearInterval(interval);
     };
-  }, []);
+  }, [currentUser]);
 
   const criticalCount = alerts.filter(a => a.severity === 'CRITICAL').length;
   const warningCount = alerts.filter(a => a.severity === 'WARNING').length;
+
+  // Filter menu navigasi sesuai izin peran aktif
+  const visibleNavItems = currentUser 
+    ? ALL_NAV_ITEMS.filter(item => isPathAllowed(currentUser.role, item.href))
+    : [];
 
   return (
     <>
@@ -70,92 +129,62 @@ export const Navbar: React.FC = () => {
             </Link>
           </div>
 
-          {/* Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1 bg-stone-200/60 p-1 rounded-xl border border-stone-200">
-            <Link
-              href="/workers"
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                pathname.startsWith('/worker')
-                  ? 'bg-white text-teal-800 shadow-xs border border-stone-200 font-bold'
-                  : 'text-stone-600 hover:text-stone-900 hover:bg-stone-200/60'
-              }`}
-            >
-              <Users className="w-3.5 h-3.5 text-stone-500" />
-              Direktori Pekerja
-            </Link>
+          {/* Navigation Links (Filtered by Role) */}
+          {visibleNavItems.length > 0 ? (
+            <nav className="hidden md:flex items-center gap-1 bg-stone-200/60 p-1 rounded-xl border border-stone-200">
+              {visibleNavItems.map((item) => {
+                const IconComponent = item.icon;
+                const isActive = item.href === '/' 
+                  ? pathname === '/' 
+                  : pathname.startsWith(item.matchPrefix);
 
-            <Link
-              href="/kiosk"
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                pathname.startsWith('/kiosk')
-                  ? 'bg-white text-teal-800 shadow-xs border border-stone-200 font-bold'
-                  : 'text-stone-600 hover:text-stone-900 hover:bg-stone-200/60'
-              }`}
-            >
-              <Terminal className="w-3.5 h-3.5 text-stone-500" />
-              DCU Kiosk
-            </Link>
-
-            <Link
-              href="/population"
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                pathname.startsWith('/population')
-                  ? 'bg-white text-teal-800 shadow-xs border border-stone-200 font-bold'
-                  : 'text-stone-600 hover:text-stone-900 hover:bg-stone-200/60'
-              }`}
-            >
-              <Shield className="w-3.5 h-3.5 text-stone-500" />
-              Populasi K3
-            </Link>
-
-            <Link
-              href="/upload"
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                pathname.startsWith('/upload')
-                  ? 'bg-white text-teal-800 shadow-xs border border-stone-200 font-bold'
-                  : 'text-stone-600 hover:text-stone-900 hover:bg-stone-200/60'
-              }`}
-            >
-              <UploadCloud className="w-3.5 h-3.5 text-stone-500" />
-              Unggah Data
-            </Link>
-
-            <Link
-              href="/model-lab"
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                pathname.startsWith('/model-lab')
-                  ? 'bg-white text-teal-800 shadow-xs border border-stone-200 font-bold'
-                  : 'text-stone-600 hover:text-stone-900 hover:bg-stone-200/60'
-              }`}
-            >
-              <Cpu className="w-3.5 h-3.5 text-stone-500" />
-              Model Lab
-            </Link>
-          </nav>
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                      isActive
+                        ? 'bg-white text-teal-800 shadow-xs border border-stone-200 font-bold'
+                        : 'text-stone-600 hover:text-stone-900 hover:bg-stone-200/60'
+                    }`}
+                  >
+                    <IconComponent className="w-3.5 h-3.5 text-stone-500" />
+                    <span>{item.label}</span>
+                  </Link>
+                );
+              })}
+            </nav>
+          ) : (
+            <div className="hidden md:flex items-center text-xs text-stone-500 font-medium">
+              <span>Sistem Skrining & Prediksi Risiko Kardiovaskular Pekerja</span>
+            </div>
+          )}
 
           {/* Right Actions: Alert Bell + Persona Switcher */}
-          <div className="flex items-center gap-3">
-            {/* Alert Bell Button */}
-            <button
-              onClick={() => setIsAlertOpen(true)}
-              className="relative p-2 rounded-xl bg-white border border-stone-200 hover:bg-stone-100 text-stone-700 hover:text-stone-900 transition-all shadow-2xs"
-              title="Pusat Peringatan Dini Harian"
-            >
-              <Bell className="w-4 h-4" />
-              {criticalCount > 0 ? (
-                <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-rose-700 text-xs font-bold text-white animate-pulse">
-                  {criticalCount}
-                </span>
-              ) : warningCount > 0 ? (
-                <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-amber-600 text-xs font-bold text-white">
-                  {warningCount}
-                </span>
-              ) : null}
-            </button>
+          <div className="flex items-center gap-2.5">
+            {/* Alert Bell Button (Hanya untuk tenaga medis berwenang) */}
+            {currentUser && (currentUser.role === 'OCCUPATIONAL_DOCTOR' || currentUser.role === 'PARAMEDIC') && (
+              <button
+                onClick={() => setIsAlertOpen(true)}
+                className="relative p-2 rounded-xl bg-white border border-stone-200 hover:bg-stone-100 text-stone-700 hover:text-stone-900 transition-all shadow-2xs"
+                title="Pusat Peringatan Dini Harian"
+              >
+                <Bell className="w-4 h-4" />
+                {criticalCount > 0 ? (
+                  <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-rose-700 text-xs font-bold text-white animate-pulse">
+                    {criticalCount}
+                  </span>
+                ) : warningCount > 0 ? (
+                  <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-amber-600 text-xs font-bold text-white">
+                    {warningCount}
+                  </span>
+                ) : null}
+              </button>
+            )}
 
             {/* Persona Switcher Component */}
             <div className="pl-2 border-l border-stone-200">
-              <RolePersonaSwitcher />
+              <RolePersonaSwitcher onUserChange={setCurrentUser} />
             </div>
           </div>
         </div>

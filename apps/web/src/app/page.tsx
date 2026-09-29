@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { cookies } from 'next/headers';
 import { 
   Activity, 
   ShieldCheck, 
@@ -7,20 +8,39 @@ import {
   Users, 
   Cpu, 
   HeartPulse, 
-  AlertTriangle,
-  ArrowRight,
-  BookOpen,
-  CheckCircle2,
-  Sparkles
+  AlertTriangle, 
+  ArrowRight, 
+  BookOpen, 
+  CheckCircle2, 
+  Sparkles,
+  LogIn,
+  HardHat,
+  Terminal,
+  UploadCloud
 } from 'lucide-react';
 import { EducationalHealthGuide } from '@/components/EducationalHealthGuide';
+import { DEMO_PERSONAS, COOKIE_NAME, DemoUser, isPathAllowed } from '@/lib/session';
 
 export default function HomePage() {
+  const cookieStore = cookies();
+  const sessionCookie = cookieStore.get(COOKIE_NAME);
+  let activeUser: DemoUser | null = null;
+
+  if (sessionCookie?.value) {
+    try {
+      const parsed = JSON.parse(decodeURIComponent(sessionCookie.value));
+      const matched = DEMO_PERSONAS.find(p => p.id === parsed.id || p.role === parsed.role);
+      if (matched) activeUser = matched;
+    } catch {
+      activeUser = null;
+    }
+  }
+
   return (
     <div className="bg-medical-grid min-h-[calc(100vh-4rem)] pb-20">
       
       {/* Hero Header with Warm Medical Glow */}
-      <section className="relative overflow-hidden pt-14 pb-12 px-4 sm:px-6 lg:px-8 border-b border-stone-200/80 bg-gradient-to-b from-stone-50/60 via-white to-stone-50/40">
+      <section className="relative overflow-hidden pt-12 pb-12 px-4 sm:px-6 lg:px-8 border-b border-stone-200/80 bg-gradient-to-b from-stone-50/60 via-white to-stone-50/40">
         
         {/* Subtle decorative background ECG line SVG */}
         <div className="absolute inset-0 pointer-events-none opacity-25 flex items-center justify-center">
@@ -30,6 +50,55 @@ export default function HomePage() {
         </div>
 
         <div className="relative max-w-5xl mx-auto text-center space-y-6">
+          
+          {/* Active Session or Guest Status Alert */}
+          {activeUser ? (
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-teal-50/90 border border-teal-200/90 max-w-2xl mx-auto shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-left">
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-teal-600 animate-pulse" />
+                  <span className="text-xs font-bold text-teal-950">Sesi Terverifikasi: {activeUser.name}</span>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-white text-teal-800 border border-teal-200">
+                    {activeUser.badge}
+                  </span>
+                </div>
+                <p className="text-[11px] text-stone-600 mt-0.5 truncate max-w-md">
+                  {activeUser.department}
+                </p>
+              </div>
+              <div className="flex items-center gap-2 shrink-0">
+                <Link
+                  href={activeUser.defaultPath}
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-teal-800 hover:bg-teal-900 text-white font-bold text-xs shadow-2xs transition"
+                >
+                  <span>Buka Ruang Kerja</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+          ) : (
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-stone-100/90 border border-stone-200 max-w-2xl mx-auto shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-left">
+              <div>
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-teal-700" />
+                  <span className="text-xs font-bold text-stone-900">Hak Akses Berjenjang (RBAC Terproteksi)</span>
+                </div>
+                <p className="text-[11px] text-stone-600 mt-0.5">
+                  Setiap peran memiliki izin akses rute berbeda sesuai UU PDP No. 27/2022.
+                </p>
+              </div>
+              <div className="shrink-0">
+                <Link
+                  href="/login"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-teal-800 hover:bg-teal-900 text-white font-bold text-xs shadow-2xs transition"
+                >
+                  <LogIn className="w-3.5 h-3.5" />
+                  <span>Masuk / Pilih Akun</span>
+                </Link>
+              </div>
+            </div>
+          )}
+
           <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-stone-100 border border-stone-200 text-stone-800 text-xs sm:text-sm font-bold shadow-2xs">
             <Activity className="h-4 w-4 text-teal-700 animate-heartbeat" />
             <span>Sistem Terpadu K3 & AI Kardiovaskular Pekerja (MCU + DCU)</span>
@@ -46,31 +115,69 @@ export default function HomePage() {
             Menggabungkan rekam medis tahunan (<strong className="text-stone-900 font-semibold">Medical Check-Up / MCU</strong>) dengan pemantauan tanda vital harian sebelum shift (<strong className="text-stone-900 font-semibold">Daily Check-Up / DCU</strong>) melalui arsitektur AI bertingkat (<strong className="text-stone-900 font-semibold">Layer 1–4</strong>) untuk mencegah henti jantung mendadak di sektor industri.
           </p>
 
+          {/* Action Buttons Tailored by Auth State */}
           <div className="pt-2 flex flex-wrap items-center justify-center gap-3.5">
-            <Link
-              href="/workers"
-              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-teal-800 hover:bg-teal-900 text-white font-bold text-sm sm:text-base shadow-sm hover:shadow transition"
-            >
-              <Users className="w-5 h-5" />
-              <span>Buka Direktori Pekerja</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+            {activeUser ? (
+              <>
+                <Link
+                  href={activeUser.defaultPath}
+                  className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-teal-800 hover:bg-teal-900 text-white font-bold text-sm sm:text-base shadow-sm hover:shadow transition"
+                >
+                  <Activity className="w-5 h-5" />
+                  <span>Masuk ke {activeUser.defaultPath === '/workers' ? 'Direktori Pekerja' : activeUser.defaultPath === '/kiosk' ? 'DCU Kiosk' : activeUser.defaultPath === '/population' ? 'Populasi K3' : 'Portal Mandiri'}</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
 
-            <Link
-              href="/kiosk"
-              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-white hover:bg-stone-50 text-stone-800 hover:text-stone-900 border border-stone-300 font-bold text-sm sm:text-base shadow-2xs transition"
-            >
-              <HeartPulse className="w-5 h-5 text-stone-600" />
-              <span>Kios Cek Mandiri (DCU)</span>
-            </Link>
+                {isPathAllowed(activeUser.role, '/kiosk') && activeUser.defaultPath !== '/kiosk' && (
+                  <Link
+                    href="/kiosk"
+                    className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-white hover:bg-stone-50 text-stone-800 hover:text-stone-900 border border-stone-300 font-bold text-sm sm:text-base shadow-2xs transition"
+                  >
+                    <HeartPulse className="w-5 h-5 text-stone-600" />
+                    <span>Kios Cek Mandiri (DCU)</span>
+                  </Link>
+                )}
 
-            <Link
-              href="/population"
-              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-white hover:bg-stone-50 text-stone-800 hover:text-stone-900 border border-stone-300 font-bold text-sm sm:text-base shadow-2xs transition"
-            >
-              <ShieldCheck className="w-5 h-5 text-teal-700" />
-              <span>Populasi K3 Perusahaan</span>
-            </Link>
+                {isPathAllowed(activeUser.role, '/population') && activeUser.defaultPath !== '/population' && (
+                  <Link
+                    href="/population"
+                    className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-white hover:bg-stone-50 text-stone-800 hover:text-stone-900 border border-stone-300 font-bold text-sm sm:text-base shadow-2xs transition"
+                  >
+                    <ShieldCheck className="w-5 h-5 text-teal-700" />
+                    <span>Populasi K3</span>
+                  </Link>
+                )}
+
+                {isPathAllowed(activeUser.role, '/portal') && activeUser.defaultPath !== '/portal' && (
+                  <Link
+                    href="/portal"
+                    className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-white hover:bg-stone-50 text-stone-800 hover:text-stone-900 border border-stone-300 font-bold text-sm sm:text-base shadow-2xs transition"
+                  >
+                    <HardHat className="w-5 h-5 text-stone-700" />
+                    <span>Portal Pekerja</span>
+                  </Link>
+                )}
+              </>
+            ) : (
+              <>
+                <Link
+                  href="/login"
+                  className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-teal-800 hover:bg-teal-900 text-white font-bold text-sm sm:text-base shadow-sm hover:shadow transition"
+                >
+                  <LogIn className="w-5 h-5" />
+                  <span>Masuk ke Akun Kerja (Pilih Peran)</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+
+                <Link
+                  href="/login?returnUrl=/portal"
+                  className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-white hover:bg-stone-50 text-stone-800 hover:text-stone-900 border border-stone-300 font-bold text-sm sm:text-base shadow-2xs transition"
+                >
+                  <HardHat className="w-5 h-5 text-stone-600" />
+                  <span>Portal Pekerja Lapangan</span>
+                </Link>
+              </>
+            )}
           </div>
 
           {/* 4-Step Interactive Occupational Health Journey */}

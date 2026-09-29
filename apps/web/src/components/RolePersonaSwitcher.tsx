@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
+import Link from 'next/link';
 import { 
   ShieldCheck, 
   Stethoscope, 
@@ -10,15 +11,23 @@ import {
   ChevronDown, 
   Check, 
   Info,
-  Sparkles,
-  UserCheck
+  Sparkles, 
+  UserCheck,
+  LogOut,
+  LogIn
 } from 'lucide-react';
-import { DEMO_PERSONAS, DemoUser, COOKIE_NAME, getDefaultPersona } from '@/lib/session';
+import { DEMO_PERSONAS, DemoUser, COOKIE_NAME, isPathAllowed } from '@/lib/session';
 
-export const RolePersonaSwitcher: React.FC = () => {
+interface RolePersonaSwitcherProps {
+  onUserChange?: (user: DemoUser | null) => void;
+}
+
+export const RolePersonaSwitcher: React.FC<RolePersonaSwitcherProps> = ({ onUserChange }) => {
   const router = useRouter();
-  const [currentUser, setCurrentUser] = useState<DemoUser>(getDefaultPersona());
+  const pathname = usePathname();
+  const [currentUser, setCurrentUser] = useState<DemoUser | null>(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     // Baca dari cookie saat pertama kali dimuat
@@ -29,20 +38,42 @@ export const RolePersonaSwitcher: React.FC = () => {
         const val = decodeURIComponent(sessionCookie.split('=')[1]);
         const parsed = JSON.parse(val);
         const match = DEMO_PERSONAS.find(p => p.id === parsed.id || p.role === parsed.role);
-        if (match) setCurrentUser(match);
+        if (match) {
+          setCurrentUser(match);
+          onUserChange?.(match);
+        }
       } catch (err) {
         console.error('Failed to parse persona cookie:', err);
       }
     }
-  }, []);
+    setIsLoaded(true);
+  }, [pathname, onUserChange]);
 
   const handleSelectPersona = (persona: DemoUser) => {
     setCurrentUser(persona);
+    onUserChange?.(persona);
     setIsOpen(false);
-    // Tulis ke cookie
+
+    // Tulis ke cookie (7 hari)
     document.cookie = `${COOKIE_NAME}=${encodeURIComponent(JSON.stringify(persona))}; path=/; max-age=604800; SameSite=Lax`;
     
-    // Refresh router agar middleware dan server context mengadopsi role baru seketika
+    // Jika path saat ini tidak diizinkan untuk peran baru, arahkan ke defaultPath peran baru
+    if (!isPathAllowed(persona.role, pathname)) {
+      router.push(persona.defaultPath);
+    } else {
+      router.refresh();
+    }
+  };
+
+  const handleLogout = () => {
+    setCurrentUser(null);
+    onUserChange?.(null);
+    setIsOpen(false);
+
+    // Hapus cookie
+    document.cookie = `${COOKIE_NAME}=; path=/; max-age=0; SameSite=Lax`;
+
+    router.push('/login');
     router.refresh();
   };
 
@@ -51,7 +82,7 @@ export const RolePersonaSwitcher: React.FC = () => {
       case 'OCCUPATIONAL_DOCTOR':
         return <Stethoscope className="w-4 h-4 text-teal-700" />;
       case 'PARAMEDIC':
-        return <HeartPulse className="w-4 h-4 text-stone-600" />;
+        return <HeartPulse className="w-4 h-4 text-teal-600" />;
       case 'HSSE_OFFICER':
         return <ShieldCheck className="w-4 h-4 text-amber-700" />;
       case 'WORKER':
@@ -61,12 +92,29 @@ export const RolePersonaSwitcher: React.FC = () => {
     }
   };
 
+  if (!isLoaded) {
+    return <div className="w-24 h-8 bg-stone-100 rounded-xl animate-pulse" />;
+  }
+
+  // Jika belum login, tampilkan tombol Masuk / Login
+  if (!currentUser) {
+    return (
+      <Link
+        href="/login"
+        className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-teal-800 hover:bg-teal-900 text-white font-bold text-xs shadow-2xs transition"
+      >
+        <LogIn className="w-3.5 h-3.5" />
+        <span>Masuk / Login</span>
+      </Link>
+    );
+  }
+
   return (
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-2 px-2.5 py-1.5 rounded-xl border border-stone-200 bg-white hover:bg-stone-50 transition shadow-2xs text-left"
-        title="Ganti Persona Pengguna Demo"
+        title="Menu Akun & Ganti Peran"
       >
         <div className={`w-7 h-7 rounded-lg flex items-center justify-center font-bold text-xs ${currentUser.avatarColor}`}>
           {currentUser.name.charAt(0)}
@@ -74,12 +122,12 @@ export const RolePersonaSwitcher: React.FC = () => {
         <div className="hidden lg:block">
           <div className="flex items-center gap-1.5">
             <span className="text-xs font-bold text-stone-800 leading-none">{currentUser.name}</span>
-            <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-stone-100 text-stone-600 border border-stone-200">
+            <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full bg-stone-100 text-stone-600 border border-stone-200">
               {currentUser.badge}
             </span>
           </div>
-          <span className="text-xs text-stone-500 font-medium block truncate max-w-[140px]">
-            {currentUser.title}
+          <span className="text-[11px] text-stone-500 font-medium block truncate max-w-[130px]">
+            {currentUser.department.split('(')[0]}
           </span>
         </div>
         <ChevronDown className={`w-3.5 h-3.5 text-stone-400 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
@@ -91,30 +139,43 @@ export const RolePersonaSwitcher: React.FC = () => {
           <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} />
           <div className="absolute right-0 mt-2 w-80 sm:w-96 bg-white border border-stone-200 rounded-2xl shadow-xl z-50 p-3 space-y-2 animate-in fade-in-50 zoom-in-95">
             
-            <div className="px-2 py-1.5 border-b border-stone-100 flex items-center justify-between">
+            {/* User Profile Summary */}
+            <div className="p-3 bg-stone-50 rounded-xl border border-stone-200/80 space-y-1">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold text-stone-900">{currentUser.name}</span>
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-teal-100 text-teal-800 border border-teal-200">
+                  {currentUser.badge}
+                </span>
+              </div>
+              <div className="text-[11px] text-stone-500">{currentUser.title}</div>
+              <div className="text-[11px] text-stone-400 font-mono">{currentUser.email}</div>
+            </div>
+
+            {/* Persona Switcher Section */}
+            <div className="px-2 pt-2 border-t border-stone-100 flex items-center justify-between">
               <div className="flex items-center gap-1.5">
                 <Sparkles className="w-3.5 h-3.5 text-teal-700" />
-                <span className="text-xs font-bold text-stone-800">Pilih Persona Uji Coba (Demo RBAC)</span>
+                <span className="text-xs font-bold text-stone-800">Ganti Persona Demo (RBAC)</span>
               </div>
-              <span className="text-xs bg-teal-50 text-teal-800 font-semibold px-2 py-0.5 rounded-full border border-teal-200">
+              <span className="text-[10px] bg-teal-50 text-teal-800 font-semibold px-2 py-0.5 rounded-full border border-teal-200">
                 1-Klik Switch
               </span>
             </div>
 
-            <div className="space-y-1.5">
+            <div className="space-y-1 max-h-56 overflow-y-auto">
               {DEMO_PERSONAS.map((persona) => {
                 const isSelected = currentUser.id === persona.id;
                 return (
                   <button
                     key={persona.id}
                     onClick={() => handleSelectPersona(persona)}
-                    className={`w-full text-left p-2.5 rounded-xl border transition flex items-start gap-3 ${
+                    className={`w-full text-left p-2 rounded-xl border transition flex items-start gap-2.5 ${
                       isSelected
                         ? 'bg-teal-50/70 border-teal-300 shadow-2xs'
                         : 'border-transparent hover:bg-stone-50 hover:border-stone-200'
                     }`}
                   >
-                    <div className="mt-0.5 p-1.5 rounded-lg bg-white border border-stone-200 shadow-2xs">
+                    <div className="mt-0.5 p-1 rounded-lg bg-white border border-stone-200 shadow-2xs">
                       {getRoleIcon(persona.role)}
                     </div>
 
@@ -124,27 +185,36 @@ export const RolePersonaSwitcher: React.FC = () => {
                           {persona.name}
                         </span>
                         {isSelected && (
-                          <span className="inline-flex items-center gap-1 text-xs font-bold text-teal-800 bg-teal-100/80 px-2 py-0.5 rounded-md">
-                            <Check className="w-3 h-3" />
+                          <span className="inline-flex items-center gap-0.5 text-[10px] font-bold text-teal-800 bg-teal-100/80 px-1.5 py-0.5 rounded">
+                            <Check className="w-2.5 h-2.5" />
                             Aktif
                           </span>
                         )}
                       </div>
-                      <div className="text-xs font-semibold text-stone-600">{persona.badge}</div>
-                      <p className="text-xs text-stone-500 mt-1 leading-snug">
-                        {persona.description}
-                      </p>
+                      <div className="text-[11px] font-semibold text-stone-600">{persona.badge}</div>
                     </div>
                   </button>
                 );
               })}
             </div>
 
-            <div className="p-2.5 bg-stone-50 rounded-xl border border-stone-200/80 text-xs text-stone-500 flex items-start gap-2">
-              <Info className="w-4 h-4 text-stone-400 shrink-0 mt-0.5" />
+            {/* Compliance Info */}
+            <div className="p-2 bg-stone-50 rounded-xl border border-stone-200/80 text-[11px] text-stone-500 flex items-start gap-1.5">
+              <Info className="w-3.5 h-3.5 text-stone-400 shrink-0 mt-0.5" />
               <span>
-                Setiap peran memiliki izin akses rute berbeda dan tercatat secara otomatis pada tabel audit trail UU PDP No. 27/2022.
+                Hak akses dibatasi per peran & diaudit sesuai UU PDP No. 27/2022.
               </span>
+            </div>
+
+            {/* Logout Action */}
+            <div className="pt-2 border-t border-stone-100">
+              <button
+                onClick={handleLogout}
+                className="w-full flex items-center justify-center gap-2 p-2 rounded-xl text-xs font-bold text-rose-700 hover:text-rose-800 hover:bg-rose-50 border border-transparent hover:border-rose-200 transition"
+              >
+                <LogOut className="w-3.5 h-3.5" />
+                <span>Keluar dari Akun (Logout)</span>
+              </button>
             </div>
 
           </div>
