@@ -93,7 +93,7 @@ export function Layer3DlScoreCard({
   const isAnomalous = anomalyScore >= anomalyThreshold;
 
   let riskTier: 'LOW' | 'MODERATE' | 'HIGH' | 'CRITICAL' = 'LOW';
-  let badgeColor = 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30';
+  let badgeColor = 'bg-emerald-100 text-emerald-800 border-emerald-200';
 
   if (fusionPercent >= 40.0) {
     riskTier = 'CRITICAL';

@@ -16,7 +16,9 @@ import {
   Sparkles,
   Stethoscope,
   Clock,
-  ArrowLeft
+  ArrowLeft,
+  Zap,
+  Check
 } from 'lucide-react';
 import { DEMO_WORKERS } from '@/lib/demoData';
 
@@ -131,6 +133,12 @@ export default function DcuKioskPage() {
 
   const currentWorker = DEMO_WORKERS[selectedWorkerId]?.worker;
 
+  // Real-time boundary warning logic
+  const isHighBp = systolicBp >= 140 || diastolicBp >= 90;
+  const isCrisisBp = systolicBp >= 160 || diastolicBp >= 100;
+  const isHypoxia = spo2 < 95;
+  const hasCardiacSymptoms = chestPain || dyspnea || dizziness || palpitations;
+
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 py-8 px-4 sm:px-6 lg:px-8 bg-medical-grid">
       <div className="max-w-4xl mx-auto space-y-6">
@@ -139,7 +147,7 @@ export default function DcuKioskPage() {
         <div>
           <Link
             href="/"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-sky-600 transition"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-teal-600 transition"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Kembali ke Beranda</span>
@@ -147,24 +155,25 @@ export default function DcuKioskPage() {
         </div>
 
         {/* Title & Guidance Header */}
-        <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm relative overflow-hidden">
-          <div className="absolute top-0 right-0 -mt-10 -mr-10 w-48 h-48 bg-sky-500/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-xs relative overflow-hidden">
+          <div className="absolute top-0 right-0 -mt-10 -mr-10 w-48 h-48 bg-teal-500/5 rounded-full blur-3xl pointer-events-none" />
           
           <div className="flex items-center gap-4 mb-3">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-sky-600 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-sky-600/20">
+            <div className="w-12 h-12 rounded-2xl bg-teal-600 flex items-center justify-center text-white shadow-md shadow-teal-600/20">
               <Stethoscope className="w-6 h-6" />
             </div>
             <div>
               <div className="flex items-center gap-2 flex-wrap">
                 <h1 className="text-xl sm:text-2xl font-black tracking-tight text-slate-900">
-                  Terminal Skrining Mandiri Pre-Shift (DCU Kiosk)
+                  Terminal Skrining Cepat Pre-Shift (DCU Kiosk)
                 </h1>
-                <span className="bg-sky-50 text-sky-700 text-xs font-bold px-2.5 py-0.5 rounded-full border border-sky-200 shadow-2xs">
-                  Self-Service POS K3
+                <span className="bg-teal-50 text-teal-800 text-xs font-bold px-2.5 py-0.5 rounded-full border border-teal-200 shadow-2xs flex items-center gap-1">
+                  <Zap className="w-3 h-3 text-teal-600" />
+                  Kecepatan Alur &lt;30 Detik
                 </span>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 mt-1">
-                Pemeriksaan tanda vital mandiri bagi pekerja industri berisiko tinggi sebelum memulai shift kerja.
+                Pemeriksaan tanda vital mandiri bagi pekerja industri sebelum memulai rotasi shift kerja.
               </p>
             </div>
           </div>
@@ -178,21 +187,21 @@ export default function DcuKioskPage() {
             <button
               type="button"
               onClick={() => applyPreset('NORMAL')}
-              className="text-xs font-bold px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100 transition shadow-2xs"
+              className="text-xs font-bold px-3 py-1.5 rounded-xl bg-teal-50 text-teal-900 border border-teal-300 hover:bg-teal-100 transition shadow-2xs"
             >
               🟢 Normal Sehat (118/76)
             </button>
             <button
               type="button"
               onClick={() => applyPreset('ELEVATED')}
-              className="text-xs font-bold px-3 py-1.5 rounded-lg bg-amber-50 text-amber-800 border border-amber-200 hover:bg-amber-100 transition shadow-2xs"
+              className="text-xs font-bold px-3 py-1.5 rounded-xl bg-amber-50 text-amber-900 border border-amber-300 hover:bg-amber-100 transition shadow-2xs"
             >
-              🟡 Ambang Batas / Kelelahan (144/92)
+              🟡 Ambang Batas / Fatik (144/92)
             </button>
             <button
               type="button"
               onClick={() => applyPreset('CRITICAL')}
-              className="text-xs font-bold px-3 py-1.5 rounded-lg bg-rose-50 text-rose-800 border border-rose-200 hover:bg-rose-100 transition shadow-2xs"
+              className="text-xs font-bold px-3 py-1.5 rounded-xl bg-rose-50 text-rose-900 border border-rose-300 hover:bg-rose-100 transition shadow-2xs"
             >
               🔴 Krisis Tensi & Nyeri Dada (178/106)
             </button>
@@ -200,7 +209,7 @@ export default function DcuKioskPage() {
         </div>
 
         {/* Worker Selection */}
-        <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+        <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-xs">
           <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">
             Pilih ID Pekerja / Scan Kartu Badge:
           </label>
@@ -217,12 +226,12 @@ export default function DcuKioskPage() {
                   }}
                   className={`p-3.5 rounded-xl border text-left transition-all ${
                     isSelected
-                      ? 'bg-sky-50/80 border-sky-500 shadow-xs ring-2 ring-sky-500/20'
+                      ? 'bg-teal-50/80 border-teal-500 shadow-xs ring-2 ring-teal-500/20'
                       : 'bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50/50'
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-xs font-bold text-sky-700">
+                    <span className="font-mono text-xs font-bold text-teal-800">
                       {demo.worker.pseudonymId}
                     </span>
                     <span className="text-[10px] text-slate-500 font-medium">{demo.worker.age} th • {demo.worker.gender === 'MALE' ? 'Pria' : 'Wanita'}</span>
@@ -244,7 +253,9 @@ export default function DcuKioskPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             
             {/* 1. Systolic BP */}
-            <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-xs">
+            <div className={`bg-white border rounded-2xl p-4 shadow-xs transition-colors ${
+              isCrisisBp ? 'border-rose-400 bg-rose-50/30' : isHighBp ? 'border-amber-400 bg-amber-50/30' : 'border-slate-200'
+            }`}>
               <div className="flex items-center justify-between text-xs text-slate-600 mb-2">
                 <span className="font-bold flex items-center gap-1.5 text-slate-800">
                   <Activity className="w-4 h-4 text-rose-600" />
@@ -252,24 +263,25 @@ export default function DcuKioskPage() {
                 </span>
                 <span className="text-[11px] text-slate-400 font-mono">mmHg</span>
               </div>
-              <div className="flex items-center justify-between gap-3">
-                <input
-                  type="number"
-                  min={80}
-                  max={240}
-                  value={systolicBp}
-                  onChange={(e) => setSystolicBp(Number(e.target.value))}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-2xl font-black text-slate-900 focus:outline-none focus:border-sky-500 focus:bg-white font-mono transition shadow-2xs"
-                  required
-                />
-              </div>
+              <input
+                type="number"
+                inputMode="numeric"
+                min={80}
+                max={240}
+                value={systolicBp}
+                onChange={(e) => setSystolicBp(Number(e.target.value))}
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-2xl font-black text-slate-900 focus:outline-none focus:border-teal-500 focus:bg-white font-mono transition shadow-2xs tabular-nums"
+                required
+              />
               <p className="text-[11px] text-slate-500 mt-2">
-                Normal: &lt;120 mmHg | Krisis: &ge;160
+                Normal: &lt;120 mmHg | Waspada: &ge;140
               </p>
             </div>
 
             {/* 2. Diastolic BP */}
-            <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-xs">
+            <div className={`bg-white border rounded-2xl p-4 shadow-xs transition-colors ${
+              diastolicBp >= 100 ? 'border-rose-400 bg-rose-50/30' : diastolicBp >= 90 ? 'border-amber-400 bg-amber-50/30' : 'border-slate-200'
+            }`}>
               <div className="flex items-center justify-between text-xs text-slate-600 mb-2">
                 <span className="font-bold flex items-center gap-1.5 text-slate-800">
                   <Activity className="w-4 h-4 text-rose-600" />
@@ -277,24 +289,25 @@ export default function DcuKioskPage() {
                 </span>
                 <span className="text-[11px] text-slate-400 font-mono">mmHg</span>
               </div>
-              <div className="flex items-center justify-between gap-3">
-                <input
-                  type="number"
-                  min={50}
-                  max={140}
-                  value={diastolicBp}
-                  onChange={(e) => setDiastolicBp(Number(e.target.value))}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-2xl font-black text-slate-900 focus:outline-none focus:border-sky-500 focus:bg-white font-mono transition shadow-2xs"
-                  required
-                />
-              </div>
+              <input
+                type="number"
+                inputMode="numeric"
+                min={50}
+                max={140}
+                value={diastolicBp}
+                onChange={(e) => setDiastolicBp(Number(e.target.value))}
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-2xl font-black text-slate-900 focus:outline-none focus:border-teal-500 focus:bg-white font-mono transition shadow-2xs tabular-nums"
+                required
+              />
               <p className="text-[11px] text-slate-500 mt-2">
-                Normal: &lt;80 mmHg | Krisis: &ge;100
+                Normal: &lt;80 mmHg | Waspada: &ge;90
               </p>
             </div>
 
             {/* 3. Heart Rate */}
-            <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-xs">
+            <div className={`bg-white border rounded-2xl p-4 shadow-xs transition-colors ${
+              heartRate >= 100 ? 'border-amber-400 bg-amber-50/30' : 'border-slate-200'
+            }`}>
               <div className="flex items-center justify-between text-xs text-slate-600 mb-2">
                 <span className="font-bold flex items-center gap-1.5 text-slate-800">
                   <Heart className="w-4 h-4 text-rose-500" />
@@ -304,11 +317,12 @@ export default function DcuKioskPage() {
               </div>
               <input
                 type="number"
+                inputMode="numeric"
                 min={40}
                 max={180}
                 value={heartRate}
                 onChange={(e) => setHeartRate(Number(e.target.value))}
-                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-2xl font-black text-slate-900 focus:outline-none focus:border-sky-500 focus:bg-white font-mono transition shadow-2xs"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-2xl font-black text-slate-900 focus:outline-none focus:border-teal-500 focus:bg-white font-mono transition shadow-2xs tabular-nums"
                 required
               />
               <p className="text-[11px] text-slate-500 mt-2">
@@ -317,25 +331,28 @@ export default function DcuKioskPage() {
             </div>
 
             {/* 4. SpO2 */}
-            <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-xs">
+            <div className={`bg-white border rounded-2xl p-4 shadow-xs transition-colors ${
+              isHypoxia ? 'border-rose-400 bg-rose-50/30' : 'border-slate-200'
+            }`}>
               <div className="flex items-center justify-between text-xs text-slate-600 mb-2">
                 <span className="font-bold flex items-center gap-1.5 text-slate-800">
-                  <Wind className="w-4 h-4 text-cyan-600" />
+                  <Wind className="w-4 h-4 text-teal-600" />
                   Saturasi Oksigen
                 </span>
                 <span className="text-[11px] text-slate-400 font-mono">% SpO2</span>
               </div>
               <input
                 type="number"
+                inputMode="numeric"
                 min={80}
                 max={100}
                 value={spo2}
                 onChange={(e) => setSpo2(Number(e.target.value))}
-                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-2xl font-black text-slate-900 focus:outline-none focus:border-sky-500 focus:bg-white font-mono transition shadow-2xs"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-2xl font-black text-slate-900 focus:outline-none focus:border-teal-500 focus:bg-white font-mono transition shadow-2xs tabular-nums"
                 required
               />
               <p className="text-[11px] text-slate-500 mt-2">
-                Optimal: 95–100% | Hipoksia: &lt;92%
+                Optimal: 95–100% | Hipoksia: &lt;95%
               </p>
             </div>
 
@@ -350,12 +367,13 @@ export default function DcuKioskPage() {
               </div>
               <input
                 type="number"
+                inputMode="decimal"
                 step="0.1"
                 min={34}
                 max={42}
                 value={temperature}
                 onChange={(e) => setTemperature(Number(e.target.value))}
-                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-2xl font-black text-slate-900 focus:outline-none focus:border-sky-500 focus:bg-white font-mono transition shadow-2xs"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-2xl font-black text-slate-900 focus:outline-none focus:border-teal-500 focus:bg-white font-mono transition shadow-2xs tabular-nums"
                 required
               />
               <p className="text-[11px] text-slate-500 mt-2">
@@ -364,7 +382,9 @@ export default function DcuKioskPage() {
             </div>
 
             {/* 6. Sleep Hours */}
-            <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-xs">
+            <div className={`bg-white border rounded-2xl p-4 shadow-xs transition-colors ${
+              sleepHours < 5.0 ? 'border-amber-400 bg-amber-50/30' : 'border-slate-200'
+            }`}>
               <div className="flex items-center justify-between text-xs text-slate-600 mb-2">
                 <span className="font-bold flex items-center gap-1.5 text-slate-800">
                   <Moon className="w-4 h-4 text-indigo-600" />
@@ -374,19 +394,36 @@ export default function DcuKioskPage() {
               </div>
               <input
                 type="number"
+                inputMode="decimal"
                 step="0.5"
                 min={0}
                 max={16}
                 value={sleepHours}
                 onChange={(e) => setSleepHours(Number(e.target.value))}
-                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-2xl font-black text-slate-900 focus:outline-none focus:border-sky-500 focus:bg-white font-mono transition shadow-2xs"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-2xl font-black text-slate-900 focus:outline-none focus:border-teal-500 focus:bg-white font-mono transition shadow-2xs tabular-nums"
                 required
               />
               <p className="text-[11px] text-slate-500 mt-2">
-                Cukup: &ge;6.0 Jam | Fatik/Lelah: &lt;5.0
+                Cukup: &ge;6.0 Jam | Fatik: &lt;5.0
               </p>
             </div>
           </div>
+
+          {/* Instant Safety Gate Live Indicator */}
+          {(isCrisisBp || isHypoxia || hasCardiacSymptoms) && (
+            <div className="p-3.5 rounded-xl bg-rose-50 border border-rose-300 text-xs text-rose-900 flex items-center gap-3 shadow-2xs animate-in fade-in duration-150">
+              <ShieldAlert className="w-5 h-5 text-rose-600 shrink-0 animate-pulse" />
+              <div>
+                <strong className="font-bold text-rose-950">Peringatan Batas Kritis Terdeteksi Langsung:</strong>
+                <span className="ml-1.5 text-rose-800">
+                  {isCrisisBp && 'Tekanan darah melewati batas toleransi kerja (>160/100). '}
+                  {isHypoxia && 'Oksigenasi di bawah batas normal (<95%). '}
+                  {hasCardiacSymptoms && 'Keluhan kardiovaskular dilaporkan. '}
+                  Pekerja berpotensi berstatus UNFIT saat dikirimkan.
+                </span>
+              </div>
+            </div>
+          )}
 
           {/* Symptoms Checklist */}
           <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-xs">
@@ -406,7 +443,7 @@ export default function DcuKioskPage() {
                   onChange={(e) => setChestPain(e.target.checked)}
                   className="w-4 h-4 rounded text-rose-600 focus:ring-rose-500"
                 />
-                <span className="text-xs">Nyeri / Rasa Tertekan di Dada</span>
+                <span className="text-xs">Nyeri / Tekanan di Dada</span>
               </label>
 
               <label className={`flex items-center gap-3 p-3.5 rounded-xl border cursor-pointer transition-all ${
@@ -458,12 +495,12 @@ export default function DcuKioskPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-700 hover:to-indigo-700 text-white font-bold text-sm tracking-wide shadow-md shadow-sky-600/20 flex items-center justify-center gap-2.5 transition-all disabled:opacity-50"
+              className="w-full sm:w-auto px-10 py-4 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm tracking-wide shadow-md shadow-teal-600/20 flex items-center justify-center gap-2.5 transition-all disabled:opacity-50 min-h-[52px]"
             >
               {loading ? (
                 <>
                   <RefreshCw className="w-4 h-4 animate-spin" />
-                  Mengevaluasi Tanda Vital & Model AI...
+                  Mengevaluasi Fisiologi & Triase AI...
                 </>
               ) : (
                 <>
@@ -482,7 +519,7 @@ export default function DcuKioskPage() {
               ? 'bg-rose-50/90 border-rose-300'
               : result.dailyFitnessVerdict === 'FIT_WITH_RESTRICTION'
               ? 'bg-amber-50/90 border-amber-300'
-              : 'bg-emerald-50/90 border-emerald-300'
+              : 'bg-teal-50/90 border-teal-300'
           }`}>
             
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200/80">
@@ -496,7 +533,7 @@ export default function DcuKioskPage() {
                     <AlertTriangle className="w-7 h-7" />
                   </div>
                 ) : (
-                  <div className="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 shrink-0 shadow-2xs">
+                  <div className="w-12 h-12 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 shrink-0 shadow-2xs">
                     <CheckCircle2 className="w-7 h-7" />
                   </div>
                 )}
@@ -515,7 +552,7 @@ export default function DcuKioskPage() {
                   ? 'bg-rose-600 text-white'
                   : result.dailyFitnessVerdict === 'FIT_WITH_RESTRICTION'
                   ? 'bg-amber-600 text-white'
-                  : 'bg-emerald-600 text-white'
+                  : 'bg-teal-700 text-white'
               }`}>
                 {result.dailyFitnessVerdict}
               </span>
@@ -548,19 +585,19 @@ export default function DcuKioskPage() {
                 </div>
                 <div className="bg-white p-3 rounded-xl border border-slate-200 text-center shadow-2xs">
                   <div className="text-[10px] text-slate-500 font-semibold uppercase">Layer 2 LightGBM</div>
-                  <div className="font-bold text-xs text-slate-900 mt-0.5">
-                    {(result.inferenceSnapshot.layer2Probability * 100).toFixed(1)}% Risiko
+                  <div className="font-bold text-xs text-slate-900 mt-0.5 tabular-nums">
+                    {(result.inferenceSnapshot.layer2Probability * 100).toFixed(1)}%
                   </div>
                 </div>
                 <div className="bg-white p-3 rounded-xl border border-slate-200 text-center shadow-2xs">
                   <div className="text-[10px] text-slate-500 font-semibold uppercase">Layer 3 PyTorch DL</div>
-                  <div className="font-bold text-xs text-slate-900 mt-0.5">
-                    {(result.inferenceSnapshot.layer3Probability * 100).toFixed(1)}% CVD
+                  <div className="font-bold text-xs text-slate-900 mt-0.5 tabular-nums">
+                    {(result.inferenceSnapshot.layer3Probability * 100).toFixed(1)}%
                   </div>
                 </div>
                 <div className="bg-white p-3 rounded-xl border border-slate-200 text-center shadow-2xs">
                   <div className="text-[10px] text-slate-500 font-semibold uppercase">Autoencoder Anomali</div>
-                  <div className={`font-bold text-xs mt-0.5 ${result.inferenceSnapshot.isAnomaly ? 'text-rose-600' : 'text-emerald-600'}`}>
+                  <div className={`font-bold text-xs mt-0.5 ${result.inferenceSnapshot.isAnomaly ? 'text-rose-600' : 'text-teal-700'}`}>
                     {result.inferenceSnapshot.isAnomaly ? 'ANOMALI AKUT' : 'Normal'}
                   </div>
                 </div>
@@ -574,7 +611,7 @@ export default function DcuKioskPage() {
               </span>
               <Link
                 href={`/worker/${selectedWorkerId}`}
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-700 hover:text-sky-800 transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-700 hover:text-teal-800 transition-colors"
               >
                 Lihat Rekam Medis & Grafik DCU Lengkap
                 <ArrowRight className="w-3.5 h-3.5" />

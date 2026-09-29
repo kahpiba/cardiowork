@@ -50,7 +50,7 @@ export function Layer2MlScoreCard({
   const predictedPercent = Math.min(99.0, Math.max(1.0, Math.round(predictedProb * 1000) / 10));
 
   let riskCategory: 'LOW' | 'MODERATE' | 'HIGH' | 'CRITICAL' = 'LOW';
-  let badgeColor = 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30';
+  let badgeColor = 'bg-emerald-100 text-emerald-800 border-emerald-200';
 
   if (predictedPercent >= 40.0) {
     riskCategory = 'CRITICAL';

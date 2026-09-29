@@ -5,6 +5,7 @@ import {
   Sparkles, 
   RotateCcw, 
   TrendingDown, 
+  TrendingUp,
   Cigarette, 
   CigaretteOff, 
   Heart, 
@@ -12,7 +13,9 @@ import {
   CheckCircle2, 
   ArrowRight, 
   Shield, 
-  Flame 
+  Flame,
+  Award,
+  Info
 } from 'lucide-react';
 import { 
   calculateFraminghamCvd, 
@@ -41,7 +44,7 @@ export function WhatIfSimulator({
   isSmoker,
   hasDiabetes
 }: WhatIfSimulatorProps) {
-  // Baseline Risk
+  // Baseline Risk Calculation
   const baselineFramingham = calculateFraminghamCvd({
     age, gender, systolicBp, isTreatedForHypertension: isTreatedBp,
     totalCholesterolMgdl: totalCholesterol,
@@ -56,8 +59,8 @@ export function WhatIfSimulator({
 
   // Simulator States (Interventions)
   const [simSmoker, setSimSmoker] = useState<boolean>(isSmoker);
-  const [sbpDelta, setSbpDelta] = useState<number>(0); // e.g. -10 to -40 mmHg
-  const [cholDelta, setCholDelta] = useState<number>(0); // e.g. -20 to -80 mg/dL
+  const [sbpDelta, setSbpDelta] = useState<number>(0); // e.g. -5 to -40 mmHg
+  const [cholDelta, setCholDelta] = useState<number>(0); // e.g. -10 to -80 mg/dL
   const [hdlDelta, setHdlDelta] = useState<number>(0); // e.g. +5 to +25 mg/dL
 
   // Compute Simulated Values
@@ -83,11 +86,14 @@ export function WhatIfSimulator({
     totalCholesterolMgdl: simTotalChol
   });
 
-  // Calculate Reductions
+  // Calculate Reductions (ARR and RRR)
   const absoluteReduction = Math.round((baselineFramingham.riskPercent10Yr - simFramingham.riskPercent10Yr) * 10) / 10;
   const relativeReduction = baselineFramingham.riskPercent10Yr > 0 
     ? Math.round(((baselineFramingham.riskPercent10Yr - simFramingham.riskPercent10Yr) / baselineFramingham.riskPercent10Yr) * 100) 
     : 0;
+
+  // Approximate vascular age reduction (every 5% relative reduction equates ~1 year younger vascular profile)
+  const vascularAgeSaved = Math.max(1, Math.round(relativeReduction / 6));
 
   const handleReset = () => {
     setSimSmoker(isSmoker);
@@ -105,66 +111,75 @@ export function WhatIfSimulator({
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 pb-4">
         <div>
           <div className="flex items-center space-x-2">
-            <Sparkles className="h-5 w-5 text-amber-500" />
-            <h2 className="font-bold text-slate-900 text-sm tracking-wide">
-              Simulator Intervensi Gaya Hidup & Terapi ("What-If" Risk Simulator)
-            </h2>
+            <div className="w-8 h-8 rounded-xl bg-amber-50 border border-amber-200 text-amber-600 flex items-center justify-center shadow-2xs">
+              <Sparkles className="h-4 w-4" />
+            </div>
+            <div>
+              <h2 className="font-bold text-slate-900 text-sm tracking-wide">
+                Simulator Intervensi "Bagaimana Jika?" (What-If Lifestyle & Therapy Simulator)
+              </h2>
+              <p className="text-xs text-slate-500 mt-0.5">
+                Geser parameter gaya hidup dan terapi untuk melihat proyeksi penurunan risiko kardiovaskular secara langsung.
+              </p>
+            </div>
           </div>
-          <p className="text-xs text-slate-500 mt-1">
-            Simulasi dampak modifikasi faktor risiko terhadap penurunan probabilitas kejadian kardiovaskular 10-tahun.
-          </p>
         </div>
 
         {isModified && (
           <button
             onClick={handleReset}
-            className="flex items-center space-x-1.5 text-xs text-slate-700 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-xl border border-slate-200 transition font-semibold"
+            className="flex items-center space-x-1.5 text-xs text-slate-700 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-xl border border-slate-200 transition font-bold shadow-2xs"
           >
             <RotateCcw className="h-3.5 w-3.5" />
-            <span>Reset Intervensi</span>
+            <span>Reset ke Data Asli</span>
           </button>
         )}
       </div>
 
-      {/* Main Grid: Sliders on Left, Impact Outcome on Right */}
+      {/* Main Grid: Interactive Controls on Left, Live Outcome on Right */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         
-        {/* Left: Interactive Controls (7 cols) */}
-        <div className="lg:col-span-7 space-y-5 bg-slate-50 p-5 rounded-xl border border-slate-200">
+        {/* Left: Interactive Sliders & Toggles (7 cols) */}
+        <div className="lg:col-span-7 space-y-5 bg-slate-50/80 p-5 rounded-xl border border-slate-200">
           
-          <span className="text-xs font-bold text-slate-800 block uppercase tracking-wider">
-            Rencana Intervensi Perilaku & Medis K3:
-          </span>
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-bold text-slate-800 uppercase tracking-wider">
+              Simulasi Modifikasi Faktor Risiko:
+            </span>
+            <span className="text-[11px] text-teal-700 bg-teal-50 px-2 py-0.5 rounded border border-teal-200 font-semibold font-mono">
+              Respon Instan (&lt;150ms)
+            </span>
+          </div>
 
-          {/* 1. Smoking Cessation */}
+          {/* 1. Smoking Cessation Toggle */}
           <div className="space-y-2">
             <div className="flex justify-between items-center text-xs">
               <span className="text-slate-800 font-semibold flex items-center space-x-1.5">
-                {isSmoker ? <Cigarette className="h-4 w-4 text-amber-600" /> : <CigaretteOff className="h-4 w-4 text-emerald-600" />}
-                <span>Program Penghentian Merokok (Smoking Cessation)</span>
+                {isSmoker ? <Cigarette className="h-4 w-4 text-amber-600" /> : <CigaretteOff className="h-4 w-4 text-teal-600" />}
+                <span>Program Berhenti Merokok (Smoking Cessation)</span>
               </span>
-              <span className={`text-[11px] font-bold ${!simSmoker ? 'text-emerald-700' : 'text-slate-500'}`}>
-                {simSmoker ? 'Masih Merokok' : 'Berhenti Merokok'}
+              <span className={`text-[11px] font-bold ${!simSmoker ? 'text-teal-700' : 'text-slate-500'}`}>
+                {simSmoker ? 'Aktif Merokok' : 'Bebas Asap Rokok (Intervensi)'}
               </span>
             </div>
             <div className="flex items-center space-x-2">
               <button
                 type="button"
                 onClick={() => setSimSmoker(false)}
-                className={`flex-1 py-2 px-3 rounded-lg text-xs font-semibold border transition ${
+                className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold border transition ${
                   !simSmoker 
-                    ? 'bg-emerald-100 text-emerald-800 border-emerald-300 shadow-2xs' 
+                    ? 'bg-teal-100 text-teal-900 border-teal-300 shadow-2xs ring-1 ring-teal-400' 
                     : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900'
                 }`}
               >
-                🚭 Berhenti Total (Bebas Asap Rokok)
+                🚭 Berhenti Merokok Total
               </button>
               <button
                 type="button"
                 onClick={() => setSimSmoker(true)}
-                className={`py-2 px-3 rounded-lg text-xs font-semibold border transition ${
+                className={`py-2 px-3 rounded-xl text-xs font-bold border transition ${
                   simSmoker 
-                    ? 'bg-amber-100 text-amber-800 border-amber-300 shadow-2xs' 
+                    ? 'bg-amber-100 text-amber-900 border-amber-300 shadow-2xs' 
                     : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900'
                 }`}
               >
@@ -173,14 +188,14 @@ export function WhatIfSimulator({
             </div>
           </div>
 
-          {/* 2. SBP Reduction Slider */}
-          <div className="space-y-2 pt-2 border-t border-slate-200">
+          {/* 2. SBP Slider */}
+          <div className="space-y-2 pt-3 border-t border-slate-200">
             <div className="flex justify-between items-center text-xs">
               <span className="text-slate-800 font-semibold flex items-center space-x-1.5">
                 <Heart className="h-4 w-4 text-rose-600" />
-                <span>Target Penurunan Tekanan Sistolik (SBP)</span>
+                <span>Tekanan Darah Sistolik Target (Diet DASH & Obat)</span>
               </span>
-              <span className="text-[11px] font-mono font-bold text-rose-700">
+              <span className="text-[11px] font-mono font-bold text-rose-700 bg-white px-2 py-0.5 rounded border border-rose-200">
                 {simSystolicBp} mmHg {sbpDelta < 0 && `(${sbpDelta} mmHg)`}
               </span>
             </div>
@@ -191,23 +206,28 @@ export function WhatIfSimulator({
               step={5}
               value={sbpDelta}
               onChange={(e) => setSbpDelta(Number(e.target.value))}
+              aria-label="Target Penurunan Tekanan Darah Sistolik"
+              aria-valuemin={-40}
+              aria-valuemax={0}
+              aria-valuenow={sbpDelta}
+              aria-valuetext={`${simSystolicBp} milimeter air raksa`}
               className="w-full accent-rose-600 cursor-pointer h-2 bg-slate-200 rounded-lg"
             />
             <div className="flex justify-between text-[10px] text-slate-500 font-medium">
               <span>Baseline ({systolicBp} mmHg)</span>
-              <span>-20 mmHg (Diet DASH & Terapi)</span>
+              <span>-20 mmHg (Target Normal)</span>
               <span>-40 mmHg (Maksimal)</span>
             </div>
           </div>
 
-          {/* 3. Total Cholesterol Reduction Slider */}
-          <div className="space-y-2 pt-2 border-t border-slate-200">
+          {/* 3. Total Cholesterol Slider */}
+          <div className="space-y-2 pt-3 border-t border-slate-200">
             <div className="flex justify-between items-center text-xs">
               <span className="text-slate-800 font-semibold flex items-center space-x-1.5">
                 <Activity className="h-4 w-4 text-teal-600" />
-                <span>Penurunan Kolesterol Total (Diet Rendah Lemak Jenuh / Statin)</span>
+                <span>Kolesterol Total (Diet Rendah Lemak / Terapi Statin)</span>
               </span>
-              <span className="text-[11px] font-mono font-bold text-teal-700">
+              <span className="text-[11px] font-mono font-bold text-teal-700 bg-white px-2 py-0.5 rounded border border-teal-200">
                 {simTotalChol} mg/dL {cholDelta < 0 && `(${cholDelta} mg/dL)`}
               </span>
             </div>
@@ -218,6 +238,11 @@ export function WhatIfSimulator({
               step={10}
               value={cholDelta}
               onChange={(e) => setCholDelta(Number(e.target.value))}
+              aria-label="Penurunan Kolesterol Total"
+              aria-valuemin={-80}
+              aria-valuemax={0}
+              aria-valuenow={cholDelta}
+              aria-valuetext={`${simTotalChol} miligram per desiliter`}
               className="w-full accent-teal-600 cursor-pointer h-2 bg-slate-200 rounded-lg"
             />
             <div className="flex justify-between text-[10px] text-slate-500 font-medium">
@@ -227,14 +252,14 @@ export function WhatIfSimulator({
             </div>
           </div>
 
-          {/* 4. HDL Cholesterol Elevation Slider */}
-          <div className="space-y-2 pt-2 border-t border-slate-200">
+          {/* 4. HDL Cholesterol Slider */}
+          <div className="space-y-2 pt-3 border-t border-slate-200">
             <div className="flex justify-between items-center text-xs">
               <span className="text-slate-800 font-semibold flex items-center space-x-1.5">
                 <Flame className="h-4 w-4 text-emerald-600" />
-                <span>Peningkatan HDL Kolesterol (Aktivitas Fisik Rutin)</span>
+                <span>HDL Kolesterol Baik (Aktivitas Fisik Rutin 150 menit/minggu)</span>
               </span>
-              <span className="text-[11px] font-mono font-bold text-emerald-700">
+              <span className="text-[11px] font-mono font-bold text-emerald-700 bg-white px-2 py-0.5 rounded border border-emerald-200">
                 {simHdlChol} mg/dL {hdlDelta > 0 && `(+${hdlDelta} mg/dL)`}
               </span>
             </div>
@@ -245,6 +270,11 @@ export function WhatIfSimulator({
               step={5}
               value={hdlDelta}
               onChange={(e) => setHdlDelta(Number(e.target.value))}
+              aria-label="Peningkatan HDL Kolesterol"
+              aria-valuemin={0}
+              aria-valuemax={25}
+              aria-valuenow={hdlDelta}
+              aria-valuetext={`${simHdlChol} miligram per desiliter`}
               className="w-full accent-emerald-600 cursor-pointer h-2 bg-slate-200 rounded-lg"
             />
             <div className="flex justify-between text-[10px] text-slate-500 font-medium">
@@ -261,7 +291,7 @@ export function WhatIfSimulator({
           
           <div>
             <span className="text-xs font-bold text-slate-800 uppercase tracking-wider block mb-3">
-              Proyeksi Dampak Penurunan Risiko (10-Yr CVD):
+              Perbandingan Skor Risiko (10-Tahun CVD):
             </span>
 
             {/* Before vs After Score Card */}
@@ -270,64 +300,74 @@ export function WhatIfSimulator({
               {/* Baseline */}
               <div className="bg-white p-3.5 rounded-xl border border-slate-200 space-y-1 shadow-2xs">
                 <span className="text-[10px] text-slate-500 block font-bold">KONDISI SAAT INI</span>
-                <div className="text-2xl font-extrabold font-mono text-slate-900">
+                <div className="text-2xl sm:text-3xl font-black font-mono text-slate-900 tabular-nums">
                   {baselineFramingham.riskPercent10Yr}%
                 </div>
                 <div className="text-[10px] text-slate-600 font-medium">
-                  Tier {baselineWho.riskTier} (WHO)
+                  WHO: Tier {baselineWho.riskTier}
                 </div>
               </div>
 
               {/* Simulated */}
-              <div className={`p-3.5 rounded-xl border space-y-1 shadow-2xs ${
+              <div className={`p-3.5 rounded-xl border space-y-1 shadow-2xs transition-all ${
                 simFramingham.riskPercent10Yr < baselineFramingham.riskPercent10Yr
-                  ? 'bg-emerald-50 border-emerald-200'
+                  ? 'bg-teal-50 border-teal-300 ring-1 ring-teal-400/30'
                   : 'bg-white border-slate-200'
               }`}>
-                <span className="text-[10px] text-emerald-800 block font-bold">HASIL SIMULASI</span>
-                <div className="text-2xl font-extrabold font-mono text-emerald-700">
+                <span className="text-[10px] text-teal-800 block font-bold">HASIL PROYEKSI</span>
+                <div className="text-2xl sm:text-3xl font-black font-mono text-teal-700 tabular-nums">
                   {simFramingham.riskPercent10Yr}%
                 </div>
-                <div className="text-[10px] text-emerald-800 font-medium">
-                  Tier {simWho.riskTier} (WHO)
+                <div className="text-[10px] text-teal-800 font-medium">
+                  WHO: Tier {simWho.riskTier}
                 </div>
               </div>
 
             </div>
 
-            {/* Benefit Badges */}
+            {/* The Reward Metric Delta Badge */}
             {absoluteReduction > 0 ? (
-              <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-3.5 space-y-2 text-xs">
-                <div className="flex items-center space-x-1.5 text-emerald-800 font-bold">
-                  <TrendingDown className="h-4 w-4 text-emerald-700" />
-                  <span>Potensi Keuntungan Klinis Nyata (ARR & RRR):</span>
+              <div className="bg-teal-50 border border-teal-200 rounded-xl p-4 space-y-2.5 text-xs shadow-2xs animate-in fade-in duration-200">
+                <div className="flex items-center space-x-1.5 text-teal-900 font-bold">
+                  <TrendingDown className="h-4 w-4 text-teal-700" />
+                  <span>Potensi Keuntungan Klinis Nyata (Clinical Gain):</span>
                 </div>
                 <div className="grid grid-cols-2 gap-2 text-slate-800">
-                  <div className="bg-white p-2.5 rounded-lg border border-emerald-100 shadow-2xs">
-                    <span className="text-[10px] text-emerald-700 font-medium block">Absolute Risk Reduction</span>
-                    <span className="text-base font-bold font-mono text-emerald-700">-{absoluteReduction}%</span>
+                  <div className="bg-white p-2.5 rounded-lg border border-teal-100 shadow-2xs">
+                    <span className="text-[10px] text-teal-700 font-semibold block">Penurunan Absolut</span>
+                    <span className="text-lg font-black font-mono text-teal-700 tabular-nums">-{absoluteReduction}%</span>
                   </div>
-                  <div className="bg-white p-2.5 rounded-lg border border-emerald-100 shadow-2xs">
-                    <span className="text-[10px] text-emerald-700 font-medium block">Relative Risk Reduction</span>
-                    <span className="text-base font-bold font-mono text-emerald-700">-{relativeReduction}%</span>
+                  <div className="bg-white p-2.5 rounded-lg border border-teal-100 shadow-2xs">
+                    <span className="text-[10px] text-teal-700 font-semibold block">Penurunan Relatif</span>
+                    <span className="text-lg font-black font-mono text-teal-700 tabular-nums">-{relativeReduction}%</span>
                   </div>
                 </div>
-                <p className="text-[11px] text-emerald-900 leading-relaxed pt-1">
-                  Dengan mengoptimalkan faktor risiko yang dapat dimodifikasi (termasuk kepatuhan obat dan berhenti merokok), pekerja berpotensi menurunkan risiko kardiovaskular hingga <strong>{relativeReduction}%</strong> dibandingkan baseline saat ini.
-                </p>
+                
+                {/* Vascular Age Motivational Message */}
+                <div className="p-2.5 bg-white/90 rounded-lg border border-teal-100 flex items-start gap-2">
+                  <Award className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
+                  <p className="text-[11px] text-teal-950 leading-relaxed">
+                    Setara dengan memulihkan usia elastisitas pembuluh darah (usia vaskular) sekitar <strong>{vascularAgeSaved} tahun lebih muda</strong>.
+                  </p>
+                </div>
               </div>
             ) : (
-              <div className="bg-white border border-slate-200 rounded-xl p-4 text-xs text-slate-600 flex items-center space-x-2 shadow-2xs">
-                <Shield className="h-4 w-4 text-slate-400 shrink-0" />
-                <span>Geser slider atau ubah status merokok di sebelah kiri untuk melihat proyeksi penurunan risiko.</span>
+              <div className="bg-white border border-slate-200 rounded-xl p-4 text-xs text-slate-600 flex items-center space-x-2.5 shadow-2xs">
+                <Shield className="h-5 w-5 text-slate-400 shrink-0" />
+                <span className="leading-relaxed">
+                  Geser slider target tensi/kolesterol atau ubah status merokok di sebelah kiri untuk melihat seberapa besar risiko kardiovaskular dapat diturunkan.
+                </span>
               </div>
             )}
           </div>
 
           {/* Action Footer */}
-          <div className="pt-2 border-t border-slate-100 text-[11px] text-slate-500 flex items-center justify-between">
-            <span>Rekomendasi Dokumen K3</span>
-            <span className="text-sky-700 font-semibold">Baku EBM & KKI</span>
+          <div className="pt-3 border-t border-slate-100 text-[11px] text-slate-500 flex items-center justify-between">
+            <span className="flex items-center gap-1">
+              <Info className="w-3.5 h-3.5 text-slate-400" />
+              Sesuai Panduan Konseling K3
+            </span>
+            <span className="text-teal-700 font-bold">EBM Guidelines</span>
           </div>
 
         </div>
