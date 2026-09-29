@@ -99,6 +99,8 @@ export function isPathAllowed(role: UserRole, pathname: string): boolean {
     pathname === '/' ||
     pathname.startsWith('/login') ||
     pathname.startsWith('/access-denied') ||
+    pathname.startsWith('/kiosk') ||
+    pathname.startsWith('/methodology') ||
     pathname.startsWith('/api/')
   ) {
     return true;

@@ -15,7 +15,8 @@ import {
   Cpu, 
   UploadCloud,
   HardHat,
-  LogIn
+  LogIn,
+  FileText
 } from 'lucide-react';
 import { DailyAlert } from '@/lib/alerts/alertEngine';
 import { RolePersonaSwitcher } from './RolePersonaSwitcher';
@@ -35,6 +36,7 @@ const ALL_NAV_ITEMS: NavItem[] = [
   { href: '/population', label: 'Populasi K3', icon: Shield, matchPrefix: '/population' },
   { href: '/upload', label: 'Unggah Data', icon: UploadCloud, matchPrefix: '/upload' },
   { href: '/model-lab', label: 'Model Lab', icon: Cpu, matchPrefix: '/model-lab' },
+  { href: '/methodology', label: 'Metodologi', icon: FileText, matchPrefix: '/methodology' },
 ];
 
 export const Navbar: React.FC = () => {
@@ -155,8 +157,29 @@ export const Navbar: React.FC = () => {
               })}
             </nav>
           ) : (
-            <div className="hidden md:flex items-center text-xs text-stone-500 font-medium">
-              <span>Sistem Skrining & Prediksi Risiko Kardiovaskular Pekerja</span>
+            <div className="hidden md:flex items-center gap-2">
+              <Link
+                href="/methodology"
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                  pathname.startsWith('/methodology')
+                    ? 'bg-white text-rose-900 shadow-xs border border-stone-200 font-bold'
+                    : 'text-stone-600 hover:text-stone-900 hover:bg-stone-200/60'
+                }`}
+              >
+                <FileText className="w-3.5 h-3.5 text-stone-500" />
+                <span>Metodologi &amp; Batasan</span>
+              </Link>
+              <Link
+                href="/kiosk"
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                  pathname.startsWith('/kiosk')
+                    ? 'bg-white text-rose-900 shadow-xs border border-stone-200 font-bold'
+                    : 'text-stone-600 hover:text-stone-900 hover:bg-stone-200/60'
+                }`}
+              >
+                <Terminal className="w-3.5 h-3.5 text-rose-700" />
+                <span>Kios DCU</span>
+              </Link>
             </div>
           )}
 

@@ -94,17 +94,17 @@ export const EducationalHealthGuide: React.FC = () => {
           <div className="p-3.5 bg-stone-50 border border-stone-200 rounded-xl text-xs text-stone-800 flex items-start gap-2.5">
             <Info className="w-4 h-4 text-stone-500 shrink-0 mt-0.5" />
             <div>
-              <strong className="font-bold text-stone-900">Mengapa Tekanan Darah Penting di Tempat Kerja?</strong>
+              <strong className="font-bold text-stone-900">Signifikansi Klinis Tekanan Darah di Lingkungan K3 (Rujukan PERKI 2021 &amp; ESC 2024)</strong>
               <p className="mt-0.5 text-stone-600 leading-relaxed font-normal">
-                Pekerja dengan hipertensi yang terpapar beban kerja fisik, cuaca panas ekstrem, atau shift malam memiliki risiko 3x lipat mengalami kejadian kardiovaskular akut pre-shift.
+                Pekerja dengan hipertensi yang terpapar stres fisik berat, iklim panas offshore, atau rotasi shift malam memiliki beban hemodinamik yang meningkat secara signifikan (Sumber: <em>Pedoman Diagnosis dan Penatalaksanaan Hipertensi PERKI 2021 &amp; 2024 ESC Guidelines for the Management of Elevated Blood Pressure</em>).
               </p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
             <div className="p-3.5 rounded-xl border border-emerald-300 bg-emerald-50/60 space-y-1.5">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-emerald-950 uppercase tracking-wider">Optimal / Normal</span>
+                <span className="text-[11px] font-bold text-emerald-950 uppercase tracking-wider">Optimal / Normal</span>
                 <span className="text-xs font-mono font-bold text-emerald-900">&lt;120 / &lt;80</span>
               </div>
               <div className="text-xs font-bold text-stone-900">Kondisi Ideal Kerja</div>
@@ -115,34 +115,45 @@ export const EducationalHealthGuide: React.FC = () => {
 
             <div className="p-3.5 rounded-xl border border-amber-200 bg-amber-50/50 space-y-1.5">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-amber-800 uppercase tracking-wider">Pre-Hipertensi</span>
+                <span className="text-[11px] font-bold text-amber-800 uppercase tracking-wider">Normal-Tinggi</span>
                 <span className="text-xs font-mono font-bold text-amber-900">120–139 / 80–89</span>
               </div>
               <div className="text-xs font-bold text-stone-900">Peringatan Awal</div>
               <p className="text-xs text-stone-600 leading-snug">
-                Disarankan penyesuaian diet rendah garam (&lt;5g/hari), pantau DCU berkala 2x seminggu, batasi konsumsi kafein.
+                Disarankan modifikasi gaya hidup (rendah garam &lt;5g/hari, tidur teratur), pantau DCU berkala pre-shift.
               </p>
             </div>
 
             <div className="p-3.5 rounded-xl border border-stone-300 bg-stone-100/70 space-y-1.5">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-stone-700 uppercase tracking-wider">Hipertensi Derajat 1</span>
+                <span className="text-[11px] font-bold text-stone-700 uppercase tracking-wider">Hipertensi Derajat 1</span>
                 <span className="text-xs font-mono font-bold text-stone-800">140–159 / 90–99</span>
               </div>
               <div className="text-xs font-bold text-stone-900">Fit Dengan Catatan</div>
               <p className="text-xs text-stone-600 leading-snug">
-                Wajib evaluasi farmakoterapi antihipertensi oleh dokter okupasi, pembatasan lembur malam beruntun.
+                Wajib evaluasi farmakoterapi antihipertensi oleh dokter okupasi, pembatasan lembur beruntun dan hidrasi cukup.
               </p>
             </div>
 
-            <div className="p-3.5 rounded-xl border border-rose-200 bg-rose-50/50 space-y-1.5">
+            <div className="p-3.5 rounded-xl border border-rose-200 bg-rose-50/60 space-y-1.5">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-rose-800 uppercase tracking-wider">Hipertensi Derajat 2 / Krisis</span>
-                <span className="text-xs font-mono font-bold text-rose-900">&ge;160 / &ge;100</span>
+                <span className="text-[11px] font-bold text-rose-800 uppercase tracking-wider">Hipertensi Derajat 2</span>
+                <span className="text-xs font-mono font-bold text-rose-900">160–179 / 100–109</span>
               </div>
-              <div className="text-xs font-bold text-rose-950">Unfit / Bahaya Akut</div>
+              <div className="text-xs font-bold text-stone-900">Restriksi Lapangan</div>
+              <p className="text-xs text-stone-600 leading-snug">
+                Beban kerja ventrikel kiri meningkat. Tunda tugas berat/ketinggian sampai tensi teregulasi oleh DPJP.
+              </p>
+            </div>
+
+            <div className="p-3.5 rounded-xl border border-rose-400 bg-rose-100/70 space-y-1.5">
+              <div className="flex items-center justify-between">
+                <span className="text-[11px] font-bold text-rose-950 uppercase tracking-wider">Krisis Hipertensi</span>
+                <span className="text-xs font-mono font-bold text-rose-950">&ge;180 / &ge;120</span>
+              </div>
+              <div className="text-xs font-bold text-rose-950">Kedaruratan Medis</div>
               <p className="text-xs text-rose-900 leading-snug">
-                Tunda shift kerja lapangan! Risiko tinggi diseksi aorta dan stroke akut. Wajib istirahat di klinik site seketika.
+                Hentikan shift seketika! Evaluasi klinis darurat di klinik site untuk memeriksa tanda kerusakan organ target.
               </p>
             </div>
           </div>

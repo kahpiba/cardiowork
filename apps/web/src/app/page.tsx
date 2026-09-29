@@ -103,18 +103,18 @@ export default function HomePage() {
 
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-stone-100 border border-stone-200 text-stone-800 text-xs font-bold shadow-2xs">
                 <Activity className="h-3.5 w-3.5 text-rose-700 animate-heartbeat" />
-                <span>Sistem Terpadu K3 & AI Kardiovaskular Pekerja (MCU + DCU)</span>
+                <span>Purwarupa Riset K3 &amp; AI Kardiovaskular Pekerja (MCU + DCU)</span>
               </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-stone-900 tracking-tight leading-tight">
-                Prediksi Risiko Kardiovaskular <br />
+                Sistem Skrining &amp; Stratifikasi <br />
                 <span className="text-rose-800">
-                  Presisi & Real-Time di Tempat Kerja
+                  Risiko Kardiovaskular di Tempat Kerja
                 </span>
               </h1>
 
               <p className="text-stone-600 text-sm sm:text-base leading-relaxed font-normal">
-                Menggabungkan rekam medis tahunan (<strong className="text-stone-900 font-semibold">Medical Check-Up / MCU</strong>) dengan pemantauan tanda vital harian sebelum shift (<strong className="text-stone-900 font-semibold">Daily Check-Up / DCU</strong>) melalui arsitektur AI bertingkat (<strong className="text-stone-900 font-semibold">Layer 1–4</strong>) untuk mencegah henti jantung mendadak di sektor industri.
+                Purwarupa sistem pendukung keputusan klinis (<strong className="text-stone-900 font-semibold">Clinical Decision Support System / CDSS</strong>) yang mengintegrasikan data longitudinal tahunan (<strong className="text-stone-900 font-semibold">MCU</strong>) dengan pemantauan tanda vital pre-shift harian (<strong className="text-stone-900 font-semibold">DCU</strong>) melalui pendekatan multi-tier (<strong className="text-stone-900 font-semibold">Layer 1–4</strong>) guna mendukung deteksi dini risiko kardiometabolik pekerja industri.
               </p>
 
               {/* Action Buttons Tailored by Auth State */}
@@ -135,7 +135,7 @@ export default function HomePage() {
                         href="/kiosk"
                         className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-stone-50 text-stone-800 hover:text-stone-900 border border-stone-300 font-bold text-sm shadow-2xs transition"
                       >
-                        <HeartPulse className="w-4 h-4 text-stone-600" />
+                        <HeartPulse className="w-4 h-4 text-rose-700" />
                         <span>Kios Cek Mandiri (DCU)</span>
                       </Link>
                     )}
@@ -145,7 +145,7 @@ export default function HomePage() {
                         href="/population"
                         className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-stone-50 text-stone-800 hover:text-stone-900 border border-stone-300 font-bold text-sm shadow-2xs transition"
                       >
-                        <ShieldCheck className="w-4 h-4 text-rose-700" />
+                        <ShieldCheck className="w-4 h-4 text-stone-700" />
                         <span>Populasi K3</span>
                       </Link>
                     )}
@@ -167,16 +167,24 @@ export default function HomePage() {
                       className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-rose-700 hover:bg-rose-800 text-white font-bold text-sm shadow-sm hover:shadow transition"
                     >
                       <LogIn className="w-4 h-4" />
-                      <span>Masuk / Pilih Peran Pengguna</span>
+                      <span>Masuk / Pilih Peran Demo</span>
                       <ArrowRight className="w-4 h-4" />
                     </Link>
 
                     <Link
-                      href="/login?returnUrl=/portal"
+                      href="/kiosk"
                       className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-stone-50 text-stone-800 hover:text-stone-900 border border-stone-300 font-bold text-sm shadow-2xs transition"
                     >
-                      <HardHat className="w-4 h-4 text-stone-600" />
-                      <span>Portal Pekerja Lapangan</span>
+                      <HeartPulse className="w-4 h-4 text-rose-700" />
+                      <span>Kios DCU Pre-Shift (Publik)</span>
+                    </Link>
+
+                    <Link
+                      href="/methodology"
+                      className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-800 font-bold text-sm shadow-2xs transition"
+                    >
+                      <ShieldCheck className="w-4 h-4 text-stone-600" />
+                      <span>Metodologi &amp; Batasan</span>
                     </Link>
                   </>
                 )}
@@ -186,8 +194,8 @@ export default function HomePage() {
               <div className="pt-2 space-y-1.5">
                 <div className="flex items-center justify-between text-[11px] text-stone-500 font-medium">
                   <span className="flex items-center gap-1.5 font-bold text-stone-700">
-                    <span className="w-2 h-2 rounded-full bg-rose-600 animate-ping" />
-                    Live Tracing Monitor EKG Pre-Shift (Lead II)
+                    <span className="w-2 h-2 rounded-full bg-rose-600 animate-pulse" />
+                    Simulasi Monitor Irama EKG Pre-Shift (Lead II Ilustratif - Bukan Sensor Riil)
                   </span>
                   <span className="font-mono text-emerald-800 font-bold">75 BPM &bull; Irama Sinus Normal</span>
                 </div>
@@ -211,7 +219,7 @@ export default function HomePage() {
                         <h3 className="font-bold text-stone-900 text-sm">
                           Model Anatomi Jantung 3D
                         </h3>
-                        <p className="text-[11px] text-stone-500">Digital Twin Kardiak (WebGL)</p>
+                        <p className="text-[11px] text-stone-500">Simulasi 3D Anatomi Kardiak (WebGL)</p>
                       </div>
                     </div>
                     <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-50 text-rose-800 border border-rose-200">
@@ -250,7 +258,7 @@ export default function HomePage() {
               <div className="p-4 rounded-2xl bg-white/95 border border-stone-200 shadow-2xs hover:shadow-md transition-shadow h-full">
                 <span className="text-xs font-mono font-bold text-stone-500 block">TAHAP 3</span>
                 <div className="text-sm font-bold text-stone-900 mt-0.5">Inferensi AI 4-Tier</div>
-                <p className="text-xs text-stone-600 mt-1 leading-relaxed">Fusi multimodal BiLSTM + Attention terkalibrasi</p>
+                <p className="text-xs text-stone-600 mt-1 leading-relaxed">Fusi multimodal MultimodalCardioFusionNet (Bi-GRU-D) &amp; Autoencoder</p>
               </div>
             </Card3DTilt>
 
@@ -314,7 +322,7 @@ export default function HomePage() {
                 </div>
                 <div className="font-bold text-stone-900 text-base">Deep Learning PyTorch</div>
                 <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-                  Multimodal Late-Fusion (Tabular MCU MLP + Deret Waktu DCU GRU-D/TCN) serta Autoencoder deteksi anomali.
+                  Multimodal Late-Fusion (Tabular MCU MLP + Deret Waktu DCU Bi-GRU-D) serta Autoencoder deteksi anomali.
                 </p>
               </div>
             </Card3DTilt>
@@ -523,9 +531,12 @@ export default function HomePage() {
                     FIT FOR DUTY
                   </span>
                 </div>
-                <div className="font-bold text-base text-stone-900 mt-2">Eko Saputra (49 th)</div>
+                <div className="font-bold text-base text-stone-900 mt-2 flex items-center justify-between">
+                  <span>Eko Saputra (49 th)</span>
+                  <span className="text-[10px] font-mono text-stone-600 bg-stone-100 px-1.5 py-0.5 rounded border border-stone-200">Sintetis</span>
+                </div>
                 <div className="text-xs sm:text-sm text-stone-500 mt-0.5">Departemen Logistik • SBP Rata-rata: 118 mmHg</div>
-                <div className="mt-2 text-xs sm:text-sm text-emerald-800 font-medium">Risiko Framingham: 6.2% (Rendah)</div>
+                <div className="mt-2 text-xs text-emerald-800 font-medium">Risiko Framingham: 6.2% (Rendah &bull; Normotensif, Non-Perokok)</div>
               </div>
               <div className="mt-4 pt-2.5 border-t border-stone-100 text-xs sm:text-sm font-bold text-rose-700 flex items-center justify-between">
                 <span>Buka Rekam Medis</span>
@@ -545,9 +556,12 @@ export default function HomePage() {
                     RESTRIKSI RINGAN
                   </span>
                 </div>
-                <div className="font-bold text-base text-stone-900 mt-2">Joko Wijaya (34 th)</div>
+                <div className="font-bold text-base text-stone-900 mt-2 flex items-center justify-between">
+                  <span>Joko Wijaya (34 th)</span>
+                  <span className="text-[10px] font-mono text-stone-600 bg-stone-100 px-1.5 py-0.5 rounded border border-stone-200">Sintetis</span>
+                </div>
                 <div className="text-xs sm:text-sm text-stone-500 mt-0.5">Departemen Fabrikasi • SBP Rata-rata: 136 mmHg</div>
-                <div className="mt-2 text-xs sm:text-sm text-amber-800 font-medium">Risiko Framingham: 14.8% (Sedang)</div>
+                <div className="mt-2 text-xs text-amber-800 font-medium">Risiko Framingham: 9.8% (Sedang &bull; Perokok Aktif, Diabetes HbA1c 7.9%)</div>
               </div>
               <div className="mt-4 pt-2.5 border-t border-stone-100 text-xs sm:text-sm font-bold text-stone-800 flex items-center justify-between">
                 <span>Buka Rekam Medis</span>
@@ -567,9 +581,12 @@ export default function HomePage() {
                     UNFIT / KRITIS
                   </span>
                 </div>
-                <div className="font-bold text-base text-stone-900 mt-2">Hendra Pangestu (53 th)</div>
+                <div className="font-bold text-base text-stone-900 mt-2 flex items-center justify-between">
+                  <span>Hendra Pangestu (53 th)</span>
+                  <span className="text-[10px] font-mono text-stone-600 bg-stone-100 px-1.5 py-0.5 rounded border border-stone-200">Sintetis</span>
+                </div>
                 <div className="text-xs sm:text-sm text-stone-500 mt-0.5">Departemen Pengeboran • SBP Rata-rata: 164 mmHg</div>
-                <div className="mt-2 text-xs sm:text-sm text-rose-700 font-medium">Risiko Framingham: 28.5% (Tinggi)</div>
+                <div className="mt-2 text-xs text-rose-700 font-medium">Risiko Framingham: 28.5% (Tinggi &bull; HT Derajat 2, Usia 53 th, Kol. 248)</div>
               </div>
               <div className="mt-4 pt-2.5 border-t border-stone-100 text-xs sm:text-sm font-bold text-rose-700 flex items-center justify-between">
                 <span>Buka Rekam Medis</span>
@@ -588,7 +605,7 @@ export default function HomePage() {
           <div className="flex items-center justify-between">
             <h3 className="font-bold text-stone-900 text-sm sm:text-base flex items-center gap-2">
               <Cpu className="h-4 w-4 text-stone-500" />
-              <span>Status Infrastruktur & Spesifikasi Sistem Serverless (Phase 1–8 Production Ready)</span>
+              <span>Spesifikasi Riset &amp; Status Arsitektur (Tahap 1–8: Research Prototype &amp; PoC)</span>
             </h3>
             <span className="text-xs font-semibold text-emerald-800 flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse"></span>

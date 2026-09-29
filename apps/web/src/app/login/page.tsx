@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, Suspense } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { 
   Activity, 
@@ -22,11 +22,14 @@ import {
 import { DEMO_PERSONAS, DemoUser, COOKIE_NAME, findUserByEmail, isPathAllowed } from '@/lib/session';
 import { Card3DTilt } from '@/components/3d/Card3DTilt';
 
-function LoginFormContent() {
+function LoginFormContent({ 
+  returnUrl = '', 
+  reason = '' 
+}: { 
+  returnUrl?: string; 
+  reason?: string; 
+}) {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const returnUrl = searchParams.get('returnUrl') || '';
-  const reason = searchParams.get('reason') || '';
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -131,6 +134,39 @@ function LoginFormContent() {
             </div>
           </div>
         )}
+
+        {/* Prominent Evaluator / Reviewer 1-Click Access Banner */}
+        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-rose-50 via-white to-rose-50/50 border-2 border-rose-300 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="flex items-start sm:items-center gap-3.5">
+            <div className="w-11 h-11 rounded-xl bg-rose-700 text-white flex items-center justify-center shrink-0 shadow-xs">
+              <Stethoscope className="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-rose-100 text-rose-900 text-[11px] font-bold uppercase tracking-wider mb-1">
+                <Sparkles className="w-3 h-3 text-rose-700" />
+                Mode Penguji / Audit Akademik K3
+              </div>
+              <div className="text-sm font-extrabold text-stone-900">
+                1-Klik Masuk sebagai Dokter Okupasi (Akses Lengkap)
+              </div>
+              <p className="text-xs text-stone-600 mt-0.5">
+                Buka seketika seluruh fitur: Rekam Medis (W-00190/W-00189), Model Lab Benchmark, Analisis Populasi, &amp; CDSS AI.
+              </p>
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={() => {
+              const doc = DEMO_PERSONAS.find(p => p.role === 'OCCUPATIONAL_DOCTOR');
+              if (doc) handleLoginWithUser(doc);
+            }}
+            disabled={isLoading}
+            className="w-full sm:w-auto px-5 py-3 rounded-xl bg-rose-700 hover:bg-rose-800 active:scale-95 text-white font-bold text-xs shrink-0 flex items-center justify-center gap-2 shadow-sm transition-all hover:shadow"
+          >
+            <span>Masuk Cepat Dokter (Akses Penuh)</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
@@ -339,17 +375,15 @@ function LoginFormContent() {
   );
 }
 
-export default function LoginPage() {
+export default function LoginPage({
+  searchParams,
+}: {
+  searchParams?: { returnUrl?: string; reason?: string };
+}) {
   return (
-    <Suspense fallback={
-      <div className="min-h-screen bg-medical-grid flex items-center justify-center p-8">
-        <div className="flex items-center gap-3 text-stone-600 text-sm">
-          <Activity className="w-5 h-5 text-rose-700 animate-spin" />
-          <span>Memuat antarmuka verifikasi...</span>
-        </div>
-      </div>
-    }>
-      <LoginFormContent />
-    </Suspense>
+    <LoginFormContent 
+      returnUrl={searchParams?.returnUrl || ''} 
+      reason={searchParams?.reason || ''} 
+    />
   );
 }

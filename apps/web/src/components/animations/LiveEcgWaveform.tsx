@@ -76,6 +76,41 @@ export const LiveEcgWaveform: React.FC<LiveEcgWaveformProps> = ({
     let beatProgress = 0;
     const samplesPerBeat = (60 / bpm) * (60 / speed);
 
+    const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      // Draw static full waveform once for reduced motion accessibility & low power
+      if (showGrid) {
+        ctx.strokeStyle = 'rgba(120, 113, 108, 0.08)';
+        ctx.lineWidth = 1;
+        const gridSize = 16;
+        ctx.beginPath();
+        for (let x = 0; x < width; x += gridSize) {
+          ctx.moveTo(x, 0);
+          ctx.lineTo(x, height);
+        }
+        for (let y = 0; y < height; y += gridSize) {
+          ctx.moveTo(0, y);
+          ctx.lineTo(width, y);
+        }
+        ctx.stroke();
+      }
+
+      ctx.beginPath();
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 2;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      const beatLength = 120;
+      for (let x = 0; x < width; x++) {
+        const phase = (x % beatLength) / beatLength;
+        const y = getEcgSample(phase);
+        if (x === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+      return;
+    }
+
     const render = () => {
       width = canvas.parentElement?.clientWidth || 600;
       if (canvas.width !== width * dpr) {

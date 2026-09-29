@@ -84,7 +84,7 @@ export async function evaluateDailyAlertsForWorker(
       severity: 'CRITICAL',
       category: 'HEMODYNAMIC',
       title: 'KRISIS HIPERTENSI AKUT (Stage 3 / Crisis)',
-      description: `Tekanan darah terdeteksi ${sbp}/${dbp} mmHg, melampaui batas darurat kardiovaskular. Berisiko tinggi terjadi stroke, diseksi aorta, atau infark miokard akut pre-shift.`,
+      description: `Tekanan darah terdeteksi ${sbp}/${dbp} mmHg, melampaui batas darurat kardiovaskular (PERKI 2021). Waspadai tanda kerusakan organ target akut dan hentikan shift segera.`,
       triggerValues: {
         metric: 'Tekanan Darah',
         currentValue: `${sbp}/${dbp} mmHg`,

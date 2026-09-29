@@ -280,6 +280,7 @@ export const Interactive3DHeart: React.FC<Interactive3DHeartProps> = ({
     // 6. Loop Animasi Denyut (Lub-Dub Cardiac Cycle)
     let animationFrameId: number;
     let clock = new THREE.Clock();
+    const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
@@ -291,7 +292,7 @@ export const Interactive3DHeart: React.FC<Interactive3DHeartProps> = ({
 
       // Efek fisiologis denyut ganda (Atrial systole t=0.15, Ventricular systole t=0.32)
       let scaleMultiplier = 1.0;
-      if (stateRef.current.isBeating) {
+      if (stateRef.current.isBeating && !prefersReducedMotion) {
         if (phase < 0.18) {
           // Beat 1: Lub (Atrium)
           scaleMultiplier = 1.0 + Math.sin((phase / 0.18) * Math.PI) * 0.09;
@@ -310,7 +311,7 @@ export const Interactive3DHeart: React.FC<Interactive3DHeartProps> = ({
       wireframeMesh.scale.set(0.655 * scaleMultiplier, 0.655 * scaleMultiplier, 0.655 * scaleMultiplier);
 
       // Rotasi kontinu halus jika diaktifkan dan tidak sedang di-drag
-      if (stateRef.current.isRotating && !isDragging) {
+      if (stateRef.current.isRotating && !isDragging && !prefersReducedMotion) {
         heartGroup.rotation.y += 0.008;
       }
 
@@ -504,7 +505,7 @@ export const Interactive3DHeart: React.FC<Interactive3DHeartProps> = ({
             </div>
 
             <span className="text-[10px] text-stone-400 font-mono">
-              Three.js WebGL &bull; Conduction AI
+              Three.js WebGL &bull; Konduksi SA/AV
             </span>
           </div>
         </div>

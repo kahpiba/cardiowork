@@ -221,7 +221,7 @@ export function Layer3DlScoreCard({
               </div>
               <div className="p-3 bg-white rounded-lg border border-stone-200 shadow-2xs">
                 <span className="text-stone-500 block">Temporal DCU Branch:</span>
-                <span className="text-stone-900 font-bold">BiLSTM / GRU-D + Self-Attention</span>
+                <span className="text-stone-900 font-bold">Bi-GRU-D Temporal Encoder</span>
               </div>
               <div className="p-3 bg-white rounded-lg border border-stone-200 shadow-2xs">
                 <span className="text-stone-500 block">Uncertainty Estimation:</span>

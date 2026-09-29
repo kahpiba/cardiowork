@@ -21,11 +21,13 @@ export function middleware(request: NextRequest) {
 
   const pathname = request.nextUrl.pathname;
 
-  // 1. Rute publik: Halaman beranda, login, access-denied, atau endpoints API
+  // 1. Rute publik: Halaman beranda, login, access-denied, kiosk mandiri, metodologi, atau endpoints API
   const isPublicRoute = 
     pathname === '/' ||
     pathname.startsWith('/login') ||
     pathname.startsWith('/access-denied') ||
+    pathname.startsWith('/kiosk') ||
+    pathname.startsWith('/methodology') ||
     pathname.startsWith('/api/');
 
   // Jika sudah login dan membuka halaman /login, alihkan ke defaultPath perannya
