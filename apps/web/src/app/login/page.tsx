@@ -20,6 +20,7 @@ import {
   Check
 } from 'lucide-react';
 import { DEMO_PERSONAS, DemoUser, COOKIE_NAME, findUserByEmail, isPathAllowed } from '@/lib/session';
+import { Card3DTilt } from '@/components/3d/Card3DTilt';
 
 function LoginFormContent() {
   const router = useRouter();
@@ -155,48 +156,49 @@ function LoginFormContent() {
               {DEMO_PERSONAS.map((persona) => {
                 const isSelected = selectedPersonaId === persona.id;
                 return (
-                  <button
-                    key={persona.id}
-                    onClick={() => handleLoginWithUser(persona)}
-                    disabled={isLoading}
-                    className={`w-full text-left p-4 rounded-xl border transition-all flex items-start gap-4 group ${
-                      isSelected
-                        ? 'bg-teal-50 border-teal-400 ring-2 ring-teal-500/20 shadow-xs'
-                        : 'bg-stone-50/70 border-stone-200 hover:bg-white hover:border-teal-300 hover:shadow-xs'
-                    }`}
-                  >
-                    <div className="p-2.5 rounded-xl bg-white border border-stone-200 shadow-2xs group-hover:scale-105 transition-transform">
-                      {getPersonaIcon(persona.role)}
-                    </div>
-
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center justify-between gap-2">
-                        <span className="font-bold text-stone-900 text-sm group-hover:text-teal-800 transition-colors">
-                          {persona.name}
-                        </span>
-                        <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-white text-stone-700 border border-stone-200 shrink-0">
-                          {persona.badge}
-                        </span>
+                  <Card3DTilt key={persona.id} maxTilt={6} scale={1.02}>
+                    <button
+                      onClick={() => handleLoginWithUser(persona)}
+                      disabled={isLoading}
+                      className={`w-full text-left p-4 rounded-xl border transition-all flex items-start gap-4 group ${
+                        isSelected
+                          ? 'bg-teal-50 border-teal-400 ring-2 ring-teal-500/20 shadow-xs'
+                          : 'bg-stone-50/70 border-stone-200 hover:bg-white hover:border-teal-300 hover:shadow-xs'
+                      }`}
+                    >
+                      <div className="p-2.5 rounded-xl bg-white border border-stone-200 shadow-2xs group-hover:scale-105 transition-transform">
+                        {getPersonaIcon(persona.role)}
                       </div>
 
-                      <div className="text-xs text-stone-500 font-mono mt-0.5">
-                        {persona.email}
-                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="font-bold text-stone-900 text-sm group-hover:text-teal-800 transition-colors">
+                            {persona.name}
+                          </span>
+                          <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-white text-stone-700 border border-stone-200 shrink-0">
+                            {persona.badge}
+                          </span>
+                        </div>
 
-                      <p className="text-xs text-stone-600 mt-2 leading-snug line-clamp-2">
-                        {persona.description}
-                      </p>
+                        <div className="text-xs text-stone-500 font-mono mt-0.5">
+                          {persona.email}
+                        </div>
 
-                      <div className="mt-2.5 flex items-center justify-between text-xs pt-2 border-t border-stone-200/60">
-                        <span className="text-stone-500">
-                          Ruang Kerja Utama: <strong className="text-stone-800">{persona.defaultPath}</strong>
-                        </span>
-                        <span className="font-semibold text-teal-700 group-hover:translate-x-0.5 transition-transform inline-flex items-center gap-1">
-                          Masuk sebagai {persona.badge} &rarr;
-                        </span>
+                        <p className="text-xs text-stone-600 mt-2 leading-snug line-clamp-2">
+                          {persona.description}
+                        </p>
+
+                        <div className="mt-2.5 flex items-center justify-between text-xs pt-2 border-t border-stone-200/60">
+                          <span className="text-stone-500">
+                            Ruang Kerja Utama: <strong className="text-stone-800">{persona.defaultPath}</strong>
+                          </span>
+                          <span className="font-semibold text-teal-700 group-hover:translate-x-0.5 transition-transform inline-flex items-center gap-1">
+                            Masuk sebagai {persona.badge} &rarr;
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                  </button>
+                    </button>
+                  </Card3DTilt>
                 );
               })}
             </div>

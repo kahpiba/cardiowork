@@ -16,10 +16,14 @@ import {
   LogIn,
   HardHat,
   Terminal,
-  UploadCloud
+  UploadCloud,
+  Heart
 } from 'lucide-react';
 import { EducationalHealthGuide } from '@/components/EducationalHealthGuide';
 import { DEMO_PERSONAS, COOKIE_NAME, DemoUser, isPathAllowed } from '@/lib/session';
+import { Card3DTilt } from '@/components/3d/Card3DTilt';
+import { Interactive3DHeart } from '@/components/3d/Interactive3DHeart';
+import { LiveEcgWaveform } from '@/components/animations/LiveEcgWaveform';
 
 export default function HomePage() {
   const cookieStore = cookies();
@@ -39,176 +43,232 @@ export default function HomePage() {
   return (
     <div className="bg-medical-grid min-h-[calc(100vh-4rem)] pb-20">
       
-      {/* Hero Header with Warm Medical Glow */}
-      <section className="relative overflow-hidden pt-12 pb-12 px-4 sm:px-6 lg:px-8 border-b border-stone-200/80 bg-gradient-to-b from-stone-50/60 via-white to-stone-50/40">
+      {/* Hero Header with 3D Interactive Cardiac Model & Warm Medical Aesthetic */}
+      <section className="relative overflow-hidden pt-10 pb-12 px-4 sm:px-6 lg:px-8 border-b border-stone-200/80 bg-gradient-to-b from-stone-50/70 via-white to-stone-50/50">
         
-        {/* Subtle decorative background ECG line SVG */}
-        <div className="absolute inset-0 pointer-events-none opacity-25 flex items-center justify-center">
-          <svg className="w-full h-32 text-stone-300" viewBox="0 0 1200 120" fill="none" stroke="currentColor" strokeWidth="1.5">
-            <path d="M0 60 L300 60 L320 60 L335 15 L350 105 L365 30 L380 75 L395 60 L500 60 L650 60 L670 60 L685 15 L700 105 L715 30 L730 75 L745 60 L850 60 L1000 60 L1020 60 L1035 15 L1050 105 L1065 30 L1080 75 L1095 60 L1200 60" />
-          </svg>
-        </div>
-
-        <div className="relative max-w-5xl mx-auto text-center space-y-6">
+        <div className="relative max-w-7xl mx-auto">
           
-          {/* Active Session or Guest Status Alert */}
-          {activeUser ? (
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-teal-50/90 border border-teal-200/90 max-w-2xl mx-auto shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-left">
-              <div>
-                <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-teal-600 animate-pulse" />
-                  <span className="text-xs font-bold text-teal-950">Sesi Terverifikasi: {activeUser.name}</span>
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-white text-teal-800 border border-teal-200">
-                    {activeUser.badge}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            {/* Left Column: Headlines, Sesi Status, Action CTAs, and Live ECG Waveform */}
+            <div className="lg:col-span-7 space-y-6 text-left">
+              
+              {/* Active Session or Guest Status Alert */}
+              {activeUser ? (
+                <div className="p-3.5 rounded-2xl bg-teal-50/90 border border-teal-200/90 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-left">
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="w-2.5 h-2.5 rounded-full bg-teal-600 animate-pulse" />
+                      <span className="text-xs font-bold text-teal-950">Sesi Terverifikasi: {activeUser.name}</span>
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-white text-teal-800 border border-teal-200">
+                        {activeUser.badge}
+                      </span>
+                    </div>
+                    <p className="text-[11px] text-stone-600 mt-0.5 truncate max-w-md">
+                      {activeUser.department}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2 shrink-0">
+                    <Link
+                      href={activeUser.defaultPath}
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-teal-800 hover:bg-teal-900 text-white font-bold text-xs shadow-2xs transition"
+                    >
+                      <span>Buka Ruang Kerja</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                </div>
+              ) : (
+                <div className="p-3.5 rounded-2xl bg-stone-100/90 border border-stone-200 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-left">
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <ShieldCheck className="w-4 h-4 text-teal-700" />
+                      <span className="text-xs font-bold text-stone-900">Hak Akses Berjenjang (RBAC Terproteksi)</span>
+                    </div>
+                    <p className="text-[11px] text-stone-600 mt-0.5">
+                      Akses rekam medis disesuaikan dengan peran kerja & UU PDP No. 27/2022.
+                    </p>
+                  </div>
+                  <div className="shrink-0">
+                    <Link
+                      href="/login"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-teal-800 hover:bg-teal-900 text-white font-bold text-xs shadow-2xs transition"
+                    >
+                      <LogIn className="w-3.5 h-3.5" />
+                      <span>Masuk / Pilih Akun</span>
+                    </Link>
+                  </div>
+                </div>
+              )}
+
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-stone-100 border border-stone-200 text-stone-800 text-xs font-bold shadow-2xs">
+                <Activity className="h-3.5 w-3.5 text-teal-700 animate-heartbeat" />
+                <span>Sistem Terpadu K3 & AI Kardiovaskular Pekerja (MCU + DCU)</span>
+              </div>
+
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-stone-900 tracking-tight leading-tight">
+                Prediksi Risiko Kardiovaskular <br />
+                <span className="text-teal-800">
+                  Presisi & Real-Time di Tempat Kerja
+                </span>
+              </h1>
+
+              <p className="text-stone-600 text-sm sm:text-base leading-relaxed font-normal">
+                Menggabungkan rekam medis tahunan (<strong className="text-stone-900 font-semibold">Medical Check-Up / MCU</strong>) dengan pemantauan tanda vital harian sebelum shift (<strong className="text-stone-900 font-semibold">Daily Check-Up / DCU</strong>) melalui arsitektur AI bertingkat (<strong className="text-stone-900 font-semibold">Layer 1–4</strong>) untuk mencegah henti jantung mendadak di sektor industri.
+              </p>
+
+              {/* Action Buttons Tailored by Auth State */}
+              <div className="pt-1 flex flex-wrap items-center gap-3">
+                {activeUser ? (
+                  <>
+                    <Link
+                      href={activeUser.defaultPath}
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-teal-800 hover:bg-teal-900 text-white font-bold text-sm shadow-sm hover:shadow transition"
+                    >
+                      <Activity className="w-4 h-4" />
+                      <span>Masuk ke {activeUser.defaultPath === '/workers' ? 'Direktori Pekerja' : activeUser.defaultPath === '/kiosk' ? 'DCU Kiosk' : activeUser.defaultPath === '/population' ? 'Populasi K3' : 'Portal Mandiri'}</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+
+                    {isPathAllowed(activeUser.role, '/kiosk') && activeUser.defaultPath !== '/kiosk' && (
+                      <Link
+                        href="/kiosk"
+                        className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-stone-50 text-stone-800 hover:text-stone-900 border border-stone-300 font-bold text-sm shadow-2xs transition"
+                      >
+                        <HeartPulse className="w-4 h-4 text-stone-600" />
+                        <span>Kios Cek Mandiri (DCU)</span>
+                      </Link>
+                    )}
+
+                    {isPathAllowed(activeUser.role, '/population') && activeUser.defaultPath !== '/population' && (
+                      <Link
+                        href="/population"
+                        className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-stone-50 text-stone-800 hover:text-stone-900 border border-stone-300 font-bold text-sm shadow-2xs transition"
+                      >
+                        <ShieldCheck className="w-4 h-4 text-teal-700" />
+                        <span>Populasi K3</span>
+                      </Link>
+                    )}
+
+                    {isPathAllowed(activeUser.role, '/portal') && activeUser.defaultPath !== '/portal' && (
+                      <Link
+                        href="/portal"
+                        className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-stone-50 text-stone-800 hover:text-stone-900 border border-stone-300 font-bold text-sm shadow-2xs transition"
+                      >
+                        <HardHat className="w-4 h-4 text-stone-700" />
+                        <span>Portal Pekerja</span>
+                      </Link>
+                    )}
+                  </>
+                ) : (
+                  <>
+                    <Link
+                      href="/login"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-teal-800 hover:bg-teal-900 text-white font-bold text-sm shadow-sm hover:shadow transition"
+                    >
+                      <LogIn className="w-4 h-4" />
+                      <span>Masuk / Pilih Peran Pengguna</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+
+                    <Link
+                      href="/login?returnUrl=/portal"
+                      className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-stone-50 text-stone-800 hover:text-stone-900 border border-stone-300 font-bold text-sm shadow-2xs transition"
+                    >
+                      <HardHat className="w-4 h-4 text-stone-600" />
+                      <span>Portal Pekerja Lapangan</span>
+                    </Link>
+                  </>
+                )}
+              </div>
+
+              {/* Real-time Continuous ECG Waveform Display */}
+              <div className="pt-2 space-y-1.5">
+                <div className="flex items-center justify-between text-[11px] text-stone-500 font-medium">
+                  <span className="flex items-center gap-1.5 font-bold text-stone-700">
+                    <span className="w-2 h-2 rounded-full bg-teal-600 animate-ping" />
+                    Live Tracing Monitor EKG Pre-Shift (Lead II)
                   </span>
+                  <span className="font-mono text-teal-800 font-bold">75 BPM &bull; Irama Sinus Normal</span>
                 </div>
-                <p className="text-[11px] text-stone-600 mt-0.5 truncate max-w-md">
-                  {activeUser.department}
-                </p>
+                <LiveEcgWaveform bpm={75} height={70} />
               </div>
-              <div className="flex items-center gap-2 shrink-0">
-                <Link
-                  href={activeUser.defaultPath}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-teal-800 hover:bg-teal-900 text-white font-bold text-xs shadow-2xs transition"
-                >
-                  <span>Buka Ruang Kerja</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
+
             </div>
-          ) : (
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-stone-100/90 border border-stone-200 max-w-2xl mx-auto shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-left">
-              <div>
-                <div className="flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-teal-700" />
-                  <span className="text-xs font-bold text-stone-900">Hak Akses Berjenjang (RBAC Terproteksi)</span>
+
+            {/* Right Column: 3D Interactive WebGL Heart Card with 3D Spatial Tilt */}
+            <div className="lg:col-span-5">
+              <Card3DTilt maxTilt={10} scale={1.02} className="rounded-3xl">
+                <div className="bg-white/95 backdrop-blur-md rounded-3xl border border-stone-200/90 shadow-xl p-5 space-y-4">
+                  
+                  {/* Card Header */}
+                  <div className="flex items-center justify-between border-b border-stone-100 pb-3">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 rounded-xl bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-800 shadow-2xs">
+                        <Sparkles className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-stone-900 text-sm">
+                          Model Anatomi Jantung 3D
+                        </h3>
+                        <p className="text-[11px] text-stone-500">Digital Twin Kardiak (WebGL)</p>
+                      </div>
+                    </div>
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-teal-50 text-teal-800 border border-teal-200">
+                      Interaktif 360&deg;
+                    </span>
+                  </div>
+
+                  {/* 3D Heart Canvas Component */}
+                  <Interactive3DHeart initialBpm={75} interactive={true} />
+
                 </div>
-                <p className="text-[11px] text-stone-600 mt-0.5">
-                  Setiap peran memiliki izin akses rute berbeda sesuai UU PDP No. 27/2022.
-                </p>
+              </Card3DTilt>
+            </div>
+
+          </div>
+
+          {/* 4-Step Interactive Occupational Health Journey (with 3D Parallax Tilt) */}
+          <div className="pt-10 grid grid-cols-2 md:grid-cols-4 gap-3 text-left">
+            <Card3DTilt maxTilt={8} scale={1.03}>
+              <div className="p-4 rounded-2xl bg-white/95 border border-stone-200 shadow-2xs hover:shadow-md transition-shadow h-full">
+                <span className="text-xs font-mono font-bold text-stone-500 block">TAHAP 1</span>
+                <div className="text-sm font-bold text-stone-900 mt-0.5">MCU Tahunan</div>
+                <p className="text-xs text-stone-600 mt-1 leading-relaxed">Biokimia lipid, glukosa & antropometri dasar</p>
               </div>
-              <div className="shrink-0">
-                <Link
-                  href="/login"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-teal-800 hover:bg-teal-900 text-white font-bold text-xs shadow-2xs transition"
-                >
-                  <LogIn className="w-3.5 h-3.5" />
-                  <span>Masuk / Pilih Akun</span>
-                </Link>
+            </Card3DTilt>
+
+            <Card3DTilt maxTilt={8} scale={1.03}>
+              <div className="p-4 rounded-2xl bg-white/95 border border-stone-200 shadow-2xs hover:shadow-md transition-shadow h-full">
+                <span className="text-xs font-mono font-bold text-teal-800 block">TAHAP 2</span>
+                <div className="text-sm font-bold text-stone-900 mt-0.5">DCU Pre-Shift</div>
+                <p className="text-xs text-stone-600 mt-1 leading-relaxed">Skrining mandiri tensi, nadi, SpO2 & gejala harian</p>
               </div>
-            </div>
-          )}
+            </Card3DTilt>
 
-          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-stone-100 border border-stone-200 text-stone-800 text-xs sm:text-sm font-bold shadow-2xs">
-            <Activity className="h-4 w-4 text-teal-700 animate-heartbeat" />
-            <span>Sistem Terpadu K3 & AI Kardiovaskular Pekerja (MCU + DCU)</span>
+            <Card3DTilt maxTilt={8} scale={1.03}>
+              <div className="p-4 rounded-2xl bg-white/95 border border-stone-200 shadow-2xs hover:shadow-md transition-shadow h-full">
+                <span className="text-xs font-mono font-bold text-stone-500 block">TAHAP 3</span>
+                <div className="text-sm font-bold text-stone-900 mt-0.5">Inferensi AI 4-Tier</div>
+                <p className="text-xs text-stone-600 mt-1 leading-relaxed">Fusi multimodal BiLSTM + Attention terkalibrasi</p>
+              </div>
+            </Card3DTilt>
+
+            <Card3DTilt maxTilt={8} scale={1.03}>
+              <div className="p-4 rounded-2xl bg-white/95 border border-stone-200 shadow-2xs hover:shadow-md transition-shadow h-full">
+                <span className="text-xs font-mono font-bold text-amber-800 block">TAHAP 4</span>
+                <div className="text-sm font-bold text-stone-900 mt-0.5">Tindakan K3</div>
+                <p className="text-xs text-stone-600 mt-1 leading-relaxed">Rekomendasi fit/unfit & protokol evakuasi cepat</p>
+              </div>
+            </Card3DTilt>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-stone-900 tracking-tight leading-tight">
-            Prediksi Risiko Kardiovaskular <br className="hidden sm:inline" />
-            <span className="text-teal-800">
-              Presisi & Real-Time di Tempat Kerja
-            </span>
-          </h1>
-
-          <p className="max-w-3xl mx-auto text-stone-600 text-base sm:text-lg leading-relaxed font-normal">
-            Menggabungkan rekam medis tahunan (<strong className="text-stone-900 font-semibold">Medical Check-Up / MCU</strong>) dengan pemantauan tanda vital harian sebelum shift (<strong className="text-stone-900 font-semibold">Daily Check-Up / DCU</strong>) melalui arsitektur AI bertingkat (<strong className="text-stone-900 font-semibold">Layer 1–4</strong>) untuk mencegah henti jantung mendadak di sektor industri.
-          </p>
-
-          {/* Action Buttons Tailored by Auth State */}
-          <div className="pt-2 flex flex-wrap items-center justify-center gap-3.5">
-            {activeUser ? (
-              <>
-                <Link
-                  href={activeUser.defaultPath}
-                  className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-teal-800 hover:bg-teal-900 text-white font-bold text-sm sm:text-base shadow-sm hover:shadow transition"
-                >
-                  <Activity className="w-5 h-5" />
-                  <span>Masuk ke {activeUser.defaultPath === '/workers' ? 'Direktori Pekerja' : activeUser.defaultPath === '/kiosk' ? 'DCU Kiosk' : activeUser.defaultPath === '/population' ? 'Populasi K3' : 'Portal Mandiri'}</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-
-                {isPathAllowed(activeUser.role, '/kiosk') && activeUser.defaultPath !== '/kiosk' && (
-                  <Link
-                    href="/kiosk"
-                    className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-white hover:bg-stone-50 text-stone-800 hover:text-stone-900 border border-stone-300 font-bold text-sm sm:text-base shadow-2xs transition"
-                  >
-                    <HeartPulse className="w-5 h-5 text-stone-600" />
-                    <span>Kios Cek Mandiri (DCU)</span>
-                  </Link>
-                )}
-
-                {isPathAllowed(activeUser.role, '/population') && activeUser.defaultPath !== '/population' && (
-                  <Link
-                    href="/population"
-                    className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-white hover:bg-stone-50 text-stone-800 hover:text-stone-900 border border-stone-300 font-bold text-sm sm:text-base shadow-2xs transition"
-                  >
-                    <ShieldCheck className="w-5 h-5 text-teal-700" />
-                    <span>Populasi K3</span>
-                  </Link>
-                )}
-
-                {isPathAllowed(activeUser.role, '/portal') && activeUser.defaultPath !== '/portal' && (
-                  <Link
-                    href="/portal"
-                    className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-white hover:bg-stone-50 text-stone-800 hover:text-stone-900 border border-stone-300 font-bold text-sm sm:text-base shadow-2xs transition"
-                  >
-                    <HardHat className="w-5 h-5 text-stone-700" />
-                    <span>Portal Pekerja</span>
-                  </Link>
-                )}
-              </>
-            ) : (
-              <>
-                <Link
-                  href="/login"
-                  className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-teal-800 hover:bg-teal-900 text-white font-bold text-sm sm:text-base shadow-sm hover:shadow transition"
-                >
-                  <LogIn className="w-5 h-5" />
-                  <span>Masuk ke Akun Kerja (Pilih Peran)</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-
-                <Link
-                  href="/login?returnUrl=/portal"
-                  className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-white hover:bg-stone-50 text-stone-800 hover:text-stone-900 border border-stone-300 font-bold text-sm sm:text-base shadow-2xs transition"
-                >
-                  <HardHat className="w-5 h-5 text-stone-600" />
-                  <span>Portal Pekerja Lapangan</span>
-                </Link>
-              </>
-            )}
-          </div>
-
-          {/* 4-Step Interactive Occupational Health Journey */}
-          <div className="pt-6 grid grid-cols-2 md:grid-cols-4 gap-3 text-left max-w-4xl mx-auto">
-            <div className="p-4 rounded-xl bg-white/90 border border-stone-200/80 shadow-2xs">
-              <span className="text-xs font-mono font-bold text-stone-500 block">TAHAP 1</span>
-              <div className="text-sm font-bold text-stone-900 mt-0.5">MCU Tahunan</div>
-              <p className="text-xs text-stone-600 mt-1 leading-relaxed">Biokimia lipid, glukosa & antropometri dasar</p>
-            </div>
-            <div className="p-4 rounded-xl bg-white/90 border border-stone-200/80 shadow-2xs">
-              <span className="text-xs font-mono font-bold text-teal-800 block">TAHAP 2</span>
-              <div className="text-sm font-bold text-stone-900 mt-0.5">DCU Pre-Shift</div>
-              <p className="text-xs text-stone-600 mt-1 leading-relaxed">Skrining mandiri tensi, nadi, SpO2 & gejala harian</p>
-            </div>
-            <div className="p-4 rounded-xl bg-white/90 border border-stone-200/80 shadow-2xs">
-              <span className="text-xs font-mono font-bold text-stone-500 block">TAHAP 3</span>
-              <div className="text-sm font-bold text-stone-900 mt-0.5">Inferensi AI 4-Tier</div>
-              <p className="text-xs text-stone-600 mt-1 leading-relaxed">Fusi multimodal BiLSTM + Attention terkalibrasi</p>
-            </div>
-            <div className="p-4 rounded-xl bg-white/90 border border-stone-200/80 shadow-2xs">
-              <span className="text-xs font-mono font-bold text-amber-800 block">TAHAP 4</span>
-              <div className="text-sm font-bold text-stone-900 mt-0.5">Tindakan K3</div>
-              <p className="text-xs text-stone-600 mt-1 leading-relaxed">Rekomendasi fit/unfit & protokol evakuasi cepat</p>
-            </div>
-          </div>
         </div>
       </section>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
 
-        {/* 4 Multi-Tier Engine Badges */}
+        {/* 4 Multi-Tier Engine Badges with 3D Tilt Cards */}
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <h2 className="text-base sm:text-lg font-bold text-stone-900 flex items-center gap-2">
@@ -220,51 +280,59 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             
-            <div className="bg-white border border-stone-200/90 rounded-2xl p-5 shadow-xs hover:shadow-md transition space-y-2.5">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-mono font-bold text-stone-700 bg-stone-100 px-2.5 py-0.5 rounded border border-stone-200">LAYER 1</span>
-                <span className="text-xs text-stone-500 font-medium">Transparan</span>
+            <Card3DTilt maxTilt={8} scale={1.03}>
+              <div className="bg-white border border-stone-200/90 rounded-2xl p-5 shadow-xs hover:shadow-md transition-shadow space-y-2.5 h-full">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-mono font-bold text-stone-700 bg-stone-100 px-2.5 py-0.5 rounded border border-stone-200">LAYER 1</span>
+                  <span className="text-xs text-stone-500 font-medium">Transparan</span>
+                </div>
+                <div className="font-bold text-stone-900 text-base">Skor Klinis Baku</div>
+                <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
+                  Framingham 10-Tahun, Bagan WHO/ISH SEARO D regional, dan formula ASCVD Pooled Cohort terstandarisasi.
+                </p>
               </div>
-              <div className="font-bold text-stone-900 text-base">Skor Klinis Baku</div>
-              <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-                Framingham 10-Tahun, Bagan WHO/ISH SEARO D regional, dan formula ASCVD Pooled Cohort terstandarisasi.
-              </p>
-            </div>
+            </Card3DTilt>
 
-            <div className="bg-white border border-stone-200/90 rounded-2xl p-5 shadow-xs hover:shadow-md transition space-y-2.5">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-mono font-bold text-teal-800 bg-teal-50 px-2.5 py-0.5 rounded border border-teal-200">LAYER 2</span>
-                <span className="text-xs text-stone-500 font-medium">Terkalibrasi</span>
+            <Card3DTilt maxTilt={8} scale={1.03}>
+              <div className="bg-white border border-stone-200/90 rounded-2xl p-5 shadow-xs hover:shadow-md transition-shadow space-y-2.5 h-full">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-mono font-bold text-teal-800 bg-teal-50 px-2.5 py-0.5 rounded border border-teal-200">LAYER 2</span>
+                  <span className="text-xs text-stone-500 font-medium">Terkalibrasi</span>
+                </div>
+                <div className="font-bold text-stone-900 text-base">Machine Learning Klasik</div>
+                <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
+                  Ensemble LightGBM / GBDT dengan kalibrasi probabilitas Isotonic Regression dan penjelasan nilai TreeSHAP.
+                </p>
               </div>
-              <div className="font-bold text-stone-900 text-base">Machine Learning Klasik</div>
-              <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-                Ensemble LightGBM / GBDT dengan kalibrasi probabilitas Isotonic Regression dan penjelasan nilai TreeSHAP.
-              </p>
-            </div>
+            </Card3DTilt>
 
-            <div className="bg-white border border-stone-200/90 rounded-2xl p-5 shadow-xs hover:shadow-md transition space-y-2.5">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-mono font-bold text-stone-700 bg-stone-100 px-2.5 py-0.5 rounded border border-stone-200">LAYER 3</span>
-                <span className="text-xs text-stone-500 font-medium">Multimodal</span>
+            <Card3DTilt maxTilt={8} scale={1.03}>
+              <div className="bg-white border border-stone-200/90 rounded-2xl p-5 shadow-xs hover:shadow-md transition-shadow space-y-2.5 h-full">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-mono font-bold text-stone-700 bg-stone-100 px-2.5 py-0.5 rounded border border-stone-200">LAYER 3</span>
+                  <span className="text-xs text-stone-500 font-medium">Multimodal</span>
+                </div>
+                <div className="font-bold text-stone-900 text-base">Deep Learning PyTorch</div>
+                <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
+                  Multimodal Late-Fusion (Tabular MCU MLP + Deret Waktu DCU GRU-D/TCN) serta Autoencoder deteksi anomali.
+                </p>
               </div>
-              <div className="font-bold text-stone-900 text-base">Deep Learning PyTorch</div>
-              <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-                Multimodal Late-Fusion (Tabular MCU MLP + Deret Waktu DCU GRU-D/TCN) serta Autoencoder deteksi anomali.
-              </p>
-            </div>
+            </Card3DTilt>
 
-            <div className="bg-white border border-stone-200/90 rounded-2xl p-5 shadow-xs hover:shadow-md transition space-y-2.5">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-mono font-bold text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded border border-amber-200">LAYER 4</span>
-                <span className="text-xs text-stone-500 font-medium">Real-Time</span>
-              </div>
+            <Card3DTilt maxTilt={8} scale={1.03}>
+              <div className="bg-white border border-stone-200/90 rounded-2xl p-5 shadow-xs hover:shadow-md transition-shadow space-y-2.5 h-full">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-mono font-bold text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded border border-amber-200">LAYER 4</span>
+                  <span className="text-xs text-stone-500 font-medium">Real-Time</span>
+                </div>
               <div className="font-bold text-stone-900 text-base">Daily Alerting & Kios</div>
               <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
                 Peringatan lonjakan tensi akut pra-shift kerja, penentuan status kelayakan (Fit-for-Duty), dan protokol Medevac.
               </p>
             </div>
+          </Card3DTilt>
 
-          </div>
+        </div>
         </div>
 
         {/* Role-Based Portals */}

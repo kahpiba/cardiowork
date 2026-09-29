@@ -8,6 +8,7 @@ import {
   ShieldAlert, 
   HelpCircle 
 } from 'lucide-react';
+import { Card3DTilt } from './3d/Card3DTilt';
 
 export interface RadialRiskGaugeProps {
   scorePercent: number; // e.g. 18.5
@@ -86,11 +87,12 @@ export function RadialRiskGauge({
   const svgHeight = size === 'sm' ? 120 : size === 'lg' ? 165 : 140;
 
   return (
-    <div 
-      className="bg-white border border-stone-200 rounded-2xl p-6 shadow-xs flex flex-col items-center justify-between text-center relative overflow-hidden group hover:border-stone-300 transition-colors"
-      role="region"
-      aria-label={`Skor risiko kardiovaskular ${scorePercent} persen, kategori ${categoryLabel}`}
-    >
+    <Card3DTilt maxTilt={6} scale={1.01} className="w-full">
+      <div 
+        className="bg-white border border-stone-200 rounded-2xl p-6 shadow-xs flex flex-col items-center justify-between text-center relative overflow-hidden group hover:border-stone-300 transition-colors"
+        role="region"
+        aria-label={`Skor risiko kardiovaskular ${scorePercent} persen, kategori ${categoryLabel}`}
+      >
       {/* Header Info - Readable scale */}
       <div className="w-full flex items-center justify-between pb-3 border-b border-stone-100">
         <span className="font-bold text-stone-900 text-sm tracking-tight text-left">
@@ -172,5 +174,6 @@ export function RadialRiskGauge({
         </span>
       </div>
     </div>
-  );
+  </Card3DTilt>
+);
 }

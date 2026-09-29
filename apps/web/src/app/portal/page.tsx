@@ -24,6 +24,9 @@ import {
   HardHat
 } from 'lucide-react';
 import { DEMO_WORKERS } from '@/lib/demoData';
+import { Card3DTilt } from '@/components/3d/Card3DTilt';
+import { Interactive3DHeart } from '@/components/3d/Interactive3DHeart';
+import { AnimatedNumber } from '@/components/animations/AnimatedNumber';
 
 export default function WorkerPortalPage() {
   const workerData = DEMO_WORKERS['W-00192'];
@@ -169,54 +172,98 @@ export default function WorkerPortalPage() {
         {activeTab === 'vitals' && (
           <div className="space-y-6">
             
-            {/* 4 Kartu Vital Terakhir */}
+            {/* 4 Kartu Vital Terakhir dengan Efek 3D Tilt Spasial & Animated Numbers */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="p-4 rounded-2xl bg-white border border-stone-200 shadow-2xs space-y-1">
-                <span className="text-xs font-semibold text-stone-500 block">Tekanan Darah Terakhir</span>
-                <div className="flex items-baseline gap-1.5">
-                  <span className="text-2xl font-black text-amber-700">{latestDcu.systolicBp}/{latestDcu.diastolicBp}</span>
-                  <span className="text-xs text-stone-500 font-medium">mmHg</span>
+              <Card3DTilt maxTilt={8} scale={1.03}>
+                <div className="p-4 rounded-2xl bg-white border border-stone-200 shadow-2xs space-y-1 h-full">
+                  <span className="text-xs font-semibold text-stone-500 block">Tekanan Darah Terakhir</span>
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="text-2xl font-black text-amber-700">
+                      <AnimatedNumber value={latestDcu.systolicBp} />/<AnimatedNumber value={latestDcu.diastolicBp} />
+                    </span>
+                    <span className="text-xs text-stone-500 font-medium">mmHg</span>
+                  </div>
+                  <div className="text-xs font-semibold text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-200 inline-block">
+                    Pre-hipertensi
+                  </div>
                 </div>
-                <div className="text-xs font-semibold text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-200 inline-block">
-                  Pre-hipertensi
-                </div>
-              </div>
+              </Card3DTilt>
 
-              <div className="p-4 rounded-2xl bg-white border border-stone-200 shadow-2xs space-y-1">
-                <span className="text-xs font-semibold text-stone-500 block">Detak Jantung (Resting HR)</span>
-                <div className="flex items-baseline gap-1.5">
-                  <span className="text-2xl font-black text-teal-800">{latestDcu.restingHeartRate}</span>
-                  <span className="text-xs text-stone-500 font-medium">bpm</span>
+              <Card3DTilt maxTilt={8} scale={1.03}>
+                <div className="p-4 rounded-2xl bg-white border border-stone-200 shadow-2xs space-y-1 h-full">
+                  <span className="text-xs font-semibold text-stone-500 block">Detak Jantung (Resting HR)</span>
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="text-2xl font-black text-teal-800">
+                      <AnimatedNumber value={latestDcu.restingHeartRate} />
+                    </span>
+                    <span className="text-xs text-stone-500 font-medium">bpm</span>
+                  </div>
+                  <div className="text-xs font-semibold text-teal-800 bg-teal-50 px-2 py-0.5 rounded border border-teal-200 inline-block">
+                    Normal (60–100 bpm)
+                  </div>
                 </div>
-                <div className="text-xs font-semibold text-teal-800 bg-teal-50 px-2 py-0.5 rounded border border-teal-200 inline-block">
-                  Normal (60–100 bpm)
-                </div>
-              </div>
+              </Card3DTilt>
 
-              <div className="p-4 rounded-2xl bg-white border border-stone-200 shadow-2xs space-y-1">
-                <span className="text-xs font-semibold text-stone-500 block">Saturasi Oksigen (SpO2)</span>
-                <div className="flex items-baseline gap-1.5">
-                  <span className="text-2xl font-black text-teal-800">{latestDcu.spo2Percent}</span>
-                  <span className="text-xs text-stone-500 font-medium">%</span>
+              <Card3DTilt maxTilt={8} scale={1.03}>
+                <div className="p-4 rounded-2xl bg-white border border-stone-200 shadow-2xs space-y-1 h-full">
+                  <span className="text-xs font-semibold text-stone-500 block">Saturasi Oksigen (SpO2)</span>
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="text-2xl font-black text-teal-800">
+                      <AnimatedNumber value={latestDcu.spo2Percent} />
+                    </span>
+                    <span className="text-xs text-stone-500 font-medium">%</span>
+                  </div>
+                  <div className="text-xs font-semibold text-teal-800 bg-teal-50 px-2 py-0.5 rounded border border-teal-200 inline-block">
+                    Optimal (&ge;95%)
+                  </div>
                 </div>
-                <div className="text-xs font-semibold text-teal-800 bg-teal-50 px-2 py-0.5 rounded border border-teal-200 inline-block">
-                  Optimal (&ge;95%)
-                </div>
-              </div>
+              </Card3DTilt>
 
-              <div className="p-4 rounded-2xl bg-white border border-stone-200 shadow-2xs space-y-1">
-                <span className="text-xs font-semibold text-stone-500 block">Tidur 24 Jam Terakhir</span>
-                <div className="flex items-baseline gap-1.5">
-                  <span className="text-2xl font-black text-stone-800">{latestDcu.sleepHoursLast24h}</span>
-                  <span className="text-xs text-stone-500 font-medium">Jam</span>
+              <Card3DTilt maxTilt={8} scale={1.03}>
+                <div className="p-4 rounded-2xl bg-white border border-stone-200 shadow-2xs space-y-1 h-full">
+                  <span className="text-xs font-semibold text-stone-500 block">Tidur 24 Jam Terakhir</span>
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="text-2xl font-black text-stone-800">
+                      <AnimatedNumber value={latestDcu.sleepHoursLast24h} decimals={1} />
+                    </span>
+                    <span className="text-xs text-stone-500 font-medium">Jam</span>
+                  </div>
+                  <div className="text-xs font-semibold text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-200 inline-block">
+                    Perlu Istirahat Ekstra
+                  </div>
                 </div>
-                <div className="text-xs font-semibold text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-200 inline-block">
-                  Perlu Istirahat Ekstra
-                </div>
-              </div>
+              </Card3DTilt>
             </div>
 
-            {/* Riwayat Grafik Tekanan Darah 30 Hari */}
+            {/* Model 3D Jantung Real-Time & Riwayat Grafik Tekanan Darah */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+              
+              {/* Kolom Kiri: 3D Pulsing Heart Telemetry Card */}
+              <div className="lg:col-span-4">
+                <Card3DTilt maxTilt={8} scale={1.02} className="h-full">
+                  <div className="bg-white rounded-3xl border border-stone-200 shadow-sm p-5 space-y-3 h-full flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center justify-between border-b border-stone-100 pb-2.5">
+                        <div className="flex items-center gap-2">
+                          <Activity className="w-4 h-4 text-teal-700 animate-heartbeat" />
+                          <h4 className="font-bold text-stone-900 text-sm">Denyut Kardiak 3D</h4>
+                        </div>
+                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-teal-50 text-teal-800 border border-teal-200">
+                          {latestDcu.restingHeartRate} BPM
+                        </span>
+                      </div>
+                      <p className="text-[11px] text-stone-500 mt-2">
+                        Simulasi ritme denyut jantung Anda berdasarkan pemeriksaan DCU terakhir:
+                      </p>
+                    </div>
+
+                    <Interactive3DHeart initialBpm={latestDcu.restingHeartRate || 82} compact={true} interactive={true} />
+                  </div>
+                </Card3DTilt>
+              </div>
+
+              {/* Kolom Kanan: Riwayat Grafik Tekanan Darah 30 Hari */}
+              <div className="lg:col-span-8">
             <div className="bg-white rounded-3xl border border-stone-200 shadow-sm p-6 space-y-4">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-stone-100 pb-3">
                 <div>
@@ -282,9 +329,10 @@ export default function WorkerPortalPage() {
                 </div>
               </div>
             </div>
-
           </div>
-        )}
+        </div>
+      </div>
+    )}
 
         {/* Tab 2: Panduan Gaya Hidup & Diet DASH */}
         {activeTab === 'education' && (
