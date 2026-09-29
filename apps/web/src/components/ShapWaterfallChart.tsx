@@ -5,13 +5,7 @@ import {
   ArrowUpRight, 
   ArrowDownRight, 
   Info, 
-  ShieldCheck, 
-  HelpCircle,
-  Sparkles,
-  ChevronDown,
-  ChevronUp,
-  Activity,
-  Heart
+  ShieldCheck
 } from 'lucide-react';
 import { ShapExplanationResult } from '@/lib/shap/shapExplainer';
 
@@ -49,34 +43,34 @@ export const ShapWaterfallChart: React.FC<ShapWaterfallChartProps> = ({ data }) 
   });
 
   return (
-    <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xs space-y-6">
+    <div className="bg-white border border-stone-200/80 rounded-2xl p-6 sm:p-7 shadow-xs space-y-6">
       
       {/* Header Info */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-stone-200/60">
         <div>
-          <div className="flex items-center gap-2 flex-wrap">
-            <h3 className="text-base font-bold text-slate-900">
+          <div className="flex items-center gap-2.5 flex-wrap">
+            <h3 className="text-base sm:text-lg font-bold text-stone-900 tracking-tight">
               Faktor Utama Penggerak Risiko (SHAP Explainable AI)
             </h3>
-            <span className="text-[10px] font-mono bg-teal-50 text-teal-800 px-2.5 py-0.5 rounded-full border border-teal-200 font-bold">
+            <span className="text-xs font-mono bg-teal-50 text-teal-800 px-3 py-0.5 rounded-full border border-teal-200/80 font-bold">
               TreeSHAP Terkalibrasi
             </span>
           </div>
-          <p className="text-xs text-slate-500 mt-1">
+          <p className="text-sm text-stone-600 mt-1">
             Membongkar faktor individual yang menggeser risiko pekerja dari baseline populasi rata-rata ke probabilitas akhir.
           </p>
         </div>
 
         {/* View Mode & Baseline Stats */}
         <div className="flex items-center gap-3 text-xs font-mono">
-          <div className="bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200 text-center shadow-2xs">
-            <span className="text-slate-400 block text-[9px] uppercase font-bold">Baseline Populasi E[f(x)]</span>
-            <strong className="text-slate-700 tabular-nums">{basePercent.toFixed(1)}%</strong>
+          <div className="bg-stone-50 p-2.5 rounded-xl border border-stone-200 text-center shadow-2xs">
+            <span className="text-stone-500 block text-xs uppercase font-bold">Baseline E[f(x)]</span>
+            <strong className="text-stone-800 text-sm tabular-nums">{basePercent.toFixed(1)}%</strong>
           </div>
-          <div className="text-slate-400 font-bold">&rarr;</div>
-          <div className="bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200 text-center shadow-2xs">
-            <span className="text-slate-400 block text-[9px] uppercase font-bold">Prediksi Akhir</span>
-            <strong className={`tabular-nums ${finalPercent >= 30 ? 'text-rose-600' : finalPercent >= 15 ? 'text-amber-600' : 'text-teal-700'}`}>
+          <div className="text-stone-400 font-bold text-base">&rarr;</div>
+          <div className="bg-stone-50 p-2.5 rounded-xl border border-stone-200 text-center shadow-2xs">
+            <span className="text-stone-500 block text-xs uppercase font-bold">Prediksi Akhir</span>
+            <strong className={`tabular-nums text-sm ${finalPercent >= 30 ? 'text-rose-700' : finalPercent >= 15 ? 'text-amber-800' : 'text-teal-800'}`}>
               {finalPercent.toFixed(1)}%
             </strong>
           </div>
@@ -84,41 +78,41 @@ export const ShapWaterfallChart: React.FC<ShapWaterfallChartProps> = ({ data }) 
       </div>
 
       {/* Filter Tabs: Modifiable vs Non-Modifiable */}
-      <div className="flex flex-wrap items-center justify-between gap-3 text-xs">
-        <div className="flex bg-slate-100 p-1 rounded-xl border border-slate-200 font-medium">
+      <div className="flex flex-wrap items-center justify-between gap-3 text-xs sm:text-sm">
+        <div className="flex bg-stone-100 p-1 rounded-xl border border-stone-200 font-medium">
           <button
             onClick={() => setActiveCategory('all')}
-            className={`px-3 py-1.5 rounded-lg transition ${
-              activeCategory === 'all' ? 'bg-white text-slate-900 shadow-2xs font-bold' : 'text-slate-600 hover:text-slate-900'
+            className={`px-3.5 py-1.5 rounded-lg transition ${
+              activeCategory === 'all' ? 'bg-white text-stone-900 shadow-2xs font-bold' : 'text-stone-600 hover:text-stone-900'
             }`}
           >
             Semua Faktor ({data.contributions.length})
           </button>
           <button
             onClick={() => setActiveCategory('modifiable')}
-            className={`px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${
-              activeCategory === 'modifiable' ? 'bg-white text-teal-800 shadow-2xs font-bold' : 'text-slate-600 hover:text-slate-900'
+            className={`px-3.5 py-1.5 rounded-lg transition flex items-center gap-2 ${
+              activeCategory === 'modifiable' ? 'bg-white text-teal-800 shadow-2xs font-bold' : 'text-stone-600 hover:text-stone-900'
             }`}
           >
-            <span className="w-2 h-2 rounded-full bg-teal-500" />
+            <span className="w-2.5 h-2.5 rounded-full bg-teal-600" />
             <span>Dapat Diubah (Gaya Hidup/Obat)</span>
           </button>
           <button
             onClick={() => setActiveCategory('non_modifiable')}
-            className={`px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${
-              activeCategory === 'non_modifiable' ? 'bg-white text-slate-900 shadow-2xs font-bold' : 'text-slate-600 hover:text-slate-900'
+            className={`px-3.5 py-1.5 rounded-lg transition flex items-center gap-2 ${
+              activeCategory === 'non_modifiable' ? 'bg-white text-stone-900 shadow-2xs font-bold' : 'text-stone-600 hover:text-stone-900'
             }`}
           >
-            <span className="w-2 h-2 rounded-full bg-slate-400" />
+            <span className="w-2.5 h-2.5 rounded-full bg-stone-400" />
             <span>Faktor Bawaan (Usia/Genetik)</span>
           </button>
         </div>
 
-        <div className="flex items-center gap-1.5 text-xs text-slate-500">
+        <div className="flex items-center gap-2 text-xs sm:text-sm text-stone-500">
           <span>Tampilan:</span>
           <button
             onClick={() => setViewMode(viewMode === 'layman' ? 'clinical' : 'layman')}
-            className="font-bold text-teal-700 hover:text-teal-800 underline transition"
+            className="font-bold text-teal-800 hover:text-teal-900 underline transition"
           >
             {viewMode === 'layman' ? 'Mode Awam (Persentase)' : 'Mode Klinis (SHAP Value Log-Odds)'}
           </button>
@@ -126,8 +120,8 @@ export const ShapWaterfallChart: React.FC<ShapWaterfallChartProps> = ({ data }) 
       </div>
 
       {/* Visual Bars Container */}
-      <div className="space-y-3" role="list">
-        {filteredContributions.map((item, idx) => {
+      <div className="space-y-3.5" role="list">
+        {filteredContributions.map((item) => {
           const phiPercent = item.phiValue * 100;
           const isPositive = phiPercent > 0;
           const barWidthPercent = Math.min(100, (Math.abs(phiPercent) / maxAbsPhi) * 100);
@@ -137,43 +131,43 @@ export const ShapWaterfallChart: React.FC<ShapWaterfallChartProps> = ({ data }) 
             <div 
               key={item.featureName}
               role="listitem"
-              className="group p-4 rounded-xl bg-slate-50/80 border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all shadow-2xs"
+              className="group p-4 sm:p-5 rounded-xl bg-stone-50/70 border border-stone-200/80 hover:border-stone-300 hover:bg-stone-50 transition-all shadow-2xs"
             >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs sm:text-sm">
                 
                 {/* Feature Label and Value */}
-                <div className="space-y-1 sm:w-2/5">
-                  <div className="font-bold text-slate-900 flex items-center gap-1.5">
+                <div className="space-y-1.5 sm:w-2/5">
+                  <div className="font-bold text-stone-900 text-sm sm:text-base flex items-center gap-2">
                     {isPositive ? (
-                      <ArrowUpRight className="w-4 h-4 text-orange-600 shrink-0" />
+                      <ArrowUpRight className="w-4 h-4 text-amber-800 shrink-0" />
                     ) : (
-                      <ArrowDownRight className="w-4 h-4 text-teal-600 shrink-0" />
+                      <ArrowDownRight className="w-4 h-4 text-teal-700 shrink-0" />
                     )}
                     <span>{item.displayName}</span>
-                    <span className={`text-[10px] font-mono px-2 py-0.2 rounded-full border ${
+                    <span className={`text-xs font-mono px-2 py-0.5 rounded-full border ${
                       isModifiable 
                         ? 'bg-teal-50 text-teal-800 border-teal-200' 
-                        : 'bg-slate-100 text-slate-600 border-slate-200'
+                        : 'bg-stone-100 text-stone-600 border-stone-200'
                     }`}>
                       {isModifiable ? 'Modifiable' : 'Fixed'}
                     </span>
                   </div>
-                  <div className="text-[11px] text-slate-500 font-mono pl-5.5">
-                    Nilai: <strong className="text-slate-800 font-bold">{item.workerValue}</strong> (Standar Normal: {item.referenceBaseline})
+                  <div className="text-xs text-stone-600 font-mono pl-6">
+                    Nilai: <strong className="text-stone-900 font-bold">{item.workerValue}</strong> (Standar Normal: {item.referenceBaseline})
                   </div>
                 </div>
 
                 {/* Contribution Bar */}
                 <div className="sm:w-1/2 flex items-center gap-3">
-                  <div className="flex-1 bg-slate-200 h-3 rounded-full overflow-hidden flex items-center relative">
+                  <div className="flex-1 bg-stone-200 h-3.5 rounded-full overflow-hidden flex items-center relative">
                     {/* Center baseline divider */}
-                    <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-slate-400 z-10" />
+                    <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-stone-400 z-10" />
 
                     {isPositive ? (
                       // Right of center (Increases Risk)
                       <div className="w-1/2 flex justify-start pl-[50%]">
                         <div 
-                          className="h-full bg-orange-600 rounded-r-full transition-all duration-500 shadow-2xs"
+                          className="h-full bg-amber-700 rounded-r-full transition-all duration-500 shadow-2xs"
                           style={{ width: `${barWidthPercent / 2}%` }}
                         />
                       </div>
@@ -181,15 +175,15 @@ export const ShapWaterfallChart: React.FC<ShapWaterfallChartProps> = ({ data }) 
                       // Left of center (Protective effect)
                       <div className="w-1/2 flex justify-end pr-0">
                         <div 
-                          className="h-full bg-teal-600 rounded-l-full transition-all duration-500 shadow-2xs"
+                          className="h-full bg-teal-700 rounded-l-full transition-all duration-500 shadow-2xs"
                           style={{ width: `${barWidthPercent / 2}%` }}
                         />
                       </div>
                     )}
                   </div>
 
-                  <span className={`w-20 text-right font-mono font-bold text-xs tabular-nums ${
-                    isPositive ? 'text-orange-700' : 'text-teal-700'
+                  <span className={`w-24 text-right font-mono font-bold text-xs sm:text-sm tabular-nums ${
+                    isPositive ? 'text-amber-800' : 'text-teal-800'
                   }`}>
                     {viewMode === 'layman' 
                       ? (isPositive ? `+${phiPercent.toFixed(1)}%` : `${phiPercent.toFixed(1)}%`)
@@ -200,8 +194,8 @@ export const ShapWaterfallChart: React.FC<ShapWaterfallChartProps> = ({ data }) 
               </div>
 
               {/* Educational Guidance */}
-              <div className="mt-2.5 pt-2 border-t border-slate-200/80 text-[11px] text-slate-600 leading-relaxed flex items-start gap-1.5">
-                <Info className="w-3.5 h-3.5 text-teal-600 shrink-0 mt-0.5" />
+              <div className="mt-3 pt-2.5 border-t border-stone-200/80 text-xs sm:text-sm text-stone-700 leading-relaxed flex items-start gap-2">
+                <Info className="w-4 h-4 text-teal-700 shrink-0 mt-0.5" />
                 <span>{item.clinicalExplanation}</span>
               </div>
             </div>
@@ -210,14 +204,15 @@ export const ShapWaterfallChart: React.FC<ShapWaterfallChartProps> = ({ data }) 
       </div>
 
       {/* Clinical Narrative Box */}
-      <div className="bg-teal-50/70 border border-teal-200 rounded-xl p-4 text-xs text-slate-700 leading-relaxed space-y-1.5 shadow-2xs">
-        <div className="font-bold text-teal-950 flex items-center gap-1.5">
-          <ShieldCheck className="w-4 h-4 text-teal-700" />
+      <div className="bg-teal-50/60 border border-teal-200/80 rounded-xl p-4 sm:p-5 text-sm text-stone-800 leading-relaxed space-y-2 shadow-2xs">
+        <div className="font-bold text-teal-950 flex items-center gap-2">
+          <ShieldCheck className="w-5 h-5 text-teal-700" />
           <span>Kesimpulan Transparansi Klinis AI (Clinical Decision Support):</span>
         </div>
-        <p className="text-slate-700">{data.clinicalNarrative}</p>
+        <p className="text-stone-700 leading-relaxed">{data.clinicalNarrative}</p>
       </div>
 
     </div>
   );
 };
+

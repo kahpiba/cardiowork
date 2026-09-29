@@ -100,19 +100,19 @@ export function CsvChunkUploader({
   };
 
   return (
-    <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-4">
-      <div className="flex items-center space-x-3 border-b border-slate-100 pb-3">
-        <div className="h-10 w-10 rounded-xl bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-600 shadow-2xs">
+    <div className="bg-white border border-stone-200 rounded-2xl p-6 shadow-xs space-y-4">
+      <div className="flex items-center space-x-3 border-b border-stone-100 pb-3">
+        <div className="h-10 w-10 rounded-xl bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-800 shadow-2xs">
           <UploadCloud className="h-5 w-5" />
         </div>
         <div>
-          <h3 className="font-bold text-slate-900 text-sm">{title}</h3>
-          <p className="text-xs text-slate-500">{description}</p>
+          <h3 className="font-bold text-stone-900 text-sm">{title}</h3>
+          <p className="text-xs text-stone-500">{description}</p>
         </div>
       </div>
 
       {/* Upload Zone */}
-      <div className="border-2 border-dashed border-slate-300 hover:border-sky-500 rounded-xl p-8 text-center cursor-pointer transition bg-slate-50/50 hover:bg-sky-50/20 relative group">
+      <div className="border-2 border-dashed border-stone-300 hover:border-teal-600 rounded-xl p-8 text-center cursor-pointer transition bg-stone-50/50 hover:bg-teal-50/20 relative group">
         <input 
           type="file" 
           accept=".csv" 
@@ -122,14 +122,14 @@ export function CsvChunkUploader({
         />
         <div className="flex flex-col items-center justify-center space-y-2 pointer-events-none">
           {isProcessing ? (
-            <Loader2 className="h-8 w-8 text-sky-600 animate-spin" />
+            <Loader2 className="h-8 w-8 text-teal-700 animate-spin" />
           ) : (
-            <FileText className="h-8 w-8 text-slate-400 group-hover:text-sky-600 transition-colors" />
+            <FileText className="h-8 w-8 text-stone-400 group-hover:text-teal-700 transition-colors" />
           )}
-          <span className="text-xs text-slate-700 font-semibold group-hover:text-sky-700 transition-colors">
+          <span className="text-xs text-stone-700 font-semibold group-hover:text-teal-800 transition-colors">
             {isProcessing ? 'Sedang memproses batch chunking...' : 'Klik atau seret berkas CSV ke sini'}
           </span>
-          <span className="text-[11px] text-slate-500">
+          <span className="text-xs text-stone-500">
             Parsing client-side dengan PapaParse (Mendukung hingga 10.000+ baris)
           </span>
         </div>
@@ -138,13 +138,13 @@ export function CsvChunkUploader({
       {/* Progress Bar */}
       {isProcessing && (
         <div className="space-y-1.5">
-          <div className="flex justify-between text-xs text-slate-600 font-mono">
+          <div className="flex justify-between text-xs text-stone-600 font-mono">
             <span>{uploadedRows} / {totalRows} baris</span>
-            <span className="font-bold text-sky-700">{progress}%</span>
+            <span className="font-bold text-teal-800">{progress}%</span>
           </div>
-          <div className="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden border border-slate-200">
+          <div className="w-full bg-stone-100 h-2.5 rounded-full overflow-hidden border border-stone-200">
             <div 
-              className="bg-gradient-to-r from-sky-500 to-emerald-500 h-full transition-all duration-300"
+              className="bg-teal-700 h-full transition-all duration-300"
               style={{ width: `${progress}%` }}
             />
           </div>
@@ -160,9 +160,9 @@ export function CsvChunkUploader({
         }`}>
           <div className="flex items-center space-x-2">
             {errorsList.length > 0 ? (
-              <AlertCircle className="h-4 w-4 shrink-0 text-amber-600" />
+              <AlertCircle className="h-4 w-4 shrink-0 text-amber-700" />
             ) : (
-              <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-600" />
+              <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-700" />
             )}
             <span className="font-medium">{statusMessage}</span>
           </div>
@@ -170,7 +170,7 @@ export function CsvChunkUploader({
           {errorsList.length > 0 && (
             <button 
               onClick={downloadErrorReport}
-              className="px-2.5 py-1 text-[11px] font-semibold bg-white hover:bg-amber-100 border border-amber-300 rounded-md transition flex items-center space-x-1 text-amber-800 shadow-2xs"
+              className="px-2.5 py-1 text-xs font-semibold bg-white hover:bg-amber-100 border border-amber-300 rounded-md transition flex items-center space-x-1 text-amber-900 shadow-2xs"
             >
               <Download className="h-3 w-3" />
               <span>Unduh Laporan Error ({errorsList.length})</span>

@@ -229,20 +229,20 @@ export default function ModelLabPage() {
                     onClick={() => setSelectedWorkerId(d.worker.pseudonymId)}
                     className={`p-3.5 rounded-xl border text-left transition-all ${
                       isSelected
-                        ? 'bg-sky-50/80 border-sky-500 shadow-xs ring-2 ring-sky-500/20'
-                        : 'bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50/50'
+                        ? 'bg-teal-50/80 border-teal-600 shadow-xs ring-2 ring-teal-600/20'
+                        : 'bg-white border-stone-200 hover:border-stone-300 hover:bg-stone-50/50'
                     }`}
                   >
                     <div className="flex items-center justify-between">
-                      <span className="font-mono text-xs font-bold text-sky-700">
+                      <span className="font-mono text-xs font-bold text-teal-800">
                         {d.worker.pseudonymId}
                       </span>
-                      <span className="text-[10px] text-slate-500 font-medium">{d.worker.age} th • {d.worker.gender === 'MALE' ? 'Pria' : 'Wanita'}</span>
+                      <span className="text-xs text-stone-500 font-medium">{d.worker.age} th • {d.worker.gender === 'MALE' ? 'Pria' : 'Wanita'}</span>
                     </div>
-                    <div className="text-sm font-bold text-slate-900 mt-1 truncate">
+                    <div className="text-sm font-bold text-stone-900 mt-1 truncate">
                       {d.worker.nameSynthetic}
                     </div>
-                    <div className="text-[11px] text-slate-500 truncate mt-0.5 font-medium">
+                    <div className="text-xs text-stone-500 truncate mt-0.5 font-medium">
                       {d.worker.jobTitle} • {d.worker.department}
                     </div>
                   </button>
@@ -332,58 +332,58 @@ export default function ModelLabPage() {
               <Award className="w-5 h-5 text-amber-500" />
               Komparasi Metrik Evaluasi & Kalibrasi Silang 5-Fold
             </h3>
-            <p className="text-xs text-slate-500 mt-0.5">
+            <p className="text-xs text-stone-500 mt-0.5">
               Diuji secara independen pada 1.000 pekerja dengan 5-Fold Stratified Cross-Validation dan validasi paritas ONNX Serverless.
             </p>
           </div>
 
-          <div className="overflow-x-auto rounded-xl border border-slate-200 shadow-2xs">
-            <table className="w-full text-left text-xs text-slate-700 border-collapse">
-              <thead className="bg-slate-50 text-[11px] uppercase font-bold text-slate-500 border-b border-slate-200">
+          <div className="overflow-x-auto rounded-xl border border-stone-200 shadow-2xs">
+            <table className="w-full text-left text-xs text-stone-700 border-collapse">
+              <thead className="bg-stone-50 text-xs uppercase font-bold text-stone-600 border-b border-stone-200">
                 <tr>
                   <th className="p-3">Model</th>
                   <th className="p-3">Tipe Algoritma</th>
-                  <th className="p-3 text-right text-indigo-700">ROC-AUC</th>
-                  <th className="p-3 text-right text-sky-700">PR-AUC</th>
-                  <th className="p-3 text-right text-emerald-700">Brier Score</th>
-                  <th className="p-3 text-right text-rose-700">Recall</th>
+                  <th className="p-3 text-right text-stone-800">ROC-AUC</th>
+                  <th className="p-3 text-right text-teal-800">PR-AUC</th>
+                  <th className="p-3 text-right text-teal-800">Brier Score</th>
+                  <th className="p-3 text-right text-amber-800">Recall</th>
                   <th className="p-3 text-right">ECE</th>
                   <th className="p-3 text-right">Ukuran</th>
                   <th className="p-3 text-right">Latensi</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100 font-mono bg-white">
+              <tbody className="divide-y divide-stone-100 font-mono bg-white">
                 {modelComparisons.map((m) => (
-                  <tr key={m.name} className={`hover:bg-slate-50/80 transition-colors ${m.isChampion ? 'bg-sky-50/40' : ''}`}>
-                    <td className="p-3 font-sans font-bold text-slate-900 whitespace-nowrap flex items-center gap-1.5">
-                      {m.isChampion && <Award className="w-3.5 h-3.5 text-amber-500 shrink-0" />}
+                  <tr key={m.name} className={`hover:bg-stone-50/80 transition-colors ${m.isChampion ? 'bg-teal-50/40' : ''}`}>
+                    <td className="p-3 font-sans font-bold text-stone-900 whitespace-nowrap flex items-center gap-1.5">
+                      {m.isChampion && <Award className="w-3.5 h-3.5 text-amber-700 shrink-0" />}
                       <span>{m.name}</span>
                     </td>
-                    <td className="p-3 font-sans text-slate-500">{m.type}</td>
-                    <td className="p-3 text-right font-bold text-indigo-700">{m.rocAuc}</td>
-                    <td className="p-3 text-right text-sky-700 font-bold">{m.prAuc}</td>
-                    <td className="p-3 text-right font-bold text-emerald-700">{m.brierScore}</td>
-                    <td className="p-3 text-right font-bold text-rose-700">{m.recall}</td>
-                    <td className="p-3 text-right text-slate-500">{m.ece}</td>
-                    <td className="p-3 text-right text-slate-600">{m.modelSize}</td>
-                    <td className="p-3 text-right text-emerald-700 font-bold">{m.latency}</td>
+                    <td className="p-3 font-sans text-stone-500">{m.type}</td>
+                    <td className="p-3 text-right font-bold text-stone-900">{m.rocAuc}</td>
+                    <td className="p-3 text-right text-teal-800 font-bold">{m.prAuc}</td>
+                    <td className="p-3 text-right font-bold text-teal-800">{m.brierScore}</td>
+                    <td className="p-3 text-right font-bold text-amber-800">{m.recall}</td>
+                    <td className="p-3 text-right text-stone-500">{m.ece}</td>
+                    <td className="p-3 text-right text-stone-600">{m.modelSize}</td>
+                    <td className="p-3 text-right text-teal-800 font-bold">{m.latency}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
 
-          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-700 space-y-2">
-            <span className="font-bold text-slate-900 flex items-center gap-1.5">
-              <ShieldCheck className="w-4 h-4 text-emerald-600" />
+          <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 text-xs text-stone-700 space-y-2">
+            <span className="font-bold text-stone-900 flex items-center gap-1.5">
+              <ShieldCheck className="w-4 h-4 text-teal-700" />
               Justifikasi Pemilihan Model Champion untuk Lingkungan Klinis K3:
             </span>
-            <ul className="list-disc list-inside space-y-1.5 text-slate-600 text-[11px] leading-relaxed">
+            <ul className="list-disc list-inside space-y-1.5 text-stone-600 text-xs leading-relaxed">
               <li>
-                <strong className="text-slate-800">LightGBM (Layer 2 Tabular Champion):</strong> Terpilih karena memiliki <em>Brier Score</em> terkecil (0.0050) yang menandakan probabilitas risiko sangat terkalibrasi secara matematis, serta menangkap 98.83% pekerja berisiko tinggi (*Recall*) dalam ukuran berkas ONNX yang sangat ringkas (59.7 KB).
+                <strong className="text-stone-900">LightGBM (Layer 2 Tabular Champion):</strong> Terpilih karena memiliki <em>Brier Score</em> terkecil (0.0050) yang menandakan probabilitas risiko sangat terkalibrasi secara matematis, serta menangkap 98.83% pekerja berisiko tinggi (*Recall*) dalam ukuran berkas ONNX yang sangat ringkas (59.7 KB).
               </li>
               <li>
-                <strong className="text-slate-800">MultimodalCardioFusionNet (Layer 3 Deep Learning):</strong> Mengintegrasikan kapabilitas <em>Multi-Task Learning</em> (memprediksi kejadian kardiovaskular 10-tahun sekaligus risiko Medevac 1-tahun) dan estimasi ketidakpastian <em>Monte Carlo Dropout (95% CI)</em>, krusial saat menangani kasus ambang batas (*borderline*).
+                <strong className="text-stone-900">MultimodalCardioFusionNet (Layer 3 Deep Learning):</strong> Mengintegrasikan kapabilitas <em>Multi-Task Learning</em> (memprediksi kejadian kardiovaskular 10-tahun sekaligus risiko Medevac 1-tahun) dan estimasi ketidakpastian <em>Monte Carlo Dropout (95% CI)</em>, krusial saat menangani kasus ambang batas (*borderline*).
               </li>
             </ul>
           </div>

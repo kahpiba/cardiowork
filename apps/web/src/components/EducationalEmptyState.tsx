@@ -31,9 +31,9 @@ export function EducationalEmptyState({
   icon = 'stethoscope'
 }: EducationalEmptyStateProps) {
   return (
-    <div className="bg-white border border-slate-200 rounded-2xl p-8 sm:p-10 text-center max-w-xl mx-auto shadow-xs space-y-5">
+    <div className="bg-white border border-stone-200 rounded-2xl p-8 sm:p-10 text-center max-w-xl mx-auto shadow-xs space-y-5">
       {/* Decorative Icon Circle */}
-      <div className="w-16 h-16 rounded-2xl bg-teal-50 border border-teal-200 text-teal-600 flex items-center justify-center mx-auto shadow-sm">
+      <div className="w-16 h-16 rounded-2xl bg-teal-50 border border-teal-200 text-teal-800 flex items-center justify-center mx-auto shadow-xs">
         {icon === 'stethoscope' && <Stethoscope className="w-8 h-8" />}
         {icon === 'heart' && <HeartHandshake className="w-8 h-8" />}
         {icon === 'spreadsheet' && <FileSpreadsheet className="w-8 h-8" />}
@@ -41,21 +41,21 @@ export function EducationalEmptyState({
       </div>
 
       <div className="space-y-2">
-        <h3 className="text-lg font-bold text-slate-900 tracking-tight">
+        <h3 className="text-lg font-bold text-stone-900 tracking-tight">
           {title}
         </h3>
-        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+        <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-normal">
           {description}
         </p>
       </div>
 
       {/* Educational Tips Card */}
-      <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-left space-y-1.5 text-xs text-slate-600">
-        <div className="font-bold text-slate-800 flex items-center gap-1.5">
-          <Sparkles className="w-4 h-4 text-amber-500" />
+      <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 text-left space-y-1.5 text-xs text-stone-600">
+        <div className="font-bold text-stone-900 flex items-center gap-1.5">
+          <Sparkles className="w-4 h-4 text-amber-700" />
           <span>Mengapa Skrining K3 Penting?</span>
         </div>
-        <p className="text-[11px] leading-relaxed text-slate-600">
+        <p className="text-xs leading-relaxed text-stone-600">
           Kombinasi data Medical Check-Up tahunan dan Daily Check-Up pra-shift membantu mendeteksi risiko silent-killer seperti hipertensi tersembunyi dan stres vaskular sebelum memasuki area berisiko tinggi.
         </p>
       </div>
@@ -65,7 +65,7 @@ export function EducationalEmptyState({
         {actionHref && actionText && (
           <Link
             href={actionHref}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs shadow-sm hover:shadow transition"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-xs hover:shadow transition"
           >
             <span>{actionText}</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -75,9 +75,10 @@ export function EducationalEmptyState({
         {secondaryHref && secondaryText && (
           <Link
             href={secondaryHref}
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 font-semibold text-xs shadow-2xs transition"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-stone-50 text-stone-700 border border-stone-200 font-semibold text-xs shadow-2xs transition"
           >
             <span>{secondaryText}</span>
+            <ArrowRight className="w-3.5 h-3.5 text-stone-400" />
           </Link>
         )}
       </div>

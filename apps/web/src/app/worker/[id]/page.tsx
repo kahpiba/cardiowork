@@ -109,35 +109,35 @@ export default function WorkerDetailPage({ params }: WorkerDetailPageProps) {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
       
       {/* Top Navigation & Archetype Switcher */}
-      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 pb-4">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-200 pb-4">
         
         {/* Breadcrumb Navigation */}
-        <div className="flex items-center space-x-2 text-xs text-slate-500 font-medium">
-          <Link href="/" className="hover:text-teal-600 transition flex items-center gap-1">
+        <div className="flex items-center space-x-2 text-xs text-stone-500 font-medium">
+          <Link href="/" className="hover:text-teal-700 transition flex items-center gap-1">
             <ArrowLeft className="h-3.5 w-3.5" />
             <span>Beranda</span>
           </Link>
           <span>/</span>
-          <Link href="/workers" className="hover:text-teal-600 transition flex items-center gap-1 text-slate-700 font-semibold">
-            <Users className="h-3.5 w-3.5 text-teal-600" />
+          <Link href="/workers" className="hover:text-teal-700 transition flex items-center gap-1 text-stone-700 font-semibold">
+            <Users className="h-3.5 w-3.5 text-stone-500" />
             <span>Direktori Pekerja</span>
           </Link>
           <span>/</span>
-          <span className="font-bold text-slate-900 font-mono bg-slate-100 px-2 py-0.5 rounded-md border border-slate-200">
+          <span className="font-bold text-stone-900 font-mono bg-stone-100 px-2 py-0.5 rounded-md border border-stone-200">
             {worker.pseudonymId}
           </span>
         </div>
 
         {/* Quick Demo Worker Archetypes */}
         <div className="flex flex-wrap items-center gap-2">
-          <span className="text-xs text-slate-500 font-medium mr-1">Demo Sampel:</span>
+          <span className="text-xs text-stone-500 font-medium mr-1">Demo Sampel:</span>
           
           <button
             onClick={() => handleArchetypeSwitch('W-00192')}
             className={`px-3 py-1.5 rounded-xl text-xs font-semibold border transition ${
               worker.pseudonymId === 'W-00192'
                 ? 'bg-teal-50 text-teal-800 border-teal-300 shadow-2xs font-bold ring-1 ring-teal-400/40'
-                : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'
+                : 'bg-white text-stone-700 border-stone-200 hover:bg-stone-50'
             }`}
           >
             🟢 W-00192 (Risiko Rendah / Fit)
@@ -147,8 +147,8 @@ export default function WorkerDetailPage({ params }: WorkerDetailPageProps) {
             onClick={() => handleArchetypeSwitch('W-00189')}
             className={`px-3 py-1.5 rounded-xl text-xs font-semibold border transition ${
               worker.pseudonymId === 'W-00189'
-                ? 'bg-amber-50 text-amber-800 border-amber-300 shadow-2xs font-bold ring-1 ring-amber-400/40'
-                : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'
+                ? 'bg-amber-50 text-amber-900 border-amber-300 shadow-2xs font-bold ring-1 ring-amber-400/40'
+                : 'bg-white text-stone-700 border-stone-200 hover:bg-stone-50'
             }`}
           >
             🟡 W-00189 (Risiko Sedang / Borderline)
@@ -158,8 +158,8 @@ export default function WorkerDetailPage({ params }: WorkerDetailPageProps) {
             onClick={() => handleArchetypeSwitch('W-00190')}
             className={`px-3 py-1.5 rounded-xl text-xs font-semibold border transition ${
               worker.pseudonymId === 'W-00190'
-                ? 'bg-rose-50 text-rose-800 border-rose-300 shadow-2xs font-bold ring-1 ring-rose-400/40'
-                : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'
+                ? 'bg-rose-50 text-rose-900 border-rose-300 shadow-2xs font-bold ring-1 ring-rose-400/40'
+                : 'bg-white text-stone-700 border-stone-200 hover:bg-stone-50'
             }`}
           >
             🔴 W-00190 (Risiko Tinggi / Unfit)
@@ -167,7 +167,7 @@ export default function WorkerDetailPage({ params }: WorkerDetailPageProps) {
 
           <Link
             href="/kiosk"
-            className="px-3 py-1.5 rounded-xl text-xs font-bold bg-teal-50 text-teal-700 border border-teal-200 hover:bg-teal-100 transition flex items-center gap-1.5 ml-auto sm:ml-0 shadow-2xs"
+            className="px-3 py-1.5 rounded-xl text-xs font-bold bg-teal-50 text-teal-800 border border-teal-200 hover:bg-teal-100 transition flex items-center gap-1.5 ml-auto sm:ml-0 shadow-2xs"
           >
             <Activity className="w-3.5 h-3.5" />
             <span>Skrining DCU Kiosk</span>
@@ -271,21 +271,21 @@ export default function WorkerDetailPage({ params }: WorkerDetailPageProps) {
       <EducationalHealthGuide />
 
       {/* 8. Clinical Governance & Action Footer */}
-      <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xs space-y-4">
+      <div className="bg-white border border-stone-200 rounded-2xl p-6 shadow-xs space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center space-x-2.5">
-            <div className="w-9 h-9 rounded-xl bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-600 shadow-2xs">
+            <div className="w-9 h-9 rounded-xl bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-800 shadow-2xs">
               <Stethoscope className="h-5 w-5" />
             </div>
             <div>
-              <h3 className="font-bold text-slate-900 text-sm">
+              <h3 className="font-bold text-stone-900 text-sm">
                 Tindakan Klinis & Alur Kerja Dokter Perusahaan (CDSS Workflow)
               </h3>
-              <p className="text-xs text-slate-500">Protokol pengambilan keputusan medis terstandar untuk dokter okupasi.</p>
+              <p className="text-xs text-stone-500">Protokol pengambilan keputusan medis terstandar untuk dokter okupasi.</p>
             </div>
           </div>
-          <div className="flex items-center space-x-2 text-xs text-slate-600 bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-200 font-medium">
-            <Lock className="h-3.5 w-3.5 text-teal-600" />
+          <div className="flex items-center space-x-2 text-xs text-stone-600 bg-stone-50 px-3 py-1.5 rounded-lg border border-stone-200 font-medium">
+            <Lock className="h-3.5 w-3.5 text-teal-700" />
             <span>Kepatuhan Rekam Medis Elektronik (Permenkes No. 24/2022)</span>
           </div>
         </div>
@@ -293,7 +293,7 @@ export default function WorkerDetailPage({ params }: WorkerDetailPageProps) {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
           <button
             onClick={() => alert(`Rujukan medis untuk pekerja ${worker.pseudonymId} telah disiapkan ke RS rujukan terdekat.`)}
-            className="flex items-center justify-center space-x-2 bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-200 py-2.5 px-4 rounded-xl text-xs font-bold transition shadow-2xs"
+            className="flex items-center justify-center space-x-2 bg-rose-50 hover:bg-rose-100 text-rose-900 border border-rose-200 py-2.5 px-4 rounded-xl text-xs font-bold transition shadow-2xs"
           >
             <Stethoscope className="h-4 w-4 text-rose-700" />
             <span>Eskalasi ke Dokter Sp.Ok / Kardiolog</span>
@@ -301,7 +301,7 @@ export default function WorkerDetailPage({ params }: WorkerDetailPageProps) {
 
           <button
             onClick={() => alert(`Konsultasi nutrisi dan gaya hidup K3 dijadwalkan untuk ${worker.pseudonymId}.`)}
-            className="flex items-center justify-center space-x-2 bg-teal-50 hover:bg-teal-100 text-teal-800 border border-teal-200 py-2.5 px-4 rounded-xl text-xs font-bold transition shadow-2xs"
+            className="flex items-center justify-center space-x-2 bg-teal-50 hover:bg-teal-100 text-teal-900 border border-teal-200 py-2.5 px-4 rounded-xl text-xs font-bold transition shadow-2xs"
           >
             <FileText className="h-4 w-4 text-teal-700" />
             <span>Jadwalkan Konseling Gaya Hidup K3</span>
@@ -309,20 +309,20 @@ export default function WorkerDetailPage({ params }: WorkerDetailPageProps) {
 
           <Link
             href={`/reports/view/${worker.pseudonymId}`}
-            className="flex items-center justify-center space-x-2 bg-teal-600 hover:bg-teal-700 text-white border border-teal-600 py-2.5 px-4 rounded-xl text-xs font-bold shadow-sm transition"
+            className="flex items-center justify-center space-x-2 bg-teal-700 hover:bg-teal-800 text-white border border-teal-700 py-2.5 px-4 rounded-xl text-xs font-bold shadow-xs transition"
           >
             <Download className="h-4 w-4" />
             <span>Unduh Resume Rekomendasi (PDF)</span>
           </Link>
         </div>
 
-        <div className="pt-3 border-t border-slate-100 text-[11px] text-slate-500 flex flex-wrap justify-between items-center gap-2">
+        <div className="pt-3 border-t border-stone-100 text-xs text-stone-500 flex flex-wrap justify-between items-center gap-2">
           <div>
-            ID Pekerja: <span className="font-mono font-semibold text-slate-700">{worker.pseudonymId}</span> • 
-            Hash Integritas: <span className="font-mono text-slate-500">sha256:7f8a9e...</span>
+            ID Pekerja: <span className="font-mono font-semibold text-stone-700">{worker.pseudonymId}</span> • 
+            Hash Integritas: <span className="font-mono text-stone-500">sha256:7f8a9e...</span>
           </div>
           <div>
-            Status Akses: <span className="text-teal-700 font-semibold">Tercatat di Audit Log</span>
+            Status Akses: <span className="text-teal-800 font-semibold">Tercatat di Audit Log</span>
           </div>
         </div>
       </div>

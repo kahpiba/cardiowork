@@ -14,10 +14,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="id">
-      <body className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans antialiased selection:bg-rose-500 selection:text-white">
+      <body className="min-h-screen bg-[#FAFAF9] text-stone-900 flex flex-col font-sans antialiased selection:bg-teal-700 selection:text-white">
         
         {/* Banner Kepatuhan Medis Wajib */}
-        <div className="bg-amber-50 border-b border-amber-200 text-amber-900 text-xs py-2 px-4 text-center font-semibold flex items-center justify-center space-x-2 shadow-xs">
+        <div className="bg-amber-50/90 border-b border-amber-200/80 text-amber-950 text-xs py-2 px-4 text-center font-medium flex items-center justify-center space-x-2">
           <span className="h-2 w-2 rounded-full bg-amber-500 animate-pulse"></span>
           <span>DATA SINTETIS — BUKAN BUKTI KLINIS | Sistem Pendukung Keputusan Klinis K3 (Bukan Alat Diagnosis Mandiri)</span>
         </div>
