@@ -98,3 +98,31 @@ export const Card3DTilt: React.FC<Card3DTiltProps> = ({
     </div>
   );
 };
+
+interface ParallaxLayerProps {
+  children: React.ReactNode;
+  depth?: number; // Jarak melayang 3D dalam pixel (default: 25px)
+  className?: string;
+}
+
+/**
+ * Komponen ParallaxLayer: Memberikan efek 3D Parallax melayang
+ * pada elemen di dalam Card3DTilt menggunakan CSS translateZ.
+ */
+export const ParallaxLayer: React.FC<ParallaxLayerProps> = ({
+  children,
+  depth = 25,
+  className = '',
+}) => {
+  return (
+    <div
+      style={{
+        transform: `translateZ(${depth}px)`,
+        transformStyle: 'preserve-3d',
+      }}
+      className={`will-change-transform transition-transform ${className}`}
+    >
+      {children}
+    </div>
+  );
+};

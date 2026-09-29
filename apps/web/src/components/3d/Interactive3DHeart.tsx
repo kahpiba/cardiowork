@@ -1,8 +1,18 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import * as THREE from 'three';
-import { Activity, RotateCcw, Play, Pause, Sparkles, Heart } from 'lucide-react';
+import { 
+  Activity, 
+  RotateCcw, 
+  Play, 
+  Pause, 
+  Sparkles, 
+  Heart, 
+  ZoomIn, 
+  ZoomOut, 
+  Maximize2 
+} from 'lucide-react';
 
 interface Interactive3DHeartProps {
   initialBpm?: number;
@@ -23,18 +33,20 @@ export const Interactive3DHeart: React.FC<Interactive3DHeartProps> = ({
   const [bpm, setBpm] = useState(initialBpm);
   const [isRotating, setIsRotating] = useState(true);
   const [isBeating, setIsBeating] = useState(true);
+  const [zoomPercent, setZoomPercent] = useState(100);
 
-  // References to keep Three.js animation state
+  // References to keep Three.js camera & animation state
   const stateRef = useRef({
     bpm: initialBpm,
     isRotating: true,
     isBeating: true,
-    mouseX: 0,
-    mouseY: 0,
-    targetRotationX: 0,
-    targetRotationY: 0,
-    isDragging: false,
-    previousMousePosition: { x: 0, y: 0 },
+    cameraZ: 24,
+    defaultZ: 24,
+    minZ: 11, // Zoom in maksimal (close-up arteri & nodus)
+    maxZ: 42, // Zoom out maksimal (wide view)
+    setZoomCallback: (pct: number) => {},
+    resetViewCallback: () => {},
+    zoomStepCallback: (direction: 'in' | 'out') => {},
   });
 
   // Sinkronisasi state React ke ref loop animasi
@@ -55,7 +67,7 @@ export const Interactive3DHeart: React.FC<Interactive3DHeartProps> = ({
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-    camera.position.z = 24;
+    camera.position.z = stateRef.current.defaultZ;
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(width, height);
@@ -65,7 +77,7 @@ export const Interactive3DHeart: React.FC<Interactive3DHeartProps> = ({
     container.appendChild(renderer.domElement);
 
     // 2. Lighting (Warm Medical Clinical Glow)
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.95);
     scene.add(ambientLight);
 
     const dirLight1 = new THREE.DirectionalLight(0x0d9488, 2.5); // Teal light
@@ -86,7 +98,6 @@ export const Interactive3DHeart: React.FC<Interactive3DHeartProps> = ({
 
     // Membentuk koordinat jantung 3D halus
     const heartShape = new THREE.Shape();
-    // Path jantung 2D presisi
     const x0 = 0, y0 = 0;
     heartShape.moveTo(x0, y0);
     heartShape.bezierCurveTo(x0, y0 + 3, x0 - 3.5, y0 + 6, x0 - 7, y0 + 6);
@@ -113,7 +124,7 @@ export const Interactive3DHeart: React.FC<Interactive3DHeartProps> = ({
       color: new THREE.Color(0x0f766e), // Teal primer
       roughness: 0.25,
       metalness: 0.15,
-      transmission: 0.35, // Efek tembus pandang jaringan lunak biologis
+      transmission: 0.35, // Efek tembus pandang biologis
       thickness: 1.8,
       reflectivity: 0.6,
       clearcoat: 0.8,
@@ -137,13 +148,12 @@ export const Interactive3DHeart: React.FC<Interactive3DHeartProps> = ({
     wireframeMesh.rotation.z = Math.PI;
     heartGroup.add(wireframeMesh);
 
-    // 4. Partikel Conduction System (Nodus Sinoatrial & Atrioventrikular)
+    // 4. Partikel Conduction System (Nodus SA & AV)
     const particleCount = 75;
     const particleGeometry = new THREE.BufferGeometry();
     const particlePositions = new Float32Array(particleCount * 3);
 
     for (let i = 0; i < particleCount * 3; i += 3) {
-      // Sebar partikel di sekitar permukaan jantung
       const theta = Math.random() * Math.PI * 2;
       const r = 2.5 + Math.random() * 4.5;
       particlePositions[i] = Math.cos(theta) * r;
@@ -164,11 +174,55 @@ export const Interactive3DHeart: React.FC<Interactive3DHeartProps> = ({
     const particleSystem = new THREE.Points(particleGeometry, particleMaterial);
     heartGroup.add(particleSystem);
 
-    // 5. Interaktivitas Drag / Touch untuk Memutar 3D
+    // 5. Interaktivitas Drag / Touch untuk Memutar 3D & Zoom In/Out
     let isDragging = false;
     let prevMouse = { x: 0, y: 0 };
+    let initialPinchDistance = 0;
+
+    const updateZoomDisplay = () => {
+      const pct = Math.round((stateRef.current.defaultZ / camera.position.z) * 100);
+      setZoomPercent(pct);
+    };
+
+    // Zoom Step Helper (dipanggil dari tombol UI)
+    stateRef.current.zoomStepCallback = (dir: 'in' | 'out') => {
+      const step = 3;
+      if (dir === 'in') {
+        camera.position.z = Math.max(stateRef.current.minZ, camera.position.z - step);
+      } else {
+        camera.position.z = Math.min(stateRef.current.maxZ, camera.position.z + step);
+      }
+      updateZoomDisplay();
+    };
+
+    // Reset View Helper
+    stateRef.current.resetViewCallback = () => {
+      camera.position.z = stateRef.current.defaultZ;
+      heartGroup.rotation.set(0, 0, 0);
+      updateZoomDisplay();
+    };
+
+    // Wheel Event untuk Zoom In / Zoom Out dengan Mouse
+    const onWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      const zoomDelta = e.deltaY * 0.02;
+      camera.position.z = THREE.MathUtils.clamp(
+        camera.position.z + zoomDelta,
+        stateRef.current.minZ,
+        stateRef.current.maxZ
+      );
+      updateZoomDisplay();
+    };
 
     const onPointerDown = (e: MouseEvent | TouchEvent) => {
+      if ('touches' in e && e.touches.length === 2) {
+        // Pinch start
+        const dx = e.touches[0].clientX - e.touches[1].clientX;
+        const dy = e.touches[0].clientY - e.touches[1].clientY;
+        initialPinchDistance = Math.hypot(dx, dy);
+        return;
+      }
+
       isDragging = true;
       const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
       const clientY = 'touches' in e ? e.touches[0].clientY : e.clientY;
@@ -176,6 +230,25 @@ export const Interactive3DHeart: React.FC<Interactive3DHeartProps> = ({
     };
 
     const onPointerMove = (e: MouseEvent | TouchEvent) => {
+      if ('touches' in e && e.touches.length === 2) {
+        // Pinch-to-zoom di tablet / smartphone
+        const dx = e.touches[0].clientX - e.touches[1].clientX;
+        const dy = e.touches[0].clientY - e.touches[1].clientY;
+        const currentDistance = Math.hypot(dx, dy);
+
+        if (initialPinchDistance > 0) {
+          const pinchDelta = (initialPinchDistance - currentDistance) * 0.05;
+          camera.position.z = THREE.MathUtils.clamp(
+            camera.position.z + pinchDelta,
+            stateRef.current.minZ,
+            stateRef.current.maxZ
+          );
+          updateZoomDisplay();
+        }
+        initialPinchDistance = currentDistance;
+        return;
+      }
+
       if (!isDragging) return;
       const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
       const clientY = 'touches' in e ? e.touches[0].clientY : e.clientY;
@@ -191,9 +264,11 @@ export const Interactive3DHeart: React.FC<Interactive3DHeartProps> = ({
 
     const onPointerUp = () => {
       isDragging = false;
+      initialPinchDistance = 0;
     };
 
     const domElem = renderer.domElement;
+    domElem.addEventListener('wheel', onWheel, { passive: false });
     domElem.addEventListener('mousedown', onPointerDown);
     domElem.addEventListener('mousemove', onPointerMove);
     window.addEventListener('mouseup', onPointerUp);
@@ -239,7 +314,7 @@ export const Interactive3DHeart: React.FC<Interactive3DHeartProps> = ({
         heartGroup.rotation.y += 0.008;
       }
 
-      // Animasi kedipan lembut partikel conduction
+      // Animasi partikel conduction
       particleSystem.rotation.y = heartGroup.rotation.y * -0.5;
 
       // Dinamika rona warna berdasarkan BPM
@@ -275,6 +350,7 @@ export const Interactive3DHeart: React.FC<Interactive3DHeartProps> = ({
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', handleResize);
 
+      domElem.removeEventListener('wheel', onWheel);
       domElem.removeEventListener('mousedown', onPointerDown);
       domElem.removeEventListener('mousemove', onPointerMove);
       window.removeEventListener('mouseup', onPointerUp);
@@ -310,11 +386,43 @@ export const Interactive3DHeart: React.FC<Interactive3DHeartProps> = ({
       {/* 3D WebGL Canvas Viewport */}
       <div
         ref={containerRef}
-        className="w-full h-72 sm:h-80 relative cursor-grab active:cursor-grabbing flex items-center justify-center"
+        className="w-full h-72 sm:h-80 relative cursor-grab active:cursor-grabbing flex items-center justify-center overflow-hidden rounded-2xl"
       >
-        {/* Subtle Watermark Hint */}
-        <div className="absolute bottom-2 left-3 text-[10px] text-stone-600 bg-white/80 px-2 py-0.5 rounded-full border border-stone-200 pointer-events-none shadow-2xs">
-          Geser untuk putar 360&deg;
+        {/* Top-Right Floating Zoom Controls Toolbar */}
+        <div className="absolute top-2.5 right-2.5 z-10 flex items-center gap-1 bg-white/90 backdrop-blur-md p-1 rounded-xl border border-stone-200 shadow-2xs">
+          <button
+            onClick={() => stateRef.current.zoomStepCallback('in')}
+            className="p-1.5 rounded-lg hover:bg-stone-100 text-stone-700 hover:text-stone-900 transition"
+            title="Perbesar / Zoom In (+)"
+          >
+            <ZoomIn className="w-3.5 h-3.5" />
+          </button>
+          
+          <button
+            onClick={() => stateRef.current.zoomStepCallback('out')}
+            className="p-1.5 rounded-lg hover:bg-stone-100 text-stone-700 hover:text-stone-900 transition"
+            title="Perkecil / Zoom Out (-)"
+          >
+            <ZoomOut className="w-3.5 h-3.5" />
+          </button>
+
+          <span className="text-[10px] font-mono font-bold text-stone-600 px-1">
+            {zoomPercent}%
+          </span>
+
+          <button
+            onClick={() => stateRef.current.resetViewCallback()}
+            className="p-1.5 rounded-lg hover:bg-stone-100 text-stone-500 hover:text-stone-800 transition border-l border-stone-200 pl-1.5"
+            title="Reset Sudut & Jarak Pandang"
+          >
+            <Maximize2 className="w-3.5 h-3.5" />
+          </button>
+        </div>
+
+        {/* Bottom-Left Gesture Hints */}
+        <div className="absolute bottom-2.5 left-3 text-[10px] text-stone-600 bg-white/85 backdrop-blur-xs px-2.5 py-1 rounded-full border border-stone-200 pointer-events-none shadow-2xs flex items-center gap-1.5">
+          <span className="w-1.5 h-1.5 rounded-full bg-teal-600 animate-pulse" />
+          <span>Putar 360&deg; (Drag) &bull; Zoom (Scroll/Pinch)</span>
         </div>
       </div>
 
