@@ -80,9 +80,9 @@ export const RolePersonaSwitcher: React.FC<RolePersonaSwitcherProps> = ({ onUser
   const getRoleIcon = (role: DemoUser['role']) => {
     switch (role) {
       case 'OCCUPATIONAL_DOCTOR':
-        return <Stethoscope className="w-4 h-4 text-teal-700" />;
+        return <Stethoscope className="w-4 h-4 text-rose-700" />;
       case 'PARAMEDIC':
-        return <HeartPulse className="w-4 h-4 text-teal-600" />;
+        return <HeartPulse className="w-4 h-4 text-emerald-700" />;
       case 'HSSE_OFFICER':
         return <ShieldCheck className="w-4 h-4 text-amber-700" />;
       case 'WORKER':
@@ -101,7 +101,7 @@ export const RolePersonaSwitcher: React.FC<RolePersonaSwitcherProps> = ({ onUser
     return (
       <Link
         href="/login"
-        className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-teal-800 hover:bg-teal-900 text-white font-bold text-xs shadow-2xs transition"
+        className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-rose-700 hover:bg-rose-800 text-white font-bold text-xs shadow-2xs transition"
       >
         <LogIn className="w-3.5 h-3.5" />
         <span>Masuk / Login</span>
@@ -143,7 +143,7 @@ export const RolePersonaSwitcher: React.FC<RolePersonaSwitcherProps> = ({ onUser
             <div className="p-3 bg-stone-50 rounded-xl border border-stone-200/80 space-y-1">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-stone-900">{currentUser.name}</span>
-                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-teal-100 text-teal-800 border border-teal-200">
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-100 text-rose-800 border border-rose-200">
                   {currentUser.badge}
                 </span>
               </div>
@@ -154,10 +154,10 @@ export const RolePersonaSwitcher: React.FC<RolePersonaSwitcherProps> = ({ onUser
             {/* Persona Switcher Section */}
             <div className="px-2 pt-2 border-t border-stone-100 flex items-center justify-between">
               <div className="flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-teal-700" />
+                <Sparkles className="w-3.5 h-3.5 text-rose-700" />
                 <span className="text-xs font-bold text-stone-800">Ganti Persona Demo (RBAC)</span>
               </div>
-              <span className="text-[10px] bg-teal-50 text-teal-800 font-semibold px-2 py-0.5 rounded-full border border-teal-200">
+              <span className="text-[10px] bg-rose-50 text-rose-800 font-semibold px-2 py-0.5 rounded-full border border-rose-200">
                 1-Klik Switch
               </span>
             </div>
@@ -171,7 +171,7 @@ export const RolePersonaSwitcher: React.FC<RolePersonaSwitcherProps> = ({ onUser
                     onClick={() => handleSelectPersona(persona)}
                     className={`w-full text-left p-2 rounded-xl border transition flex items-start gap-2.5 ${
                       isSelected
-                        ? 'bg-teal-50/70 border-teal-300 shadow-2xs'
+                        ? 'bg-rose-50/70 border-rose-300 shadow-2xs'
                         : 'border-transparent hover:bg-stone-50 hover:border-stone-200'
                     }`}
                   >
@@ -185,7 +185,7 @@ export const RolePersonaSwitcher: React.FC<RolePersonaSwitcherProps> = ({ onUser
                           {persona.name}
                         </span>
                         {isSelected && (
-                          <span className="inline-flex items-center gap-0.5 text-[10px] font-bold text-teal-800 bg-teal-100/80 px-1.5 py-0.5 rounded">
+                          <span className="inline-flex items-center gap-0.5 text-[10px] font-bold text-rose-800 bg-rose-100/80 px-1.5 py-0.5 rounded">
                             <Check className="w-2.5 h-2.5" />
                             Aktif
                           </span>

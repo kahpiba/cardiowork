@@ -91,7 +91,7 @@ export default function WorkersRosterPage() {
       case 'MODERATE':
         return <span className="px-2 py-0.5 rounded-full text-xs font-bold bg-stone-100 text-stone-800 border border-stone-200">Moderat</span>;
       default:
-        return <span className="px-2 py-0.5 rounded-full text-xs font-bold bg-teal-100 text-teal-900 border border-teal-200">Rendah</span>;
+        return <span className="px-2 py-0.5 rounded-full text-xs font-bold bg-emerald-50 text-emerald-950 border border-emerald-300">Rendah</span>;
     }
   };
 
@@ -122,7 +122,7 @@ export default function WorkersRosterPage() {
           </Link>
           <Link
             href="/kiosk"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-xs transition"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-rose-700 hover:bg-rose-800 text-white font-bold text-xs shadow-xs transition"
           >
             <Activity className="w-3.5 h-3.5" />
             <span>Kios Mandiri DCU</span>
@@ -143,15 +143,15 @@ export default function WorkersRosterPage() {
           <p className="text-xs text-stone-400">Terdaftar di sistem K3</p>
         </div>
 
-        <div className="p-4 rounded-2xl bg-teal-50/40 border border-teal-200 shadow-2xs space-y-1">
-          <div className="flex items-center justify-between text-teal-800 text-xs font-semibold">
+        <div className="p-4 rounded-2xl bg-emerald-50/50 border border-emerald-200 shadow-2xs space-y-1">
+          <div className="flex items-center justify-between text-emerald-950 text-xs font-semibold">
             <span>Bugar Penuh (Fit)</span>
-            <CheckCircle2 className="w-4 h-4 text-teal-700" />
+            <CheckCircle2 className="w-4 h-4 text-emerald-700" />
           </div>
-          <div className="text-2xl font-black text-teal-900 font-mono">
+          <div className="text-2xl font-black text-emerald-950 font-mono">
             {fitCount}
           </div>
-          <p className="text-xs text-teal-700">Layak bekerja tanpa batasan</p>
+          <p className="text-xs text-emerald-800">Layak bekerja tanpa batasan</p>
         </div>
 
         <div className="p-4 rounded-2xl bg-amber-50/40 border border-amber-200 shadow-2xs space-y-1">
@@ -188,7 +188,7 @@ export default function WorkersRosterPage() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Cari NIP, nama pekerja, atau jabatan..."
-            className="w-full pl-10 pr-4 py-2 text-xs rounded-xl border border-stone-200 focus:outline-hidden focus:ring-2 focus:ring-teal-700/20 focus:border-teal-700 transition"
+            className="w-full pl-10 pr-4 py-2 text-xs rounded-xl border border-stone-200 focus:outline-hidden focus:ring-2 focus:ring-rose-700/20 focus:border-rose-700 transition"
           />
         </div>
 
@@ -201,7 +201,7 @@ export default function WorkersRosterPage() {
           <select
             value={selectedDept}
             onChange={(e) => setSelectedDept(e.target.value)}
-            className="text-xs rounded-xl border border-stone-200 px-3 py-2 bg-white text-stone-700 font-medium focus:outline-hidden focus:ring-2 focus:ring-teal-700/20"
+            className="text-xs rounded-xl border border-stone-200 px-3 py-2 bg-white text-stone-700 font-medium focus:outline-hidden focus:ring-2 focus:ring-rose-700/20"
           >
             {departments.map((d) => (
               <option key={d} value={d}>
@@ -220,7 +220,7 @@ export default function WorkersRosterPage() {
           <select
             value={selectedRisk}
             onChange={(e) => setSelectedRisk(e.target.value)}
-            className="text-xs rounded-xl border border-stone-200 px-3 py-2 bg-white text-stone-700 font-medium focus:outline-hidden focus:ring-2 focus:ring-teal-700/20"
+            className="text-xs rounded-xl border border-stone-200 px-3 py-2 bg-white text-stone-700 font-medium focus:outline-hidden focus:ring-2 focus:ring-rose-700/20"
           >
             <option value="ALL">Semua Tingkat</option>
             <option value="CRITICAL">Kritis (&gt;=160/100 mmHg)</option>
@@ -234,7 +234,7 @@ export default function WorkersRosterPage() {
       {/* Workers Cards Grid */}
       {loading ? (
         <div className="py-16 text-center text-stone-400 space-y-3">
-          <RefreshCw className="w-6 h-6 animate-spin mx-auto text-teal-700" />
+          <RefreshCw className="w-6 h-6 animate-spin mx-auto text-rose-700" />
           <p className="text-xs font-medium">Memuat data kohor pekerja...</p>
         </div>
       ) : filteredWorkers.length === 0 ? (
@@ -293,7 +293,7 @@ export default function WorkersRosterPage() {
                     <div className="p-2.5 rounded-xl bg-stone-50 border border-stone-100 space-y-0.5">
                       <span className="text-xs text-stone-500 font-medium">Status Pre-Shift (DCU)</span>
                       <div className={`font-bold text-xs ${
-                        w.latestDcuVerdict === 'UNFIT' ? 'text-rose-700' : 'text-teal-800'
+                        w.latestDcuVerdict === 'UNFIT' ? 'text-rose-700' : 'text-emerald-800'
                       }`}>
                         {w.latestDcuVerdict === 'UNFIT' ? 'Restricted / Unfit' : 'Fit Pre-Shift'}
                       </div>
@@ -310,9 +310,9 @@ export default function WorkersRosterPage() {
                 <div className="pt-2">
                   <Link
                     href={`/worker/${w.pseudonymId}`}
-                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-stone-50 hover:bg-teal-50 text-stone-700 hover:text-teal-800 font-bold text-xs border border-stone-200 hover:border-teal-200 transition shadow-2xs group"
+                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-stone-50 hover:bg-rose-50 text-stone-700 hover:text-rose-900 font-bold text-xs border border-stone-200 hover:border-rose-200 transition shadow-2xs group"
                   >
-                    <Stethoscope className="w-3.5 h-3.5 text-stone-500 group-hover:text-teal-700" />
+                    <Stethoscope className="w-3.5 h-3.5 text-stone-500 group-hover:text-rose-700" />
                     <span>Buka Rekam Medis & AI CDSS</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                   </Link>

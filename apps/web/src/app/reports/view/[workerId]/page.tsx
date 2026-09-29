@@ -104,7 +104,7 @@ export default function MedicalResumePage({ params }: MedicalResumePageProps) {
       <div className="max-w-4xl mx-auto mb-6 flex items-center justify-between gap-4 print:hidden">
         <Link
           href={`/worker/${worker.pseudonymId}`}
-          className="inline-flex items-center gap-2 text-xs font-semibold text-stone-600 hover:text-teal-800 transition-colors"
+          className="inline-flex items-center gap-2 text-xs font-semibold text-stone-600 hover:text-rose-800 transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Kembali ke Dashboard Pekerja</span>
@@ -116,7 +116,7 @@ export default function MedicalResumePage({ params }: MedicalResumePageProps) {
           </span>
           <button
             onClick={handlePrint}
-            className="px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs flex items-center gap-2 shadow-xs transition-all"
+            className="px-4 py-2 rounded-xl bg-rose-700 hover:bg-rose-800 text-white font-bold text-xs flex items-center gap-2 shadow-xs transition-all"
           >
             <Printer className="w-4 h-4" />
             <span>Cetak / Simpan PDF Resmi</span>
@@ -130,7 +130,7 @@ export default function MedicalResumePage({ params }: MedicalResumePageProps) {
         {/* Kop Surat Klinik Resmi */}
         <div className="border-b-2 border-stone-900 pb-4 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3.5">
-            <div className="w-12 h-12 rounded-xl bg-teal-700 flex items-center justify-center text-white font-black text-lg shadow-xs">
+            <div className="w-12 h-12 rounded-xl bg-rose-700 flex items-center justify-center text-white font-black text-lg shadow-xs">
               CW
             </div>
             <div>
@@ -410,7 +410,7 @@ export default function MedicalResumePage({ params }: MedicalResumePageProps) {
           
           <div className="space-y-1 text-xs text-stone-500 font-mono">
             <div className="flex items-center gap-1.5 text-stone-800 font-bold">
-              <ShieldCheck className="w-4 h-4 text-teal-700" />
+              <ShieldCheck className="w-4 h-4 text-emerald-700" />
               <span>Verifikasi Keaslian & Integritas Dokumen</span>
             </div>
             <div>SHA256: 7f8a9e6b4c1d2e3f5a0b8c9d1e2f3a4b5c6d7e8f9a0b1c2d</div>

@@ -140,7 +140,7 @@ export function WhatIfSimulator({
             <span className="text-xs font-bold text-stone-800 uppercase tracking-wider">
               Simulasi Modifikasi Faktor Risiko:
             </span>
-            <span className="text-xs text-teal-800 bg-teal-50 px-2.5 py-1 rounded-md border border-teal-200/80 font-semibold font-mono">
+            <span className="text-xs text-rose-900 bg-rose-50 px-2.5 py-1 rounded-md border border-rose-200 font-semibold font-mono">
               Respon Instan (&lt;150ms)
             </span>
           </div>
@@ -149,10 +149,10 @@ export function WhatIfSimulator({
           <div className="space-y-3">
             <div className="flex justify-between items-center text-sm">
               <span className="text-stone-900 font-semibold flex items-center space-x-2">
-                {isSmoker ? <Cigarette className="h-4 w-4 text-amber-700" /> : <CigaretteOff className="h-4 w-4 text-teal-700" />}
+                {isSmoker ? <Cigarette className="h-4 w-4 text-amber-700" /> : <CigaretteOff className="h-4 w-4 text-emerald-700" />}
                 <span>Program Berhenti Merokok (Smoking Cessation)</span>
               </span>
-              <span className={`text-xs font-bold px-2 py-0.5 rounded-md ${!simSmoker ? 'text-teal-800 bg-teal-50 border border-teal-200' : 'text-stone-600 bg-stone-200/60'}`}>
+              <span className={`text-xs font-bold px-2 py-0.5 rounded-md ${!simSmoker ? 'text-emerald-950 bg-emerald-50 border border-emerald-300' : 'text-stone-600 bg-stone-200/60'}`}>
                 {simSmoker ? 'Aktif Merokok' : 'Bebas Asap Rokok'}
               </span>
             </div>
@@ -162,7 +162,7 @@ export function WhatIfSimulator({
                 onClick={() => setSimSmoker(false)}
                 className={`flex-1 py-2.5 px-4 rounded-xl text-xs sm:text-sm font-bold border transition ${
                   !simSmoker 
-                    ? 'bg-teal-700 text-white border-teal-700 shadow-2xs' 
+                    ? 'bg-emerald-700 text-white border-emerald-700 shadow-2xs' 
                     : 'bg-white text-stone-700 border-stone-300 hover:bg-stone-50'
                 }`}
               >
@@ -205,7 +205,7 @@ export function WhatIfSimulator({
               aria-valuemax={0}
               aria-valuenow={sbpDelta}
               aria-valuetext={`${simSystolicBp} milimeter air raksa`}
-              className="w-full accent-teal-700 cursor-pointer h-2.5 bg-stone-200 rounded-lg"
+              className="w-full accent-rose-700 cursor-pointer h-2.5 bg-stone-200 rounded-lg"
             />
             <div className="flex justify-between text-xs text-stone-600 font-medium">
               <span>Baseline ({systolicBp} mmHg)</span>
@@ -237,7 +237,7 @@ export function WhatIfSimulator({
               aria-valuemax={0}
               aria-valuenow={cholDelta}
               aria-valuetext={`${simTotalChol} miligram per desiliter`}
-              className="w-full accent-teal-700 cursor-pointer h-2.5 bg-stone-200 rounded-lg"
+              className="w-full accent-rose-700 cursor-pointer h-2.5 bg-stone-200 rounded-lg"
             />
             <div className="flex justify-between text-xs text-stone-600 font-medium">
               <span>Baseline ({totalCholesterol} mg/dL)</span>
@@ -253,7 +253,7 @@ export function WhatIfSimulator({
                 <Flame className="h-4 w-4 text-stone-500" />
                 <span>HDL Kolesterol Baik (Aktivitas Fisik Rutin)</span>
               </span>
-              <span className="text-xs font-mono font-bold text-teal-800 bg-white px-2.5 py-1 rounded-md border border-stone-200">
+              <span className="text-xs font-mono font-bold text-emerald-800 bg-white px-2.5 py-1 rounded-md border border-stone-200">
                 {simHdlChol} mg/dL {hdlDelta > 0 && `(+${hdlDelta} mg/dL)`}
               </span>
             </div>
@@ -269,7 +269,7 @@ export function WhatIfSimulator({
               aria-valuemax={25}
               aria-valuenow={hdlDelta}
               aria-valuetext={`${simHdlChol} miligram per desiliter`}
-              className="w-full accent-teal-700 cursor-pointer h-2.5 bg-stone-200 rounded-lg"
+              className="w-full accent-emerald-700 cursor-pointer h-2.5 bg-stone-200 rounded-lg"
             />
             <div className="flex justify-between text-xs text-stone-600 font-medium">
               <span>Baseline ({hdlCholesterol} mg/dL)</span>
@@ -305,14 +305,14 @@ export function WhatIfSimulator({
               {/* Simulated */}
               <div className={`p-4 rounded-xl border space-y-1.5 shadow-2xs transition-all ${
                 simFramingham.riskPercent10Yr < baselineFramingham.riskPercent10Yr
-                  ? 'bg-teal-50/80 border-teal-300 ring-1 ring-teal-500/20'
+                  ? 'bg-emerald-50/90 border-emerald-300 ring-1 ring-emerald-500/20'
                   : 'bg-white border-stone-200'
               }`}>
-                <span className="text-xs text-teal-800 block font-bold">HASIL PROYEKSI</span>
-                <div className="text-3xl font-black font-mono text-teal-800 tabular-nums">
+                <span className="text-xs text-emerald-950 block font-bold">HASIL PROYEKSI</span>
+                <div className="text-3xl font-black font-mono text-emerald-900 tabular-nums">
                   {simFramingham.riskPercent10Yr}%
                 </div>
-                <div className="text-xs text-teal-800 font-medium">
+                <div className="text-xs text-emerald-800 font-medium">
                   WHO: Tier {simWho.riskTier}
                 </div>
               </div>
@@ -321,26 +321,26 @@ export function WhatIfSimulator({
 
             {/* The Reward Metric Delta Badge */}
             {absoluteReduction > 0 ? (
-              <div className="bg-teal-50/70 border border-teal-200/80 rounded-xl p-4 space-y-3 text-sm shadow-2xs">
-                <div className="flex items-center space-x-2 text-teal-950 font-bold">
-                  <TrendingDown className="h-4 w-4 text-teal-700" />
+              <div className="bg-emerald-50/80 border border-emerald-200 rounded-xl p-4 space-y-3 text-sm shadow-2xs">
+                <div className="flex items-center space-x-2 text-emerald-950 font-bold">
+                  <TrendingDown className="h-4 w-4 text-emerald-700" />
                   <span>Potensi Keuntungan Klinis Nyata:</span>
                 </div>
                 <div className="grid grid-cols-2 gap-2.5 text-stone-800">
-                  <div className="bg-white p-3 rounded-lg border border-teal-100 shadow-2xs">
-                    <span className="text-xs text-teal-800 font-semibold block">Penurunan Absolut</span>
-                    <span className="text-xl font-black font-mono text-teal-800 tabular-nums">-{absoluteReduction}%</span>
+                  <div className="bg-white p-3 rounded-lg border border-emerald-100 shadow-2xs">
+                    <span className="text-xs text-emerald-950 font-semibold block">Penurunan Absolut</span>
+                    <span className="text-xl font-black font-mono text-emerald-900 tabular-nums">-{absoluteReduction}%</span>
                   </div>
-                  <div className="bg-white p-3 rounded-lg border border-teal-100 shadow-2xs">
-                    <span className="text-xs text-teal-800 font-semibold block">Penurunan Relatif</span>
-                    <span className="text-xl font-black font-mono text-teal-800 tabular-nums">-{relativeReduction}%</span>
+                  <div className="bg-white p-3 rounded-lg border border-emerald-100 shadow-2xs">
+                    <span className="text-xs text-emerald-950 font-semibold block">Penurunan Relatif</span>
+                    <span className="text-xl font-black font-mono text-emerald-900 tabular-nums">-{relativeReduction}%</span>
                   </div>
                 </div>
                 
                 {/* Vascular Age Motivational Message */}
-                <div className="p-3 bg-white/90 rounded-lg border border-teal-100 flex items-start gap-2.5">
+                <div className="p-3 bg-white/90 rounded-lg border border-emerald-100 flex items-start gap-2.5">
                   <Award className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
-                  <p className="text-xs sm:text-sm text-teal-950 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-emerald-950 leading-relaxed">
                     Setara dengan memulihkan usia elastisitas pembuluh darah (usia vaskular) sekitar <strong>{vascularAgeSaved} tahun lebih muda</strong>.
                   </p>
                 </div>
@@ -361,7 +361,7 @@ export function WhatIfSimulator({
               <Info className="w-4 h-4 text-stone-400" />
               Sesuai Panduan Konseling K3
             </span>
-            <span className="text-teal-800 font-bold">EBM Guidelines</span>
+            <span className="text-rose-900 font-bold">EBM Guidelines</span>
           </div>
 
         </div>

@@ -77,15 +77,15 @@ function LoginFormContent() {
   const getPersonaIcon = (role: DemoUser['role']) => {
     switch (role) {
       case 'OCCUPATIONAL_DOCTOR':
-        return <Stethoscope className="w-5 h-5 text-teal-700" />;
+        return <Stethoscope className="w-5 h-5 text-rose-700" />;
       case 'PARAMEDIC':
-        return <HeartPulse className="w-5 h-5 text-teal-600" />;
+        return <HeartPulse className="w-5 h-5 text-emerald-700" />;
       case 'HSSE_OFFICER':
         return <ShieldCheck className="w-5 h-5 text-amber-700" />;
       case 'WORKER':
         return <HardHat className="w-5 h-5 text-stone-700" />;
       default:
-        return <Activity className="w-5 h-5 text-teal-700" />;
+        return <Activity className="w-5 h-5 text-rose-700" />;
     }
   };
 
@@ -96,15 +96,15 @@ function LoginFormContent() {
         {/* Brand Header */}
         <div className="text-center space-y-3">
           <Link href="/" className="inline-flex items-center gap-2.5 group">
-            <div className="w-12 h-12 rounded-2xl bg-teal-700 flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
+            <div className="w-12 h-12 rounded-2xl bg-rose-700 flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
               <Activity className="w-6 h-6 text-white animate-heartbeat" />
             </div>
             <div className="text-left">
               <div className="flex items-center gap-2">
                 <span className="font-extrabold text-2xl tracking-tight text-stone-900">
-                  Cardio<span className="text-teal-700">Work</span>
+                  Cardio<span className="text-rose-700">Work</span>
                 </span>
-                <span className="bg-teal-50 text-teal-800 text-xs font-semibold px-2 py-0.5 rounded-full border border-teal-200">
+                <span className="bg-rose-50 text-rose-800 text-xs font-semibold px-2 py-0.5 rounded-full border border-rose-200">
                   CDSS AI
                 </span>
               </div>
@@ -138,12 +138,12 @@ function LoginFormContent() {
           <div className="lg:col-span-7 bg-white rounded-2xl border border-stone-200 shadow-sm p-6 sm:p-7 space-y-5">
             <div className="flex items-center justify-between border-b border-stone-100 pb-3">
               <div className="flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-teal-700" />
+                <Sparkles className="w-4 h-4 text-rose-700" />
                 <h3 className="font-bold text-stone-900 text-base">
                   1-Klik Masuk Berdasarkan Peran (Demo Persona)
                 </h3>
               </div>
-              <span className="text-xs bg-teal-50 text-teal-800 font-semibold px-2.5 py-1 rounded-full border border-teal-200">
+              <span className="text-xs bg-rose-50 text-rose-800 font-semibold px-2.5 py-1 rounded-full border border-rose-200">
                 Pilih Profil
               </span>
             </div>
@@ -162,8 +162,8 @@ function LoginFormContent() {
                       disabled={isLoading}
                       className={`w-full text-left p-4 rounded-xl border transition-all flex items-start gap-4 group ${
                         isSelected
-                          ? 'bg-teal-50 border-teal-400 ring-2 ring-teal-500/20 shadow-xs'
-                          : 'bg-stone-50/70 border-stone-200 hover:bg-white hover:border-teal-300 hover:shadow-xs'
+                          ? 'bg-rose-50 border-rose-400 ring-2 ring-rose-500/20 shadow-xs'
+                          : 'bg-stone-50/70 border-stone-200 hover:bg-white hover:border-rose-300 hover:shadow-xs'
                       }`}
                     >
                       <div className="p-2.5 rounded-xl bg-white border border-stone-200 shadow-2xs group-hover:scale-105 transition-transform">
@@ -172,7 +172,7 @@ function LoginFormContent() {
 
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between gap-2">
-                          <span className="font-bold text-stone-900 text-sm group-hover:text-teal-800 transition-colors">
+                          <span className="font-bold text-stone-900 text-sm group-hover:text-rose-800 transition-colors">
                             {persona.name}
                           </span>
                           <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-white text-stone-700 border border-stone-200 shrink-0">
@@ -192,7 +192,7 @@ function LoginFormContent() {
                           <span className="text-stone-500">
                             Ruang Kerja Utama: <strong className="text-stone-800">{persona.defaultPath}</strong>
                           </span>
-                          <span className="font-semibold text-teal-700 group-hover:translate-x-0.5 transition-transform inline-flex items-center gap-1">
+                          <span className="font-semibold text-rose-700 group-hover:translate-x-0.5 transition-transform inline-flex items-center gap-1">
                             Masuk sebagai {persona.badge} &rarr;
                           </span>
                         </div>
@@ -237,7 +237,7 @@ function LoginFormContent() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="contoh: dokter@cardiowork.id"
-                      className="w-full pl-9 pr-3 py-2 text-sm bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-teal-700/20 focus:border-teal-700 transition"
+                      className="w-full pl-9 pr-3 py-2 text-sm bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-rose-700/20 focus:border-rose-700 transition"
                     />
                   </div>
                 </div>
@@ -255,7 +255,7 @@ function LoginFormContent() {
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="••••••••"
-                      className="w-full pl-9 pr-3 py-2 text-sm bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-teal-700/20 focus:border-teal-700 transition"
+                      className="w-full pl-9 pr-3 py-2 text-sm bg-stone-50 border border-stone-200 rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-rose-700/20 focus:border-rose-700 transition"
                     />
                   </div>
                   <span className="text-[11px] text-stone-500 mt-1 block">
@@ -280,7 +280,7 @@ function LoginFormContent() {
                         }}
                         className={`text-[11px] font-medium px-2 py-1 rounded-lg border transition ${
                           email === p.email
-                            ? 'bg-teal-50 border-teal-300 text-teal-800 font-bold'
+                            ? 'bg-rose-50 border-rose-300 text-rose-800 font-bold'
                             : 'bg-stone-100 border-stone-200 text-stone-600 hover:bg-stone-200'
                         }`}
                       >
@@ -293,7 +293,7 @@ function LoginFormContent() {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full mt-2 py-2.5 px-4 rounded-xl bg-teal-800 hover:bg-teal-900 text-white font-bold text-sm shadow-sm transition flex items-center justify-center gap-2 disabled:opacity-50"
+                  className="w-full mt-2 py-2.5 px-4 rounded-xl bg-rose-700 hover:bg-rose-800 text-white font-bold text-sm shadow-sm transition flex items-center justify-center gap-2 disabled:opacity-50"
                 >
                   {isLoading ? (
                     <>
@@ -313,7 +313,7 @@ function LoginFormContent() {
             {/* Compliance & Security Box */}
             <div className="p-4 rounded-2xl bg-stone-100/80 border border-stone-200 text-xs text-stone-600 space-y-2">
               <div className="flex items-center gap-2 font-bold text-stone-800">
-                <ShieldCheck className="w-4 h-4 text-teal-700" />
+                <ShieldCheck className="w-4 h-4 text-rose-700" />
                 <span>Kepatuhan Regulasi & Privasi Data</span>
               </div>
               <p className="leading-relaxed">
@@ -344,7 +344,7 @@ export default function LoginPage() {
     <Suspense fallback={
       <div className="min-h-screen bg-medical-grid flex items-center justify-center p-8">
         <div className="flex items-center gap-3 text-stone-600 text-sm">
-          <Activity className="w-5 h-5 text-teal-700 animate-spin" />
+          <Activity className="w-5 h-5 text-rose-700 animate-spin" />
           <span>Memuat antarmuka verifikasi...</span>
         </div>
       </div>

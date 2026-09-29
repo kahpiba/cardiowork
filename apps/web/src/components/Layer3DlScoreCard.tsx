@@ -86,7 +86,7 @@ export function Layer3DlScoreCard({
   const isAnomalous = anomalyScore >= anomalyThreshold;
 
   let riskTier: 'LOW' | 'MODERATE' | 'HIGH' | 'CRITICAL' = 'LOW';
-  let badgeColor = 'bg-teal-50 text-teal-900 border-teal-300';
+  let badgeColor = 'bg-emerald-50 text-emerald-950 border-emerald-300';
 
   if (fusionPercent >= 40.0) {
     riskTier = 'CRITICAL';
@@ -137,7 +137,7 @@ export function Layer3DlScoreCard({
             </span>
           </div>
           <div>
-            <div className="text-4xl font-black font-mono text-teal-900 tabular-nums">
+            <div className="text-4xl font-black font-mono text-rose-950 tabular-nums">
               {fusionPercent}%
             </div>
             <div className="text-xs text-stone-600 mt-1 flex items-center space-x-1.5">
@@ -157,7 +157,7 @@ export function Layer3DlScoreCard({
             <span className={`text-xs font-bold px-2.5 py-0.5 rounded-full border ${
               unfitPercent >= 25.0 ? 'bg-rose-50 text-rose-900 border-rose-300' :
               unfitPercent >= 10.0 ? 'bg-amber-50 text-amber-900 border-amber-300' :
-              'bg-teal-50 text-teal-900 border-teal-300'
+              'bg-emerald-50 text-emerald-950 border-emerald-300'
             }`}>
               {unfitPercent >= 25.0 ? 'RISIKO MEDEVAC TINGGI' : unfitPercent >= 10.0 ? 'RESTRIKSI KERJA' : 'OPERASIONAL AMAN'}
             </span>
@@ -180,7 +180,7 @@ export function Layer3DlScoreCard({
           <div className="flex justify-between items-start">
             <span className="text-sm font-bold text-stone-800">Autoencoder Anomaly MSE</span>
             <span className={`text-xs font-bold px-2.5 py-0.5 rounded-full border ${
-              isAnomalous ? 'bg-rose-50 text-rose-900 border-rose-300 font-bold' : 'bg-teal-50 text-teal-900 border-teal-300'
+              isAnomalous ? 'bg-rose-50 text-rose-900 border-rose-300 font-bold' : 'bg-emerald-50 text-emerald-950 border-emerald-300'
             }`}>
               {isAnomalous ? 'ANOMALI AKUT' : 'POLA FISIOLOGIS WAJAR'}
             </span>
@@ -205,7 +205,7 @@ export function Layer3DlScoreCard({
       <div className="pt-1">
         <button 
           onClick={() => setShowArchitectureDetails(!showArchitectureDetails)}
-          className="text-sm text-teal-800 hover:text-teal-900 flex items-center space-x-1.5 transition font-bold"
+          className="text-sm text-rose-800 hover:text-rose-900 flex items-center space-x-1.5 transition font-bold"
         >
           <Layers className="h-4 w-4" />
           <span>{showArchitectureDetails ? 'Sembunyikan Spesifikasi Arsitektur Neural Network' : 'Tampilkan Spesifikasi Arsitektur PyTorch & Bobot Fusi'}</span>

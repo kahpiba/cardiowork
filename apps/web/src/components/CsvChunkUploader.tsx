@@ -102,7 +102,7 @@ export function CsvChunkUploader({
   return (
     <div className="bg-white border border-stone-200 rounded-2xl p-6 shadow-xs space-y-4">
       <div className="flex items-center space-x-3 border-b border-stone-100 pb-3">
-        <div className="h-10 w-10 rounded-xl bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-800 shadow-2xs">
+        <div className="h-10 w-10 rounded-xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-800 shadow-2xs">
           <UploadCloud className="h-5 w-5" />
         </div>
         <div>
@@ -112,7 +112,7 @@ export function CsvChunkUploader({
       </div>
 
       {/* Upload Zone */}
-      <div className="border-2 border-dashed border-stone-300 hover:border-teal-600 rounded-xl p-8 text-center cursor-pointer transition bg-stone-50/50 hover:bg-teal-50/20 relative group">
+      <div className="border-2 border-dashed border-stone-300 hover:border-rose-600 rounded-xl p-8 text-center cursor-pointer transition bg-stone-50/50 hover:bg-rose-50/20 relative group">
         <input 
           type="file" 
           accept=".csv" 
@@ -122,11 +122,11 @@ export function CsvChunkUploader({
         />
         <div className="flex flex-col items-center justify-center space-y-2 pointer-events-none">
           {isProcessing ? (
-            <Loader2 className="h-8 w-8 text-teal-700 animate-spin" />
+            <Loader2 className="h-8 w-8 text-rose-700 animate-spin" />
           ) : (
-            <FileText className="h-8 w-8 text-stone-400 group-hover:text-teal-700 transition-colors" />
+            <FileText className="h-8 w-8 text-stone-400 group-hover:text-rose-700 transition-colors" />
           )}
-          <span className="text-xs text-stone-700 font-semibold group-hover:text-teal-800 transition-colors">
+          <span className="text-xs text-stone-700 font-semibold group-hover:text-rose-800 transition-colors">
             {isProcessing ? 'Sedang memproses batch chunking...' : 'Klik atau seret berkas CSV ke sini'}
           </span>
           <span className="text-xs text-stone-500">
@@ -140,11 +140,11 @@ export function CsvChunkUploader({
         <div className="space-y-1.5">
           <div className="flex justify-between text-xs text-stone-600 font-mono">
             <span>{uploadedRows} / {totalRows} baris</span>
-            <span className="font-bold text-teal-800">{progress}%</span>
+            <span className="font-bold text-rose-800">{progress}%</span>
           </div>
           <div className="w-full bg-stone-100 h-2.5 rounded-full overflow-hidden border border-stone-200">
             <div 
-              className="bg-teal-700 h-full transition-all duration-300"
+              className="bg-rose-700 h-full transition-all duration-300"
               style={{ width: `${progress}%` }}
             />
           </div>

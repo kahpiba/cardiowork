@@ -27,13 +27,13 @@ export const EducationalHealthGuide: React.FC = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-stone-100 pb-4">
         <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-xl bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-800">
+          <div className="w-9 h-9 rounded-xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-800">
             <BookOpen className="w-5 h-5" />
           </div>
           <div>
             <h3 className="font-extrabold text-sm text-stone-900 tracking-tight flex items-center gap-2">
               <span>Pusat Edukasi & Interpretasi Kesehatan Kardiovaskular K3</span>
-              <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-teal-50 text-teal-800 border border-teal-200">
+              <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-rose-50 text-rose-800 border border-rose-200">
                 Panduan Medis
               </span>
             </h3>
@@ -49,7 +49,7 @@ export const EducationalHealthGuide: React.FC = () => {
             onClick={() => setActiveTab('BP')}
             className={`px-3 py-1.5 rounded-lg transition-all ${
               activeTab === 'BP' 
-                ? 'bg-white text-teal-800 shadow-2xs font-bold border border-stone-200' 
+                ? 'bg-white text-rose-900 shadow-2xs font-bold border border-stone-200' 
                 : 'text-stone-600 hover:text-stone-900'
             }`}
           >
@@ -59,7 +59,7 @@ export const EducationalHealthGuide: React.FC = () => {
             onClick={() => setActiveTab('LIPID')}
             className={`px-3 py-1.5 rounded-lg transition-all ${
               activeTab === 'LIPID' 
-                ? 'bg-white text-teal-800 shadow-2xs font-bold border border-stone-200' 
+                ? 'bg-white text-rose-900 shadow-2xs font-bold border border-stone-200' 
                 : 'text-stone-600 hover:text-stone-900'
             }`}
           >
@@ -69,7 +69,7 @@ export const EducationalHealthGuide: React.FC = () => {
             onClick={() => setActiveTab('RED_FLAGS')}
             className={`px-3 py-1.5 rounded-lg transition-all ${
               activeTab === 'RED_FLAGS' 
-                ? 'bg-white text-teal-800 shadow-2xs font-bold border border-stone-200' 
+                ? 'bg-white text-rose-900 shadow-2xs font-bold border border-stone-200' 
                 : 'text-stone-600 hover:text-stone-900'
             }`}
           >
@@ -79,7 +79,7 @@ export const EducationalHealthGuide: React.FC = () => {
             onClick={() => setActiveTab('LIFESTYLE')}
             className={`px-3 py-1.5 rounded-lg transition-all ${
               activeTab === 'LIFESTYLE' 
-                ? 'bg-white text-teal-800 shadow-2xs font-bold border border-stone-200' 
+                ? 'bg-white text-rose-900 shadow-2xs font-bold border border-stone-200' 
                 : 'text-stone-600 hover:text-stone-900'
             }`}
           >
@@ -102,10 +102,10 @@ export const EducationalHealthGuide: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
-            <div className="p-3.5 rounded-xl border border-teal-200 bg-teal-50/50 space-y-1.5">
+            <div className="p-3.5 rounded-xl border border-emerald-300 bg-emerald-50/60 space-y-1.5">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-teal-800 uppercase tracking-wider">Optimal / Normal</span>
-                <span className="text-xs font-mono font-bold text-teal-900">&lt;120 / &lt;80</span>
+                <span className="text-xs font-bold text-emerald-950 uppercase tracking-wider">Optimal / Normal</span>
+                <span className="text-xs font-mono font-bold text-emerald-900">&lt;120 / &lt;80</span>
               </div>
               <div className="text-xs font-bold text-stone-900">Kondisi Ideal Kerja</div>
               <p className="text-xs text-stone-600 leading-snug">
@@ -175,8 +175,8 @@ export const EducationalHealthGuide: React.FC = () => {
 
             <div className="p-3.5 bg-stone-50 border border-stone-200 rounded-xl space-y-1.5">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-teal-800">HDL ("Kolesterol Baik")</span>
-                <span className="text-xs font-mono font-bold text-teal-800">&gt;40 (P) / &gt;50 (W)</span>
+                <span className="text-xs font-bold text-emerald-800">HDL ("Kolesterol Baik")</span>
+                <span className="text-xs font-mono font-bold text-emerald-800">&gt;40 (P) / &gt;50 (W)</span>
               </div>
               <p className="text-xs text-stone-600 leading-snug">
                 Mengangkut kelebihan kolesterol kembali ke hati (*reverse cholesterol transport*). Semakin tinggi, semakin protektif.
@@ -229,7 +229,7 @@ export const EducationalHealthGuide: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             <div className="p-3.5 rounded-xl border border-stone-200 bg-stone-50 space-y-1.5">
               <div className="text-xs font-bold text-stone-900 flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-teal-700" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700" />
                 <span>Diet DASH Pekerja</span>
               </div>
               <p className="text-xs text-stone-600 leading-relaxed">

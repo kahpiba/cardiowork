@@ -60,7 +60,7 @@ export default function PopulationPage() {
   const pieData = POPULATION_SUMMARY.riskTierDistribution.map(r => ({
     name: r.label,
     value: r.count,
-    color: r.label.includes('Rendah') ? '#0F766E' :
+    color: r.label.includes('Rendah') ? '#059669' :
            r.label.includes('Sedang') ? '#D97706' :
            r.label.includes('Tinggi') ? '#C2410C' : '#9F1239'
   }));
@@ -72,7 +72,7 @@ export default function PopulationPage() {
       <div>
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-stone-600 hover:text-teal-800 transition"
+          className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-stone-600 hover:text-rose-800 transition"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Kembali ke Beranda</span>
@@ -83,7 +83,7 @@ export default function PopulationPage() {
       <div className="bg-white border border-stone-200/90 rounded-2xl p-6 sm:p-8 shadow-xs relative overflow-hidden">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-teal-800 flex items-center justify-center text-white shadow-sm">
+            <div className="w-12 h-12 rounded-2xl bg-rose-700 flex items-center justify-center text-white shadow-sm">
               <Users className="w-6 h-6" />
             </div>
             <div>
@@ -91,7 +91,7 @@ export default function PopulationPage() {
                 <h1 className="text-xl sm:text-2xl font-black tracking-tight text-stone-900">
                   Dashboard Kesehatan Populasi Pekerja
                 </h1>
-                <span className="bg-teal-50 text-teal-800 text-xs font-bold px-3 py-1 rounded-full border border-teal-200 shadow-2xs">
+                <span className="bg-rose-50 text-rose-800 text-xs font-bold px-3 py-1 rounded-full border border-rose-200 shadow-2xs">
                   Enterprise Health Analytics K3
                 </span>
               </div>
@@ -111,10 +111,10 @@ export default function PopulationPage() {
             </button>
             <Link
               href="/model-lab"
-              className="px-4 py-2 rounded-xl bg-teal-50 hover:bg-teal-100 text-teal-800 border border-teal-200 text-xs sm:text-sm font-bold flex items-center gap-2 transition-colors shadow-2xs"
+              className="px-4 py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-200 text-xs sm:text-sm font-bold flex items-center gap-2 transition-colors shadow-2xs"
             >
               <span>Model Lab & SHAP</span>
-              <ArrowRight className="w-4 h-4 text-teal-700" />
+              <ArrowRight className="w-4 h-4 text-rose-700" />
             </Link>
           </div>
         </div>
@@ -189,14 +189,14 @@ export default function PopulationPage() {
         <div className="bg-white border border-stone-200/90 rounded-2xl p-5 sm:p-6 shadow-xs">
           <div className="flex items-center justify-between text-stone-500 text-xs mb-2.5">
             <span className="font-bold flex items-center gap-2 text-stone-800 text-sm">
-              <CheckCircle2 className="w-4 h-4 text-teal-700" />
+              <CheckCircle2 className="w-4 h-4 text-emerald-700" />
               Kelayakan Penuh (Fit)
             </span>
-            <span className="font-mono text-xs bg-teal-50 text-teal-800 border border-teal-200 px-2 py-0.5 rounded font-bold">
+            <span className="font-mono text-xs bg-emerald-50 text-emerald-950 border border-emerald-300 px-2 py-0.5 rounded font-bold">
               59.9%
             </span>
           </div>
-          <div className="text-3xl font-black text-teal-800 font-mono tabular-nums">
+          <div className="text-3xl font-black text-emerald-950 font-mono tabular-nums">
             599 <span className="text-sm text-stone-500 font-normal">Kru</span>
           </div>
           <div className="text-xs sm:text-sm text-stone-500 mt-2">
@@ -256,7 +256,7 @@ export default function PopulationPage() {
         <div className="lg:col-span-7 bg-white border border-stone-200/90 rounded-2xl p-6 shadow-xs space-y-3.5">
           <div className="flex items-center justify-between">
             <h3 className="font-bold text-base text-stone-900 flex items-center gap-2">
-              <Building2 className="w-4 h-4 text-teal-700" />
+              <Building2 className="w-4 h-4 text-stone-700" />
               Distribusi Risiko Kardiovaskular per Departemen
             </h3>
             <span className="text-xs text-stone-500 font-medium">Tingkat Bahaya K3</span>
@@ -276,7 +276,7 @@ export default function PopulationPage() {
                   height={32} 
                   formatter={(value) => <span className="text-xs text-stone-700 font-medium">{value}</span>} 
                 />
-                <Bar dataKey="Rendah" stackId="a" fill="#0F766E" />
+                <Bar dataKey="Rendah" stackId="a" fill="#059669" />
                 <Bar dataKey="Sedang" stackId="a" fill="#D97706" />
                 <Bar dataKey="Tinggi" stackId="a" fill="#C2410C" />
                 <Bar dataKey="Kritis" stackId="a" fill="#9F1239" radius={[4, 4, 0, 0]} />
@@ -314,7 +314,7 @@ export default function PopulationPage() {
                 className={`p-5 rounded-xl border ${
                   isRotation 
                     ? 'bg-rose-50/60 border-rose-200' 
-                    : 'bg-teal-50/60 border-teal-200'
+                    : 'bg-emerald-50/60 border-emerald-200'
                 }`}
               >
                 <div className="flex items-center justify-between">
@@ -327,7 +327,7 @@ export default function PopulationPage() {
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-4 pt-3.5 border-t border-stone-200/80">
                   <div className="bg-white p-3 rounded-lg text-center border border-stone-200 shadow-2xs">
                     <span className="text-xs text-stone-500 block font-semibold">Risiko Tinggi</span>
-                    <strong className={`text-base font-bold tabular-nums ${isRotation ? 'text-rose-700' : 'text-teal-800'}`}>
+                    <strong className={`text-base font-bold tabular-nums ${isRotation ? 'text-rose-700' : 'text-emerald-800'}`}>
                       {shift.highCvdRiskPercent}%
                     </strong>
                   </div>
@@ -345,7 +345,7 @@ export default function PopulationPage() {
                   </div>
                   <div className="bg-white p-3 rounded-lg text-center border border-stone-200 shadow-2xs">
                     <span className="text-xs text-stone-500 block font-semibold">Hari Gejala</span>
-                    <strong className={`text-base font-bold tabular-nums ${isRotation ? 'text-rose-700' : 'text-teal-800'}`}>
+                    <strong className={`text-base font-bold tabular-nums ${isRotation ? 'text-rose-700' : 'text-emerald-800'}`}>
                       {shift.complaintDaysPercent}%
                     </strong>
                   </div>
@@ -362,7 +362,7 @@ export default function PopulationPage() {
           <div>
             <div className="flex items-center gap-2.5 flex-wrap">
               <h3 className="font-bold text-base text-stone-900 flex items-center gap-2">
-                <FileSpreadsheet className="w-4 h-4 text-teal-800" />
+                <FileSpreadsheet className="w-4 h-4 text-rose-800" />
                 Matriks Risiko Kardiovaskular Terpadu per Departemen
               </h3>
               <span className="bg-amber-50 text-amber-900 text-xs font-bold px-2.5 py-0.5 rounded-full border border-amber-200 flex items-center gap-1.5 shadow-2xs">
@@ -382,7 +382,7 @@ export default function PopulationPage() {
               placeholder="Cari departemen..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full bg-stone-50 border border-stone-200 rounded-xl pl-9 pr-3 py-2 text-xs sm:text-sm text-stone-900 focus:outline-none focus:border-teal-700 focus:bg-white shadow-2xs transition"
+              className="w-full bg-stone-50 border border-stone-200 rounded-xl pl-9 pr-3 py-2 text-xs sm:text-sm text-stone-900 focus:outline-none focus:border-rose-700 focus:bg-white shadow-2xs transition"
             />
           </div>
         </div>
@@ -394,11 +394,11 @@ export default function PopulationPage() {
                 <th className="p-3.5">Departemen</th>
                 <th className="p-3.5 text-center">Hazard</th>
                 <th className="p-3.5 text-right">Total</th>
-                <th className="p-3.5 text-right text-teal-800">Rendah</th>
+                <th className="p-3.5 text-right text-emerald-800">Rendah</th>
                 <th className="p-3.5 text-right text-amber-800">Sedang</th>
                 <th className="p-3.5 text-right text-stone-800">Tinggi</th>
                 <th className="p-3.5 text-right text-rose-800">Kritis</th>
-                <th className="p-3.5 text-right text-teal-800">Fit</th>
+                <th className="p-3.5 text-right text-emerald-800">Fit</th>
                 <th className="p-3.5 text-right">Catatan</th>
                 <th className="p-3.5 text-right text-rose-800">Unfit</th>
                 <th className="p-3.5 text-right">Perokok</th>
@@ -416,7 +416,7 @@ export default function PopulationPage() {
                     <span className={`text-xs font-bold px-2.5 py-0.5 rounded-full border ${
                       d.hazardLevel === 'HIGH' ? 'bg-rose-50 border-rose-200 text-rose-800' :
                       d.hazardLevel === 'MEDIUM' ? 'bg-amber-50 border-amber-200 text-amber-900' :
-                      'bg-teal-50 border-teal-200 text-teal-800'
+                      'bg-emerald-50 border-emerald-300 text-emerald-950'
                     }`}>
                       {d.hazardLevel}
                     </span>
@@ -424,7 +424,7 @@ export default function PopulationPage() {
                   <td className="p-3.5 text-right font-bold text-stone-900 tabular-nums">{d.totalWorkers.value}</td>
                   
                   {/* Suppressed columns */}
-                  <td className={`p-3.5 text-right tabular-nums ${d.lowRisk.isSuppressed ? 'text-amber-800 font-bold bg-amber-50' : 'text-teal-800 font-bold'}`} title={d.lowRisk.isSuppressed ? 'Disupresi karena N < 5' : ''}>
+                  <td className={`p-3.5 text-right tabular-nums ${d.lowRisk.isSuppressed ? 'text-amber-800 font-bold bg-amber-50' : 'text-emerald-800 font-bold'}`} title={d.lowRisk.isSuppressed ? 'Disupresi karena N < 5' : ''}>
                     {d.lowRisk.value}
                   </td>
                   <td className="p-3.5 text-right text-amber-800 font-bold tabular-nums">{d.moderateRisk.value}</td>
@@ -434,7 +434,7 @@ export default function PopulationPage() {
                     {d.criticalRisk.value}
                   </td>
 
-                  <td className="p-3.5 text-right text-teal-800 font-bold tabular-nums">{d.fitCount.value}</td>
+                  <td className="p-3.5 text-right text-emerald-800 font-bold tabular-nums">{d.fitCount.value}</td>
                   <td className={`p-3.5 text-right tabular-nums ${d.fitRestrictionCount.isSuppressed ? 'text-amber-800 font-bold bg-amber-50' : 'text-amber-800 font-bold'}`} title={d.fitRestrictionCount.isSuppressed ? 'Disupresi karena N < 5' : ''}>
                     {d.fitRestrictionCount.value}
                   </td>

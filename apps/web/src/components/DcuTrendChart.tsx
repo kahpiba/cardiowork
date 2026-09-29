@@ -103,7 +103,7 @@ export function DcuTrendChart({ records }: DcuTrendChartProps) {
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-200/60 pb-5">
         <div>
           <div className="flex items-center space-x-2.5">
-            <Activity className="h-5 w-5 text-teal-700" />
+            <Activity className="h-5 w-5 text-rose-700" />
             <h2 className="font-bold text-stone-900 text-base sm:text-lg tracking-tight">
               Tren Hemodinamik Harian — Daily Check-Up (DCU 30 Hari)
             </h2>
@@ -128,7 +128,7 @@ export function DcuTrendChart({ records }: DcuTrendChartProps) {
             <button
               onClick={() => setActiveMetricTab('hemodynamics')}
               className={`px-3.5 py-1.5 rounded-lg transition font-bold ${
-                activeMetricTab === 'hemodynamics' ? 'bg-white text-teal-800 shadow-2xs' : 'text-stone-600 hover:text-stone-900'
+                activeMetricTab === 'hemodynamics' ? 'bg-white text-rose-900 shadow-2xs' : 'text-stone-600 hover:text-stone-900'
               }`}
             >
               Tekanan Darah & Nadi
@@ -136,7 +136,7 @@ export function DcuTrendChart({ records }: DcuTrendChartProps) {
             <button
               onClick={() => setActiveMetricTab('wellness')}
               className={`px-3.5 py-1.5 rounded-lg transition font-bold ${
-                activeMetricTab === 'wellness' ? 'bg-white text-teal-800 shadow-2xs' : 'text-stone-600 hover:text-stone-900'
+                activeMetricTab === 'wellness' ? 'bg-white text-rose-900 shadow-2xs' : 'text-stone-600 hover:text-stone-900'
               }`}
             >
               SpO2 & Jam Tidur
@@ -153,7 +153,7 @@ export function DcuTrendChart({ records }: DcuTrendChartProps) {
             {avgSbp} / {avgDbp} <span className="text-xs text-stone-500 font-sans font-normal">mmHg</span>
           </div>
           <span className={`text-xs font-mono px-2.5 py-0.5 rounded-full border inline-block font-semibold ${
-            avgSbp >= 130 ? 'bg-amber-100 text-amber-900 border-amber-300' : 'bg-teal-50 text-teal-800 border-teal-200'
+            avgSbp >= 130 ? 'bg-amber-100 text-amber-900 border-amber-300' : 'bg-emerald-50 text-emerald-950 border-emerald-300'
           }`}>
             {avgSbp >= 130 ? 'Borderline Elevasi' : 'Rentang Normal'}
           </span>
@@ -177,7 +177,7 @@ export function DcuTrendChart({ records }: DcuTrendChartProps) {
             {hypertensiveDays} <span className="text-xs text-stone-500 font-sans font-normal">/ {sorted.length} Hari</span>
           </div>
           <span className={`text-xs font-mono px-2.5 py-0.5 rounded-full border inline-block font-semibold ${
-            hypertensiveDays > 5 ? 'bg-rose-100 text-rose-800 border-rose-200' : 'bg-teal-50 text-teal-800 border-teal-200'
+            hypertensiveDays > 5 ? 'bg-rose-100 text-rose-800 border-rose-200' : 'bg-emerald-50 text-emerald-950 border-emerald-300'
           }`}>
             {Math.round((hypertensiveDays / sorted.length) * 100)}% dari total shift
           </span>
@@ -189,7 +189,7 @@ export function DcuTrendChart({ records }: DcuTrendChartProps) {
             {avgSleep} <span className="text-xs text-stone-500 font-sans font-normal">Jam</span>
           </div>
           <span className={`text-xs font-mono px-2.5 py-0.5 rounded-full border inline-block font-semibold ${
-            avgSleep < 6.0 ? 'bg-amber-100 text-amber-900 border-amber-300' : 'bg-teal-50 text-teal-800 border-teal-200'
+            avgSleep < 6.0 ? 'bg-amber-100 text-amber-900 border-amber-300' : 'bg-emerald-50 text-emerald-950 border-emerald-300'
           }`}>
             {avgSleep < 6.0 ? 'Kurang Tidur (Fatik)' : 'Istirahat Cukup'}
           </span>
@@ -244,9 +244,9 @@ export function DcuTrendChart({ records }: DcuTrendChartProps) {
               />
               <ReferenceLine 
                 y={120} 
-                stroke="#0f766e" 
+                stroke="#059669" 
                 strokeDasharray="3 3" 
-                label={{ value: 'Batas Normal Optimal (120 mmHg)', fill: '#0f766e', fontSize: 12, position: 'insideBottomRight' }} 
+                label={{ value: 'Batas Normal Optimal (120 mmHg)', fill: '#059669', fontSize: 12, position: 'insideBottomRight' }} 
               />
 
               <Tooltip 
@@ -257,7 +257,7 @@ export function DcuTrendChart({ records }: DcuTrendChartProps) {
                       <div className="bg-white border border-stone-200 p-3.5 rounded-xl shadow-xl text-xs space-y-2 min-w-[220px]">
                         <div className="border-b border-stone-100 pb-1.5 flex justify-between items-center">
                           <span className="font-bold text-stone-900 text-sm">{data.fullDate}</span>
-                          <span className="text-xs text-teal-800 bg-teal-50 px-2.5 py-0.5 rounded-full border border-teal-200 font-semibold">
+                          <span className="text-xs text-rose-900 bg-rose-50 px-2.5 py-0.5 rounded-full border border-rose-200 font-semibold">
                             {data.shift}
                           </span>
                         </div>
@@ -271,7 +271,7 @@ export function DcuTrendChart({ records }: DcuTrendChartProps) {
                             <span className="font-bold text-stone-900 tabular-nums">{data.diastolicBp} mmHg</span>
                           </div>
                           <div className="flex justify-between">
-                            <span className="text-teal-700 font-medium">Denyut Nadi (HR):</span>
+                            <span className="text-rose-700 font-medium">Denyut Nadi (HR):</span>
                             <span className="font-bold text-stone-900 tabular-nums">{data.heartRate} bpm</span>
                           </div>
                           <div className="flex justify-between">
@@ -329,17 +329,17 @@ export function DcuTrendChart({ records }: DcuTrendChartProps) {
                 type="monotone" 
                 dataKey="heartRate" 
                 name="Denyut Jantung (HR)" 
-                stroke="#0f766e" 
+                stroke="#be123c" 
                 strokeWidth={2} 
                 strokeDasharray="2 2"
-                dot={{ r: 2.5, fill: '#0f766e' }} 
+                dot={{ r: 2.5, fill: '#be123c' }} 
               />
             </LineChart>
           ) : (
             <LineChart data={chartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e7e5e4" />
               <XAxis dataKey="date" stroke="#78716c" tick={{ fontSize: 12 }} tickLine={false} />
-              <YAxis yAxisId="left" domain={[85, 100]} stroke="#0f766e" tick={{ fontSize: 12 }} />
+              <YAxis yAxisId="left" domain={[85, 100]} stroke="#059669" tick={{ fontSize: 12 }} />
               <YAxis yAxisId="right" orientation="right" domain={[0, 12]} stroke="#475569" tick={{ fontSize: 12 }} />
               <ReferenceLine yAxisId="left" y={95} stroke="#b91c1c" strokeDasharray="3 3" label={{ value: 'SpO2 Kritis (<95%)', fill: '#b91c1c', fontSize: 12 }} />
               <Tooltip 
@@ -349,7 +349,7 @@ export function DcuTrendChart({ records }: DcuTrendChartProps) {
                     return (
                       <div className="bg-white border border-stone-200 p-3.5 rounded-xl shadow-xl text-xs space-y-1.5 font-mono">
                         <span className="font-sans font-bold text-stone-900 block text-sm">{data.fullDate}</span>
-                        <div className="text-teal-800">Saturasi SpO2: {data.spo2Percent}%</div>
+                        <div className="text-emerald-800">Saturasi SpO2: {data.spo2Percent}%</div>
                         <div className="text-stone-700">Durasi Tidur: {data.sleepHours} Jam</div>
                         <div className="text-stone-600">Suhu Tubuh: {data.bodyTemp} °C</div>
                       </div>
@@ -359,7 +359,7 @@ export function DcuTrendChart({ records }: DcuTrendChartProps) {
                 }}
               />
               <Legend verticalAlign="top" height={36} iconType="circle" wrapperStyle={{ fontSize: '12px' }} />
-              <Line yAxisId="left" type="monotone" dataKey="spo2Percent" name="Saturasi SpO2 (%)" stroke="#0f766e" strokeWidth={2.5} dot={{ r: 3 }} />
+              <Line yAxisId="left" type="monotone" dataKey="spo2Percent" name="Saturasi SpO2 (%)" stroke="#059669" strokeWidth={2.5} dot={{ r: 3 }} />
               <Line yAxisId="right" type="monotone" dataKey="sleepHours" name="Jam Tidur (Jam)" stroke="#475569" strokeWidth={2} dot={{ r: 3 }} />
             </LineChart>
           )}
@@ -394,14 +394,14 @@ export function DcuTrendChart({ records }: DcuTrendChartProps) {
                     <td className="p-3 font-sans text-stone-500">{row.shift}</td>
                     <td className={`p-3 text-right font-bold ${row.systolicBp >= 140 ? 'text-rose-700' : 'text-stone-800'}`}>{row.systolicBp}</td>
                     <td className="p-3 text-right text-stone-700">{row.diastolicBp}</td>
-                    <td className="p-3 text-right text-teal-800">{row.heartRate}</td>
-                    <td className="p-3 text-right text-teal-700">{row.spo2Percent}%</td>
+                    <td className="p-3 text-right text-rose-800">{row.heartRate}</td>
+                    <td className="p-3 text-right text-emerald-700">{row.spo2Percent}%</td>
                     <td className="p-3 text-right text-stone-700">{row.sleepHours}j</td>
                     <td className="p-3 font-sans">
                       {row.hasSymptoms ? (
                         <span className="text-xs text-rose-800 font-bold bg-rose-100 px-2 py-0.5 rounded">Gejala</span>
                       ) : (
-                        <span className="text-xs text-teal-800 font-bold bg-teal-50 px-2 py-0.5 rounded">Normal</span>
+                        <span className="text-xs text-emerald-950 font-bold bg-emerald-50 px-2 py-0.5 rounded">Normal</span>
                       )}
                     </td>
                   </tr>
@@ -415,10 +415,10 @@ export function DcuTrendChart({ records }: DcuTrendChartProps) {
       {/* Footer Notes */}
       <div className="text-xs text-stone-500 flex flex-wrap items-center justify-between gap-2.5 border-t border-stone-200/60 pt-4">
         <div className="flex items-center space-x-2 text-stone-600">
-          <Info className="h-4 w-4 text-teal-700 shrink-0" />
+          <Info className="h-4 w-4 text-emerald-700 shrink-0" />
           <span>Zona hijau menunjukkan rentang hemodinamik istirahat optimal (90–120 mmHg).</span>
         </div>
-        <span className="font-mono text-teal-800 text-xs font-semibold bg-teal-50 px-2.5 py-1 rounded-md border border-teal-200/80">
+        <span className="font-mono text-stone-700 text-xs font-semibold bg-stone-100 px-2.5 py-1 rounded-md border border-stone-200">
           {sorted.length} Data Points • Real-time Sync
         </span>
       </div>

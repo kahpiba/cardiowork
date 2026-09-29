@@ -150,7 +150,7 @@ function AccessDeniedContent() {
           <div className="pt-4 border-t border-stone-100 flex flex-col sm:flex-row items-center gap-3">
             <Link
               href={details.recommendedPath}
-              className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-teal-800 hover:bg-teal-900 text-white font-bold text-sm shadow-sm transition"
+              className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-rose-700 hover:bg-rose-800 text-white font-bold text-sm shadow-sm transition"
             >
               <CheckCircle className="w-4 h-4" />
               <span>{details.recommendedLabel}</span>
@@ -188,7 +188,7 @@ export default function AccessDeniedPage() {
     <Suspense fallback={
       <div className="min-h-screen bg-medical-grid flex items-center justify-center p-8">
         <div className="flex items-center gap-3 text-stone-600 text-sm">
-          <Activity className="w-5 h-5 text-teal-700 animate-spin" />
+          <Activity className="w-5 h-5 text-rose-700 animate-spin" />
           <span>Memverifikasi wewenang hak akses...</span>
         </div>
       </div>

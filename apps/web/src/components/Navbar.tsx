@@ -110,15 +110,15 @@ export const Navbar: React.FC = () => {
           {/* Brand */}
           <div className="flex items-center gap-3">
             <Link href="/" className="flex items-center gap-2.5 group">
-              <div className="w-10 h-10 rounded-xl bg-teal-700 flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
+              <div className="w-10 h-10 rounded-xl bg-rose-700 flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
                 <Activity className="w-5 h-5 text-white animate-heartbeat" />
               </div>
               <div>
                 <div className="flex items-center gap-2">
                   <span className="font-extrabold text-lg tracking-tight text-stone-900">
-                    Cardio<span className="text-teal-700">Work</span>
+                    Cardio<span className="text-rose-700">Work</span>
                   </span>
-                  <span className="bg-teal-50 text-teal-800 text-xs font-semibold px-2 py-0.5 rounded-full border border-teal-200">
+                  <span className="bg-rose-50 text-rose-800 text-xs font-semibold px-2 py-0.5 rounded-full border border-rose-200">
                     CDSS AI
                   </span>
                 </div>
@@ -144,7 +144,7 @@ export const Navbar: React.FC = () => {
                     href={item.href}
                     className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                       isActive
-                        ? 'bg-white text-teal-800 shadow-xs border border-stone-200 font-bold'
+                        ? 'bg-white text-rose-900 shadow-xs border border-stone-200 font-bold'
                         : 'text-stone-600 hover:text-stone-900 hover:bg-stone-200/60'
                     }`}
                   >

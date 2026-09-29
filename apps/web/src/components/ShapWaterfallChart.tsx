@@ -52,7 +52,7 @@ export const ShapWaterfallChart: React.FC<ShapWaterfallChartProps> = ({ data }) 
             <h3 className="text-base sm:text-lg font-bold text-stone-900 tracking-tight">
               Faktor Utama Penggerak Risiko (SHAP Explainable AI)
             </h3>
-            <span className="text-xs font-mono bg-teal-50 text-teal-800 px-3 py-0.5 rounded-full border border-teal-200/80 font-bold">
+            <span className="text-xs font-mono bg-rose-50 text-rose-900 px-3 py-0.5 rounded-full border border-rose-200 font-bold">
               TreeSHAP Terkalibrasi
             </span>
           </div>
@@ -70,7 +70,7 @@ export const ShapWaterfallChart: React.FC<ShapWaterfallChartProps> = ({ data }) 
           <div className="text-stone-400 font-bold text-base">&rarr;</div>
           <div className="bg-stone-50 p-2.5 rounded-xl border border-stone-200 text-center shadow-2xs">
             <span className="text-stone-500 block text-xs uppercase font-bold">Prediksi Akhir</span>
-            <strong className={`tabular-nums text-sm ${finalPercent >= 30 ? 'text-rose-700' : finalPercent >= 15 ? 'text-amber-800' : 'text-teal-800'}`}>
+            <strong className={`tabular-nums text-sm ${finalPercent >= 30 ? 'text-rose-700' : finalPercent >= 15 ? 'text-amber-800' : 'text-emerald-800'}`}>
               {finalPercent.toFixed(1)}%
             </strong>
           </div>
@@ -91,10 +91,10 @@ export const ShapWaterfallChart: React.FC<ShapWaterfallChartProps> = ({ data }) 
           <button
             onClick={() => setActiveCategory('modifiable')}
             className={`px-3.5 py-1.5 rounded-lg transition flex items-center gap-2 ${
-              activeCategory === 'modifiable' ? 'bg-white text-teal-800 shadow-2xs font-bold' : 'text-stone-600 hover:text-stone-900'
+              activeCategory === 'modifiable' ? 'bg-white text-rose-900 shadow-2xs font-bold' : 'text-stone-600 hover:text-stone-900'
             }`}
           >
-            <span className="w-2.5 h-2.5 rounded-full bg-teal-600" />
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-600" />
             <span>Dapat Diubah (Gaya Hidup/Obat)</span>
           </button>
           <button
@@ -112,7 +112,7 @@ export const ShapWaterfallChart: React.FC<ShapWaterfallChartProps> = ({ data }) 
           <span>Tampilan:</span>
           <button
             onClick={() => setViewMode(viewMode === 'layman' ? 'clinical' : 'layman')}
-            className="font-bold text-teal-800 hover:text-teal-900 underline transition"
+            className="font-bold text-rose-800 hover:text-rose-900 underline transition"
           >
             {viewMode === 'layman' ? 'Mode Awam (Persentase)' : 'Mode Klinis (SHAP Value Log-Odds)'}
           </button>
@@ -141,12 +141,12 @@ export const ShapWaterfallChart: React.FC<ShapWaterfallChartProps> = ({ data }) 
                     {isPositive ? (
                       <ArrowUpRight className="w-4 h-4 text-amber-800 shrink-0" />
                     ) : (
-                      <ArrowDownRight className="w-4 h-4 text-teal-700 shrink-0" />
+                      <ArrowDownRight className="w-4 h-4 text-emerald-700 shrink-0" />
                     )}
                     <span>{item.displayName}</span>
                     <span className={`text-xs font-mono px-2 py-0.5 rounded-full border ${
                       isModifiable 
-                        ? 'bg-teal-50 text-teal-800 border-teal-200' 
+                        ? 'bg-emerald-50 text-emerald-950 border-emerald-300' 
                         : 'bg-stone-100 text-stone-600 border-stone-200'
                     }`}>
                       {isModifiable ? 'Modifiable' : 'Fixed'}
@@ -175,7 +175,7 @@ export const ShapWaterfallChart: React.FC<ShapWaterfallChartProps> = ({ data }) 
                       // Left of center (Protective effect)
                       <div className="w-1/2 flex justify-end pr-0">
                         <div 
-                          className="h-full bg-teal-700 rounded-l-full transition-all duration-500 shadow-2xs"
+                          className="h-full bg-emerald-600 rounded-l-full transition-all duration-500 shadow-2xs"
                           style={{ width: `${barWidthPercent / 2}%` }}
                         />
                       </div>
@@ -183,7 +183,7 @@ export const ShapWaterfallChart: React.FC<ShapWaterfallChartProps> = ({ data }) 
                   </div>
 
                   <span className={`w-24 text-right font-mono font-bold text-xs sm:text-sm tabular-nums ${
-                    isPositive ? 'text-amber-800' : 'text-teal-800'
+                    isPositive ? 'text-amber-800' : 'text-emerald-800'
                   }`}>
                     {viewMode === 'layman' 
                       ? (isPositive ? `+${phiPercent.toFixed(1)}%` : `${phiPercent.toFixed(1)}%`)
@@ -195,7 +195,7 @@ export const ShapWaterfallChart: React.FC<ShapWaterfallChartProps> = ({ data }) 
 
               {/* Educational Guidance */}
               <div className="mt-3 pt-2.5 border-t border-stone-200/80 text-xs sm:text-sm text-stone-700 leading-relaxed flex items-start gap-2">
-                <Info className="w-4 h-4 text-teal-700 shrink-0 mt-0.5" />
+                <Info className="w-4 h-4 text-emerald-700 shrink-0 mt-0.5" />
                 <span>{item.clinicalExplanation}</span>
               </div>
             </div>
@@ -204,9 +204,9 @@ export const ShapWaterfallChart: React.FC<ShapWaterfallChartProps> = ({ data }) 
       </div>
 
       {/* Clinical Narrative Box */}
-      <div className="bg-teal-50/60 border border-teal-200/80 rounded-xl p-4 sm:p-5 text-sm text-stone-800 leading-relaxed space-y-2 shadow-2xs">
-        <div className="font-bold text-teal-950 flex items-center gap-2">
-          <ShieldCheck className="w-5 h-5 text-teal-700" />
+      <div className="bg-rose-50/60 border border-rose-200/80 rounded-xl p-4 sm:p-5 text-sm text-stone-800 leading-relaxed space-y-2 shadow-2xs">
+        <div className="font-bold text-rose-950 flex items-center gap-2">
+          <ShieldCheck className="w-5 h-5 text-rose-700" />
           <span>Kesimpulan Transparansi Klinis AI (Clinical Decision Support):</span>
         </div>
         <p className="text-stone-700 leading-relaxed">{data.clinicalNarrative}</p>

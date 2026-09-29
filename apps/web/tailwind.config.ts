@@ -46,10 +46,20 @@ const config: Config = {
         medical: {
           blue: "#0284c7",
           teal: "#0d9488",
-          emerald: "#10b981",
-          amber: "#f59e0b",
-          rose: "#ef4444",
+          emerald: "#059669",
+          amber: "#d97706",
+          rose: "#be123c",
           slate: "#0f172a"
+        },
+        cardio: {
+          crimson: "#be123c", // Arterial Crimson / Myocardium
+          carmine: "#9f1239", // Deep Cardiology Carmine
+          ruby: "#881337",    // Acute Alert Ruby
+          coral: "#fb7185",   // Coronary Microvasculature
+          venous: "#0f172a",  // Venous Deep Slate
+          sinus: "#059669",   // Sinus Rhythm Vitality Mint
+          amber: "#d97706",   // Cardiac Caution
+          paper: "#fafaf9",   // Warm Medical Canvas
         }
       },
       borderRadius: {

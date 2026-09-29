@@ -24,7 +24,7 @@ export function WorkerProfileHeader({
   age,
   overallFitness
 }: WorkerProfileHeaderProps) {
-  let badgeColor = 'bg-teal-50 text-teal-900 border-teal-300';
+  let badgeColor = 'bg-emerald-50 text-emerald-950 border-emerald-300';
   if (overallFitness === 'FIT_WITH_RESTRICTION') badgeColor = 'bg-amber-50 text-amber-900 border-amber-300';
   if (overallFitness === 'UNFIT') badgeColor = 'bg-rose-50 text-rose-900 border-rose-300';
 
@@ -34,7 +34,7 @@ export function WorkerProfileHeader({
         
         {/* Worker Avatar & Identity */}
         <div className="flex items-center space-x-4">
-          <div className="h-14 w-14 rounded-2xl bg-teal-800 flex items-center justify-center text-white font-black text-xl shadow-xs">
+          <div className="h-14 w-14 rounded-2xl bg-rose-700 flex items-center justify-center text-white font-black text-xl shadow-xs">
             {pseudonymId.substring(0, 3)}
           </div>
           <div>

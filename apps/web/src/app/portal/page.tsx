@@ -52,7 +52,7 @@ export default function WorkerPortalPage() {
       <section className="bg-white border-b border-stone-200 pt-8 pb-6 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div className="flex items-start gap-4">
-            <div className="w-16 h-16 rounded-2xl bg-teal-800 text-white flex items-center justify-center font-bold text-2xl shadow-sm shrink-0">
+            <div className="w-16 h-16 rounded-2xl bg-rose-700 text-white flex items-center justify-center font-bold text-2xl shadow-sm shrink-0">
               {worker.nameSynthetic.charAt(0)}
             </div>
             <div>
@@ -63,7 +63,7 @@ export default function WorkerPortalPage() {
                 <span className="text-xs font-mono font-bold px-2.5 py-0.5 rounded-full bg-stone-100 text-stone-700 border border-stone-200">
                   {worker.pseudonymId}
                 </span>
-                <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-teal-50 text-teal-800 border border-teal-200 flex items-center gap-1">
+                <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-rose-50 text-rose-800 border border-rose-200 flex items-center gap-1">
                   <HardHat className="w-3.5 h-3.5" />
                   {worker.jobTitle}
                 </span>
@@ -77,7 +77,7 @@ export default function WorkerPortalPage() {
           <div className="flex items-center gap-3">
             <Link
               href="/kiosk"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-teal-800 hover:bg-teal-900 text-white font-bold text-xs sm:text-sm shadow-sm transition"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-rose-700 hover:bg-rose-800 text-white font-bold text-xs sm:text-sm shadow-sm transition"
             >
               <Activity className="w-4 h-4 animate-heartbeat" />
               <span>Cek Mandiri di Kiosk Pre-Shift</span>
@@ -135,7 +135,7 @@ export default function WorkerPortalPage() {
             onClick={() => setActiveTab('vitals')}
             className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition flex items-center gap-2 ${
               activeTab === 'vitals'
-                ? 'bg-teal-800 text-white shadow-2xs'
+                ? 'bg-rose-700 text-white shadow-2xs'
                 : 'text-stone-600 hover:text-stone-900 hover:bg-stone-100'
             }`}
           >
@@ -147,7 +147,7 @@ export default function WorkerPortalPage() {
             onClick={() => setActiveTab('education')}
             className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition flex items-center gap-2 ${
               activeTab === 'education'
-                ? 'bg-teal-800 text-white shadow-2xs'
+                ? 'bg-rose-700 text-white shadow-2xs'
                 : 'text-stone-600 hover:text-stone-900 hover:bg-stone-100'
             }`}
           >
@@ -159,7 +159,7 @@ export default function WorkerPortalPage() {
             onClick={() => setActiveTab('schedule')}
             className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition flex items-center gap-2 ${
               activeTab === 'schedule'
-                ? 'bg-teal-800 text-white shadow-2xs'
+                ? 'bg-rose-700 text-white shadow-2xs'
                 : 'text-stone-600 hover:text-stone-900 hover:bg-stone-100'
             }`}
           >
@@ -193,12 +193,12 @@ export default function WorkerPortalPage() {
                 <div className="p-4 rounded-2xl bg-white border border-stone-200 shadow-2xs space-y-1 h-full">
                   <span className="text-xs font-semibold text-stone-500 block">Detak Jantung (Resting HR)</span>
                   <div className="flex items-baseline gap-1.5">
-                    <span className="text-2xl font-black text-teal-800">
+                    <span className="text-2xl font-black text-rose-700">
                       <AnimatedNumber value={latestDcu.restingHeartRate} />
                     </span>
                     <span className="text-xs text-stone-500 font-medium">bpm</span>
                   </div>
-                  <div className="text-xs font-semibold text-teal-800 bg-teal-50 px-2 py-0.5 rounded border border-teal-200 inline-block">
+                  <div className="text-xs font-semibold text-rose-800 bg-rose-50 px-2 py-0.5 rounded border border-rose-200 inline-block">
                     Normal (60–100 bpm)
                   </div>
                 </div>
@@ -208,12 +208,12 @@ export default function WorkerPortalPage() {
                 <div className="p-4 rounded-2xl bg-white border border-stone-200 shadow-2xs space-y-1 h-full">
                   <span className="text-xs font-semibold text-stone-500 block">Saturasi Oksigen (SpO2)</span>
                   <div className="flex items-baseline gap-1.5">
-                    <span className="text-2xl font-black text-teal-800">
+                    <span className="text-2xl font-black text-emerald-700">
                       <AnimatedNumber value={latestDcu.spo2Percent} />
                     </span>
                     <span className="text-xs text-stone-500 font-medium">%</span>
                   </div>
-                  <div className="text-xs font-semibold text-teal-800 bg-teal-50 px-2 py-0.5 rounded border border-teal-200 inline-block">
+                  <div className="text-xs font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 inline-block">
                     Optimal (&ge;95%)
                   </div>
                 </div>
@@ -245,10 +245,10 @@ export default function WorkerPortalPage() {
                     <div>
                       <div className="flex items-center justify-between border-b border-stone-100 pb-2.5">
                         <div className="flex items-center gap-2">
-                          <Activity className="w-4 h-4 text-teal-700 animate-heartbeat" />
+                          <Activity className="w-4 h-4 text-rose-700 animate-heartbeat" />
                           <h4 className="font-bold text-stone-900 text-sm">Denyut Kardiak 3D</h4>
                         </div>
-                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-teal-50 text-teal-800 border border-teal-200">
+                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-50 text-rose-800 border border-rose-200">
                           {latestDcu.restingHeartRate} BPM
                         </span>
                       </div>
@@ -276,7 +276,7 @@ export default function WorkerPortalPage() {
                 </div>
                 <div className="flex items-center gap-3 text-xs">
                   <span className="flex items-center gap-1.5 font-semibold text-stone-700">
-                    <span className="w-3 h-3 rounded-full bg-teal-700"></span> Sistolik
+                    <span className="w-3 h-3 rounded-full bg-rose-700"></span> Sistolik
                   </span>
                   <span className="flex items-center gap-1.5 font-semibold text-stone-700">
                     <span className="w-3 h-3 rounded-full bg-amber-600"></span> Diastolik
@@ -304,7 +304,7 @@ export default function WorkerPortalPage() {
                           <div 
                             style={{ height: `${sysHeight}%` }} 
                             className={`w-1/2 rounded-t-sm transition-all ${
-                              item.systolicBp >= 130 ? 'bg-amber-600' : 'bg-teal-700'
+                              item.systolicBp >= 130 ? 'bg-amber-600' : 'bg-rose-700'
                             }`}
                           />
                           <div 
@@ -341,7 +341,7 @@ export default function WorkerPortalPage() {
             {/* Diet DASH di Rig */}
             <div className="bg-white rounded-3xl border border-stone-200 shadow-sm p-6 space-y-4">
               <div className="flex items-center gap-3 border-b border-stone-100 pb-3">
-                <div className="w-10 h-10 rounded-xl bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-800">
+                <div className="w-10 h-10 rounded-xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-700">
                   <Apple className="w-5 h-5" />
                 </div>
                 <div>
@@ -371,7 +371,7 @@ export default function WorkerPortalPage() {
             {/* Manajemen Tidur & Kafein Shift */}
             <div className="bg-white rounded-3xl border border-stone-200 shadow-sm p-6 space-y-4">
               <div className="flex items-center gap-3 border-b border-stone-100 pb-3">
-                <div className="w-10 h-10 rounded-xl bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-800">
+                <div className="w-10 h-10 rounded-xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-700">
                   <Moon className="w-5 h-5" />
                 </div>
                 <div>
@@ -410,14 +410,14 @@ export default function WorkerPortalPage() {
             </div>
 
             <div className="space-y-4">
-              <div className="p-4 rounded-2xl bg-teal-50/70 border border-teal-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+              <div className="p-4 rounded-2xl bg-rose-50/70 border border-rose-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
                 <div className="space-y-1">
-                  <span className="font-bold text-teal-900 text-sm block">Skrining Rutin Harian (Pre-Shift DCU Kiosk)</span>
-                  <p className="text-teal-800">Wajib dilakukan setiap sebelum memulai giliran shift kerja di Rig Alpha.</p>
+                  <span className="font-bold text-rose-950 text-sm block">Skrining Rutin Harian (Pre-Shift DCU Kiosk)</span>
+                  <p className="text-rose-800">Wajib dilakukan setiap sebelum memulai giliran shift kerja di Rig Alpha.</p>
                 </div>
                 <div className="text-right shrink-0">
-                  <span className="font-bold text-teal-900 block">Setiap Hari, 18:00 WIB</span>
-                  <span className="text-teal-700">Kiosk Klinik Site</span>
+                  <span className="font-bold text-rose-950 block">Setiap Hari, 18:00 WIB</span>
+                  <span className="text-rose-700">Kiosk Klinik Site</span>
                 </div>
               </div>
 
@@ -462,7 +462,7 @@ export default function WorkerPortalPage() {
                 </div>
                 <div className="p-3 bg-stone-50 rounded-xl border border-stone-200">
                   <span className="text-stone-500 block">Interpretasi EKG</span>
-                  <span className="font-bold text-teal-800">{latestMcu?.restingEcgInterpretation || 'NORMAL'}</span>
+                  <span className="font-bold text-emerald-800">{latestMcu?.restingEcgInterpretation || 'NORMAL'}</span>
                 </div>
               </div>
             </div>

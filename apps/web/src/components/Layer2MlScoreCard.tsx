@@ -48,7 +48,7 @@ export function Layer2MlScoreCard({
   const predictedPercent = Math.min(99.0, Math.max(1.0, Math.round(predictedProb * 1000) / 10));
 
   let riskCategory: 'LOW' | 'MODERATE' | 'HIGH' | 'CRITICAL' = 'LOW';
-  let badgeColor = 'bg-teal-50 text-teal-900 border-teal-300';
+  let badgeColor = 'bg-emerald-50 text-emerald-950 border-emerald-300';
 
   if (predictedPercent >= 40.0) {
     riskCategory = 'CRITICAL';
@@ -108,7 +108,7 @@ export function Layer2MlScoreCard({
           </div>
 
           <div className="space-y-1">
-            <div className="text-4xl sm:text-5xl font-black font-mono text-teal-900 tabular-nums">
+            <div className="text-4xl sm:text-5xl font-black font-mono text-rose-900 tabular-nums">
               {predictedPercent}%
             </div>
             <p className="text-xs text-stone-600 leading-relaxed mt-1">
@@ -124,7 +124,7 @@ export function Layer2MlScoreCard({
             </div>
             <div className="flex justify-between text-stone-600">
               <span>Delta Model (ML vs Baku):</span>
-              <span className={`font-mono font-bold ${predictedPercent > framinghamRiskPercent ? 'text-amber-800' : 'text-teal-800'}`}>
+              <span className={`font-mono font-bold ${predictedPercent > framinghamRiskPercent ? 'text-amber-800' : 'text-emerald-800'}`}>
                 {predictedPercent > framinghamRiskPercent ? '+' : ''}{Math.round((predictedPercent - framinghamRiskPercent) * 10) / 10}%
               </span>
             </div>
@@ -153,7 +153,7 @@ export function Layer2MlScoreCard({
                     ? 'bg-rose-50 text-rose-900 border-rose-300' 
                     : d.impact === 'MEDIUM' 
                       ? 'bg-amber-50 text-amber-900 border-amber-300' 
-                      : 'bg-teal-50 text-teal-900 border-teal-300'
+                      : 'bg-emerald-50 text-emerald-950 border-emerald-300'
                 }`}>
                   {d.impact}
                 </span>
@@ -168,7 +168,7 @@ export function Layer2MlScoreCard({
       <div className="pt-1">
         <button 
           onClick={() => setShowShapDetails(!showShapDetails)}
-          className="text-sm text-teal-800 hover:text-teal-900 flex items-center space-x-1.5 transition font-bold"
+          className="text-sm text-rose-800 hover:text-rose-900 flex items-center space-x-1.5 transition font-bold"
         >
           <BarChart3 className="h-4 w-4" />
           <span>{showShapDetails ? 'Sembunyikan Spesifikasi Metrik & Kalibrasi Model' : 'Tampilkan Metrik Validasi Silang 5-Fold & Kinerja Kalibrasi'}</span>
@@ -180,15 +180,15 @@ export function Layer2MlScoreCard({
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono text-xs">
               <div className="p-3 bg-white rounded-lg border border-stone-200 shadow-2xs">
                 <span className="text-stone-500 block">ROC-AUC:</span>
-                <span className="text-teal-900 font-bold text-sm">0.9998</span>
+                <span className="text-emerald-800 font-bold text-sm">0.9998</span>
               </div>
               <div className="p-3 bg-white rounded-lg border border-stone-200 shadow-2xs">
                 <span className="text-stone-500 block">PR-AUC:</span>
-                <span className="text-teal-900 font-bold text-sm">0.9997</span>
+                <span className="text-emerald-800 font-bold text-sm">0.9997</span>
               </div>
               <div className="p-3 bg-white rounded-lg border border-stone-200 shadow-2xs">
                 <span className="text-stone-500 block">Sensitivitas / Recall:</span>
-                <span className="text-teal-900 font-bold text-sm">98.83%</span>
+                <span className="text-emerald-800 font-bold text-sm">98.83%</span>
               </div>
               <div className="p-3 bg-white rounded-lg border border-stone-200 shadow-2xs">
                 <span className="text-stone-500 block">Expected Calib. Error:</span>

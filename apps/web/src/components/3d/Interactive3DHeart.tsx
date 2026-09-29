@@ -80,7 +80,7 @@ export const Interactive3DHeart: React.FC<Interactive3DHeartProps> = ({
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.95);
     scene.add(ambientLight);
 
-    const dirLight1 = new THREE.DirectionalLight(0x0d9488, 2.5); // Teal light
+    const dirLight1 = new THREE.DirectionalLight(0xe11d48, 2.2); // Arterial Crimson key light
     dirLight1.position.set(10, 15, 10);
     scene.add(dirLight1);
 
@@ -119,15 +119,15 @@ export const Interactive3DHeart: React.FC<Interactive3DHeartProps> = ({
     const heartGeometry = new THREE.ExtrudeGeometry(heartShape, extrudeSettings);
     heartGeometry.center();
 
-    // Material 1: Organic holographic surface
+    // Material 1: Myocardium biologis (Arterial Crimson dengan subsurface scattering)
     const heartMaterial = new THREE.MeshPhysicalMaterial({
-      color: new THREE.Color(0x0f766e), // Teal primer
-      roughness: 0.25,
-      metalness: 0.15,
-      transmission: 0.35, // Efek tembus pandang biologis
-      thickness: 1.8,
-      reflectivity: 0.6,
-      clearcoat: 0.8,
+      color: new THREE.Color(0xbe123c), // Arterial Crimson / Miokardium alami
+      roughness: 0.32,
+      metalness: 0.1,
+      transmission: 0.28, // Efek tembus pandang jaringan lunak biologis
+      thickness: 2.2,
+      reflectivity: 0.65,
+      clearcoat: 0.85,
       clearcoatRoughness: 0.15,
     });
 
@@ -136,19 +136,19 @@ export const Interactive3DHeart: React.FC<Interactive3DHeartProps> = ({
     heartMesh.rotation.z = Math.PI; // Orientasi ujung ventrikel ke bawah
     heartGroup.add(heartMesh);
 
-    // Material 2: Jaringan Arteri Koroner & SA Node (Cyber-Medical Wireframe Glow)
+    // Material 2: Jaringan Arteri Koroner (Coronary Microvasculature Glow)
     const wireframeMaterial = new THREE.MeshBasicMaterial({
-      color: new THREE.Color(0x5eead4),
+      color: new THREE.Color(0xfb7185), // Coral arterial vascular network
       wireframe: true,
       transparent: true,
-      opacity: 0.25,
+      opacity: 0.3,
     });
     const wireframeMesh = new THREE.Mesh(heartGeometry, wireframeMaterial);
     wireframeMesh.scale.set(0.655, 0.655, 0.655);
     wireframeMesh.rotation.z = Math.PI;
     heartGroup.add(wireframeMesh);
 
-    // 4. Partikel Conduction System (Nodus SA & AV)
+    // 4. Partikel Conduction System (Nodus SA & AV - Bio-Electric Conduction)
     const particleCount = 75;
     const particleGeometry = new THREE.BufferGeometry();
     const particlePositions = new Float32Array(particleCount * 3);
@@ -164,10 +164,10 @@ export const Interactive3DHeart: React.FC<Interactive3DHeartProps> = ({
     particleGeometry.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
 
     const particleMaterial = new THREE.PointsMaterial({
-      color: 0x99f6e4,
-      size: 0.28,
+      color: 0xfde047, // Golden bio-electric impulse
+      size: 0.32,
       transparent: true,
-      opacity: 0.85,
+      opacity: 0.9,
       blending: THREE.AdditiveBlending,
     });
 
@@ -317,16 +317,16 @@ export const Interactive3DHeart: React.FC<Interactive3DHeartProps> = ({
       // Animasi partikel conduction
       particleSystem.rotation.y = heartGroup.rotation.y * -0.5;
 
-      // Dinamika rona warna berdasarkan BPM
+      // Dinamika rona warna berdasarkan status hemodinamik / BPM
       if (currentBpm > 100) {
-        heartMaterial.color.setHex(0xbe123c); // Rosewood / Takikardia
+        heartMaterial.color.setHex(0x881337); // Urgent Alert Ruby / Takikardia berat
         wireframeMaterial.color.setHex(0xf43f5e);
       } else if (currentBpm >= 90) {
-        heartMaterial.color.setHex(0xd97706); // Warm Amber / Batas Waspada
+        heartMaterial.color.setHex(0xd97706); // Coronary Caution Amber / Batas Waspada
         wireframeMaterial.color.setHex(0xfbbf24);
       } else {
-        heartMaterial.color.setHex(0x0f766e); // Deep Teal / Normal Stabil
-        wireframeMaterial.color.setHex(0x5eead4);
+        heartMaterial.color.setHex(0xbe123c); // Healthy Arterial Crimson / Miokardium stabil
+        wireframeMaterial.color.setHex(0xfb7185);
       }
 
       renderer.render(scene, camera);
@@ -373,10 +373,10 @@ export const Interactive3DHeart: React.FC<Interactive3DHeartProps> = ({
   }, []);
 
   const getBpmStatus = (val: number) => {
-    if (val < 60) return { label: 'Bradikardia (<60 bpm)', color: 'text-sky-700 bg-sky-50 border-sky-200' };
-    if (val <= 90) return { label: 'Irama Sinus Normal (60–90 bpm)', color: 'text-teal-800 bg-teal-50 border-teal-200' };
+    if (val < 60) return { label: 'Bradikardia (<60 bpm)', color: 'text-sky-800 bg-sky-50 border-sky-200' };
+    if (val <= 90) return { label: 'Irama Sinus Normal (60–90 bpm)', color: 'text-emerald-800 bg-emerald-50 border-emerald-200' };
     if (val <= 100) return { label: 'Batas Atas Waspada (91–100 bpm)', color: 'text-amber-800 bg-amber-50 border-amber-200' };
-    return { label: 'Takikardia Pre-Shift (>100 bpm)', color: 'text-rose-800 bg-rose-50 border-rose-200' };
+    return { label: 'Takikardia Pre-Shift (>100 bpm)', color: 'text-rose-900 bg-rose-50 border-rose-200' };
   };
 
   const status = getBpmStatus(bpm);
@@ -421,7 +421,7 @@ export const Interactive3DHeart: React.FC<Interactive3DHeartProps> = ({
 
         {/* Bottom-Left Gesture Hints */}
         <div className="absolute bottom-2.5 left-3 text-[10px] text-stone-600 bg-white/85 backdrop-blur-xs px-2.5 py-1 rounded-full border border-stone-200 pointer-events-none shadow-2xs flex items-center gap-1.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-teal-600 animate-pulse" />
+          <span className="w-1.5 h-1.5 rounded-full bg-rose-600 animate-pulse" />
           <span>Putar 360&deg; (Drag) &bull; Zoom (Scroll/Pinch)</span>
         </div>
       </div>
@@ -432,8 +432,8 @@ export const Interactive3DHeart: React.FC<Interactive3DHeartProps> = ({
           {/* BPM Badge & Rhythm Indicator */}
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-lg bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-800 shadow-2xs">
-                <Heart className="w-4 h-4 animate-heartbeat" />
+              <div className="w-7 h-7 rounded-lg bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-700 shadow-2xs">
+                <Heart className="w-4 h-4 animate-heartbeat text-rose-700" />
               </div>
               <div>
                 <div className="flex items-center gap-1.5">
@@ -463,7 +463,7 @@ export const Interactive3DHeart: React.FC<Interactive3DHeartProps> = ({
                   onClick={() => setBpm(preset.val)}
                   className={`px-2 py-0.5 rounded-lg border font-semibold transition ${
                     bpm === preset.val
-                      ? 'bg-teal-800 text-white border-teal-800 shadow-2xs'
+                      ? 'bg-rose-700 text-white border-rose-700 shadow-2xs'
                       : 'bg-white text-stone-600 hover:bg-stone-100 border-stone-200'
                   }`}
                 >
@@ -480,7 +480,7 @@ export const Interactive3DHeart: React.FC<Interactive3DHeartProps> = ({
                 onClick={() => setIsRotating(!isRotating)}
                 className={`p-1.5 rounded-lg border text-xs font-semibold flex items-center gap-1 transition ${
                   isRotating
-                    ? 'bg-teal-50 text-teal-800 border-teal-200'
+                    ? 'bg-rose-50 text-rose-800 border-rose-200'
                     : 'bg-stone-100 text-stone-600 border-stone-200'
                 }`}
                 title={isRotating ? 'Jeda Rotasi Otomatis' : 'Mulai Rotasi'}
@@ -493,7 +493,7 @@ export const Interactive3DHeart: React.FC<Interactive3DHeartProps> = ({
                 onClick={() => setIsBeating(!isBeating)}
                 className={`p-1.5 rounded-lg border text-xs font-semibold flex items-center gap-1 transition ${
                   isBeating
-                    ? 'bg-teal-50 text-teal-800 border-teal-200'
+                    ? 'bg-rose-50 text-rose-800 border-rose-200'
                     : 'bg-stone-100 text-stone-600 border-stone-200'
                 }`}
                 title={isBeating ? 'Jeda Denyut' : 'Mulai Denyut'}

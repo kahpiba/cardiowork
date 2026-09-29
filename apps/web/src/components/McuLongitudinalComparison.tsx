@@ -133,7 +133,7 @@ export function McuLongitudinalComparison({ records }: McuLongitudinalComparison
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-stone-100 pb-4">
         <div>
           <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 rounded-lg bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-800">
+            <div className="w-8 h-8 rounded-lg bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-800">
               <Activity className="h-4 w-4" />
             </div>
             <div>
@@ -152,7 +152,7 @@ export function McuLongitudinalComparison({ records }: McuLongitudinalComparison
           <button
             onClick={() => setActiveTab('all')}
             className={`px-3 py-1.5 rounded-lg transition ${
-              activeTab === 'all' ? 'bg-white text-teal-800 font-bold shadow-xs border border-stone-200' : 'text-stone-600 hover:text-stone-900'
+              activeTab === 'all' ? 'bg-white text-rose-900 font-bold shadow-xs border border-stone-200' : 'text-stone-600 hover:text-stone-900'
             }`}
           >
             Semua
@@ -160,7 +160,7 @@ export function McuLongitudinalComparison({ records }: McuLongitudinalComparison
           <button
             onClick={() => setActiveTab('hemodynamics')}
             className={`px-3 py-1.5 rounded-lg transition ${
-              activeTab === 'hemodynamics' ? 'bg-white text-teal-800 font-bold shadow-xs border border-stone-200' : 'text-stone-600 hover:text-stone-900'
+              activeTab === 'hemodynamics' ? 'bg-white text-rose-900 font-bold shadow-xs border border-stone-200' : 'text-stone-600 hover:text-stone-900'
             }`}
           >
             Hemodinamik
@@ -168,7 +168,7 @@ export function McuLongitudinalComparison({ records }: McuLongitudinalComparison
           <button
             onClick={() => setActiveTab('lipid')}
             className={`px-3 py-1.5 rounded-lg transition ${
-              activeTab === 'lipid' ? 'bg-white text-teal-800 font-bold shadow-xs border border-stone-200' : 'text-stone-600 hover:text-stone-900'
+              activeTab === 'lipid' ? 'bg-white text-rose-900 font-bold shadow-xs border border-stone-200' : 'text-stone-600 hover:text-stone-900'
             }`}
           >
             Lipid
@@ -176,7 +176,7 @@ export function McuLongitudinalComparison({ records }: McuLongitudinalComparison
           <button
             onClick={() => setActiveTab('metabolic')}
             className={`px-3 py-1.5 rounded-lg transition ${
-              activeTab === 'metabolic' ? 'bg-white text-teal-800 font-bold shadow-xs border border-stone-200' : 'text-stone-600 hover:text-stone-900'
+              activeTab === 'metabolic' ? 'bg-white text-rose-900 font-bold shadow-xs border border-stone-200' : 'text-stone-600 hover:text-stone-900'
             }`}
           >
             Metabolik

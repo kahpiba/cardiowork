@@ -77,8 +77,8 @@ export function ClinicalScoreCard({
       {/* Header */}
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-stone-100 pb-4">
         <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 rounded-xl bg-teal-50 border border-teal-200 text-teal-800 flex items-center justify-center shadow-2xs">
-            <Heart className="h-5 w-5 text-teal-700 animate-heartbeat" />
+          <div className="w-10 h-10 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 flex items-center justify-center shadow-2xs">
+            <Heart className="h-5 w-5 text-rose-700 animate-heartbeat" />
           </div>
           <div>
             <h2 className="font-bold text-stone-900 text-base tracking-wide">
@@ -111,12 +111,12 @@ export function ClinicalScoreCard({
         <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
           
           {/* 1. WHO SEARO Dual-Engine Card */}
-          <div className="sm:col-span-2 bg-teal-50/70 p-5 rounded-xl border border-teal-200 space-y-3 flex flex-col justify-between">
+          <div className="sm:col-span-2 bg-rose-50/60 p-5 rounded-xl border border-rose-200/80 space-y-3 flex flex-col justify-between">
             <div>
               <div className="flex justify-between items-start">
                 <div className="flex items-center gap-2">
-                  <span className="text-sm font-bold text-teal-950">WHO/ISH SEARO (Dual-Engine)</span>
-                  <span className="text-xs font-bold bg-teal-100/80 text-teal-900 px-2.5 py-0.5 rounded-full border border-teal-300">
+                  <span className="text-sm font-bold text-rose-950">WHO/ISH SEARO (Dual-Engine)</span>
+                  <span className="text-xs font-bold bg-rose-100/80 text-rose-900 px-2.5 py-0.5 rounded-full border border-rose-300">
                     Acuan Utama RI
                   </span>
                 </div>
@@ -124,26 +124,26 @@ export function ClinicalScoreCard({
                   whoSearo.riskTier === '>=40%' || whoSearo.riskTier === '30%-<40%' ? 'bg-rose-100 text-rose-900 border-rose-300' :
                   whoSearo.riskTier === '20%-<30%' ? 'bg-orange-100 text-orange-900 border-orange-300' :
                   whoSearo.riskTier === '10%-<20%' ? 'bg-amber-100 text-amber-900 border-amber-300' :
-                  'bg-teal-100 text-teal-900 border-teal-300'
+                  'bg-emerald-100 text-emerald-950 border-emerald-300'
                 }`}>
                   Tier {whoSearo.riskTier}
                 </span>
               </div>
               <div className="flex items-baseline gap-2 mt-2.5">
-                <span className="text-3xl font-black font-mono text-teal-900 tabular-nums">
+                <span className="text-3xl font-black font-mono text-rose-900 tabular-nums">
                   {whoSearo.riskPercentContinuous}%
                 </span>
-                <span className="text-sm text-teal-800 font-medium">
+                <span className="text-sm text-rose-800 font-medium">
                   probabilitas kejadian 10-tahun
                 </span>
               </div>
-              <div className="text-xs text-teal-900 bg-white/90 px-3 py-2 rounded-lg border border-teal-200 mt-2.5 font-mono flex flex-wrap gap-2.5">
-                <span>Matriks WHO 2007: <strong className="text-teal-950">{whoSearo.who2007MatrixTier}</strong></span>
+              <div className="text-xs text-rose-950 bg-white/90 px-3 py-2 rounded-lg border border-rose-200 mt-2.5 font-mono flex flex-wrap gap-2.5">
+                <span>Matriks WHO 2007: <strong className="text-rose-950">{whoSearo.who2007MatrixTier}</strong></span>
                 <span>•</span>
-                <span>Regresi WHO 2019: <strong className="text-teal-950">{whoSearo.who2019EquationPercent}%</strong></span>
+                <span>Regresi WHO 2019: <strong className="text-rose-950">{whoSearo.who2019EquationPercent}%</strong></span>
               </div>
             </div>
-            <p className="text-xs text-teal-900 leading-relaxed">
+            <p className="text-xs text-stone-700 leading-relaxed">
               Dikalibrasi khusus untuk profil epidemiologi populasi pekerja Asia Tenggara (Sub-Region D).
             </p>
           </div>
@@ -156,7 +156,7 @@ export function ClinicalScoreCard({
                 <span className={`text-xs font-bold px-2.5 py-0.5 rounded-full border ${
                   framinghamIsHigh ? 'bg-rose-100 text-rose-900 border-rose-300' :
                   framinghamIsMod ? 'bg-amber-100 text-amber-900 border-amber-300' :
-                  'bg-teal-100 text-teal-900 border-teal-300'
+                  'bg-emerald-100 text-emerald-950 border-emerald-300'
                 }`}>
                   {framingham.riskCategory}
                 </span>
@@ -166,7 +166,7 @@ export function ClinicalScoreCard({
               </div>
               <div className="mt-2.5 space-y-1">
                 <div className="w-full bg-stone-200 rounded-full h-2 overflow-hidden flex">
-                  <div className="bg-teal-600 h-full" style={{ width: '25%' }} title="Rendah (<10%)" />
+                  <div className="bg-emerald-600 h-full" style={{ width: '25%' }} title="Rendah (<10%)" />
                   <div className="bg-amber-500 h-full" style={{ width: '25%' }} title="Sedang (10-20%)" />
                   <div className="bg-rose-600 h-full" style={{ width: '50%' }} title="Tinggi (>20%)" />
                 </div>
@@ -218,7 +218,7 @@ export function ClinicalScoreCard({
       <div className="pt-1">
         <button 
           onClick={() => setShowDetails(!showDetails)}
-          className="text-sm text-teal-800 hover:text-teal-900 flex items-center space-x-1.5 transition font-bold"
+          className="text-sm text-rose-800 hover:text-rose-900 flex items-center space-x-1.5 transition font-bold"
         >
           <BookOpen className="h-4 w-4" />
           <span>{showDetails ? 'Sembunyikan Rujukan Klinis & Batasan Formula' : 'Tampilkan Sumber Publikasi Ilmiah & Batasan Formula'}</span>

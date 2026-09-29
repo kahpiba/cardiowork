@@ -33,7 +33,7 @@ export function EducationalEmptyState({
   return (
     <div className="bg-white border border-stone-200 rounded-2xl p-8 sm:p-10 text-center max-w-xl mx-auto shadow-xs space-y-5">
       {/* Decorative Icon Circle */}
-      <div className="w-16 h-16 rounded-2xl bg-teal-50 border border-teal-200 text-teal-800 flex items-center justify-center mx-auto shadow-xs">
+      <div className="w-16 h-16 rounded-2xl bg-rose-50 border border-rose-200 text-rose-800 flex items-center justify-center mx-auto shadow-xs">
         {icon === 'stethoscope' && <Stethoscope className="w-8 h-8" />}
         {icon === 'heart' && <HeartHandshake className="w-8 h-8" />}
         {icon === 'spreadsheet' && <FileSpreadsheet className="w-8 h-8" />}
@@ -65,7 +65,7 @@ export function EducationalEmptyState({
         {actionHref && actionText && (
           <Link
             href={actionHref}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs shadow-xs hover:shadow transition"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-rose-700 hover:bg-rose-800 text-white font-bold text-xs shadow-xs hover:shadow transition"
           >
             <span>{actionText}</span>
             <ArrowRight className="w-3.5 h-3.5" />

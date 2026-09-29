@@ -229,12 +229,12 @@ export default function ModelLabPage() {
                     onClick={() => setSelectedWorkerId(d.worker.pseudonymId)}
                     className={`p-3.5 rounded-xl border text-left transition-all ${
                       isSelected
-                        ? 'bg-teal-50/80 border-teal-600 shadow-xs ring-2 ring-teal-600/20'
+                        ? 'bg-rose-50/80 border-rose-600 shadow-xs ring-2 ring-rose-600/20'
                         : 'bg-white border-stone-200 hover:border-stone-300 hover:bg-stone-50/50'
                     }`}
                   >
                     <div className="flex items-center justify-between">
-                      <span className="font-mono text-xs font-bold text-teal-800">
+                      <span className="font-mono text-xs font-bold text-rose-800">
                         {d.worker.pseudonymId}
                       </span>
                       <span className="text-xs text-stone-500 font-medium">{d.worker.age} th • {d.worker.gender === 'MALE' ? 'Pria' : 'Wanita'}</span>
@@ -344,8 +344,8 @@ export default function ModelLabPage() {
                   <th className="p-3">Model</th>
                   <th className="p-3">Tipe Algoritma</th>
                   <th className="p-3 text-right text-stone-800">ROC-AUC</th>
-                  <th className="p-3 text-right text-teal-800">PR-AUC</th>
-                  <th className="p-3 text-right text-teal-800">Brier Score</th>
+                  <th className="p-3 text-right text-emerald-800">PR-AUC</th>
+                  <th className="p-3 text-right text-rose-800">Brier Score</th>
                   <th className="p-3 text-right text-amber-800">Recall</th>
                   <th className="p-3 text-right">ECE</th>
                   <th className="p-3 text-right">Ukuran</th>
@@ -354,19 +354,19 @@ export default function ModelLabPage() {
               </thead>
               <tbody className="divide-y divide-stone-100 font-mono bg-white">
                 {modelComparisons.map((m) => (
-                  <tr key={m.name} className={`hover:bg-stone-50/80 transition-colors ${m.isChampion ? 'bg-teal-50/40' : ''}`}>
+                  <tr key={m.name} className={`hover:bg-stone-50/80 transition-colors ${m.isChampion ? 'bg-rose-50/40' : ''}`}>
                     <td className="p-3 font-sans font-bold text-stone-900 whitespace-nowrap flex items-center gap-1.5">
                       {m.isChampion && <Award className="w-3.5 h-3.5 text-amber-700 shrink-0" />}
                       <span>{m.name}</span>
                     </td>
                     <td className="p-3 font-sans text-stone-500">{m.type}</td>
                     <td className="p-3 text-right font-bold text-stone-900">{m.rocAuc}</td>
-                    <td className="p-3 text-right text-teal-800 font-bold">{m.prAuc}</td>
-                    <td className="p-3 text-right font-bold text-teal-800">{m.brierScore}</td>
+                    <td className="p-3 text-right text-emerald-800 font-bold">{m.prAuc}</td>
+                    <td className="p-3 text-right font-bold text-rose-800">{m.brierScore}</td>
                     <td className="p-3 text-right font-bold text-amber-800">{m.recall}</td>
                     <td className="p-3 text-right text-stone-500">{m.ece}</td>
                     <td className="p-3 text-right text-stone-600">{m.modelSize}</td>
-                    <td className="p-3 text-right text-teal-800 font-bold">{m.latency}</td>
+                    <td className="p-3 text-right text-stone-700 font-bold">{m.latency}</td>
                   </tr>
                 ))}
               </tbody>
@@ -375,7 +375,7 @@ export default function ModelLabPage() {
 
           <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 text-xs text-stone-700 space-y-2">
             <span className="font-bold text-stone-900 flex items-center gap-1.5">
-              <ShieldCheck className="w-4 h-4 text-teal-700" />
+              <ShieldCheck className="w-4 h-4 text-emerald-700" />
               Justifikasi Pemilihan Model Champion untuk Lingkungan Klinis K3:
             </span>
             <ul className="list-disc list-inside space-y-1.5 text-stone-600 text-xs leading-relaxed">

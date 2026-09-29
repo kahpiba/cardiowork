@@ -13,7 +13,7 @@ interface LiveEcgWaveformProps {
 export const LiveEcgWaveform: React.FC<LiveEcgWaveformProps> = ({
   bpm = 75,
   height = 90,
-  color = '#0d9488', // Deep Teal
+  color = '#be123c', // Arterial Crimson Pulse
   className = '',
   showGrid = true,
 }) => {

@@ -145,7 +145,7 @@ export default function DcuKioskPage() {
         <div>
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-stone-600 hover:text-teal-800 transition"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-stone-600 hover:text-rose-800 transition"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Kembali ke Beranda</span>
@@ -155,7 +155,7 @@ export default function DcuKioskPage() {
         {/* Title & Guidance Header */}
         <div className="bg-white border border-stone-200/90 rounded-2xl p-6 sm:p-8 shadow-xs relative overflow-hidden">
           <div className="flex items-center gap-4 mb-3">
-            <div className="w-12 h-12 rounded-2xl bg-teal-800 flex items-center justify-center text-white shadow-sm">
+            <div className="w-12 h-12 rounded-2xl bg-rose-700 flex items-center justify-center text-white shadow-sm">
               <Stethoscope className="w-6 h-6" />
             </div>
             <div>
@@ -163,8 +163,8 @@ export default function DcuKioskPage() {
                 <h1 className="text-xl sm:text-2xl font-black tracking-tight text-stone-900">
                   Terminal Skrining Cepat Pre-Shift (DCU Kiosk)
                 </h1>
-                <span className="bg-teal-50 text-teal-800 text-xs font-bold px-3 py-1 rounded-full border border-teal-200 shadow-2xs flex items-center gap-1.5">
-                  <Zap className="w-3.5 h-3.5 text-teal-700" />
+                <span className="bg-rose-50 text-rose-800 text-xs font-bold px-3 py-1 rounded-full border border-rose-200 shadow-2xs flex items-center gap-1.5">
+                  <Zap className="w-3.5 h-3.5 text-rose-700" />
                   Kecepatan Alur &lt;30 Detik
                 </span>
               </div>
@@ -183,7 +183,7 @@ export default function DcuKioskPage() {
             <button
               type="button"
               onClick={() => applyPreset('NORMAL')}
-              className="text-xs font-bold px-3.5 py-1.5 rounded-xl bg-teal-50 text-teal-900 border border-teal-300 hover:bg-teal-100 transition shadow-2xs"
+              className="text-xs font-bold px-3.5 py-1.5 rounded-xl bg-emerald-50 text-emerald-950 border border-emerald-300 hover:bg-emerald-100 transition shadow-2xs"
             >
               🟢 Normal Sehat (118/76)
             </button>
@@ -222,12 +222,12 @@ export default function DcuKioskPage() {
                   }}
                   className={`p-4 rounded-xl border text-left transition-all ${
                     isSelected
-                      ? 'bg-teal-50/70 border-teal-600 shadow-xs ring-2 ring-teal-600/20'
+                      ? 'bg-rose-50/70 border-rose-600 shadow-xs ring-2 ring-rose-600/20'
                       : 'bg-white border-stone-200 hover:border-stone-300 hover:bg-stone-50'
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-xs font-bold text-teal-800">
+                    <span className="font-mono text-xs font-bold text-rose-800">
                       {demo.worker.pseudonymId}
                     </span>
                     <span className="text-xs text-stone-500 font-medium">{demo.worker.age} th • {demo.worker.gender === 'MALE' ? 'Pria' : 'Wanita'}</span>
@@ -266,7 +266,7 @@ export default function DcuKioskPage() {
                 max={240}
                 value={systolicBp}
                 onChange={(e) => setSystolicBp(Number(e.target.value))}
-                className="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-2.5 text-2xl font-black text-stone-900 focus:outline-none focus:border-teal-600 focus:bg-white font-mono transition shadow-2xs tabular-nums"
+                className="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-2.5 text-2xl font-black text-stone-900 focus:outline-none focus:border-rose-600 focus:bg-white font-mono transition shadow-2xs tabular-nums"
                 required
               />
               <p className="text-xs text-stone-500 mt-2">
@@ -292,7 +292,7 @@ export default function DcuKioskPage() {
                 max={140}
                 value={diastolicBp}
                 onChange={(e) => setDiastolicBp(Number(e.target.value))}
-                className="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-2.5 text-2xl font-black text-stone-900 focus:outline-none focus:border-teal-600 focus:bg-white font-mono transition shadow-2xs tabular-nums"
+                className="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-2.5 text-2xl font-black text-stone-900 focus:outline-none focus:border-rose-600 focus:bg-white font-mono transition shadow-2xs tabular-nums"
                 required
               />
               <p className="text-xs text-stone-500 mt-2">
@@ -318,7 +318,7 @@ export default function DcuKioskPage() {
                 max={180}
                 value={heartRate}
                 onChange={(e) => setHeartRate(Number(e.target.value))}
-                className="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-2.5 text-2xl font-black text-stone-900 focus:outline-none focus:border-teal-600 focus:bg-white font-mono transition shadow-2xs tabular-nums"
+                className="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-2.5 text-2xl font-black text-stone-900 focus:outline-none focus:border-rose-600 focus:bg-white font-mono transition shadow-2xs tabular-nums"
                 required
               />
               <p className="text-xs text-stone-500 mt-2">
@@ -344,7 +344,7 @@ export default function DcuKioskPage() {
                 max={100}
                 value={spo2}
                 onChange={(e) => setSpo2(Number(e.target.value))}
-                className="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-2.5 text-2xl font-black text-stone-900 focus:outline-none focus:border-teal-600 focus:bg-white font-mono transition shadow-2xs tabular-nums"
+                className="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-2.5 text-2xl font-black text-stone-900 focus:outline-none focus:border-rose-600 focus:bg-white font-mono transition shadow-2xs tabular-nums"
                 required
               />
               <p className="text-xs text-stone-500 mt-2">
@@ -369,7 +369,7 @@ export default function DcuKioskPage() {
                 max={42}
                 value={temperature}
                 onChange={(e) => setTemperature(Number(e.target.value))}
-                className="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-2.5 text-2xl font-black text-stone-900 focus:outline-none focus:border-teal-600 focus:bg-white font-mono transition shadow-2xs tabular-nums"
+                className="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-2.5 text-2xl font-black text-stone-900 focus:outline-none focus:border-rose-600 focus:bg-white font-mono transition shadow-2xs tabular-nums"
                 required
               />
               <p className="text-xs text-stone-500 mt-2">
@@ -396,7 +396,7 @@ export default function DcuKioskPage() {
                 max={16}
                 value={sleepHours}
                 onChange={(e) => setSleepHours(Number(e.target.value))}
-                className="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-2.5 text-2xl font-black text-stone-900 focus:outline-none focus:border-teal-600 focus:bg-white font-mono transition shadow-2xs tabular-nums"
+                className="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-2.5 text-2xl font-black text-stone-900 focus:outline-none focus:border-rose-600 focus:bg-white font-mono transition shadow-2xs tabular-nums"
                 required
               />
               <p className="text-xs text-stone-500 mt-2">
@@ -491,7 +491,7 @@ export default function DcuKioskPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full sm:w-auto px-10 py-4 rounded-xl bg-teal-800 hover:bg-teal-900 text-white font-bold text-sm sm:text-base tracking-wide shadow-md flex items-center justify-center gap-3 transition-all disabled:opacity-50 min-h-[52px]"
+              className="w-full sm:w-auto px-10 py-4 rounded-xl bg-rose-700 hover:bg-rose-800 text-white font-bold text-sm sm:text-base tracking-wide shadow-md flex items-center justify-center gap-3 transition-all disabled:opacity-50 min-h-[52px]"
             >
               {loading ? (
                 <>
@@ -515,7 +515,7 @@ export default function DcuKioskPage() {
               ? 'bg-rose-50/70 border-rose-200'
               : result.dailyFitnessVerdict === 'FIT_WITH_RESTRICTION'
               ? 'bg-amber-50/70 border-amber-200'
-              : 'bg-teal-50/70 border-teal-200'
+              : 'bg-emerald-50/70 border-emerald-200'
           }`}>
             
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-stone-200/70">
@@ -529,7 +529,7 @@ export default function DcuKioskPage() {
                     <AlertTriangle className="w-8 h-8" />
                   </div>
                 ) : (
-                  <div className="w-14 h-14 rounded-2xl bg-teal-100 flex items-center justify-center text-teal-800 shrink-0 shadow-2xs">
+                  <div className="w-14 h-14 rounded-2xl bg-emerald-100 flex items-center justify-center text-emerald-800 shrink-0 shadow-2xs">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
                 )}
@@ -548,7 +548,7 @@ export default function DcuKioskPage() {
                   ? 'bg-rose-600 text-white'
                   : result.dailyFitnessVerdict === 'FIT_WITH_RESTRICTION'
                   ? 'bg-amber-600 text-white'
-                  : 'bg-teal-800 text-white'
+                  : 'bg-emerald-700 text-white'
               }`}>
                 {result.dailyFitnessVerdict}
               </span>
@@ -593,7 +593,7 @@ export default function DcuKioskPage() {
                 </div>
                 <div className="bg-white p-3.5 rounded-xl border border-stone-200 text-center shadow-2xs">
                   <div className="text-xs text-stone-500 font-semibold uppercase">Autoencoder Anomali</div>
-                  <div className={`font-bold text-sm mt-1 ${result.inferenceSnapshot.isAnomaly ? 'text-rose-700' : 'text-teal-800'}`}>
+                  <div className={`font-bold text-sm mt-1 ${result.inferenceSnapshot.isAnomaly ? 'text-rose-700' : 'text-emerald-800'}`}>
                     {result.inferenceSnapshot.isAnomaly ? 'ANOMALI AKUT' : 'Normal'}
                   </div>
                 </div>
@@ -607,7 +607,7 @@ export default function DcuKioskPage() {
               </span>
               <Link
                 href={`/worker/${selectedWorkerId}`}
-                className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-teal-800 hover:text-teal-900 transition-colors"
+                className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-rose-800 hover:text-rose-900 transition-colors"
               >
                 Lihat Rekam Medis & Grafik DCU Lengkap
                 <ArrowRight className="w-4 h-4" />

@@ -55,12 +55,12 @@ export default function HomePage() {
               
               {/* Active Session or Guest Status Alert */}
               {activeUser ? (
-                <div className="p-3.5 rounded-2xl bg-teal-50/90 border border-teal-200/90 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-left">
+                <div className="p-3.5 rounded-2xl bg-rose-50/90 border border-rose-200/90 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-left">
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className="w-2.5 h-2.5 rounded-full bg-teal-600 animate-pulse" />
-                      <span className="text-xs font-bold text-teal-950">Sesi Terverifikasi: {activeUser.name}</span>
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-white text-teal-800 border border-teal-200">
+                      <span className="w-2.5 h-2.5 rounded-full bg-rose-600 animate-pulse" />
+                      <span className="text-xs font-bold text-rose-950">Sesi Terverifikasi: {activeUser.name}</span>
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-white text-rose-800 border border-rose-200">
                         {activeUser.badge}
                       </span>
                     </div>
@@ -71,7 +71,7 @@ export default function HomePage() {
                   <div className="flex items-center gap-2 shrink-0">
                     <Link
                       href={activeUser.defaultPath}
-                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-teal-800 hover:bg-teal-900 text-white font-bold text-xs shadow-2xs transition"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-rose-700 hover:bg-rose-800 text-white font-bold text-xs shadow-2xs transition"
                     >
                       <span>Buka Ruang Kerja</span>
                       <ArrowRight className="w-3.5 h-3.5" />
@@ -82,7 +82,7 @@ export default function HomePage() {
                 <div className="p-3.5 rounded-2xl bg-stone-100/90 border border-stone-200 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-left">
                   <div>
                     <div className="flex items-center gap-2">
-                      <ShieldCheck className="w-4 h-4 text-teal-700" />
+                      <ShieldCheck className="w-4 h-4 text-rose-700" />
                       <span className="text-xs font-bold text-stone-900">Hak Akses Berjenjang (RBAC Terproteksi)</span>
                     </div>
                     <p className="text-[11px] text-stone-600 mt-0.5">
@@ -92,7 +92,7 @@ export default function HomePage() {
                   <div className="shrink-0">
                     <Link
                       href="/login"
-                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-teal-800 hover:bg-teal-900 text-white font-bold text-xs shadow-2xs transition"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-rose-700 hover:bg-rose-800 text-white font-bold text-xs shadow-2xs transition"
                     >
                       <LogIn className="w-3.5 h-3.5" />
                       <span>Masuk / Pilih Akun</span>
@@ -102,13 +102,13 @@ export default function HomePage() {
               )}
 
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-stone-100 border border-stone-200 text-stone-800 text-xs font-bold shadow-2xs">
-                <Activity className="h-3.5 w-3.5 text-teal-700 animate-heartbeat" />
+                <Activity className="h-3.5 w-3.5 text-rose-700 animate-heartbeat" />
                 <span>Sistem Terpadu K3 & AI Kardiovaskular Pekerja (MCU + DCU)</span>
               </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-stone-900 tracking-tight leading-tight">
                 Prediksi Risiko Kardiovaskular <br />
-                <span className="text-teal-800">
+                <span className="text-rose-800">
                   Presisi & Real-Time di Tempat Kerja
                 </span>
               </h1>
@@ -123,7 +123,7 @@ export default function HomePage() {
                   <>
                     <Link
                       href={activeUser.defaultPath}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-teal-800 hover:bg-teal-900 text-white font-bold text-sm shadow-sm hover:shadow transition"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-rose-700 hover:bg-rose-800 text-white font-bold text-sm shadow-sm hover:shadow transition"
                     >
                       <Activity className="w-4 h-4" />
                       <span>Masuk ke {activeUser.defaultPath === '/workers' ? 'Direktori Pekerja' : activeUser.defaultPath === '/kiosk' ? 'DCU Kiosk' : activeUser.defaultPath === '/population' ? 'Populasi K3' : 'Portal Mandiri'}</span>
@@ -145,7 +145,7 @@ export default function HomePage() {
                         href="/population"
                         className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-stone-50 text-stone-800 hover:text-stone-900 border border-stone-300 font-bold text-sm shadow-2xs transition"
                       >
-                        <ShieldCheck className="w-4 h-4 text-teal-700" />
+                        <ShieldCheck className="w-4 h-4 text-rose-700" />
                         <span>Populasi K3</span>
                       </Link>
                     )}
@@ -164,7 +164,7 @@ export default function HomePage() {
                   <>
                     <Link
                       href="/login"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-teal-800 hover:bg-teal-900 text-white font-bold text-sm shadow-sm hover:shadow transition"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-rose-700 hover:bg-rose-800 text-white font-bold text-sm shadow-sm hover:shadow transition"
                     >
                       <LogIn className="w-4 h-4" />
                       <span>Masuk / Pilih Peran Pengguna</span>
@@ -186,12 +186,12 @@ export default function HomePage() {
               <div className="pt-2 space-y-1.5">
                 <div className="flex items-center justify-between text-[11px] text-stone-500 font-medium">
                   <span className="flex items-center gap-1.5 font-bold text-stone-700">
-                    <span className="w-2 h-2 rounded-full bg-teal-600 animate-ping" />
+                    <span className="w-2 h-2 rounded-full bg-rose-600 animate-ping" />
                     Live Tracing Monitor EKG Pre-Shift (Lead II)
                   </span>
-                  <span className="font-mono text-teal-800 font-bold">75 BPM &bull; Irama Sinus Normal</span>
+                  <span className="font-mono text-emerald-800 font-bold">75 BPM &bull; Irama Sinus Normal</span>
                 </div>
-                <LiveEcgWaveform bpm={75} height={70} />
+                <LiveEcgWaveform bpm={75} height={70} color="#be123c" />
               </div>
 
             </div>
@@ -204,7 +204,7 @@ export default function HomePage() {
                   {/* Card Header */}
                   <div className="flex items-center justify-between border-b border-stone-100 pb-3">
                     <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-xl bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-800 shadow-2xs">
+                      <div className="w-8 h-8 rounded-xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-700 shadow-2xs">
                         <Sparkles className="w-4 h-4" />
                       </div>
                       <div>
@@ -214,7 +214,7 @@ export default function HomePage() {
                         <p className="text-[11px] text-stone-500">Digital Twin Kardiak (WebGL)</p>
                       </div>
                     </div>
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-teal-50 text-teal-800 border border-teal-200">
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-50 text-rose-800 border border-rose-200">
                       Interaktif 360&deg;
                     </span>
                   </div>
@@ -240,7 +240,7 @@ export default function HomePage() {
 
             <Card3DTilt maxTilt={8} scale={1.03}>
               <div className="p-4 rounded-2xl bg-white/95 border border-stone-200 shadow-2xs hover:shadow-md transition-shadow h-full">
-                <span className="text-xs font-mono font-bold text-teal-800 block">TAHAP 2</span>
+                <span className="text-xs font-mono font-bold text-rose-800 block">TAHAP 2</span>
                 <div className="text-sm font-bold text-stone-900 mt-0.5">DCU Pre-Shift</div>
                 <p className="text-xs text-stone-600 mt-1 leading-relaxed">Skrining mandiri tensi, nadi, SpO2 & gejala harian</p>
               </div>
@@ -272,7 +272,7 @@ export default function HomePage() {
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <h2 className="text-base sm:text-lg font-bold text-stone-900 flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-teal-700" />
+              <Sparkles className="w-5 h-5 text-rose-700" />
               <span>Arsitektur Inferensi AI 4-Tier Terpadu</span>
             </h2>
             <span className="text-xs sm:text-sm text-stone-500 font-medium">Baku Klinis &rarr; ML GBDT &rarr; Deep Learning Multimodal &rarr; Live EWS</span>
@@ -296,7 +296,7 @@ export default function HomePage() {
             <Card3DTilt maxTilt={8} scale={1.03}>
               <div className="bg-white border border-stone-200/90 rounded-2xl p-5 shadow-xs hover:shadow-md transition-shadow space-y-2.5 h-full">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono font-bold text-teal-800 bg-teal-50 px-2.5 py-0.5 rounded border border-teal-200">LAYER 2</span>
+                  <span className="text-xs font-mono font-bold text-rose-800 bg-rose-50 px-2.5 py-0.5 rounded border border-rose-200">LAYER 2</span>
                   <span className="text-xs text-stone-500 font-medium">Terkalibrasi</span>
                 </div>
                 <div className="font-bold text-stone-900 text-base">Machine Learning Klasik</div>
@@ -339,7 +339,7 @@ export default function HomePage() {
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <h2 className="text-lg font-bold text-stone-900 flex items-center gap-2">
-              <Users className="h-5 w-5 text-teal-800" />
+              <Users className="h-5 w-5 text-rose-800" />
               <span>Pilih Portal Pengguna (Role-Based Access Control)</span>
             </h2>
             <span className="text-xs text-stone-500 font-medium">Hak akses terpisah sesuai regulasi privasi UU PDP No. 27/2022</span>
@@ -362,12 +362,12 @@ export default function HomePage() {
               </div>
 
               <div className="pt-3 border-t border-stone-100 flex items-center justify-between">
-                <span className="text-xs font-semibold text-teal-800 bg-teal-50 px-2.5 py-0.5 rounded-full border border-teal-200">
+                <span className="text-xs font-semibold text-rose-800 bg-rose-50 px-2.5 py-0.5 rounded-full border border-rose-200">
                   Data Pribadi Mandiri
                 </span>
                 <Link
                   href="/kiosk"
-                  className="text-xs sm:text-sm font-bold text-teal-800 hover:text-teal-900 flex items-center gap-1 group"
+                  className="text-xs sm:text-sm font-bold text-rose-800 hover:text-rose-900 flex items-center gap-1 group"
                 >
                   <span>Buka Kios DCU</span>
                   <span className="group-hover:translate-x-1 transition">&rarr;</span>
@@ -390,12 +390,12 @@ export default function HomePage() {
               </div>
 
               <div className="pt-3 border-t border-stone-100 flex items-center justify-between">
-                <span className="text-xs font-semibold text-teal-800 bg-teal-50 px-2.5 py-0.5 rounded-full border border-teal-200">
+                <span className="text-xs font-semibold text-rose-800 bg-rose-50 px-2.5 py-0.5 rounded-full border border-rose-200">
                   Akses Penuh Rekam Medis
                 </span>
                 <Link
                   href="/worker/W-00190"
-                  className="text-xs sm:text-sm font-bold text-teal-800 hover:text-teal-900 flex items-center gap-1 group"
+                  className="text-xs sm:text-sm font-bold text-rose-800 hover:text-rose-900 flex items-center gap-1 group"
                 >
                   <span>Pasien Kritis (Hendra)</span>
                   <span className="group-hover:translate-x-1 transition">&rarr;</span>
@@ -470,22 +470,22 @@ export default function HomePage() {
               </ul>
             </div>
 
-            <div className="p-5 rounded-xl bg-teal-50/50 border border-teal-200/80 space-y-3">
+            <div className="p-5 rounded-xl bg-rose-50/50 border border-rose-200/80 space-y-3">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-teal-800" />
+                <CheckCircle2 className="w-4 h-4 text-rose-800" />
                 <h4 className="font-bold text-sm sm:text-base text-stone-900">Keunggulan Solusi Terpadu CardioWork</h4>
               </div>
               <ul className="text-xs sm:text-sm text-stone-700 space-y-2.5">
                 <li className="flex items-start gap-2">
-                  <span className="text-teal-700 font-bold">&#10003;</span>
+                  <span className="text-rose-700 font-bold">&#10003;</span>
                   <span><strong>Pemantauan Pre-Shift 5 Menit (DCU):</strong> Mendeteksi lonjakan tensi (&ge;160 mmHg) sebelum pekerja naik rig, crane, atau mesin berat.</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-teal-700 font-bold">&#10003;</span>
+                  <span className="text-rose-700 font-bold">&#10003;</span>
                   <span><strong>Multimodal Deep Learning:</strong> AI menggabungkan profil darah MCU (kolesterol, gula darah) dengan variabilitas tensi DCU 30 hari.</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-teal-700 font-bold">&#10003;</span>
+                  <span className="text-rose-700 font-bold">&#10003;</span>
                   <span><strong>Zero-Downtime Decision Support:</strong> Dokter K3 langsung menerima peringatan otomatis untuk intervensi sebelum terjadi kegawatdaruratan.</span>
                 </li>
               </ul>
@@ -497,7 +497,7 @@ export default function HomePage() {
         <div className="bg-stone-50/70 border border-stone-200/80 rounded-2xl p-6 sm:p-8 shadow-xs space-y-5">
           <div className="flex flex-wrap items-center justify-between gap-2">
             <div>
-              <span className="text-xs font-mono uppercase tracking-wider text-teal-800 font-bold bg-teal-50 px-3 py-0.5 rounded-full border border-teal-200">
+              <span className="text-xs font-mono uppercase tracking-wider text-rose-800 font-bold bg-rose-50 px-3 py-0.5 rounded-full border border-rose-200">
                 Demonstrasi Klinis Interaktif
               </span>
               <h3 className="text-base sm:text-lg font-bold text-stone-900 mt-2">
@@ -527,7 +527,7 @@ export default function HomePage() {
                 <div className="text-xs sm:text-sm text-stone-500 mt-0.5">Departemen Logistik • SBP Rata-rata: 118 mmHg</div>
                 <div className="mt-2 text-xs sm:text-sm text-emerald-800 font-medium">Risiko Framingham: 6.2% (Rendah)</div>
               </div>
-              <div className="mt-4 pt-2.5 border-t border-stone-100 text-xs sm:text-sm font-bold text-teal-800 flex items-center justify-between">
+              <div className="mt-4 pt-2.5 border-t border-stone-100 text-xs sm:text-sm font-bold text-rose-700 flex items-center justify-between">
                 <span>Buka Rekam Medis</span>
                 <span className="group-hover:translate-x-1 transition">&rarr;</span>
               </div>
@@ -590,8 +590,8 @@ export default function HomePage() {
               <Cpu className="h-4 w-4 text-stone-500" />
               <span>Status Infrastruktur & Spesifikasi Sistem Serverless (Phase 1–8 Production Ready)</span>
             </h3>
-            <span className="text-xs font-semibold text-teal-800 flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-teal-600 animate-pulse"></span>
+            <span className="text-xs font-semibold text-emerald-800 flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse"></span>
               Sistem Aktif & Terkalibrasi
             </span>
           </div>
@@ -603,7 +603,7 @@ export default function HomePage() {
             </div>
             <div className="bg-stone-50 p-3.5 rounded-xl border border-stone-200">
               <span className="text-stone-500 block text-xs">Edge Inference:</span>
-              <span className="text-teal-800 font-bold">ONNX Runtime (WASM)</span>
+              <span className="text-rose-700 font-bold">ONNX Runtime (WASM)</span>
             </div>
             <div className="bg-stone-50 p-3.5 rounded-xl border border-stone-200">
               <span className="text-stone-500 block text-xs">Cloud Database:</span>

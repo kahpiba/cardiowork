@@ -30,8 +30,8 @@ export function RadialRiskGauge({
   // Calming, warm medical color scale (not neon glare)
   let category: 'LOW' | 'MODERATE' | 'HIGH' | 'CRITICAL' = 'LOW';
   let categoryLabel = 'RISIKO RENDAH';
-  let strokeColor = '#0F766E'; // Calm Forest Pine
-  let badgeBg = 'bg-teal-50 text-teal-900 border-teal-300';
+  let strokeColor = '#059669'; // Sinus Vitality Emerald
+  let badgeBg = 'bg-emerald-50 text-emerald-950 border-emerald-300';
   let IconComponent = CheckCircle2;
 
   if (scorePercent >= 30.0) {
